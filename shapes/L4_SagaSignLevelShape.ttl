@@ -1,0 +1,26 @@
+@prefix data: <http://www.egc.org/ont/data#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix saga: <http://www.egc.org/ont/process/saga#> .
+@prefix sf: <http://www.opengis.net/ont/sf#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+saga:para_significance_level a saga:SagaOption,
+        sh:NodeShape ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:property [ sh:datatype xsd:float ;
+            sh:defaultValue "5.0"^^xsd:float ;
+            sh:description "Significance level (aka p-value) as threshold for automated predictor selection, given as percentage"@en ;
+            sh:maxCount 1 ;
+            sh:maxInclusive "100.0"^^xsd:float ;
+            sh:message "The acceptable value range for significance level is 0 to 100.0"@en,
+                "参数significance level的取值范围为0 到 100.0"@zh-cn ;
+            sh:minCount 1 ;
+            sh:minInclusive "0"^^xsd:float ;
+            sh:path data:dataContent ] ;
+    sh:targetNode saga:para_significance_level_data .
+

@@ -1,0 +1,20 @@
+@prefix data: <http://www.egc.org/ont/data#> .
+@prefix dta: <http://www.egc.org/ont/domain/dta#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sf: <http://www.opengis.net/ont/sf#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix task: <http://www.egc.org/ont/context/task#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+task:HydroParamSpatialPatternCalcTask a rdfs:Class,
+        sh:NodeShape ;
+    sh:description "A class that includes instances such as flow accumulation and topographic index"@en ;
+    sh:property [ sh:class dta:MFDAlgorithm ;
+            sh:message "Calculation of spatial patterns of hydrologic parameters should use Multiple Flow Direction (MFD) algorithms"@en ;
+            sh:nodeKind sh:IRI ;
+            sh:path task:processAlgorithm ;
+            sh:severity sh:Warning ] .
+

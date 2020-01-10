@@ -1,0 +1,37 @@
+@prefix arcgis: <http://www.egc.org/ont/process/arcgis#> .
+@prefix data: <http://www.egc.org/ont/data#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sf: <http://www.opengis.net/ont/sf#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+arcgis:para_clip_features a arcgis:ArcGISInput,
+        sh:NodeShape ;
+    sh:description "Parameter clip_features: the features to clip input features in ArcGIS Clip analysis"@en ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:node data:VectorDataEPSGShape ;
+    sh:sparql [ sh:message "Clip features cannot be used to clip input features. When the Input Features are polygons, the Clip Features must also be polygons. When the Input Features are lines, the Clip Features can be lines or polygons. When the Input Features are points, the Clip Features can be points, lines, or polygons."@en ;
+            sh:prefixes [ a sh:PrefixDeclaration ;
+                    sh:declare [ sh:namespace "http://www.opengis.net/ont/sf#"^^xsd:anyURI ;
+                            sh:prefix "sf" ],
+                        [ sh:namespace "http://www.opengis.net/ont/geosparql#"^^xsd:anyURI ;
+                            sh:prefix "geo" ],
+                        [ sh:namespace "http://www.egc.org/ont/process/arcgis#"^^xsd:anyURI ;
+                            sh:prefix "arcgis" ] ] ;
+            sh:select """
+SELECT $this (geo:hasGeometry AS ?path) (?clip_geom AS ?value)
+	WHERE {
+		$this geo:hasGeometry ?clip_geom.
+        arcgis:para_in_features geo:hasGeometry ?in_geom.
+		FILTER ( 
+			IF(?in_geom a sf:Point,true,false)||
+            IF((?in_geom a sf:Line) && not(?clip_geom a sf:Point),true,false)||
+            IF((?in_geom a sf:Polygon) && (?clip_geom a sf:Polygon),true,false)). 
+        }
+""" ] ;
+    sh:targetNode arcgis:para_clip_features_data .
+

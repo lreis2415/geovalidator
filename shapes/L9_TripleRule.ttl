@@ -1,0 +1,30 @@
+@prefix arcgis: <http://www.egc.org/ont/process/arcgis#> .
+@prefix data: <http://www.egc.org/ont/data#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix process: <http://www.egc.org/ont/process#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sf: <http://www.opengis.net/ont/sf#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix soft: <http://www.egc.org/ont/cyber#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+data:ReprojectRuleShape a sh:NodeShape ;
+    sh:rule [ a sh:TripleRule ;
+            sh:condition [ sh:property [ sh:and ( [ sh:not [ sh:node data:CRSExistenceShape ] ] [ sh:hasValue data:RasterData ;
+                                        sh:path rdf:type ] ) ;
+                            sh:path soft:inputData ] ] ;
+            sh:object arcgis:project_raster ;
+            sh:predicate process:preprocessor ;
+            sh:subject sh:this ] ;
+    sh:targetClass arcgis:ArcGISTool .
+
+data:CRSExistenceShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Checks whether a data set has a CRS."@en ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:minLength 3 ;
+            sh:path data:hasCRS ] .
+

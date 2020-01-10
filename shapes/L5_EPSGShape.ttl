@@ -1,0 +1,16 @@
+@prefix data: <http://www.egc.org/ont/data#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+data:EPSGShape a sh:NodeShape ;
+    sh:datatype xsd:string ;
+    sh:flag "i" ;
+    sh:message "Input data should declare a data format information, and it must be an instance of class data:VectorFormat "@en,
+        "Invalid EPSG code! Must matchs the pattern  ‘urn:ogc:def:crs:EPSG:[version]:[code]’,  ‘http://www.opengis.net/def/crs/EPSG/[version]/[code]’, or ‘EPSG:[code]’"@en ;
+    sh:minLength 9 ;
+    sh:pattern "^(urn:ogc:def:crs:EPSG:[0-9.]{,7}:[0-9]{4,5})|^(http://www.opengis.net/def/crs/EPSG/[0-9.]{1,7}/[0-9]{4,5})|^(EPSG:[0-9]{4,5}" ;
+    sh:targetObjectsOf data:hasEPSG .
+

@@ -1,0 +1,70 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# author: houzhiwei
+# time: 2020/1/5 17:56
+# https://github.com/RDFLib/pySHACL
+
+from os import path
+from rdflib import Graph
+from pyshacl import validate
+from datagraph import DataGraph
+from utils import Utils
+
+
+class GeoValidator(object):
+	@staticmethod
+	def read_graph(ont):
+		"""
+		read RDF/ontology file
+		:param ont: RDF/ontology file (.ttl/.rdf/.owl)
+		:return: graph
+		"""
+		g = Graph()
+		if not (path.exists(ont) or path.isfile(ont)):
+			raise ValueError('file not exists or is not a valid file')
+		g.parse(ont)
+		return g
+
+	@staticmethod
+	def read_2_graph(parameter_id, data, data_theme=None, data_type=None):
+		"""
+		read input data and generate RDF graph
+		:param parameter_id: parameter identifier, indicates which parameter this data is prepared for
+		:param data: input data path or value
+		:param data_theme: data theme. e.g., DEM, soil, landuse, city, etc.
+		:param data_type: 0 for raster data; 1 for vector data; 2 for general (non-geospatial) data
+		:return: data graph
+		"""
+		_dg = DataGraph()
+		if data_type is None:
+			data_type = Utils.detect_data_type(data)
+		# raster data
+		if data_type == 0:
+			g = _dg.raster_graph(parameter_id, data, data_theme)
+		# vector data
+		elif data_type == 1:
+			g = _dg.vector_graph(parameter_id, data, data_theme)
+		# non-geospatial data
+		else:
+			g = _dg.general_graph(parameter_id, data, data_theme)
+		return g
+
+	@staticmethod
+	def validate(data_graph, shape_graph, ont):
+		"""
+		validate input data against a predefined shape graph
+		:param data_graph:
+		:param shape_graph:
+		:param ont:
+		:return:
+		"""
+		results = validate(data_graph, shape_graph, ont_graph=ont, inference='rdfs', debug=False)
+		conforms, results_graph, results_text = results
+
+	@staticmethod
+	def infer(data_graph, shape_graph, ont):
+		# enable SHACL advanced features: rules, custom targets
+		results = validate(data_graph, shape_graph, ont_graph=ont, advanced=True, inference='rdfs', debug=False)
+		conforms, results_graph, results_text = results
+
+		pass
