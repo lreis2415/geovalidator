@@ -22,7 +22,6 @@ data:inputRaster_data a data:RasterData ;
     data:dataFormat data:GTiff ;
     data:dataTheme "DEM" ;
     data:eastBoundingCoordinate 1.19467e+02 ;
-    data:hasCRS "None" ;
     data:hasCRSProj4 "" ;
     data:hasCRSWkt "" ;
     data:isProjected false ;
@@ -36,66 +35,4 @@ data:inputRaster_data a data:RasterData ;
     data:spatialExtent "119.328,31.124,119.467,31.244"^^xsd:string ;
     data:spatialResolution "0.0002434063"^^xsd: ;
     data:westBoundingCoordinate 1.19328e+02 .
-
-data:para_clip_features_data a data:VectorData ;
-    dcterms:identifier "para_clip_features" ;
-    data:centralX 4.044157e+07 ;
-    data:centralY 3.455565e+06 ;
-    data:dataContent "ztsnet.shp" ;
-    data:dataFormat data:ESRI_Shapefile ;
-    data:dataTheme "StreamNet" ;
-    data:eastBoundingCoordinate 4.044178e+07 ;
-    data:hasCRS "CGCS2000 / 3-degree Gauss-Kruger zone 40" ;
-    data:hasCRSProj4 "+proj=tmerc +lat_0=0 +lon_0=120 +k=1 +x_0=40500000 +y_0=0 +ellps=GRS80 +units=m +no_defs " ;
-    data:hasCRSWkt "PROJCS[\"CGCS2000 / 3-degree Gauss-Kruger zone 40\",GEOGCS[\"China Geodetic Coordinate System 2000\",DATUM[\"China_2000\",SPHEROID[\"CGCS2000\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"1024\"]],AUTHORITY[\"EPSG\",\"1043\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"4490\"]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"latitude_of_origin\",0],PARAMETER[\"central_meridian\",120],PARAMETER[\"scale_factor\",1],PARAMETER[\"false_easting\",40500000],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AUTHORITY[\"EPSG\",\"4528\"]]" ;
-    data:hasEPSG "EPSG:4528" ;
-    data:hasUOM unit:M ;
-    data:isProjected true ;
-    data:maxX 4.044178e+07 ;
-    data:maxY 3.455969e+06 ;
-    data:minX 4.044136e+07 ;
-    data:minY 3.455155e+06 ;
-    data:northBoundingCoordinate 3.455969e+06 ;
-    data:southBoundingCoordinate 3.455155e+06 ;
-    data:spatialExtent "40441362.158,3455155.218,40441784.155,3455968.571"^^xsd:string ;
-    data:westBoundingCoordinate 4.044136e+07 ;
-    geo:hasGeometry sf:LineString .
-
-data:para_input_features_data a data:VectorData ;
-    dcterms:identifier "para_input_features" ;
-    data:centralX 7.262852e+05,
-        4.044157e+07 ;
-    data:centralY 3.455565e+06,
-        3.458344e+06 ;
-    data:dataContent "ztsnet.shp",
-        "ztswshed.shp" ;
-    data:dataFormat data:ESRI_Shapefile ;
-    data:dataTheme "StreamNet",
-        "Watershed" ;
-    data:eastBoundingCoordinate 7.277938e+05,
-        4.044178e+07 ;
-    data:hasCRS "CGCS2000 / 3-degree Gauss-Kruger zone 40" ;
-    data:hasCRSProj4 "+proj=tmerc +lat_0=0 +lon_0=120 +k=1 +x_0=40500000 +y_0=0 +ellps=GRS80 +units=m +no_defs " ;
-    data:hasCRSWkt "PROJCS[\"CGCS2000 / 3-degree Gauss-Kruger zone 40\",GEOGCS[\"China Geodetic Coordinate System 2000\",DATUM[\"China_2000\",SPHEROID[\"CGCS2000\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"1024\"]],AUTHORITY[\"EPSG\",\"1043\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"4490\"]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"latitude_of_origin\",0],PARAMETER[\"central_meridian\",120],PARAMETER[\"scale_factor\",1],PARAMETER[\"false_easting\",40500000],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AUTHORITY[\"EPSG\",\"4528\"]]" ;
-    data:hasEPSG "EPSG:4528" ;
-    data:hasUOM unit:M ;
-    data:isProjected true ;
-    data:maxX 7.277938e+05,
-        4.044178e+07 ;
-    data:maxY 3.455969e+06,
-        3.459031e+06 ;
-    data:minX 7.244688e+05,
-        4.044136e+07 ;
-    data:minY 3.455155e+06,
-        3.457406e+06 ;
-    data:northBoundingCoordinate 3.455969e+06,
-        3.459031e+06 ;
-    data:southBoundingCoordinate 3.455155e+06,
-        3.457406e+06 ;
-    data:spatialExtent "40441362.158,3455155.218,40441784.155,3455968.571"^^xsd:string,
-        "724468.832,3457406.401,727793.832,3459031.401"^^xsd:string ;
-    data:westBoundingCoordinate 7.244688e+05,
-        4.044136e+07 ;
-    geo:hasGeometry sf:LineString,
-        sf:Polygon .
 

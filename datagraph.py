@@ -107,7 +107,8 @@ class DataGraph(object):
 
 		"""
 		metadata = GeoMetadata.vector_metadata(data, data_theme)
-		g = self.g
+		# a new graph with everything from self.g
+		g = Graph() + self.g
 		data_ns = self.data_ns
 		d = data_ns[parameter_id + '_data']
 		g.add((d, RDF.type, data_ns.VectorData))
@@ -147,7 +148,7 @@ class DataGraph(object):
 		"""
 		data_ns = self.data_ns
 		metadata = GeoMetadata.raster_metadata(data, data_theme)
-		g = self.g
+		g = Graph() + self.g
 		d = data_ns[parameter_id + '_data']
 		g.add((d, RDF.type, data_ns.RasterData))
 		g.add((d, DCTERMS.identifier, Literal(parameter_id)))
@@ -161,7 +162,6 @@ class DataGraph(object):
 		g.add((d, data_ns.bandStdDev, Literal(self._format(metadata['stddev']), datatype=ddtype)))
 		dtype = XSD[type(metadata['nodata'])]
 		g.add((d, data_ns.nodataValue, Literal(metadata['nodata'], datatype=dtype)))
-
 		g.add((d, data_ns.hasCRSProj4, Literal(metadata['proj4'])))
 		g.add((d, data_ns.hasCRSWkt, Literal(metadata['wkt'])))
 		g.add((d, data_ns.dataTheme, Literal(data_theme)))
@@ -171,9 +171,10 @@ class DataGraph(object):
 		if metadata['epsg'] is not None:
 			g.add((d, data_ns.hasEPSG, Literal('EPSG:' + metadata['epsg'])))
 		if metadata['isProjected'] > 0:
-			g.add((d, data_ns.hasCRS, Literal(metadata['projcs'])))
-		else:
-			g.add((d, data_ns.hasCRS, Literal(metadata['geogcs'])))
+			if metadata['projcs']:
+				g.add((d, data_ns.hasCRS, Literal(metadata['projcs'])))
+			if metadata['geogcs']:
+				g.add((d, data_ns.hasCRS, Literal(metadata['geogcs'])))
 		g.add((d, data_ns.centralX, Literal(self._format(metadata['centroid'][0]), datatype=ddtype)))
 		g.add((d, data_ns.centralY, Literal(self._format(metadata['centroid'][1]), datatype=ddtype)))
 		g = self._add_extent(g, d, metadata['extent'][0], metadata['extent'][1], metadata['extent'][2], metadata['extent'][3])
@@ -193,7 +194,7 @@ class DataGraph(object):
 			graph
 
 		"""
-		g = self.g
+		g = Graph() + self.g
 		d = self.data_ns[parameter_id + '_data']
 		g.add((d, RDF.type, self.data_ns.LiteralData))
 		g.add((d, DCTERMS.identifier, Literal(parameter_id)))
