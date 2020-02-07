@@ -34,3 +34,26 @@ data:para_clip_features_data
     data:westBoundingCoordinate 4.044136e+07 ;
     geo:hasGeometry sf:LineString .
 
+data:para_in_features_data a data:VectorData ;
+    dcterms:identifier "para_in_features" ;
+    data:centralX 7.262852e+05 ;
+    data:centralY 3.458344e+06 ;
+    data:dataContent "ztswshed.shp" ;
+    data:dataFormat data:ESRI_Shapefile ;
+    data:dataTheme "Watershed" ;
+    data:eastBoundingCoordinate 7.277938e+05 ;
+    data:hasCRS "CGCS2000 / 3-degree Gauss-Kruger zone 40" ;
+    data:hasCRSProj4 "+proj=tmerc +lat_0=0 +lon_0=120 +k=1 +x_0=40500000 +y_0=0 +ellps=GRS80 +units=m +no_defs " ;
+    data:hasCRSWkt "PROJCS[\"CGCS2000 / 3-degree Gauss-Kruger zone 40\",GEOGCS[\"China Geodetic Coordinate System 2000\",DATUM[\"China_2000\",SPHEROID[\"CGCS2000\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"1024\"]],AUTHORITY[\"EPSG\",\"1043\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"4490\"]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"latitude_of_origin\",0],PARAMETER[\"central_meridian\",120],PARAMETER[\"scale_factor\",1],PARAMETER[\"false_easting\",40500000],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AUTHORITY[\"EPSG\",\"4528\"]]" ;
+    data:hasEPSG "EPSG:4528" ;
+    data:hasUOM unit:M ;
+    data:isProjected true ;
+    data:maxX 7.277938e+05 ;
+    data:maxY 3.459031e+06 ;
+    data:minX 7.244688e+05 ;
+    data:minY 3.457406e+06 ;
+    data:northBoundingCoordinate 3.459031e+06 ;
+    data:southBoundingCoordinate 3.457406e+06 ;
+    data:spatialExtent "724468.832,3457406.401,727793.832,3459031.401"^^xsd:string ;
+    data:westBoundingCoordinate 7.244688e+05 ;
+    geo:hasGeometry sf:Polygon .

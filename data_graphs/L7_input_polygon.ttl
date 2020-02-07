@@ -9,8 +9,8 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-data:para_input_features_data a data:VectorData ;
-    dcterms:identifier "para_input_features" ;
+data:para_in_features_data a data:VectorData ;
+    dcterms:identifier "para_in_features" ;
     data:centralX 7.262852e+05 ;
     data:centralY 3.458344e+06 ;
     data:dataContent "ztswshed.shp" ;

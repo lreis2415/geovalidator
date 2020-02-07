@@ -10,7 +10,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 data:para_input_features_data a data:VectorData ;
-    dcterms:identifier "para_input_features" ;
+    dcterms:identifier "para_in_features" ;
     data:centralX 4.044157e+07 ;
     data:centralY 3.455565e+06 ;
     data:dataContent "ztsnet.shp" ;

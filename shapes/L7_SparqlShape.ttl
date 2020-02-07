@@ -11,8 +11,8 @@
 arcgis:para_clip_features a arcgis:ArcGISInput,
         sh:NodeShape ;
     sh:description "Parameter clip_features: the features to clip input features in ArcGIS Clip analysis"@en ;
-    sh:maxCount 1 ;
-    sh:minCount 1 ;
+    #sh:maxCount 1 ;
+    #sh:minCount 1 ;
     sh:node data:VectorDataEPSGShape ;
     sh:sparql [ sh:message "Clip features cannot be used to clip input features. When the Input Features are polygons, the Clip Features must also be polygons. When the Input Features are lines, the Clip Features can be lines or polygons. When the Input Features are points, the Clip Features can be points, lines, or polygons."@en ;
             sh:prefixes [ a sh:PrefixDeclaration ;
@@ -21,17 +21,20 @@ arcgis:para_clip_features a arcgis:ArcGISInput,
                         [ sh:namespace "http://www.opengis.net/ont/geosparql#"^^xsd:anyURI ;
                             sh:prefix "geo" ],
                         [ sh:namespace "http://www.egc.org/ont/process/arcgis#"^^xsd:anyURI ;
-                            sh:prefix "arcgis" ] ] ;
+                            sh:prefix "arcgis" ] ,
+                        [ sh:namespace "http://www.egc.org/ont/data#"^^xsd:anyURI ;
+                            sh:prefix "data" ] ] ;
             sh:select """
-SELECT $this (geo:hasGeometry AS ?path) (?clip_geom AS ?value)
-	WHERE {
-		$this geo:hasGeometry ?clip_geom.
-        arcgis:para_in_features geo:hasGeometry ?in_geom.
-		FILTER ( 
-			IF(?in_geom a sf:Point,true,false)||
-            IF((?in_geom a sf:Line) && not(?clip_geom a sf:Point),true,false)||
-            IF((?in_geom a sf:Polygon) && (?clip_geom a sf:Polygon),true,false)). 
-        }
-""" ] ;
-    sh:targetNode arcgis:para_clip_features_data .
+                SELECT $this (geo:hasGeometry AS ?path) (?clip_geom AS ?value)
+                    WHERE {
+                        $this geo:hasGeometry ?clip_geom.
+                        data:para_in_features_data geo:hasGeometry ?in_geom.
+                        FILTER (
+                            IF(exists{?in_geom a sf:Point},false,true)||
+                            IF(exists{?in_geom a sf:Line} && not exists{?clip_geom a sf:Point},false,true)||
+                            IF(exists{?in_geom a sf:Polygon} && exists{?clip_geom a sf:Polygon},false,true)
+                            ).
+                        }
+                """ ] ;
+    sh:targetNode data:para_clip_features_data .
 

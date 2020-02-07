@@ -6,6 +6,7 @@
 
 from os import path
 from rdflib import Graph
+from rdflib.util import guess_format
 from pyshacl import validate
 from datagraph import DataGraph
 from utils import Utils
@@ -13,20 +14,34 @@ from utils import Utils
 
 class GeoValidator(object):
 	@staticmethod
-	def read_graph(ont):
+	def read_graph(ont_graph):
 		"""
 		read RDF/ontology file
-		:param ont: RDF/ontology file (.ttl/.rdf/.owl)
+		:param ont_graph: RDF/ontology file (.ttl/.rdf/.owl)
 		:return: graph
 		"""
 		g = Graph()
-		if not (path.exists(ont) or path.isfile(ont)):
+		f = guess_format(ont_graph)
+		if not (path.exists(ont_graph) or path.isfile(ont_graph)):
 			raise ValueError('file not exists or is not a valid file')
-		g.parse(ont)
+		g.parse(ont_graph, format=f)
 		return g
 
 	@staticmethod
-	def read_2_graph(parameter_id, data, data_theme=None, data_type=None):
+	def read_graphs(*ont_graphs):
+		"""
+		read and merge a set of ont graphs
+		:param ont_graphs:
+		:return: A merge of a set of RDF graphs
+		"""
+		g = Graph()
+		for ont in ont_graphs:
+			f = guess_format(ont)
+			g.parse(ont, format=f)
+		return g
+
+	@staticmethod
+	def data_2_graph(parameter_id, data, data_theme=None, data_type=None):
 		"""
 		read input data and generate RDF graph
 		:param parameter_id: parameter identifier, indicates which parameter this data is prepared for
@@ -50,21 +65,21 @@ class GeoValidator(object):
 		return g
 
 	@staticmethod
-	def validate(data_graph, shape_graph, ont):
+	def validate_data(data_graph, shape_graph, ont=None):
 		"""
-		validate input data against a predefined shape graph
+		validate_data input data against a predefined shape graph
 		:param data_graph:
 		:param shape_graph:
 		:param ont:
 		:return:
 		"""
-		results = validate(data_graph, shape_graph, ont_graph=ont, inference='rdfs', debug=False)
-		conforms, results_graph, results_text = results
+		results = validate(data_graph, shacl_graph=shape_graph, ont_graph=ont, inference='rdfs', debug=True)
+		# conforms, results_graph, results_text = results
+		return results
 
 	@staticmethod
-	def infer(data_graph, shape_graph, ont):
+	def advanced_validate(data_graph, shape_graph, ont=None):
 		# enable SHACL advanced features: rules, custom targets
-		results = validate(data_graph, shape_graph, ont_graph=ont, advanced=True, inference='rdfs', debug=False)
-		conforms, results_graph, results_text = results
-
-		pass
+		results = validate(data_graph, shacl_graph=shape_graph, ont_graph=ont, advanced=True, inference='rdfs', debug=False)
+		# conforms, results_graph, results_text = results
+		return results

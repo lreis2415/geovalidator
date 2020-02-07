@@ -23,11 +23,11 @@ def to_graph():
 	# pprint.pprint(DataGraph.graph_2_string(g10))
 	DataGraph.graph_2_file(g10, '../data_graphs/L7_clip_line_no_epsg.ttl')
 
-	g2 = dg.vector_graph('para_input_features', polygon, 'Watershed')
+	g2 = dg.vector_graph('para_in_features', polygon, 'Watershed')
 	# pprint.pprint(DataGraph.graph_2_string(g2))
 	DataGraph.graph_2_file(g2, '../data_graphs/L7_input_polygon.ttl')
 
-	g11 = dg.vector_graph('para_input_features', linestring, 'StreamNet')
+	g11 = dg.vector_graph('para_in_features', linestring, 'StreamNet')
 	# pprint.pprint(DataGraph.graph_2_string(g11))
 	DataGraph.graph_2_file(g11, '../data_graphs/L7_input_line.ttl')
 
