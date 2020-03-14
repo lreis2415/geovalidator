@@ -1,0 +1,28 @@
+@prefix data: <http://www.egc.org/ont/data#> .
+@prefix process: <http://www.egc.org/ont/process#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+process:DataThemeShape a sh:PropertyShape ;
+    sh:path data:dataTheme ;
+    sh:sparql [
+        sh:message "Data theme (e.g., DEM ) of the output and input data of two functionalities that linked via process:preprocessor must be consistent."@en ;
+        sh:prefixes [ a sh:PrefixDeclaration ;
+                    sh:declare [ sh:namespace "http://www.egc.org/ont/process#"^^xsd:anyURI ;
+                            sh:prefix "process" ],
+                        [ sh:namespace "http://www.egc.org/ont/data#"^^xsd:anyURI ;
+                            sh:prefix "data" ] ] ;
+        sh:select """
+            SELECT $this  (?in_theme AS ?value)
+                WHERE {
+                    $this  process:input/$PATH   ?in_theme.  # data theme of input parameter
+                    $this  process:preprocessor  ?pre_func.   # preceding functionality
+                    ?pre_func process:output/$PATH  ?out_theme.   #  data theme of output parameter
+                    FILTER (  ?in_theme != ?out_theme  ). # is not equal
+                    }
+            """ ] ;
+    sh:targetSubjectsOf process:preprocessor .
+

@@ -1,0 +1,39 @@
+@prefix data: <http://www.egc.org/ont/data#> .
+@prefix process: <http://www.egc.org/ont/gis/process#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix saga: <http://www.egc.org/ont/process/saga#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix task: <http://www.egc.org/ont/context/task#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+saga:option_method a saga:SagaOption,
+        sh:NodeShape ;
+    sh:description "Constraints for SAGA tool Flow Accumulation (Top-Down)"@en ;
+    sh:property [ sh:datatype xsd:int ;
+            sh:defaultValue 4 ;
+            sh:maxCount 1 ;
+            sh:maxInclusive 6 ;
+            sh:message " value of option \"method\" for selecting flow direction algorithm  ’"@en ;
+            sh:minCount 1 ;
+            sh:minInclusive 0 ;
+            sh:path data:dataContent ] ;
+    sh:select """
+SELECT  $this  ?value
+WHERE {
+	$this process:isOptionOf/process:usedByTask ?task. 
+	$this data:dataContent ?value. 
+	FILTER(IF((?task a task:HydroParamSpatialPatternCalc) && (3<?value),false,true))}
+""" ;
+    sh:sparql [ sh:message "Multiple flow direction (MFD) algorithms are better than single flow direction (SFD) algorithms when calculating the spatial pattern of hydrological parameters such as topo-graphic index."@en ;
+            sh:prefixes [ a sh:PrefixDeclaration ;
+                    sh:declare [ sh:namespace "http://www.egc.org/ont/gis/process#"^^xsd:anyURI ;
+                            sh:prefix "process" ],
+                        [ sh:namespace "http://www.egc.org/ont/context/task#"^^xsd:anyURI ;
+                            sh:prefix "task" ],
+                        [ sh:namespace "http://www.egc.org/ont/data#"^^xsd:anyURI ;
+                            sh:prefix "data" ] ] ;
+            sh:severity sh:Warning ] ;
+    sh:targetNode data:method_value .
+
