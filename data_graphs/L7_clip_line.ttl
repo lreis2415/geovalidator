@@ -9,28 +9,25 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-data:para_clip_features_data
-    a data:VectorData ;
-    dcterms:identifier "para_clip_features" ;
-    data:centralX 4.044157e+07 ;
-    data:centralY 3.455565e+06 ;
-    data:dataContent "ztsnet.shp" ;
+data:clip_features_data a data:VectorData ;
+    dcterms:identifier "clip_features" ;
+    data:centralX 4.981318e+05 ;
+    data:centralY 3.491148e+06 ;
+    data:dataContent "streams.shp" ;
     data:dataFormat data:ESRI_Shapefile ;
-    data:dataTheme "StreamNet" ;
-    data:eastBoundingCoordinate 4.044178e+07 ;
-    data:hasCRS "CGCS2000 / 3-degree Gauss-Kruger zone 40" ;
-    data:hasCRSProj4 "+proj=tmerc +lat_0=0 +lon_0=120 +k=1 +x_0=40500000 +y_0=0 +ellps=GRS80 +units=m +no_defs " ;
-    data:hasCRSWkt "PROJCS[\"CGCS2000 / 3-degree Gauss-Kruger zone 40\",GEOGCS[\"China Geodetic Coordinate System 2000\",DATUM[\"China_2000\",SPHEROID[\"CGCS2000\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"1024\"]],AUTHORITY[\"EPSG\",\"1043\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"4490\"]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"latitude_of_origin\",0],PARAMETER[\"central_meridian\",120],PARAMETER[\"scale_factor\",1],PARAMETER[\"false_easting\",40500000],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AUTHORITY[\"EPSG\",\"4528\"]]" ;
-    data:hasEPSG "EPSG:4528" ;
-    data:hasUOM unit:M ;
+    data:dataTheme "Streams" ;
+    data:eastBoundingCoordinate 5.002669e+05 ;
+    data:hasCRS "Beijing_1954_3_Degree_GK_CM_117E" ;
+    data:hasCRSProj4 "+proj=tmerc +lat_0=0 +lon_0=117 +k=1 +x_0=500000 +y_0=0 +ellps=krass +units=m +no_defs " ;
+    data:hasCRSWkt "PROJCS[\"Beijing_1954_3_Degree_GK_CM_117E\",GEOGCS[\"GCS_Beijing_1954\",DATUM[\"Beijing_1954\",SPHEROID[\"Krassowsky_1940\",6378245.0,298.3]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"false_easting\",500000.0],PARAMETER[\"false_northing\",0.0],PARAMETER[\"central_meridian\",117.0],PARAMETER[\"scale_factor\",1.0],PARAMETER[\"latitude_of_origin\",0.0],UNIT[\"Meter\",1.0]]" ;
     data:isProjected true ;
-    data:maxX 4.044178e+07 ;
-    data:maxY 3.455969e+06 ;
-    data:minX 4.044136e+07 ;
-    data:minY 3.455155e+06 ;
-    data:northBoundingCoordinate 3.455969e+06 ;
-    data:southBoundingCoordinate 3.455155e+06 ;
-    data:spatialExtent "40441362.158,3455155.218,40441784.155,3455968.571"^^xsd:string ;
-    data:westBoundingCoordinate 4.044136e+07 ;
+    data:maxX 5.002669e+05 ;
+    data:maxY 3.492225e+06 ;
+    data:minX 4.961212e+05 ;
+    data:minY 3.490295e+06 ;
+    data:northBoundingCoordinate 3.492225e+06 ;
+    data:southBoundingCoordinate 3.490295e+06 ;
+    data:spatialExtent "496121.191,3490294.898,500266.940,3492224.829"^^xsd:string ;
+    data:westBoundingCoordinate 4.961212e+05 ;
     geo:hasGeometry sf:LineString .
 

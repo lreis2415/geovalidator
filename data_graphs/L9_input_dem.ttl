@@ -9,8 +9,8 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-data:inputRaster_data a data:RasterData ;
-    dcterms:identifier "inputRaster" ;
+data:input_raster_data a data:RasterData ;
+    dcterms:identifier "input_raster" ;
     data:bandCount 1 ;
     data:bandMaxValue 5.315e+02 ;
     data:bandMeanValue 1.27758e+02 ;
@@ -18,21 +18,23 @@ data:inputRaster_data a data:RasterData ;
     data:bandStdDev 7.7189e+01 ;
     data:centralX 1.19398e+02 ;
     data:centralY 3.1184e+01 ;
-    data:dataContent "dem_zts_noproj.tif" ;
+    data:dataContent "dem_zts_84.tif" ;
     data:dataFormat data:GTiff ;
     data:dataTheme "DEM" ;
     data:eastBoundingCoordinate 1.19467e+02 ;
-    data:hasCRSProj4 "" ;
-    data:hasCRSWkt "" ;
+    data:hasCRSProj4 "+proj=longlat +datum=WGS84 +no_defs " ;
+    data:hasCRSWkt "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.0174532925199433],AUTHORITY[\"EPSG\",\"4326\"]]" ;
+    data:hasEPSG "EPSG:4326" ;
+    data:hasUOM unit:DEG ;
     data:isProjected false ;
     data:maxX 1.19467e+02 ;
     data:maxY 3.1244e+01 ;
     data:minX 1.19328e+02 ;
     data:minY 3.1124e+01 ;
-    data:nodataValue "-9999.0"^^xsd: ;
+    data:nodataValue "-9999.0"^^xsd:float ;
     data:northBoundingCoordinate 3.1244e+01 ;
     data:southBoundingCoordinate 3.1124e+01 ;
     data:spatialExtent "119.328,31.124,119.467,31.244"^^xsd:string ;
-    data:spatialResolution "0.0002434063"^^xsd: ;
+    data:spatialResolution "0.00024340634344316355"^^xsd:float ;
     data:westBoundingCoordinate 1.19328e+02 .
 

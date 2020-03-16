@@ -3,7 +3,7 @@
 # author: houzhiwei
 # time: 2020/1/5 18:01
 
-import os
+import os, re
 from rdflib import Graph, RDF, Namespace, Literal, XSD
 from rdflib.namespace import DCTERMS, SKOS
 from metadata import GeoMetadata
@@ -66,7 +66,7 @@ class DataGraph(object):
 		:param meta_uom:
 		:return:
 		"""
-		if meta_uom == 'degree':
+		if meta_uom.capitalize() == 'Degree':
 			return self.unit.DEG
 		elif meta_uom == 'meter' or meta_uom == 'metre':
 			return self.unit.M
@@ -112,7 +112,7 @@ class DataGraph(object):
 		data_ns = self.data_ns
 		d = data_ns[parameter_id + '_data']
 		g.add((d, RDF.type, data_ns.VectorData))
-		g.add((d, DCTERMS.identifier, Literal(parameter_id)))
+		g.add((d, DCTERMS.identifier, Literal(re.sub('^para_', '', parameter_id))))
 		g.add((d, data_ns.dataContent, Literal(metadata['content'])))
 		g.add((d, data_ns.dataFormat, data_ns[Utils.normalize(metadata['format'])]))
 		g.add((d, data_ns.hasCRSProj4, Literal(metadata['proj4'])))
@@ -151,7 +151,7 @@ class DataGraph(object):
 		g = Graph() + self.g
 		d = data_ns[parameter_id + '_data']
 		g.add((d, RDF.type, data_ns.RasterData))
-		g.add((d, DCTERMS.identifier, Literal(parameter_id)))
+		g.add((d, DCTERMS.identifier, Literal(re.sub('^para_', '', parameter_id))))
 		g.add((d, data_ns.dataContent, Literal(metadata['content'])))
 		g.add((d, data_ns.dataFormat, data_ns[Utils.normalize(metadata['format'])]))
 		g.add((d, data_ns.bandCount, Literal(metadata['band_count'])))
@@ -160,7 +160,7 @@ class DataGraph(object):
 		g.add((d, data_ns.bandMaxValue, Literal(self._format(metadata['max']), datatype=ddtype)))
 		g.add((d, data_ns.bandMeanValue, Literal(self._format(metadata['mean']), datatype=ddtype)))
 		g.add((d, data_ns.bandStdDev, Literal(self._format(metadata['stddev']), datatype=ddtype)))
-		dtype = XSD[type(metadata['nodata'])]
+		dtype = XSD[type(metadata['nodata']).__name__]
 		g.add((d, data_ns.nodataValue, Literal(metadata['nodata'], datatype=dtype)))
 		g.add((d, data_ns.hasCRSProj4, Literal(metadata['proj4'])))
 		g.add((d, data_ns.hasCRSWkt, Literal(metadata['wkt'])))
@@ -178,7 +178,7 @@ class DataGraph(object):
 		g.add((d, data_ns.centralX, Literal(self._format(metadata['centroid'][0]), datatype=ddtype)))
 		g.add((d, data_ns.centralY, Literal(self._format(metadata['centroid'][1]), datatype=ddtype)))
 		g = self._add_extent(g, d, metadata['extent'][0], metadata['extent'][1], metadata['extent'][2], metadata['extent'][3])
-		dtype = XSD[type(metadata['resolution'])]
+		dtype = XSD[type(metadata['resolution']).__name__]
 		g.add((d, data_ns.spatialResolution, Literal(metadata['resolution'], datatype=dtype)))
 		return g
 
@@ -197,7 +197,7 @@ class DataGraph(object):
 		g = Graph() + self.g
 		d = self.data_ns[parameter_id + '_data']
 		g.add((d, RDF.type, self.data_ns.LiteralData))
-		g.add((d, DCTERMS.identifier, Literal(parameter_id)))
+		g.add((d, DCTERMS.identifier, Literal(re.sub('^para_', '', parameter_id))))
 		if os.path.isfile(data) or os.path.isdir(data):
 			data = os.path.basename(data)
 		g.add((d, self.data_ns.dataContent, Literal(data, datatype=XSD[type(data)])))

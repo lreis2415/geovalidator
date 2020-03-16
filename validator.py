@@ -7,25 +7,12 @@
 from os import path
 from rdflib import Graph
 from rdflib.util import guess_format
-from pyshacl import validate
+from pyshacl import validate,rdfutil
 from datagraph import DataGraph
 from utils import Utils
 
 
 class GeoValidator(object):
-	@staticmethod
-	def read_graph(ont_graph):
-		"""
-		read RDF/ontology file
-		:param ont_graph: RDF/ontology file (.ttl/.rdf/.owl)
-		:return: graph
-		"""
-		g = Graph()
-		f = guess_format(ont_graph)
-		if not (path.exists(ont_graph) or path.isfile(ont_graph)):
-			raise ValueError('file not exists or is not a valid file')
-		g.parse(ont_graph, format=f)
-		return g
 
 	@staticmethod
 	def read_graphs(*ont_graphs):

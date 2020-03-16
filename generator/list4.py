@@ -4,40 +4,49 @@
 # time: 2020/1/4 15:47
 
 from rdflib import BNode, Graph, RDF, Namespace, Literal, XSD
+from rdflib.namespace import DCTERMS
+from utils import Utils
 
 g = Graph()
 # namespaces
 data = Namespace("http://www.egc.org/ont/data#")
-saga = Namespace("http://www.egc.org/ont/process/saga#")
 sh = Namespace("http://www.w3.org/ns/shacl#")
 geo = Namespace('http://www.opengis.net/ont/geosparql#')
 sf = Namespace('http://www.opengis.net/ont/sf#')
 # prefixes
 g.bind('data', data)
 g.bind('sh', sh)
-g.bind('saga', saga)
 g.bind('geo', geo)
 g.bind('sf', sf)
-# SHACL shape graph
-sl = saga.para_significance_level
-g.add((sl, RDF.type, sh.NodeShape))
-g.add((sl, RDF.type, saga.SagaOption))
-g.add((sl, sh.minCount, Literal(1)))
-g.add((sl, sh.maxCount, Literal(1)))
-g.add((sl, sh.targetNode, saga.para_significance_level_data))
+g.bind('dcterms', DCTERMS)
+
+# constraints for CRS
+srk = data.CRSExistenceShape
+g.add((srk, RDF.type, sh.NodeShape))
 # property
-p1 = BNode()
-g.add((p1, sh.path, data.dataContent))
-g.add((p1, sh.datatype, XSD.float))
-g.add((p1, sh.defaultValue, Literal(5.0, datatype=XSD.float)))
-g.add((p1, sh.minCount, Literal(1)))
-g.add((p1, sh.maxCount, Literal(1)))
-g.add((p1, sh.minInclusive, Literal(0, datatype=XSD.float)))
-g.add((p1, sh.maxInclusive, Literal(100.0, datatype=XSD.float)))
-g.add((p1, sh.description, Literal('Significance level (aka p-value) as threshold for automated predictor selection, given as percentage', lang='en')))
-g.add((p1, sh.message, Literal('The acceptable value range for significance level is 0 to 100.0', lang='en')))
-g.add((p1, sh.message, Literal('参数significance level的取值范围为0 到 100.0', lang='zh-cn')))
-g.add((sl, sh.property, p1))
+p0 = BNode()
+p00 = BNode()
+g, c, l = Utils.values_collection(g, [data.hasCRS, data.hasEPSG])
+g.add((p00, sh.alternativePath, l))
+g.add((p0, sh.path, p00))
+g.add((p0, sh.minCount, Literal(1)))
+g.add((p0, sh.maxCount, Literal(1)))
+g.add((p0, sh.datatype, XSD.string))
+g.add((p0, sh.minLength, Literal(3)))
+g.add((p0, sh.description, Literal('Checks whether a data set has a CRS.', lang='en')))
+g.add((srk, sh.property, p0))
+
+# SHACL shape graph
+es = data.EPSGShape
+g.add((es, RDF.type, sh.NodeShape))
+g.add((es, sh.targetObjectsOf, data.hasEPSG))
+g.add((es, sh.message,
+       Literal('Invalid EPSG code! Must match the pattern ‘urn:ogc:def:crs:EPSG:[version]:[code]’,  ‘http://www.opengis.net/def/crs/EPSG/[version]/[code]’, or ‘EPSG:[code]’',
+               lang='en')))
+g.add((es, sh.datatype, XSD.string))
+g.add((es, sh.minLength, Literal(9)))
+g.add((es, sh.pattern, Literal('^(urn:ogc:def:crs:EPSG:[0-9.]{,7}:[0-9]{4,5})|^(http://www.opengis.net/def/crs/EPSG/[0-9.]{1,7}/[0-9]{4,5})|^(EPSG:[0-9]{4,5}')))
+g.add((es, sh.flag, Literal('i')))
 
 # save as turtle file
-g.serialize('../shapes/L4_SagaSignLevelShape.ttl', format='turtle')
+g.serialize('../shapes/L4_EPSGShape.ttl', format='turtle')

@@ -3,27 +3,43 @@
 # author: houzhiwei
 # time: 2020/1/4 15:47
 
-from rdflib import Graph, RDF, Namespace, Literal, XSD
+from rdflib import Graph, RDF, Namespace, Literal, XSD, BNode
 
 g = Graph()
 # namespaces
 data = Namespace("http://www.egc.org/ont/data#")
 sh = Namespace("http://www.w3.org/ns/shacl#")
+geo = Namespace('http://www.opengis.net/ont/geosparql#')
+sf = Namespace('http://www.opengis.net/ont/sf#')
 # prefixes
 g.bind('data', data)
 g.bind('sh', sh)
 # SHACL shape graph
-es = data.EPSGShape
-g.add((es, RDF.type, sh.NodeShape))
-g.add((es, sh.targetObjectsOf, data.hasEPSG))
-g.add((es, sh.message,
-       Literal('Invalid EPSG code! Must matchs the pattern  ‘urn:ogc:def:crs:EPSG:[version]:[code]’,  ‘http://www.opengis.net/def/crs/EPSG/[version]/[code]’, or ‘EPSG:[code]’',
-               lang='en')))
-g.add((es, sh.datatype, XSD.string))
-g.add((es, sh.minLength, Literal(9)))
-g.add((es, sh.pattern, Literal('^(urn:ogc:def:crs:EPSG:[0-9.]{,7}:[0-9]{4,5})|^(http://www.opengis.net/def/crs/EPSG/[0-9.]{1,7}/[0-9]{4,5})|^(EPSG:[0-9]{4,5}')))
-g.add((es, sh.flag, Literal('i')))
-g.add((es, sh.message, Literal('Input data should declare a data format information, and it must be an instance of class data:VectorFormat ', lang='en')))
+vds = data.VectorDataShape
+g.add((vds, RDF.type, sh.NodeShape))
+g.add((vds, sh.targetClass, data.VectorData))
+geon = BNode()
+g.add((geon, sh.path, geo.hasGeometry))
+g.add((geon, sh['class'], sf.Geometry))
+g.add((geon, sh.minCount, Literal(1)))
+g.add((geon, sh.maxCount, Literal(1)))
+g.add((geon, sh.message, Literal('Vector data must declare a geometry type ', lang='en')))
+g.add((vds, sh.property, geon))
 
+epg = BNode()
+g.add((epg, sh.path, data.hasEPSG))
+g.add((epg, sh.minCount, Literal(1)))
+g.add((epg, sh.maxCount, Literal(1)))
+# need to import shape file
+# e.g., <> owl:imports <http://example.org/UserShapes> .
+g.add((epg, sh.node, data.EPSGShape))
+g.add((vds, sh.property, epg))
+
+format_n = BNode()
+g.add((format_n, sh.path, data.dataFormat))
+g.add((format_n, sh.minCount, Literal(1)))
+g.add((format_n, sh.maxCount, Literal(1)))
+g.add((format_n, sh['class'], data.VectorDataFormat))
+g.add((vds, sh.property, format_n))
 # save as turtle file
 g.serialize('../shapes/L5_EPSGShape.ttl', format='turtle')

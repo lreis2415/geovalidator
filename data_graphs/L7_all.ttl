@@ -9,9 +9,9 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-data:para_clip_features_data
+data:clip_features_data
     a data:VectorData ;
-    dcterms:identifier "para_clip_features" ;
+    dcterms:identifier "clip_features" ;
     data:centralX 4.044157e+07 ;
     data:centralY 3.455565e+06 ;
     data:dataContent "ztsnet.shp" ;
@@ -34,8 +34,8 @@ data:para_clip_features_data
     data:westBoundingCoordinate 4.044136e+07 ;
     geo:hasGeometry sf:LineString .
 
-data:para_in_features_data a data:VectorData ;
-    dcterms:identifier "para_in_features" ;
+data:in_features_data a data:VectorData ;
+    dcterms:identifier "in_features" ;
     data:centralX 7.262852e+05 ;
     data:centralY 3.458344e+06 ;
     data:dataContent "ztswshed.shp" ;

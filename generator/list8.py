@@ -3,57 +3,58 @@
 # author: houzhiwei
 # time: 2020/1/4 15:47
 
-from rdflib import BNode, Graph, RDF, Namespace, Literal, XSD
+from rdflib import BNode, Graph, RDF, Namespace, Literal
+from utils import Utils
 
 g = Graph()
 # namespaces
 data = Namespace("http://www.egc.org/ont/data#")
 process = Namespace("http://www.egc.org/ont/process#")
+arcgis = Namespace("http://www.egc.org/ont/process/arcgis#")
 sh = Namespace("http://www.w3.org/ns/shacl#")
-soft = Namespace("http://www.egc.org/ont/cyber#")
-
+geo = Namespace('http://www.opengis.net/ont/geosparql#')
+sf = Namespace('http://www.opengis.net/ont/sf#')
 # prefixes
 g.bind('data', data)
 g.bind('sh', sh)
+g.bind('arcgis', arcgis)
+g.bind('geo', geo)
+g.bind('sf', sf)
 g.bind('process', process)
-g.bind('soft', soft)
-# SHACL shape graph
 
-themeShape = process.DataThemePropertyShape
-g.add((themeShape, RDF.type, sh.PropertyShape))
-g.add((themeShape, sh.targetSubjectsOf, process.preprocessor))
-g.add((themeShape, sh.path, data.dataTheme))
+# a SHACL triple rule
+rrs = data.ProjectVectorDataRule
+g.add((rrs, RDF.type, sh.NodeShape))
+g.add((rrs, sh.targetClass, arcgis.ArcGISTool))
+g.add((rrs, sh.description,
+       Literal('For all arcgis tools, if their vector input data do not have a CRS, the ‘project’ tool will be inferred as a pre-processing tool for the data.', lang='en')))
 
-# SPARQL shape
-sparql = BNode()
-g.add((sparql, sh.message, Literal('Input data theme must consistent with output data theme of pre-processor.', lang='en')))
+rule = BNode()
+g.add((rule, RDF.type, sh.TripleRule))
+g.add((rule, sh.subject, sh.this))
+g.add((rule, sh.predicate, process.preprocessor))
+g.add((rule, sh.object, arcgis.project))
 
-pre_process = BNode()
-g.add((pre_process, sh.prefix, Literal('process')))
-g.add((pre_process, sh.namespace, Literal('http://www.egc.org/ont/process#', datatype=XSD.anyURI)))
-pre_soft = BNode()
-g.add((pre_soft, sh.prefix, Literal('soft')))
-g.add((pre_soft, sh.namespace, Literal('http://www.egc.org/ont/cyber#', datatype=XSD.anyURI)))
+# conditions
+cn = BNode()
+g.add((cn, sh.path, process.inputData))
 
-prefixes = BNode()
-g.add((prefixes, RDF.type, sh.PrefixDeclaration))
-g.add((prefixes, sh.declare, pre_process))
-g.add((prefixes, sh.declare, pre_soft))
-g.add((sparql, sh.prefixes, prefixes))
+# condition 1
+b_value = BNode()
+g.add((b_value, sh.path, RDF.type))
+g.add((b_value, sh.hasValue, data.VectorData))
+# condition 2
+b_not = BNode()
+b_node = BNode()
+g.add((b_node, sh.node, data.CRSExistenceShape))
+g.add((b_not, sh['not'], b_node))
+g, c, l = Utils.values_collection(g, [b_not, b_value])
+g.add((cn, sh['and'], l))
 
-query = """
-SELECT $this  (?in_theme AS ?value)
-	WHERE {
-		$this  soft:input  ?in_param. # input parameter
-		?in_param  $PATH   ?in_theme.  # data theme of input parameter 
-        $this  process:preprocessor  ?pre_func.   # preceding functionality
-        ?pre_func soft:output  ?out_param.  #  output parameter
-		?out_param  $PATH  ?out_theme.   #  data theme of output parameter
-		FILTER (  ?in_theme = ?out_theme  ). # is equal
-        }
-"""
-g.add((sparql, sh.select, Literal(query)))
-g.add((themeShape, sh.sparql, sparql))
+condition = BNode()
+g.add((condition, sh.property, cn))
+g.add((rule, sh.condition, condition))
+g.add((rrs, sh.rule, rule))
 
 # save as turtle file
-g.serialize('../shapes/L8_SparqlThemeShape.ttl', format='turtle')
+g.serialize('../shapes/L8_TripleRule.ttl', format='turtle')

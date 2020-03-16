@@ -7,6 +7,8 @@ from math import cos, sin, asin, sqrt, radians
 
 from osgeo import gdal, osr, ogr
 
+def test_type():
+	print(type(-9999.0).__name__)
 
 
 def test_dis():

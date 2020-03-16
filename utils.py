@@ -5,6 +5,8 @@
 
 from osgeo import gdal, ogr
 from os import path
+from rdflib import Graph, BNode, Namespace, Literal, XSD, RDF
+from rdflib.collection import Collection
 
 # gdal/ogr readable file formats
 gdal_drivers = {'vrt': 'VRT', 'tif': 'GTiff', 'ntf': 'NITF', 'toc': 'RPFTOC', 'xml': 'ECRGTOC', 'img': 'SRP', 'gff': 'GFF', 'asc': 'AAIGrid', 'ddf': 'SDTS', 'png': 'PNG',
@@ -67,3 +69,46 @@ class Utils(object):
 				return True
 			else:
 				return False
+
+	@staticmethod
+	def values_collection(graph, value_list: list):
+		"""
+		convert value list to rdflib collection
+		:param graph: rdflib graph
+		:param value_list: a list of values
+		:return:
+			graph, collection, list_node(BNode)
+		"""
+		list_node = BNode()
+		coll = Collection(graph, list_node, value_list)
+		return graph, coll, list_node
+
+	@staticmethod
+	def shacl_prefix(graph, prefix, namespace):
+		sh = Namespace("http://www.w3.org/ns/shacl#")
+		graph.bind('sh', sh)
+		pre_node = BNode()
+		graph.add((pre_node, sh.prefix, Literal(prefix)))
+		graph.add((pre_node, sh.namespace, Literal(namespace, datatype=XSD.anyURI)))
+		return graph, pre_node
+
+	@staticmethod
+	def shacl_prefixes(graph, sparql, prefix_tuples: list):
+		"""
+		add prefix declarations to sparql shape
+		:param graph: rdflib graph
+		:param sparql:  sparql query **BNode**
+		:param prefix_tuples: [(prefix1,namespace1),(prefix2,namespace2)]
+		:return: graph, sparql
+		"""
+		sh = Namespace("http://www.w3.org/ns/shacl#")
+		graph.bind('sh', sh)
+		prefixes = BNode()
+		graph.add((prefixes, RDF.type, sh.PrefixDeclaration))
+		for prefix_tuple in prefix_tuples:
+			pre_node = BNode()
+			graph.add((pre_node, sh.prefix, Literal(prefix_tuple[0])))
+			graph.add((pre_node, sh.namespace, Literal(prefix_tuple[1], datatype=XSD.anyURI)))
+			graph.add((prefixes, sh.declare, pre_node))
+		graph.add((sparql, sh.prefixes, prefixes))
+		return graph, sparql

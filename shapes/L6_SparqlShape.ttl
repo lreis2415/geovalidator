@@ -12,24 +12,36 @@ arcgis:clip_features a arcgis:ArcGISInput,
         sh:NodeShape ;
     sh:description "Parameter clip_features: the features to clip input features in ArcGIS Clip analysis"@en ;
     sh:node data:VectorDataShape ;
-    sh:sparql [ sh:message "Clip features cannot be used to clip input features. When the Input Features are polygons, the Clip Features must also be polygons. When the Input Features are lines, the Clip Features can be lines or polygons. When the Input Features are points, the Clip Features can be points, lines, or polygons."@en ;
+    sh:sparql [ sh:message "Input Features and Clip Features must have the same coordinate system."@en ;
+            sh:prefixes [ a sh:PrefixDeclaration ;
+                    sh:declare [ sh:namespace "http://www.egc.org/ont/data#"^^xsd:anyURI ;
+                            sh:prefix "data" ] ] ;
+            sh:select """
+                SELECT $this (data:hasEPSG AS ?path) (?clip_epsg AS ?value)
+                    WHERE {
+                        $this data:hasEPSG ?clip_epsg.
+                        data:in_features_data data:hasEPSG ?in_epsg.
+                        FILTER (?in_epsg !=?clip_epsg).
+                        }
+                """ ],
+        [ sh:message "Clip features cannot be used to clip input features. When the Input Features are polygons, the Clip Features must also be polygons. When the Input Features are lines, the Clip Features can be lines or polygons. When the Input Features are points, the Clip Features can be points, lines, or polygons."@en ;
             sh:prefixes [ a sh:PrefixDeclaration ;
                     sh:declare [ sh:namespace "http://www.opengis.net/ont/geosparql#"^^xsd:anyURI ;
                             sh:prefix "geo" ],
-                        [ sh:namespace "http://www.egc.org/ont/data#"^^xsd:anyURI ;
-                            sh:prefix "data" ],
                         [ sh:namespace "http://www.opengis.net/ont/sf#"^^xsd:anyURI ;
-                            sh:prefix "sf" ] ] ;
+                            sh:prefix "sf" ],
+                        [ sh:namespace "http://www.egc.org/ont/data#"^^xsd:anyURI ;
+                            sh:prefix "data" ] ] ;
             sh:select """
-SELECT $this (geo:hasGeometry AS ?path) (?clip_geom AS ?value)
-	WHERE {
-		$this geo:hasGeometry ?clip_geom.
-        data:in_features_data geo:hasGeometry ?in_geom.
-		FILTER ( 
-			IF(EXISTS {?in_geom a sf:Point},false,true)||
-            IF(EXISTS {?in_geom a sf:Line} && NOT EXISTS {?clip_geom a sf:Point},false,true)||
-            IF(EXISTS {?in_geom a sf:Polygon} && EXISTS {?clip_geom a sf:Polygon},false,true)). 
-        }
-""" ] ;
+                SELECT $this (geo:hasGeometry AS ?path) (?clip_geom AS ?value)
+                    WHERE {
+                        $this geo:hasGeometry ?clip_geom.
+                        data:in_features_data geo:hasGeometry ?in_geom.
+                        FILTER (
+                            IF(EXISTS {?in_geom a sf:Point},false,true)||
+                            IF(EXISTS {?in_geom a sf:Line} && NOT EXISTS {?clip_geom a sf:Point},false,true)||
+                            IF(EXISTS {?in_geom a sf:Polygon} && EXISTS {?clip_geom a sf:Polygon},false,true)).
+                        }
+                """ ] ;
     sh:targetNode data:clip_features_data .
 
