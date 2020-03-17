@@ -3,7 +3,8 @@
 # author: houzhiwei
 # time: 2020/1/4 15:47
 
-from rdflib import BNode, Graph, RDF, Namespace, Literal, XSD
+from rdflib import BNode, Graph, RDF, Namespace, Literal
+from rdflib.namespace import DCTERMS
 from utils import Utils
 
 g = Graph()
@@ -13,12 +14,27 @@ arcgis = Namespace("http://www.egc.org/ont/process/arcgis#")
 sh = Namespace("http://www.w3.org/ns/shacl#")
 geo = Namespace('http://www.opengis.net/ont/geosparql#')
 sf = Namespace('http://www.opengis.net/ont/sf#')
+process = Namespace("http://www.egc.org/ont/process#")
 # prefixes
 g.bind('data', data)
 g.bind('sh', sh)
 g.bind('arcgis', arcgis)
 g.bind('geo', geo)
 g.bind('sf', sf)
+g.bind('process', process)
+g.bind('dcterms', DCTERMS)
+# functionality-level
+cap = arcgis.ClipAnalysisShape
+g.add((cap, RDF.type, sh.NodeShape))
+g.add((cap, sh.targetNode, arcgis.clip_analysis))
+msg1 = 'Must have exactly one input value with identifier ' \
+       '‘in_features’ for parameter ‘in_features’ of tool ‘Clip_analysis’'
+cap = Utils.parameter_qualified_value_shape(g, cap, process.hasInputData, 'in_features', msg1)
+
+msg2 = 'Must have exactly one input value with identifier ' \
+       '‘clip_features’ for parameter ‘clip_features’ of tool ‘Clip_analysis’'
+cap = Utils.parameter_qualified_value_shape(g, cap, process.hasInputData, 'clip_features', msg2)
+
 # SHACL shape graph
 
 inf = arcgis.clip_features
@@ -50,7 +66,7 @@ SELECT $this (geo:hasGeometry AS ?path) (?clip_geom AS ?value)
 """
 g.add((sparql_geom, sh.select, Literal(query)))
 g.add((inf, sh.sparql, sparql_geom))
-#----------------------------------------------------
+# ----------------------------------------------------
 query_crs = """
 SELECT $this (data:hasEPSG AS ?path) (?clip_epsg AS ?value)
 	WHERE {

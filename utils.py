@@ -5,8 +5,9 @@
 
 from osgeo import gdal, ogr
 from os import path
-from rdflib import Graph, BNode, Namespace, Literal, XSD, RDF
+from rdflib import BNode, Namespace, Literal, XSD, RDF
 from rdflib.collection import Collection
+from pyshacl import rdfutil
 
 # gdal/ogr readable file formats
 gdal_drivers = {'vrt': 'VRT', 'tif': 'GTiff', 'ntf': 'NITF', 'toc': 'RPFTOC', 'xml': 'ECRGTOC', 'img': 'SRP', 'gff': 'GFF', 'asc': 'AAIGrid', 'ddf': 'SDTS', 'png': 'PNG',
@@ -85,7 +86,7 @@ class Utils(object):
 
 	@staticmethod
 	def shacl_prefix(graph, prefix, namespace):
-		sh = Namespace("http://www.w3.org/ns/shacl#")
+		sh = rdfutil.SH
 		graph.bind('sh', sh)
 		pre_node = BNode()
 		graph.add((pre_node, sh.prefix, Literal(prefix)))
@@ -112,3 +113,20 @@ class Utils(object):
 			graph.add((prefixes, sh.declare, pre_node))
 		graph.add((sparql, sh.prefixes, prefixes))
 		return graph, sparql
+
+	@staticmethod
+	def parameter_qualified_value_shape(graph, shape, sh_path, identifier:str, message:str, min_count=1, max_count=1, disjoint=True):
+		sh = rdfutil.SH
+		from rdflib.namespace import DCTERMS
+		p = BNode()
+		qvs = BNode()
+		graph.add((p, sh.path, sh_path))
+		graph.add((qvs, sh.path, DCTERMS.identifier))
+		graph.add((qvs, sh.hasValue, Literal(identifier)))
+		graph.add((p, sh.qualifiedValueShape, qvs))
+		graph.add((p, sh.qufalifiedMinCount, Literal(min_count)))
+		graph.add((p, sh.qualifiedMaxCount, Literal(max_count)))
+		graph.add((p, sh.qualifiedValueShapesDisjoint, Literal(disjoint)))
+		graph.add((p, sh.message, Literal(message, lang='en')))
+		graph.add((shape, sh.property, p))
+		return shape

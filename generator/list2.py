@@ -36,7 +36,7 @@ g.add((p1, sh.qualifiedValueShape, qs))
 g.add((p1, sh.qualifiedMinCount, Literal(0)))
 g.add((p1, sh.qualifiedMaxCount, Literal(1)))
 g.add((p1, sh.qualifiedValueShapesDisjoint, Literal(True)))
-g.add((p1, sh.message, Literal('Must have exactly one input value with identifier ‘method’ '
+g.add((p1, sh.message, Literal('Must has at most one input value with identifier ‘method’ '
                                'for option ‘Method’ of tool ‘Flow Accumulation (Top-Down)’', lang='en')))
 
 g.add((ds, sh.property, p1))

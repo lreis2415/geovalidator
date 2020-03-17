@@ -9,7 +9,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 saga:FlowAccumulationTopDownShape a sh:NodeShape ;
-    sh:property [ sh:message "Must have exactly one input value with identifier ‘method’ for op-tion ‘Method’ of tool ‘Flow Accumulation (Top-Down)’"@en ;
+    sh:property [ sh:message "Must has at most one input value with identifier ‘method’ for option ‘Method’ of tool ‘Flow Accumulation (Top-Down)’"@en ;
             sh:path process:hasInputData ;
             sh:qualifiedMaxCount 1 ;
             sh:qualifiedMinCount 0 ;
