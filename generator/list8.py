@@ -18,42 +18,35 @@ sf = Namespace('http://www.opengis.net/ont/sf#')
 g.bind('data', data)
 g.bind('sh', sh)
 g.bind('arcgis', arcgis)
-g.bind('geo', geo)
-g.bind('sf', sf)
 g.bind('process', process)
 
 # a SHACL triple rule
-rrs = data.ProjectVectorDataRule
+rrs = data.ProjectVectorCGCS2000Rule
 g.add((rrs, RDF.type, sh.NodeShape))
-g.add((rrs, sh.targetClass, arcgis.ArcGISTool))
+g.add((rrs, sh.targetClass, data.VectorData))
 g.add((rrs, sh.description,
-       Literal('For all arcgis tools, if their vector input data do not have a CRS, the ‘project’ tool will be inferred as a pre-processing tool for the data.', lang='en')))
+       Literal('For all vector data, if their CRS is not CGCS 2000 (EPSG:4490),'
+               ' the ‘project’ tool will be inferred as a pre-processing tool for the data', lang='en')))
 
 rule = BNode()
-g.add((rule, RDF.type, sh.TripleRule))
-g.add((rule, sh.subject, sh.this))
-g.add((rule, sh.predicate, process.preprocessor))
-g.add((rule, sh.object, arcgis.project))
+g.add((rule, RDF.type, sh.SPARQLRule))
+g.add((rule, sh.node, data.VectorDataShape))
+# sparql conditions
+rule = Utils.shacl_prefixes(g, rule, [('data', data),('process',process),('arcgis',arcgis)])
+sparql = """
+       CONSTRUCT {
+              $this process:isInputDataOf arcgis:project. # pre-processing
+              # also need a custome geographic transformation
+              arcgis:project process:from arcgis:create_custome_geographic_transformation.
+       }
+       # condition expressed using SPARQL 
+       WHERE {
+              $this data:hasEPSG|data:hasCRS ?epsg .
+              FILTER (?epsg != “EPSG:4490”)
+       }
+       """
 
-# conditions
-cn = BNode()
-g.add((cn, sh.path, process.inputData))
-
-# condition 1
-b_value = BNode()
-g.add((b_value, sh.path, RDF.type))
-g.add((b_value, sh.hasValue, data.VectorData))
-# condition 2
-b_not = BNode()
-b_node = BNode()
-g.add((b_node, sh.node, data.CRSExistenceShape))
-g.add((b_not, sh['not'], b_node))
-g, c, l = Utils.values_collection(g, [b_not, b_value])
-g.add((cn, sh['and'], l))
-
-condition = BNode()
-g.add((condition, sh.property, cn))
-g.add((rule, sh.condition, condition))
+g.add((rule, sh.construct ,Literal(sparql)))
 g.add((rrs, sh.rule, rule))
 
 # save as turtle file
