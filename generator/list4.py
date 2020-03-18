@@ -49,4 +49,4 @@ g.add((es, sh.pattern, Literal('^(urn:ogc:def:crs:EPSG:[0-9.]{,7}:[0-9]{4,5})|^(
 g.add((es, sh.flag, Literal('i')))
 
 # save as turtle file
-g.serialize('../shapes/L4_EPSGShape.ttl', format='turtle')
+g.serialize('../shapes/L4_CRSShape.ttl', format='turtle')

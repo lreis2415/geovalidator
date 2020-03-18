@@ -70,3 +70,5 @@ class GeoValidator(object):
 		results = validate(data_graph, shacl_graph=shape_graph, ont_graph=ont, advanced=True, inference='rdfs', debug=False)
 		# conforms, results_graph, results_text = results
 		return results
+
+

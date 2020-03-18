@@ -46,7 +46,7 @@ g.add((inf, sh.node, data.VectorDataShape))
 
 # SPARQL shape
 sparql_geom = BNode()
-g, sparql_geom = Utils.shacl_prefixes(g, sparql_geom,
+sparql_geom = Utils.shacl_prefixes(g, sparql_geom,
                                       [('geo', geo), ('sf', sf), ('data', data)])
 
 g.add((sparql_geom, sh.message, Literal(
@@ -76,7 +76,7 @@ SELECT $this (data:hasEPSG AS ?path) (?clip_epsg AS ?value)
         }
 """
 sparql_crs = BNode()
-g, sparql_crs = Utils.shacl_prefixes(g, sparql_crs, [('data', data)])
+sparql_crs = Utils.shacl_prefixes(g, sparql_crs, [('data', data)])
 g.add((sparql_crs, sh.message, Literal(
 	'Input Features and Clip Features must have the same coordinate system.',
 	lang='en')))

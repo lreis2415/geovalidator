@@ -5,7 +5,7 @@
 
 from osgeo import gdal, ogr
 from os import path
-from rdflib import BNode, Namespace, Literal, XSD, RDF
+from rdflib import BNode, Namespace, Literal, XSD, RDF, Graph
 from rdflib.collection import Collection
 from pyshacl import rdfutil
 
@@ -112,10 +112,10 @@ class Utils(object):
 			graph.add((pre_node, sh.namespace, Literal(prefix_tuple[1], datatype=XSD.anyURI)))
 			graph.add((prefixes, sh.declare, pre_node))
 		graph.add((sparql, sh.prefixes, prefixes))
-		return graph, sparql
+		return sparql
 
 	@staticmethod
-	def parameter_qualified_value_shape(graph, shape, sh_path, identifier:str, message:str, min_count=1, max_count=1, disjoint=True):
+	def parameter_qualified_value_shape(graph, shape, sh_path, identifier: str, message: str, min_count=1, max_count=1, disjoint=True):
 		sh = rdfutil.SH
 		from rdflib.namespace import DCTERMS
 		p = BNode()
@@ -130,3 +130,21 @@ class Utils(object):
 		graph.add((p, sh.message, Literal(message, lang='en')))
 		graph.add((shape, sh.property, p))
 		return shape
+
+	@staticmethod
+	def functionality_parameters(namespace, functionality, functionality_class, *params_data_iri):
+		"""
+		generate rdf graph that describes the relation between the functionality and its input data
+		:param namespace: of the functionality, e.g., http://www.egc.org/ont/process/arcgis#
+		:param functionality: functionality name, e.g., clip_analysis
+		:param functionality_class: super class, e.g., ArcGISTool
+		:param params_data_iri: data:in_features, in IRI form
+		:return: graph
+		"""
+		g = Graph()
+		ns = Namespace(namespace)
+		process = Namespace("http://www.egc.org/ont/process#")
+		g.add((ns[functionality], RDF.type, ns[functionality_class]))
+		for param_data_iri in params_data_iri:
+			g.add((ns[functionality], process.hasInputData, param_data_iri))
+		return g

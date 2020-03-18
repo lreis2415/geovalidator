@@ -3,7 +3,7 @@
 # author: houzhiwei
 # time: 2020/1/4 15:47
 
-from rdflib import Graph, RDF, Namespace, Literal, XSD, BNode
+from rdflib import Graph, RDF, Namespace, Literal, BNode
 
 g = Graph()
 # namespaces
@@ -42,4 +42,4 @@ g.add((format_n, sh.maxCount, Literal(1)))
 g.add((format_n, sh['class'], data.VectorDataFormat))
 g.add((vds, sh.property, format_n))
 # save as turtle file
-g.serialize('../shapes/L5_EPSGShape.ttl', format='turtle')
+g.serialize('../shapes/L5_VectorDataShape.ttl', format='turtle')

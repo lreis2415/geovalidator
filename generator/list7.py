@@ -26,7 +26,7 @@ g.add((themeShape, sh.path, data.dataTheme))
 # SPARQL shape
 sparql = BNode()
 
-g, sparql = Utils.shacl_prefixes(g, sparql, [('process', process),  ('data', data)])
+sparql = Utils.shacl_prefixes(g, sparql, [('process', process),  ('data', data)])
 g.add((sparql, sh.message, Literal('Data theme (e.g., DEM ) of the output and input data of two functionalities that linked via process:preprocessor must be consistent.', lang='en')))
 
 query = """
