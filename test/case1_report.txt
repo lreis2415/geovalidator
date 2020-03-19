@@ -1,4 +1,4 @@
-```                                                     [100%]Validation Report
+Validation Report
 Conforms: False
 Results (2):
 Constraint Violation in SPARQLConstraintComponent (http://www.w3.org/ns/shacl#SPARQLConstraintComponent):
@@ -25,4 +25,3 @@ Constraint Violation in QualifiedValueShapeConstraintComponent (http://www.w3.or
 	Focus Node: arcgis:clip_analysis
 	Result Path: process:hasInputData
 	Message: Must have exactly one input value with identifier ‘clip_features’ for parameter ‘clip_features’ of tool ‘Clip_analysis’
-```

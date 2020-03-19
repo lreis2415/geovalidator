@@ -1,0 +1,26 @@
+@prefix data: <http://www.egc.org/ont/data#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sf: <http://www.opengis.net/ont/sf#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+data:CRSExistenceShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Checks whether a data set has a CRS."@en ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:minLength 3 ;
+            sh:path [ sh:alternativePath ( data:hasCRS data:hasEPSG ) ] ] .
+
+data:EPSGShape a sh:NodeShape ;
+    sh:datatype xsd:string ;
+    sh:flag "i" ;
+    sh:message "Invalid EPSG code! Must match the pattern ‘urn:ogc:def:crs:EPSG:[version]:[code]’,  ‘http://www.opengis.net/def/crs/EPSG/[version]/[code]’, or ‘EPSG:[code]’"@en ;
+    sh:minLength 9 ;
+    sh:pattern "^(urn:ogc:def:crs:EPSG:[0-9.]{,7}:[0-9]{4,5})|^(http://www.opengis.net/def/crs/EPSG/[0-9.]{1,7}/[0-9]{4,5})|^(EPSG:[0-9]{4,5}" ;
+    sh:targetObjectsOf data:hasEPSG .
+

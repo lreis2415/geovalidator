@@ -1,0 +1,34 @@
+@prefix arcgis: <http://www.egc.org/ont/process/arcgis#> .
+@prefix data: <http://www.egc.org/ont/data#> .
+@prefix process: <http://www.egc.org/ont/process#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+data:ProjectVectorCGCS2000Rule a sh:NodeShape ;
+    sh:description "For all vector data, if their CRS is not CGCS 2000 (EPSG:4490), the ‘project’ tool will be inferred as a pre-processing tool for the data"@en ;
+    sh:rule [ a sh:SPARQLRule ;
+            sh:construct """
+       CONSTRUCT {
+              $this process:isInputDataOf arcgis:project. # pre-processing
+              # also need a custome geographic transformation
+              arcgis:project process:from arcgis:create_custome_geographic_transformation.
+       }
+       # condition expressed using SPARQL 
+       WHERE {
+              $this data:hasEPSG|data:hasCRS ?epsg .
+              FILTER (?epsg != “EPSG:4490”)
+       }
+       """ ;
+            sh:node data:VectorDataShape ;
+            sh:prefixes [ a sh:PrefixDeclaration ;
+                    sh:declare [ sh:namespace "http://www.egc.org/ont/process#"^^xsd:anyURI ;
+                            sh:prefix "process" ],
+                        [ sh:namespace "http://www.egc.org/ont/process/arcgis#"^^xsd:anyURI ;
+                            sh:prefix "arcgis" ],
+                        [ sh:namespace "http://www.egc.org/ont/data#"^^xsd:anyURI ;
+                            sh:prefix "data" ] ] ] ;
+    sh:targetClass data:VectorData .
+

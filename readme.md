@@ -20,8 +20,8 @@ Hands on:
 1. define SHACL shapes graphs. can be coded manually or generated with codes based on rdflib. see generator/list*.py
 2. translate input data to data graph, see generator/to_graphs.py
 3. link functionality to its inputs in data graph
-4. validate input data
-
+4. validate input data, as shown in `test/test_validator.py`
+5. validation reports: `test/case*_report.txt`
 
 
 
