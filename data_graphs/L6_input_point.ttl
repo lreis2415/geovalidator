@@ -31,5 +31,5 @@ data:in_features_data a data:VectorData ;
     data:southBoundingCoordinate 4.151e+01 ;
     data:spatialExtent "97.110,41.510,97.110,41.510"^^xsd:string ;
     data:westBoundingCoordinate 9.711e+01 ;
-    geo:hasGeometry sf:Point .
+    geo:hasGeometry [ a sf:Point ] .
 

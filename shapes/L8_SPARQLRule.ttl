@@ -1,34 +1,71 @@
 @prefix arcgis: <http://www.egc.org/ont/process/arcgis#> .
 @prefix data: <http://www.egc.org/ont/data#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix process: <http://www.egc.org/ont/process#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sf: <http://www.opengis.net/ont/sf#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+data:CRSExistenceShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Checks whether a data set has a CRS."@en ;
+            sh:maxCount 1 ;
+            sh:message "Vector must have a CRS."@en ;
+            sh:minCount 1 ;
+            sh:minLength 3 ;
+            sh:path [ sh:alternativePath ( data:hasCRS data:hasEPSG ) ] ] .
+
 data:ProjectVectorCGCS2000Rule a sh:NodeShape ;
     sh:description "For all vector data, if their CRS is not CGCS 2000 (EPSG:4490), the ‘project’ tool will be inferred as a pre-processing tool for the data"@en ;
+    sh:node data:VectorDataShape ;
     sh:rule [ a sh:SPARQLRule ;
             sh:construct """
        CONSTRUCT {
               $this process:isInputDataOf arcgis:project. # pre-processing
-              # also need a custome geographic transformation
-              arcgis:project process:from arcgis:create_custome_geographic_transformation.
+              # also need a custom geographic transformation
+              arcgis:project process:from arcgis:create_custom_geographic_transformation.
        }
        # condition expressed using SPARQL 
        WHERE {
-              $this data:hasEPSG|data:hasCRS ?epsg .
-              FILTER (?epsg != “EPSG:4490”)
+              $this data:hasEPSG | data:hasCRS ?epsg .
+              FILTER (?epsg != "EPSG:4490")
        }
        """ ;
-            sh:node data:VectorDataShape ;
             sh:prefixes [ a sh:PrefixDeclaration ;
-                    sh:declare [ sh:namespace "http://www.egc.org/ont/process#"^^xsd:anyURI ;
-                            sh:prefix "process" ],
+                    sh:declare [ sh:namespace "http://www.egc.org/ont/data#"^^xsd:anyURI ;
+                            sh:prefix "data" ],
                         [ sh:namespace "http://www.egc.org/ont/process/arcgis#"^^xsd:anyURI ;
                             sh:prefix "arcgis" ],
-                        [ sh:namespace "http://www.egc.org/ont/data#"^^xsd:anyURI ;
-                            sh:prefix "data" ] ] ] ;
+                        [ sh:namespace "http://www.egc.org/ont/process#"^^xsd:anyURI ;
+                            sh:prefix "process" ] ] ] ;
+    sh:targetClass data:VectorData .
+
+data:EPSGShape a sh:NodeShape ;
+    sh:datatype xsd:string ;
+    sh:flag "i" ;
+    sh:message "Invalid EPSG code! Must match the pattern ‘urn:ogc:def:crs:EPSG:[version]:[code]’,  ‘http://www.opengis.net/def/crs/EPSG/[version]/[code]’, or ‘EPSG:[code]’"@en ;
+    sh:minLength 9 ;
+    sh:pattern "^(urn:ogc:def:crs:EPSG:[0-9.]{1,7}:[0-9]{4,5})|^(http://www.opengis.net/def/crs/EPSG/[0-9.]{1,7}/[0-9]{4,5})|^(EPSG:[0-9]{4,5})" ;
+    sh:targetObjectsOf data:hasEPSG .
+
+data:VectorDataShape a sh:NodeShape ;
+    sh:property [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:node data:EPSGShape ;
+            sh:path data:hasEPSG ],
+        [ sh:class data:VectorFormat ;
+            sh:maxCount 1 ;
+            sh:message "Must be vector data format" ;
+            sh:minCount 1 ;
+            sh:path data:dataFormat ],
+        [ sh:class sf:Geometry ;
+            sh:maxCount 1 ;
+            sh:message "Vector data must declare a geometry type "@en ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ] ;
     sh:targetClass data:VectorData .
 

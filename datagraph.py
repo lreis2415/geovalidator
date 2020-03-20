@@ -4,7 +4,7 @@
 # time: 2020/1/5 18:01
 
 import os, re
-from rdflib import Graph, RDF, Namespace, Literal, XSD
+from rdflib import Graph, RDF, Namespace, Literal, XSD, BNode
 from rdflib.namespace import DCTERMS, SKOS
 from metadata import GeoMetadata
 from utils import Utils
@@ -49,7 +49,9 @@ class DataGraph(object):
 		:param file_path:
 		:return: file path
 		"""
-		if not os.path.exists(os.path.dirname(file_path)):
+		file_dir = os.path.dirname(file_path)
+		if os.path.isdir(file_dir) and not os.path.exists(file_dir):
+		# if not os.path.exists(os.path.dirname(file_path)):
 			os.makedirs(file_path)
 		graph.serialize(file_path, format='turtle')
 		return file_path
@@ -127,7 +129,9 @@ class DataGraph(object):
 			g.add((d, data_ns.hasCRS, Literal(metadata['projcs'])))
 		else:
 			g.add((d, data_ns.hasCRS, Literal(metadata['geogcs'])))
-		g.add((d, self.geo.hasGeometry, self.sf[metadata['geometry']]))
+		gb = BNode()
+		g.add((gb, RDF.type, self.sf[metadata['geometry']]))
+		g.add((d, self.geo.hasGeometry, gb))
 		ddtype = XSD.double
 		g.add((d, data_ns.centralX, Literal(self._format(metadata['centroid'][0]), datatype=ddtype)))
 		g.add((d, data_ns.centralY, Literal(self._format(metadata['centroid'][1]), datatype=ddtype)))

@@ -1,0 +1,60 @@
+@prefix : <file:///F:/workspace/GeoValidator/shapes/L6_SparqlShape.ttl#> .
+@prefix arcgis: <http://www.egc.org/ont/process/arcgis#> .
+@prefix data: <http://www.egc.org/ont/data#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix process: <http://www.egc.org/ont/process#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sf: <http://www.opengis.net/ont/sf#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode data:clip_features_data ;
+            sh:resultMessage "Clip features cannot be used to clip input features. When the Input Features are polygons, the Clip Features must also be polygons. When the Input Features are lines, the Clip Features can be lines or polygons. When the Input Features are points, the Clip Features can be points, lines, or polygons."@en ;
+            sh:resultPath geo:hasGeometry ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraint [ sh:message "Clip features cannot be used to clip input features. When the Input Features are polygons, the Clip Features must also be polygons. When the Input Features are lines, the Clip Features can be lines or polygons. When the Input Features are points, the Clip Features can be points, lines, or polygons."@en ;
+                    sh:prefixes [ a sh:PrefixDeclaration ;
+                            sh:declare [ sh:namespace "http://www.egc.org/ont/data#"^^xsd:anyURI ;
+                                    sh:prefix "data" ],
+                                [ sh:namespace "http://www.opengis.net/ont/geosparql#"^^xsd:anyURI ;
+                                    sh:prefix "geo" ],
+                                [ sh:namespace "http://www.opengis.net/ont/sf#"^^xsd:anyURI ;
+                                    sh:prefix "sf" ] ] ;
+                    sh:select """
+SELECT $this (geo:hasGeometry AS ?path) (?clip_geom AS ?value)
+	WHERE {
+		$this geo:hasGeometry ?clip_geom.
+        data:in_features_data geo:hasGeometry ?in_geom.
+		FILTER ( 
+			IF(EXISTS {?in_geom a sf:Point},false,true)||
+            IF(EXISTS {?in_geom a sf:Line} && NOT EXISTS {?clip_geom a sf:Point},false,true)||
+            IF(EXISTS {?in_geom a sf:Polygon} && EXISTS {?clip_geom a sf:Polygon},false,true)). 
+        }
+""" ] ;
+            sh:sourceConstraintComponent sh:SPARQLConstraintComponent ;
+            sh:sourceShape arcgis:clip_features ;
+            sh:value [ a geo:Geometry,
+                        geo:SpatialObject,
+                        sf:Geometry,
+                        sf:Point,
+                        rdfs:Resource ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode arcgis:clip_analysis ;
+            sh:resultMessage "Must have exactly one input value with identifier ‘clip_features’ for parameter ‘clip_features’ of tool ‘Clip_analysis’"@en ;
+            sh:resultPath process:hasInputData ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:QualifiedMinCountConstraintComponent ;
+            sh:sourceShape [ sh:message "Must have exactly one input value with identifier ‘clip_features’ for parameter ‘clip_features’ of tool ‘Clip_analysis’"@en ;
+                    sh:path process:hasInputData ;
+                    sh:qualifiedMaxCount 1 ;
+                    sh:qualifiedMinCount 1 ;
+                    sh:qualifiedValueShape [ sh:hasValue "clip_features" ;
+                            sh:path dcterms:identifier ] ;
+                    sh:qualifiedValueShapesDisjoint true ] ] .
+

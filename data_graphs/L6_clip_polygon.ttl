@@ -31,5 +31,5 @@ data:clip_features_data a data:VectorData ;
     data:southBoundingCoordinate 3.772e+01 ;
     data:spatialExtent "96.138,37.720,104.186,43.327"^^xsd:string ;
     data:westBoundingCoordinate 9.6138e+01 ;
-    geo:hasGeometry sf:Polygon .
+    geo:hasGeometry [ a sf:Polygon ] .
 

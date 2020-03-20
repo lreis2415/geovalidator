@@ -21,9 +21,19 @@ Hands on:
 2. translate input data to data graph, see generator/to_graphs.py
 3. link functionality to its inputs in data graph
 4. validate input data, as shown in `test/test_validator.py`
-5. validation reports: `test/case*_report.txt`
+5. validation reports: `test/case*_report.ttl`
 
-
+Note:
+for validation report part:
+```turtle
+sh:value [ a geo:Geometry,
+             geo:SpatialObject,
+             sf:Geometry,
+             sf:Point,
+             rdfs:Resource ]
+```
+the value is an instance of `sf:Point`, thus it is also an instance of `sf:Geometry` and other classes .
+(`sf:Geometry` is a subclass of `geo:Geometry`)
 
 ---
 [SHACL Playground](https://shacl.org/playground/) is perfect for testing constraints defined using built-in SHACL Core Constraint Components

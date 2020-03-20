@@ -10,57 +10,91 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+data:CRSExistenceShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Checks whether a data set has a CRS."@en ;
+            sh:maxCount 1 ;
+            sh:message "Vector must have a CRS."@en ;
+            sh:minCount 1 ;
+            sh:minLength 3 ;
+            sh:path [ sh:alternativePath ( data:hasCRS data:hasEPSG ) ] ] .
+
 arcgis:ClipAnalysisShape a sh:NodeShape ;
-    sh:property [ sh:message "Must have exactly one input value with identifier ‘in_features’ for parameter ‘in_features’ of tool ‘Clip_analysis’"@en ;
+    sh:property [ sh:message "Must have exactly one input value with identifier ‘clip_features’ for parameter ‘clip_features’ of tool ‘Clip_analysis’"@en ;
             sh:path process:hasInputData ;
             sh:qualifiedMaxCount 1 ;
-            sh:qualifiedValueShape [ sh:hasValue "in_features" ;
-                    sh:path dcterms:identifier ] ;
-            sh:qualifiedValueShapesDisjoint true ;
-            sh:qualifiedMinCount 1 ],
-        [ sh:message "Must have exactly one input value with identifier ‘clip_features’ for parameter ‘clip_features’ of tool ‘Clip_analysis’"@en ;
-            sh:path process:hasInputData ;
-            sh:qualifiedMaxCount 1 ;
+            sh:qualifiedMinCount 1 ;
             sh:qualifiedValueShape [ sh:hasValue "clip_features" ;
                     sh:path dcterms:identifier ] ;
-            sh:qualifiedValueShapesDisjoint true ;
-            sh:qualifiedMinCount 1 ] ;
+            sh:qualifiedValueShapesDisjoint true ],
+        [ sh:message "Must have exactly one input with identifier ‘in_features’ for parameter ‘in_features’ of tool ‘Clip_analysis’"@en ;
+            sh:path process:hasInputData ;
+            sh:qualifiedMaxCount 1 ;
+            sh:qualifiedMinCount 1 ;
+            sh:qualifiedValueShape [ sh:hasValue "in_features" ;
+                    sh:path dcterms:identifier ] ;
+            sh:qualifiedValueShapesDisjoint true ] ;
     sh:targetNode arcgis:clip_analysis .
 
 arcgis:clip_features a arcgis:ArcGISInput,
         sh:NodeShape ;
     sh:description "Parameter clip_features: the features to clip input features in ArcGIS Clip analysis"@en ;
     sh:node data:VectorDataShape ;
-    sh:sparql [ sh:message "Clip features cannot be used to clip input features. When the Input Features are polygons, the Clip Features must also be polygons. When the Input Features are lines, the Clip Features can be lines or polygons. When the Input Features are points, the Clip Features can be points, lines, or polygons."@en ;
-            sh:prefixes [ a sh:PrefixDeclaration ;
-                    sh:declare [ sh:namespace "http://www.opengis.net/ont/geosparql#"^^xsd:anyURI ;
-                            sh:prefix "geo" ],
-                        [ sh:namespace "http://www.egc.org/ont/data#"^^xsd:anyURI ;
-                            sh:prefix "data" ],
-                        [ sh:namespace "http://www.opengis.net/ont/sf#"^^xsd:anyURI ;
-                            sh:prefix "sf" ] ] ;
-            sh:select """
-        SELECT $this (geo:hasGeometry AS ?path) (?clip_geom AS ?value)
-            WHERE {
-                $this geo:hasGeometry ?clip_geom.
-                data:in_features_data geo:hasGeometry ?in_geom.
-                FILTER (
-                    IF(EXISTS {?in_geom a sf:Point},false,true)||
-                    IF(EXISTS {?in_geom a sf:Line} && NOT EXISTS {?clip_geom a sf:Point},false,true)||
-                    IF(EXISTS {?in_geom a sf:Polygon} && EXISTS {?clip_geom a sf:Polygon},false,true)).
-                }
-        """ ],
-        [ sh:message "Input Features and Clip Features must have the same coordinate system."@en ;
+    sh:sparql [ sh:message "Input Features and Clip Features must have the same coordinate system."@en ;
             sh:prefixes [ a sh:PrefixDeclaration ;
                     sh:declare [ sh:namespace "http://www.egc.org/ont/data#"^^xsd:anyURI ;
                             sh:prefix "data" ] ] ;
             sh:select """
-        SELECT $this (data:hasEPSG AS ?path) (?clip_epsg AS ?value)
-            WHERE {
-                $this data:hasEPSG ?clip_epsg.
-                data:in_features_data data:hasEPSG ?in_epsg.
-                FILTER (?in_epsg !=?clip_epsg).
-                }
-        """ ] ;
+SELECT $this (data:hasEPSG AS ?path) (?clip_epsg AS ?value)
+	WHERE {
+		$this data:hasEPSG ?clip_epsg.
+        data:in_features_data data:hasEPSG ?in_epsg.
+		FILTER (?in_epsg !=?clip_epsg). 
+        }
+""" ],
+        [ sh:message "Clip features cannot be used to clip input features. When the Input Features are polygons, the Clip Features must also be polygons. When the Input Features are lines, the Clip Features can be lines or polygons. When the Input Features are points, the Clip Features can be points, lines, or polygons."@en ;
+            sh:prefixes [ a sh:PrefixDeclaration ;
+                    sh:declare [ sh:namespace "http://www.egc.org/ont/data#"^^xsd:anyURI ;
+                            sh:prefix "data" ],
+                        [ sh:namespace "http://www.opengis.net/ont/sf#"^^xsd:anyURI ;
+                            sh:prefix "sf" ],
+                        [ sh:namespace "http://www.opengis.net/ont/geosparql#"^^xsd:anyURI ;
+                            sh:prefix "geo" ] ] ;
+            sh:select """
+SELECT $this (geo:hasGeometry AS ?path) (?clip_geom AS ?value)
+	WHERE {
+		$this geo:hasGeometry ?clip_geom.
+        data:in_features_data geo:hasGeometry ?in_geom.
+		FILTER ( 
+			IF(EXISTS {?in_geom a sf:Point},false,true)||
+            IF(EXISTS {?in_geom a sf:Line} && NOT EXISTS {?clip_geom a sf:Point},false,true)||
+            IF(EXISTS {?in_geom a sf:Polygon} && EXISTS {?clip_geom a sf:Polygon},false,true)). 
+        }
+""" ] ;
     sh:targetNode data:clip_features_data .
+
+data:EPSGShape a sh:NodeShape ;
+    sh:datatype xsd:string ;
+    sh:flag "i" ;
+    sh:message "Invalid EPSG code! Must match the pattern ‘urn:ogc:def:crs:EPSG:[version]:[code]’,  ‘http://www.opengis.net/def/crs/EPSG/[version]/[code]’, or ‘EPSG:[code]’"@en ;
+    sh:minLength 9 ;
+    sh:pattern "^(urn:ogc:def:crs:EPSG:[0-9.]{1,7}:[0-9]{4,5})|^(http://www.opengis.net/def/crs/EPSG/[0-9.]{1,7}/[0-9]{4,5})|^(EPSG:[0-9]{4,5})" ;
+    sh:targetObjectsOf data:hasEPSG .
+
+data:VectorDataShape a sh:NodeShape ;
+    sh:property [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:node data:EPSGShape ;
+            sh:path data:hasEPSG ],
+        [ sh:class data:VectorFormat ;
+            sh:maxCount 1 ;
+            sh:message "Must be vector data format" ;
+            sh:minCount 1 ;
+            sh:path data:dataFormat ],
+        [ sh:class sf:Geometry ;
+            sh:maxCount 1 ;
+            sh:message "Vector data must declare a geometry type "@en ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ] ;
+    sh:targetClass data:VectorData .
 

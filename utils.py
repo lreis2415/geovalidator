@@ -124,7 +124,7 @@ class Utils(object):
 		graph.add((qvs, sh.path, DCTERMS.identifier))
 		graph.add((qvs, sh.hasValue, Literal(identifier)))
 		graph.add((p, sh.qualifiedValueShape, qvs))
-		graph.add((p, sh.qufalifiedMinCount, Literal(min_count)))
+		graph.add((p, sh.qualifiedMinCount, Literal(min_count)))
 		graph.add((p, sh.qualifiedMaxCount, Literal(max_count)))
 		graph.add((p, sh.qualifiedValueShapesDisjoint, Literal(disjoint)))
 		graph.add((p, sh.message, Literal(message, lang='en')))

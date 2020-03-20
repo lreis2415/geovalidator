@@ -3,9 +3,12 @@
 # author: houzhiwei
 # time: 2020/1/4 15:47
 
-from rdflib import Graph, RDF, Namespace, Literal, BNode
+from rdflib import Graph, RDF, Namespace, Literal, BNode,RDFS
+from utils import Utils
 
 g = Graph()
+# EPSGShape
+g.parse('../shapes/L4_CRSShape.ttl', format='turtle')
 # namespaces
 data = Namespace("http://www.egc.org/ont/data#")
 sh = Namespace("http://www.w3.org/ns/shacl#")
@@ -18,6 +21,7 @@ g.bind('sh', sh)
 vds = data.VectorDataShape
 g.add((vds, RDF.type, sh.NodeShape))
 g.add((vds, sh.targetClass, data.VectorData))
+
 geon = BNode()
 g.add((geon, sh.path, geo.hasGeometry))
 g.add((geon, sh['class'], sf.Geometry))
@@ -39,7 +43,8 @@ format_n = BNode()
 g.add((format_n, sh.path, data.dataFormat))
 g.add((format_n, sh.minCount, Literal(1)))
 g.add((format_n, sh.maxCount, Literal(1)))
-g.add((format_n, sh['class'], data.VectorDataFormat))
+g.add((format_n, sh['class'], data.VectorFormat))
+g.add((format_n, sh.message, Literal('Must be vector data format')))
 g.add((vds, sh.property, format_n))
 # save as turtle file
 g.serialize('../shapes/L5_VectorDataShape.ttl', format='turtle')

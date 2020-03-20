@@ -40,7 +40,7 @@ data:in_features_data a data:VectorData ;
     data:southBoundingCoordinate 3.772e+01 ;
     data:spatialExtent "96.138,37.720,104.186,43.327"^^xsd:string ;
     data:westBoundingCoordinate 9.6138e+01 ;
-    geo:hasGeometry sf:Polygon .
+    geo:hasGeometry [ a sf:Polygon ] .
 
 
 data:clip_features_data a data:VectorData ;
@@ -65,5 +65,5 @@ data:clip_features_data a data:VectorData ;
     data:southBoundingCoordinate 4.151e+01 ;
     data:spatialExtent "97.110,41.510,97.110,41.510"^^xsd:string ;
     data:westBoundingCoordinate 9.711e+01 ;
-    geo:hasGeometry sf:Point .
+    geo:hasGeometry [ a sf:Point ] .
 

@@ -8,6 +8,8 @@ from rdflib.namespace import DCTERMS
 from utils import Utils
 
 g = Graph()
+# vector data shape
+g.parse('../shapes/L5_VectorDataShape.ttl',format='turtle')
 # namespaces
 data = Namespace("http://www.egc.org/ont/data#")
 arcgis = Namespace("http://www.egc.org/ont/process/arcgis#")
@@ -27,7 +29,7 @@ g.bind('dcterms', DCTERMS)
 cap = arcgis.ClipAnalysisShape
 g.add((cap, RDF.type, sh.NodeShape))
 g.add((cap, sh.targetNode, arcgis.clip_analysis))
-msg1 = 'Must have exactly one input value with identifier ' \
+msg1 = 'Must have exactly one input with identifier ' \
        '‘in_features’ for parameter ‘in_features’ of tool ‘Clip_analysis’'
 cap = Utils.parameter_qualified_value_shape(g, cap, process.hasInputData, 'in_features', msg1)
 

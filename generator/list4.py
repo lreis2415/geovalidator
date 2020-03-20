@@ -34,6 +34,7 @@ g.add((p0, sh.maxCount, Literal(1)))
 g.add((p0, sh.datatype, XSD.string))
 g.add((p0, sh.minLength, Literal(3)))
 g.add((p0, sh.description, Literal('Checks whether a data set has a CRS.', lang='en')))
+g.add((p0, sh.message, Literal('Vector must have a CRS.', lang='en')))
 g.add((srk, sh.property, p0))
 
 # SHACL shape graph
@@ -45,7 +46,7 @@ g.add((es, sh.message,
                lang='en')))
 g.add((es, sh.datatype, XSD.string))
 g.add((es, sh.minLength, Literal(9)))
-g.add((es, sh.pattern, Literal('^(urn:ogc:def:crs:EPSG:[0-9.]{,7}:[0-9]{4,5})|^(http://www.opengis.net/def/crs/EPSG/[0-9.]{1,7}/[0-9]{4,5})|^(EPSG:[0-9]{4,5}')))
+g.add((es, sh.pattern, Literal('^(urn:ogc:def:crs:EPSG:[0-9.]{1,7}:[0-9]{4,5})|^(http://www.opengis.net/def/crs/EPSG/[0-9.]{1,7}/[0-9]{4,5})|^(EPSG:[0-9]{4,5})')))
 g.add((es, sh.flag, Literal('i')))
 
 # save as turtle file

@@ -7,6 +7,8 @@ from rdflib import BNode, Graph, RDF, Namespace, Literal
 from utils import Utils
 
 g = Graph()
+# vector data shape
+g.parse('../shapes/L5_VectorDataShape.ttl',format='turtle')
 # namespaces
 data = Namespace("http://www.egc.org/ont/data#")
 process = Namespace("http://www.egc.org/ont/process#")
@@ -30,24 +32,24 @@ g.add((rrs, sh.description,
 
 rule = BNode()
 g.add((rule, RDF.type, sh.SPARQLRule))
-g.add((rule, sh.node, data.VectorDataShape))
 # sparql conditions
 rule = Utils.shacl_prefixes(g, rule, [('data', data),('process',process),('arcgis',arcgis)])
 sparql = """
        CONSTRUCT {
               $this process:isInputDataOf arcgis:project. # pre-processing
-              # also need a custome geographic transformation
-              arcgis:project process:from arcgis:create_custome_geographic_transformation.
+              # also need a custom geographic transformation
+              arcgis:project process:from arcgis:create_custom_geographic_transformation.
        }
        # condition expressed using SPARQL 
        WHERE {
-              $this data:hasEPSG|data:hasCRS ?epsg .
-              FILTER (?epsg != “EPSG:4490”)
+              $this data:hasEPSG | data:hasCRS ?epsg .
+              FILTER (?epsg != "EPSG:4490")
        }
        """
 
 g.add((rule, sh.construct ,Literal(sparql)))
+g.add((rrs, sh.node, data.VectorDataShape))
 g.add((rrs, sh.rule, rule))
 
 # save as turtle file
-g.serialize('../shapes/L8_TripleRule.ttl', format='turtle')
+g.serialize('../shapes/L8_SPARQLRule.ttl', format='turtle')

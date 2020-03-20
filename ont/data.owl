@@ -198,6 +198,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.egc.org/ont/data#dataFormat">
         <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/data#formatRelation"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/data#DataType"/>
         <rdfs:range rdf:resource="http://www.egc.org/ont/data#DataFormat"/>
     </owl:ObjectProperty>
     
@@ -206,15 +207,6 @@
     <!-- http://www.egc.org/ont/data#dataRelation -->
 
     <owl:ObjectProperty rdf:about="http://www.egc.org/ont/data#dataRelation"/>
-    
-
-
-    <!-- http://www.egc.org/ont/data#feature -->
-
-    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/data#feature">
-        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/data#dataRelation"/>
-        <dcterms:isReplacedBy rdf:resource="http://www.opengis.net/ont/geosparql#hasGeometry"/>
-    </owl:ObjectProperty>
     
 
 
@@ -338,6 +330,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.egc.org/ont/data#supportedSoftware">
         <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/data#formatRelation"/>
+        <rdfs:range rdf:resource="http://www.egc.org/ont/gis/cyber#Software"/>
         <skos:definition xml:lang="en">software which supports read (and write/create)  this format</skos:definition>
         <skos:prefLabel xml:lang="en">supported software</skos:prefLabel>
         <skos:prefLabel xml:lang="zh-cn">支持(读写)的软件</skos:prefLabel>
@@ -1006,6 +999,8 @@
 
     <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/data#dataTheme">
         <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/data#dataProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
     
 
@@ -1922,8 +1917,10 @@
     <!-- http://www.egc.org/ont/data#ArcGISDataType -->
 
     <owl:Class rdf:about="http://www.egc.org/ont/data#ArcGISDataType">
-        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#GeoSpatialData"/>
-        <rdfs:comment xml:lang="en">In addition to simple data types, there are dozens of other data types built specifically for data found in ArcGIS, such as field, coordinate system, and extent.
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ComplexData"/>
+        <rdfs:comment xml:lang="en">Data types are classifications that identify possible values for data and operations that can be done on the data, as well as the way the data is stored
+
+In addition to simple data types, there are dozens of other data types built specifically for data found in ArcGIS, such as field, coordinate system, and extent.
 
 Documentation for each data type is found in Geoprocessing_data_types.pdf from the \arcgis\Documentation folder in ArcGIS for Desktop installation location.</rdfs:comment>
     </owl:Class>
@@ -1994,6 +1991,16 @@ Documentation for each data type is found in Geoprocessing_data_types.pdf from t
     
 
 
+    <!-- http://www.egc.org/ont/data#CellSize -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#CellSize">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">The cell size used by Spatial Analyst.</dc:description>
+        <skos:prefLabel xml:lang="en">Cell Size</skos:prefLabel>
+    </owl:Class>
+    
+
+
     <!-- http://www.egc.org/ont/data#ClimaticData -->
 
     <owl:Class rdf:about="http://www.egc.org/ont/data#ClimaticData">
@@ -2009,6 +2016,17 @@ Documentation for each data type is found in Geoprocessing_data_types.pdf from t
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This type is kept generic regarding the content and may be extended to provide more detailed domain-specific information. 
 The ComplexData type does not describe the particular structure for value encoding. Instead, the passed values must comply with the given format and the extended information, if provided.</rdfs:comment>
         <skos:example rdf:datatype="http://www.w3.org/2001/XMLSchema#string">WKT, GML or geo-referenced imagery.</skos:example>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#Coverage -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#Coverage">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#RasterData"/>
+        <dc:description xml:lang="en">A courage dataset, a proprietary data model for storing geographic features as points, arcs, polygons with associated feature attribute tables.</dc:description>
+        <skos:prefLabel xml:lang="en">Coverage</skos:prefLabel>
     </owl:Class>
     
 
@@ -2076,6 +2094,35 @@ The ComplexData type does not describe the particular structure for value encodi
     
 
 
+    <!-- http://www.egc.org/ont/data#Envelope -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#Envelope">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">The coordinate pairs that define the minimum bounding rectangle the data source fall within.</dc:description>
+        <skos:prefLabel xml:lang="en">Envelope</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#Feature_Layer -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#Feature_Layer">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#Folder -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#Folder">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">Specifies a location on a disk where data is stored.</dc:description>
+        <skos:prefLabel xml:lang="en">Folder</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">Folder | Workspace</skos:prefLabel>
+    </owl:Class>
+    
+
+
     <!-- http://www.egc.org/ont/data#GMLSchema -->
 
     <owl:Class rdf:about="http://www.egc.org/ont/data#GMLSchema">
@@ -2109,10 +2156,59 @@ The ComplexData type does not describe the particular structure for value encodi
     
 
 
+    <!-- http://www.egc.org/ont/data#GeodataServer -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#GeodataServer">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A coarse grain object that references a geodatabase.</dc:description>
+        <skos:prefLabel xml:lang="en">GeoDataServer</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#Geodataset -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#Geodataset">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A collection of data with a common theme in a
+geodatabase.</dc:description>
+        <skos:prefLabel xml:lang="en">Geodataset</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#GeogCS -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#GeogCS">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#Projection"/>
+        <rdfs:label xml:lang="en">Geographic Coordinate System</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://www.egc.org/ont/data#GridBasedRaster -->
 
     <owl:Class rdf:about="http://www.egc.org/ont/data#GridBasedRaster">
+        <owl:equivalentClass rdf:resource="http://www.egc.org/ont/data#GridRaster"/>
         <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#RasterData"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#GridRaster -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#GridRaster">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#RasterData"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#GridSystem -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#GridSystem">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#RasterData"/>
+        <rdfs:comment>SAGA GIS</rdfs:comment>
+        <skos:definition xml:lang="en">A grid system groups grid layers that have the same grid cell size, have the same number of rows and columns and cover the same geographic area. Generally, spatial analysis operations are performed on grids with the same grid system</skos:definition>
     </owl:Class>
     
 
@@ -2157,6 +2253,31 @@ The ComplexData type does not describe the particular structure for value encodi
     
 
 
+    <!-- http://www.egc.org/ont/data#Image -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#Image">
+        <owl:equivalentClass rdf:resource="http://www.egc.org/ont/data#ImageryRaster"/>
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#RasterData"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#ImageryGroup -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#ImageryGroup">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#RasterData"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#ImageryRaster -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#ImageryRaster">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#RasterData"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.egc.org/ont/data#InternetMediaType -->
 
     <owl:Class rdf:about="http://www.egc.org/ont/data#InternetMediaType">
@@ -2170,6 +2291,22 @@ The ComplexData type does not describe the particular structure for value encodi
 
     <owl:Class rdf:about="http://www.egc.org/ont/data#LandCover">
         <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#BasicGeographicData"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#Lidar -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#Lidar">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#RasterData"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#Line -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#Line">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#VectorData"/>
     </owl:Class>
     
 
@@ -2240,6 +2377,14 @@ The ComplexData type does not describe the particular structure for value encodi
     
 
 
+    <!-- http://www.egc.org/ont/data#Point -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#Point">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#VectorData"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.egc.org/ont/data#PointBasedRaster -->
 
     <owl:Class rdf:about="http://www.egc.org/ont/data#PointBasedRaster">
@@ -2256,10 +2401,41 @@ The ComplexData type does not describe the particular structure for value encodi
     
 
 
+    <!-- http://www.egc.org/ont/data#Polygon -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#Polygon">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#VectorData"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.egc.org/ont/data#ProgramFileFormat -->
 
     <owl:Class rdf:about="http://www.egc.org/ont/data#ProgramFileFormat">
         <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#GeoSpatialFormat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#ProjCS -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#ProjCS">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#Projection"/>
+        <rdfs:label xml:lang="en">Projected Coordinate System</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#Projection -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#Projection"/>
+    
+
+
+    <!-- http://www.egc.org/ont/data#Raster3d -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#Raster3d">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#RasterData"/>
     </owl:Class>
     
 
@@ -2272,10 +2448,33 @@ The ComplexData type does not describe the particular structure for value encodi
     
 
 
+    <!-- http://www.egc.org/ont/data#RasterDataset -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#RasterDataset">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#RasterData"/>
+        <dc:description xml:lang="en">A single dataset built from one or more rasters.</dc:description>
+        <skos:prefLabel xml:lang="en">Raster Dataset</skos:prefLabel>
+    </owl:Class>
+    
+
+
     <!-- http://www.egc.org/ont/data#RasterFormat -->
 
     <owl:Class rdf:about="http://www.egc.org/ont/data#RasterFormat">
         <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#GeoSpatialFormat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#RasterLayer -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#RasterLayer">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#RasterData"/>
+        <dc:description xml:lang="en">A reference to a raster, including symbology and
+rendering properties.</dc:description>
+        <skos:prefLabel xml:lang="en">Raster Layer</skos:prefLabel>
     </owl:Class>
     
 
@@ -2320,6 +2519,14 @@ The ComplexData type does not describe the particular structure for value encodi
     
 
 
+    <!-- http://www.egc.org/ont/data#SpectralRaster -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#SpectralRaster">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#RasterData"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.egc.org/ont/data#Station -->
 
     <owl:Class rdf:about="http://www.egc.org/ont/data#Station">
@@ -2332,6 +2539,16 @@ The ComplexData type does not describe the particular structure for value encodi
 
     <owl:Class rdf:about="http://www.egc.org/ont/data#StillImage">
         <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#DataFormat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#TIN -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#TIN">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#VectorData"/>
+        <dc:description xml:lang="en">A vector data structure that partitions geographic space into contiguous, non-overlapping triangles. The vertices of each triangle are sample data points with x-, y-, and z values.</dc:description>
+        <skos:prefLabel xml:lang="en">TIN [Triangulated Irregular Network]</skos:prefLabel>
     </owl:Class>
     
 
@@ -2356,6 +2573,15 @@ The ComplexData type does not describe the particular structure for value encodi
 
     <owl:Class rdf:about="http://www.egc.org/ont/data#Textual">
         <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#DataFormat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#ThematicRaster -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#ThematicRaster">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#RasterData"/>
+        <skos:example>DEM</skos:example>
     </owl:Class>
     
 
@@ -2400,6 +2626,1317 @@ The ComplexData type does not describe the particular structure for value encodi
     
 
 
+    <!-- http://www.egc.org/ont/data#address_locator -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#address_locator">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A dataset, used for geocoding, that stores the address attributes, associated indexes, and rules that define the process for translating nonspatial descriptions of places to spatial data. [.loc]</dc:description>
+        <skos:prefLabel xml:lang="en">Address locator</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#address_locator_style -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#address_locator_style">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A template on which to base the new address locator. [.lot]</dc:description>
+        <skos:prefLabel xml:lang="en">Address locator style</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#analysis_cell_size -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#analysis_cell_size">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">The cell size used by raster tools.</dc:description>
+        <skos:prefLabel xml:lang="en">Analysis cell size</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#any_value -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#any_value">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A data type that accepts any value.</dc:description>
+        <skos:prefLabel xml:lang="en">Any value</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#arcmap_document -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#arcmap_document">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A file that contains one map, its layout, and its associated
+layers, tables, charts, and reports. [.mxd]</dc:description>
+        <skos:prefLabel xml:lang="en">ArcMap Document</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#area_units -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#area_units">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">An areal unit type and value such as square meter or
+acre.</dc:description>
+        <skos:prefLabel xml:lang="en">Area units</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#areal_unit -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#areal_unit">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <skos:prefLabel xml:lang="en">Areal Unit</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#cad_drawing_dataset -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#cad_drawing_dataset">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A vector data source with a mix of feature types with
+symbology. The dataset is not usable for feature class
+based queries or analysis.</dc:description>
+        <skos:prefLabel xml:lang="en">CAD Drawing Dataset</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#catalog_root -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#catalog_root">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">The top-level node in the catalog tree.</dc:description>
+        <skos:prefLabel xml:lang="en">Catalog Root</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#cell_size_xy -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#cell_size_xy">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <skos:prefLabel xml:lang="en">Cell Size XY</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#composite_datatype -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#composite_datatype">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A collection of datatypes.</dc:description>
+        <skos:prefLabel xml:lang="en">Composite Datatype</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#composite_geodataset -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#composite_geodataset">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <skos:prefLabel xml:lang="en">Composite Geodataset</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#composite_layer -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#composite_layer">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A reference to a several children layers, including
+symbology and rendering properties.</dc:description>
+        <skos:prefLabel xml:lang="en">Composite Layer</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#compression -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#compression">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">Specifies the type of compression used for a raster.</dc:description>
+        <skos:prefLabel xml:lang="en">Compression</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#constant -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#constant">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#coordinate_system -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#coordinate_system">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A reference framework—such as the UTM system—consisting of a set of points, lines, and/or surfaces, and a set of rules, used to define the positions of points in two and three dimensional space.</dc:description>
+        <skos:prefLabel xml:lang="en">Coordinate System</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#coordinate_systems_folder -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#coordinate_systems_folder">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A folder on disk storing coordinate systems.</dc:description>
+        <skos:prefLabel xml:lang="en">Coordinate Systems Folder</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#coverage_feature_class -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#coverage_feature_class">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A coverage feature classes such as point, arc, node,
+route, route system, section, polygon, and region.</dc:description>
+        <skos:prefLabel xml:lang="en">Coverage Feature Class</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#data_element -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#data_element">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A dataset visible in ArcCatalog.</dc:description>
+        <skos:prefLabel xml:lang="en">Data Element</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#database_connections -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#database_connections">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">The database connection folder in ArcCatalog.</dc:description>
+        <skos:prefLabel xml:lang="en">Database Connections</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#dataset -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#dataset">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A collection of related data, usually grouped or stored together.</dc:description>
+        <skos:prefLabel xml:lang="en">Dataset</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#dbase_table -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#dbase_table">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">Attribute data stored in dBASE format.</dc:description>
+        <skos:prefLabel xml:lang="en">dBASE Table</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#decimate -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#decimate">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">Specifies a subset of nodes of a TIN to create a generalized version of that TIN.</dc:description>
+        <skos:prefLabel xml:lang="en">Decimate</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#disk_connection -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#disk_connection">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">An access path to a data storage device.</dc:description>
+        <skos:prefLabel xml:lang="en">Disk Connection</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#encrypted_string -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#encrypted_string">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <skos:prefLabel xml:lang="en">Encrypted String</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#evaluation_scale -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#evaluation_scale">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">The scale value range and increment value applied to inputs in a weighted overlay operation.</dc:description>
+        <skos:prefLabel xml:lang="en">Evaluation Scale</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#feature_class -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#feature_class">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A feature class is a collection of geographic features that share the same geometry type (such as point, line, or polygon) and the same attribute fields for a common area. Streets, well points, parcels, soil types, and census tracts are examples of feature classes.</dc:description>
+        <skos:prefLabel xml:lang="en">Feature Class</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#feature_dataset -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#feature_dataset">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A feature dataset is a collection of related feature classes that share a common coordinate system. Feature datasets are used to spatially or thematically integrate related feature classes. Their primary purpose is for organizing related feature classes into a common dataset for building a topology, a network dataset, a terrain dataset, or a geometric network.</dc:description>
+        <skos:prefLabel xml:lang="en">Feature Dataset</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#feature_layer -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#feature_layer">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A reference to a feature class, including symbology and
+rendering properties. [.lyr]</dc:description>
+        <skos:prefLabel xml:lang="en">Feature Layer</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#feature_set -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#feature_set">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <skos:prefLabel xml:lang="en">Feature Set</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#field -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#field">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A column in a table that stores the values for a single
+attribute</dc:description>
+        <skos:prefLabel xml:lang="en">Field</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#field_info -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#field_info">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">The details about a field in a FieldMap.</dc:description>
+        <skos:prefLabel xml:lang="en">Field Info</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#field_mapping -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#field_mapping">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <skos:prefLabel xml:lang="en">Field Mapping</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#field_mappings -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#field_mappings">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A collection of fields in one or more input tables.</dc:description>
+        <skos:prefLabel xml:lang="en">Field Mappings</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#folder_or_file -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#folder_or_file">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#formulated_raster -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#formulated_raster">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A raster surface whose cell values are represented by a
+formula or constant.</dc:description>
+        <skos:prefLabel xml:lang="en">Formulated Raster</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#fuzzy_function -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#fuzzy_function">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <skos:prefLabel xml:lang="en">Fuzzy function</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#geometric_network -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#geometric_network">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A linear network represented by topologically connected
+edge and junction features. Feature connectivity is based
+on their geometric coincidence.</dc:description>
+        <skos:prefLabel xml:lang="en">Geometric Network</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#geostatistical_layer -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#geostatistical_layer">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A reference to a geostatistical data source, including
+symbology and rendering properties.</dc:description>
+        <skos:prefLabel xml:lang="en">Geostatistical Layer</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#geostatistical_search_neighborhood -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#geostatistical_search_neighborhood">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <skos:prefLabel xml:lang="en">Geostatistical Search Neighborhood</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#geostatistical_value_table -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#geostatistical_value_table">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A collection of data sources and fields that define a
+geostatistical layer.</dc:description>
+        <skos:prefLabel xml:lang="en">Geostatistical Value Table</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#graph -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#graph">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <skos:prefLabel xml:lang="en">Graph ; File</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#graph_data_table -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#graph_data_table">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <skos:prefLabel xml:lang="en">Graph Data Table</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#grid_layers -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#grid_layers">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#GridSystem"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#group_layer -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#group_layer">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A collection of layers that appear and act as a single layer.
+Group layers make it easier to organize a map, assign
+advanced drawing order options, and share layers for use
+in other maps.</dc:description>
+        <skos:prefLabel xml:lang="en">Group Layer</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#horizontal_factor -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#horizontal_factor">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">The relationship between the horizontal cost factor and
+the horizontal relative moving angle.</dc:description>
+        <skos:prefLabel xml:lang="en">Horizontal Factor</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#image_service -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#image_service">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <skos:prefLabel xml:lang="en">Image Service; String</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#index -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#index">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A data structure used to speed the search for records in a
+geographic datasets and database.</dc:description>
+        <skos:prefLabel xml:lang="en">Index</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#info_expression -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#info_expression">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A syntax for defining and manipulating data in an INFO
+table.</dc:description>
+        <skos:prefLabel xml:lang="en">INFO Expression</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#info_item -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#info_item">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">An item in an INFO table.</dc:description>
+        <skos:prefLabel xml:lang="en">INFO Item</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#info_table -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#info_table">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A table in an INFO Database.</dc:description>
+        <skos:prefLabel xml:lang="en">INFO Table</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#input_address_locator -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#input_address_locator">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <skos:prefLabel xml:lang="en">Input address locator</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#interop_destination_dataset -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#interop_destination_dataset">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <skos:prefLabel xml:lang="en">Interop Destination Dataset</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#interop_source_dataset -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#interop_source_dataset">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <skos:prefLabel xml:lang="en">Interop Source Dataset</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#krigingmodel -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#krigingmodel">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <skos:prefLabel xml:lang="en">KrigingModel</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#las_dataset -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#las_dataset">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <skos:prefLabel xml:lang="en">LAS Dataset</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#las_dataset_layer -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#las_dataset_layer">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <skos:prefLabel xml:lang="en">LAS Dataset Layer</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#layer -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#layer">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A reference to a data source, such as a shapefile,
+coverage, geodatabase feature class, or raster, including
+symbology and rendering properties. [.lyr]</dc:description>
+        <skos:prefLabel xml:lang="en">Layer</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#layer_file -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#layer_file">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A file with a .lyr extension that stores the layer defintion,
+including symbology and rendering properties.</dc:description>
+        <skos:prefLabel xml:lang="en">Layer File</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#line -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#line">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A shape, straight or curved, defined by a connected series
+of unique x,y coordinate pairs.</dc:description>
+        <skos:prefLabel xml:lang="en">Line</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#linear_unit -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#linear_unit">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A linear unit type and value such as meter or feet.</dc:description>
+        <skos:prefLabel xml:lang="en">Linear unit</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#locator -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#locator">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <skos:prefLabel xml:lang="en">Locator</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#m_domain -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#m_domain">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A range of lowest and highest possible value for m coordinates.</dc:description>
+        <skos:prefLabel xml:lang="en">M Domain</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#map_algebra_expression -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#map_algebra_expression">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A query syntax used by Spatial Analyst to evaluate raster
+data.</dc:description>
+        <skos:prefLabel xml:lang="en">Map Algebra Expression</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#mapserver -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#mapserver">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <skos:prefLabel xml:lang="en">File; Workspace; Raster Dataset; Mosaic Dataset; Table; Raster Layer; Raster Catalog Layer; Mosaic Layer; Terrain Layer; WCS Coverage; Image Service; MapServer; WMS Map; Dataset; Layer File; Terrain; LAS Dataset Layer</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#mosaic_dataset -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#mosaic_dataset">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <skos:prefLabel xml:lang="en">Raster Catalog Layer; Mosaic Dataset; Group Layer; Composite Layer</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#mosaic_layer -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#mosaic_layer">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <skos:prefLabel xml:lang="en">Raster Layer; Raster Catalog Layer; Mosaic Layer</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#multiple_value -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#multiple_value">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <skos:prefLabel xml:lang="en">Multiple Value</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#multivalue -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#multivalue">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A collection of values stored in one column in a value
+table.</dc:description>
+        <skos:prefLabel xml:lang="en">MultiValue</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#neighborhood -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#neighborhood">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">The shape of the area around each cell used to calculate
+statistics.</dc:description>
+        <skos:prefLabel xml:lang="en">Neighborhood</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#network_analysis_layer -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#network_analysis_layer">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <skos:prefLabel xml:lang="en">Feature Layer;Raster Layer; TIN Layer;Network Analysis Layer;Geostatistical Layer</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#network_analyst_class_fieldmap -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#network_analyst_class_fieldmap">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A mapping between location properties in a network
+analyst layer (such as stops, facilities, and incidents) and
+a point feature class.</dc:description>
+        <skos:prefLabel xml:lang="en">Network Analyst Class
+FieldMap</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#network_analyst_hierarchy_settings -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#network_analyst_hierarchy_settings">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A hierarchy attribute that divides hierarchy values of a
+network dataset into three groups using two integers. The
+first integer, high_rank_ends, sets the ending value of the
+first group; the second number, low_rank_begin, sets the
+beginning value of the third group.</dc:description>
+        <skos:prefLabel xml:lang="en">Network Analyst Hierarchy
+Settings</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#network_analyst_layer -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#network_analyst_layer">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A special group layer used to express and solve network
+routing problems. Each sublayer, held in-memory, in a
+Network Analyst layer represent some aspect of the
+routing problem and the routing solution.</dc:description>
+        <skos:prefLabel xml:lang="en">Network Analyst Layer</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#network_dataset -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#network_dataset">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A collection of topologically connected network elements
+(edges, junctions, and turns), derived from network
+sources and associated with a collection of network
+attributes.</dc:description>
+        <skos:prefLabel xml:lang="en">Network Dataset</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#network_dataset_layer -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#network_dataset_layer">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A reference to a network dataset, including symbology
+and rendering properties.</dc:description>
+        <skos:prefLabel xml:lang="en">Network Dataset Layer</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#parcel_fabric -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#parcel_fabric">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <skos:prefLabel xml:lang="en">Parcel Fabric</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#parcel_fabric_layer -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#parcel_fabric_layer">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <skos:prefLabel xml:lang="en">Mosaic Layer; Network Dataset Layer; Parcel Fabric Layer</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#point -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#point">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A pair of x,y coordinates.</dc:description>
+        <skos:prefLabel xml:lang="en">Point</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#polygon -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#polygon">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A connected sequence of x,y coordinate pairs, where the
+first and last coordinate pair are the same.</dc:description>
+        <skos:prefLabel xml:lang="en">Polygon</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#projection_file -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#projection_file">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A file storing coordinate system information for spatial
+data. [.prj]</dc:description>
+        <skos:prefLabel xml:lang="en">Projection File</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#pyramid -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#pyramid">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">Specifies if pyramids will be built.</dc:description>
+        <skos:prefLabel xml:lang="en">Pyramid</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#radius -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#radius">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">Specifies which surrounding points will be used for
+interpolation.</dc:description>
+        <skos:prefLabel xml:lang="en">Radius</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#random_number_generator -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#random_number_generator">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">Specifies the seed and the generator to be used when
+creating random values.</dc:description>
+        <skos:prefLabel xml:lang="en">Random Number Generator</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#raster_band -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#raster_band">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A layer in a raster dataset.</dc:description>
+        <skos:prefLabel xml:lang="en">Raster Band</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#raster_catalog -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#raster_catalog">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A collection of raster datasets defined in a table; each
+table records defines an individual raster datasets in the
+catalog.</dc:description>
+        <skos:prefLabel xml:lang="en">Raster Catalog</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#raster_catalog_layer -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#raster_catalog_layer">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A reference to a raster catalog, including symbology and
+rendering properties.</dc:description>
+        <skos:prefLabel xml:lang="en">Raster Catalog Layer</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#raster_statistics -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#raster_statistics">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">Specifies if raster statistics will be built.</dc:description>
+        <skos:prefLabel xml:lang="en">Raster Statistics</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#raster_type -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#raster_type">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <skos:prefLabel xml:lang="en">Raster Type</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#record_set -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#record_set">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <skos:prefLabel xml:lang="en">Record Set</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#relationship_class -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#relationship_class">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">The details about the relationship between objects in the
+geodatabase.</dc:description>
+        <skos:prefLabel xml:lang="en">Relationship Class</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#remap -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#remap">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A table that defines how raster cell values will be
+reclassified.</dc:description>
+        <skos:prefLabel xml:lang="en">Remap</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#route_measure_event_properties -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#route_measure_event_properties">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">Specifies the fields on a table that describe events that
+are measured by a linear reference route system.</dc:description>
+        <skos:prefLabel xml:lang="en">Route Measure Event Properties</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#schematic_dataset -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#schematic_dataset">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <skos:prefLabel xml:lang="en">Schematic Dataset; Schematic Folder</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#schematic_folder -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#schematic_folder">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <skos:prefLabel xml:lang="en">Schematic Dataset; Schematic Folder</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#schematic_layer -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#schematic_layer">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <skos:prefLabel xml:lang="en">Schematic Layer</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#semivariogram -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#semivariogram">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">Specifies the distance and direction representing two
+locations that is used to quantify autocorrelation.</dc:description>
+        <skos:prefLabel xml:lang="en">SemiVariogram</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#serverconnection -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#serverconnection">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <skos:prefLabel xml:lang="en">ServerConnection</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#spatial_reference -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#spatial_reference">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">The coordinate system used to store a spatial dataset, including the spatial domain.</dc:description>
+        <skos:prefLabel xml:lang="en">Spatial Reference</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#sql_expression -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#sql_expression">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A syntax for defining and manipulating data from a
+relational database.</dc:description>
+        <skos:prefLabel xml:lang="en">SQL Expression</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#table -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#table">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">Tabular data.</dc:description>
+        <skos:prefLabel xml:lang="en">Table</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#table_view -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#table_view">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A representation of tabular data for viewing and editing
+purposes, stored in memory or on disk.</dc:description>
+        <skos:prefLabel xml:lang="en">Table View</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#table_view_or_raster_layer -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#table_view_or_raster_layer">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#tableview -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#tableview">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <skos:prefLabel xml:lang="en">TableView</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#terrain -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#terrain">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A multiresolution TIN.</dc:description>
+        <skos:prefLabel xml:lang="en">Terrain</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#terrain_layer -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#terrain_layer">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A reference to a terrain, including symbology and
+rendering properties. It’s used to draw a terrain.</dc:description>
+        <skos:prefLabel xml:lang="en">Terrain Layer</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#terrain_llayer -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#terrain_llayer">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <skos:prefLabel xml:lang="en">TIN layer; raster layer; terrain lLayer</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#text_file -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#text_file">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">Data stored in ASCII format.</dc:description>
+        <skos:prefLabel xml:lang="en">Text File</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#tile_size -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#tile_size">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">Specifies the width and the height of a data stored in
+block.</dc:description>
+        <skos:prefLabel xml:lang="en">Tile Size</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#time_configuration -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#time_configuration">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">Specifies the time periods used for calculating solar
+radiation at specific locations.</dc:description>
+        <skos:prefLabel xml:lang="en">Time configuration</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#tin_layer -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#tin_layer">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A reference to a TIN, including topological relationships,
+symbology, and rendering properties.</dc:description>
+        <skos:prefLabel xml:lang="en">TIN Layer</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#topo_features -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#topo_features">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">Features that are input to the interpolation.</dc:description>
+        <skos:prefLabel xml:lang="en">Topo Features</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#topoinput -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#topoinput">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <skos:prefLabel xml:lang="en">TopoInput</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#topology -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#topology">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A topology that defines and enforces data integrity rules
+for spatial data.</dc:description>
+        <skos:prefLabel xml:lang="en">Topology</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#topology_layer -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#topology_layer">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A reference to a topology, including symbology and
+rendering properties.</dc:description>
+        <skos:prefLabel xml:lang="en">Topology Layer</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#value_table -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#value_table">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A collection of columns of values.</dc:description>
+        <skos:prefLabel xml:lang="en">ValueTable</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#variant -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#variant">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A data value that can contain any basic type: boolean,
+date, double, long, and string.</dc:description>
+        <skos:prefLabel xml:lang="en">Variant</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#vertical_factor -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#vertical_factor">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">Specifies the relationship between the vertical cost factor
+and the vertical relative moving angle.</dc:description>
+        <skos:prefLabel xml:lang="en">Vertical Factor</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#vpf_coverage -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#vpf_coverage">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">Spatial data stored in Vector Product Format.</dc:description>
+        <skos:prefLabel xml:lang="en">VPF Coverage</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#vpf_table -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#vpf_table">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">Attribute data stored in Vector Product Format.</dc:description>
+        <skos:prefLabel xml:lang="en">VPF Table</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#wcs_coverage -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#wcs_coverage">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <skos:prefLabel xml:lang="en">WCS Coverage; String</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#weighted_overlay_table -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#weighted_overlay_table">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A table with data to combine multiple rasters by applying a
+common measurement scale of values to each raster,
+weighting each according to its importance.</dc:description>
+        <skos:prefLabel xml:lang="en">Weighted Overlay Table</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#weighted_sum -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#weighted_sum">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">Specifies data for overlaying several rasters multiplied
+each by their given weight and then summed.</dc:description>
+        <skos:prefLabel xml:lang="en">Weighted Sum</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#wms_map -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#wms_map">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <skos:prefLabel xml:lang="en">File; Workspace; Raster Dataset; Mosaic Dataset; Table; Raster Layer; Raster Catalog Layer; Mosaic Layer; Terrain Layer; WCS Coverage; Image Service; MapServer; WMS Map; Dataset; Layer File; Terrain; LAS Dataset Layer</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#workspace -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#workspace">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A container such as a geodatabase or folder.</dc:description>
+        <skos:prefLabel xml:lang="en">Workspace</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#wotable -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#wotable">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <skos:prefLabel xml:lang="en">WOTable</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#wstable -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#wstable">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <skos:prefLabel xml:lang="en">WSTable</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#xy_domain -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#xy_domain">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A range of lowest and highest possible values for x,y
+coordinates.</dc:description>
+        <skos:prefLabel xml:lang="en">XY Domain</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#z_domain -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#z_domain">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
+        <dc:description xml:lang="en">A range of lowest and highest possible value for z
+coordinates.</dc:description>
+        <skos:prefLabel xml:lang="en">Z Domain</skos:prefLabel>
+    </owl:Class>
+    
+
+
     <!-- http://www.egc.org/ont/gis/cyber#WCS -->
 
     <rdf:Description rdf:about="http://www.egc.org/ont/gis/cyber#WCS">
@@ -2419,7 +3956,7 @@ The ComplexData type does not describe the particular structure for value encodi
     <!-- http://www.opengis.net/ont/geosparql#Geometry -->
 
     <rdf:Description rdf:about="http://www.opengis.net/ont/geosparql#Geometry">
-        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/data#VectorData"/>
+        <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
     </rdf:Description>
     
 
@@ -2438,15 +3975,6 @@ The ComplexData type does not describe the particular structure for value encodi
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
-
-
-    <!-- http://www.egc.org/ont/data# -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#">
-        <sh:namespace rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.egc.org/ont/data#</sh:namespace>
-        <sh:prefix rdf:datatype="http://www.w3.org/2001/XMLSchema#string">data</sh:prefix>
-    </owl:NamedIndividual>
     
 
 
@@ -3663,14 +5191,6 @@ To convert an ASCII file to a raster, the data must be in this same format. The 
         <gdalCreation rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</gdalCreation>
         <gdalFormatCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">FMEObjects Gateway</gdalFormatCode>
         <supportsGeoreferencing rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</supportsGeoreferencing>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#Feature_Layer -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#Feature_Layer">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#VectorData"/>
     </owl:NamedIndividual>
     
 
@@ -6335,14 +7855,6 @@ As well, one bit files, and some other unusual formulations of GeoTIFF file, suc
     
 
 
-    <!-- http://www.egc.org/ont/data#Shapes -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#Shapes">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#VectorData"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.egc.org/ont/data#Simulating_data -->
 
     <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#Simulating_data">
@@ -6405,17 +7917,6 @@ As well, one bit files, and some other unusual formulations of GeoTIFF file, suc
         <gdalFormatCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TIL</gdalFormatCode>
         <supportsGeoreferencing rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</supportsGeoreferencing>
         <skos:prefLabel xml:lang="en">EarthWatch/DigitalGlobe</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#TIN -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#TIN">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#RasterData"/>
-        <dc:description xml:lang="en">A vector data structure that partitions geographic space into contiguous, non-overlapping triangles. The vertices of each triangle are sample data points with x-, y-, and z values.</dc:description>
-        <skos:prefLabel xml:lang="en">TIN [Triangulated Irregular Network]</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -6831,26 +8332,6 @@ As well, one bit files, and some other unusual formulations of GeoTIFF file, suc
     
 
 
-    <!-- http://www.egc.org/ont/data#address_locator -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#address_locator">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A dataset, used for geocoding, that stores the address attributes, associated indexes, and rules that define the process for translating nonspatial descriptions of places to spatial data. [.loc]</dc:description>
-        <skos:prefLabel xml:lang="en">Address locator</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#address_locator_style -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#address_locator_style">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A template on which to base the new address locator. [.lot]</dc:description>
-        <skos:prefLabel xml:lang="en">Address locator style</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.egc.org/ont/data#age_of_trees -->
 
     <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#age_of_trees">
@@ -6859,61 +8340,10 @@ As well, one bit files, and some other unusual formulations of GeoTIFF file, suc
     
 
 
-    <!-- http://www.egc.org/ont/data#analysis_cell_size -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#analysis_cell_size">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">The cell size used by raster tools.</dc:description>
-        <skos:prefLabel xml:lang="en">Analysis cell size</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.egc.org/ont/data#angle -->
 
     <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#angle">
         <rdf:type rdf:resource="http://www.egc.org/ont/data#LiteralData"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#any_value -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#any_value">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A data type that accepts any value.</dc:description>
-        <skos:prefLabel xml:lang="en">Any value</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#arcmap_document -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#arcmap_document">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A file that contains one map, its layout, and its associated
-layers, tables, charts, and reports. [.mxd]</dc:description>
-        <skos:prefLabel xml:lang="en">ArcMap Document</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#area_units -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#area_units">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">An areal unit type and value such as square meter or
-acre.</dc:description>
-        <skos:prefLabel xml:lang="en">Area units</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#areal_unit -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#areal_unit">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <skos:prefLabel xml:lang="en">Areal Unit</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -6950,81 +8380,10 @@ acre.</dc:description>
     
 
 
-    <!-- http://www.egc.org/ont/data#cad_drawing_dataset -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#cad_drawing_dataset">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A vector data source with a mix of feature types with
-symbology. The dataset is not usable for feature class
-based queries or analysis.</dc:description>
-        <skos:prefLabel xml:lang="en">CAD Drawing Dataset</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.egc.org/ont/data#canopy_height -->
 
     <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#canopy_height">
         <rdf:type rdf:resource="http://www.egc.org/ont/data#LandCover"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#catalog_root -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#catalog_root">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">The top-level node in the catalog tree.</dc:description>
-        <skos:prefLabel xml:lang="en">Catalog Root</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#cell_size -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#cell_size">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">The cell size used by Spatial Analyst.</dc:description>
-        <skos:prefLabel xml:lang="en">Cell Size</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#cell_size_xy -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#cell_size_xy">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <skos:prefLabel xml:lang="en">Cell Size XY</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#composite_datatype -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#composite_datatype">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A collection of datatypes.</dc:description>
-        <skos:prefLabel xml:lang="en">Composite Datatype</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#composite_geodataset -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#composite_geodataset">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <skos:prefLabel xml:lang="en">Composite Geodataset</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#composite_layer -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#composite_layer">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A reference to a several children layers, including
-symbology and rendering properties.</dc:description>
-        <skos:prefLabel xml:lang="en">Composite Layer</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -7038,155 +8397,6 @@ symbology and rendering properties.</dc:description>
         <fileExtension rdf:datatype="http://www.w3.org/2001/XMLSchema#string">las.zip</fileExtension>
         <dc:subject xml:lang="en">LiDAR</dc:subject>
         <rdfs:comment xml:lang="en">compressed LAS files (zipped with a .zip extension) using the common DEFLATE algorithm</rdfs:comment>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#compression -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#compression">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">Specifies the type of compression used for a raster.</dc:description>
-        <skos:prefLabel xml:lang="en">Compression</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#constant -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#constant">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#coordinate_system -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#coordinate_system">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A reference framework—such as the UTM system—consisting of a set of points, lines, and/or surfaces, and a set of rules, used to define the positions of points in two and three dimensional space.</dc:description>
-        <skos:prefLabel xml:lang="en">Coordinate System</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#coordinate_systems_folder -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#coordinate_systems_folder">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A folder on disk storing coordinate systems.</dc:description>
-        <skos:prefLabel xml:lang="en">Coordinate Systems Folder</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#coverage -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#coverage">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#RasterData"/>
-        <dc:description xml:lang="en">A courage dataset, a proprietary data model for storing geographic features as points, arcs, polygons with associated feature attribute tables.</dc:description>
-        <skos:prefLabel xml:lang="en">Coverage</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#coverage_feature_class -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#coverage_feature_class">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A coverage feature classes such as point, arc, node,
-route, route system, section, polygon, and region.</dc:description>
-        <skos:prefLabel xml:lang="en">Coverage Feature Class</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#data_element -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#data_element">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A dataset visible in ArcCatalog.</dc:description>
-        <skos:prefLabel xml:lang="en">Data Element</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#database_connections -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#database_connections">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">The database connection folder in ArcCatalog.</dc:description>
-        <skos:prefLabel xml:lang="en">Database Connections</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#dataset -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#dataset">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A collection of related data, usually grouped or stored together.</dc:description>
-        <skos:prefLabel xml:lang="en">Dataset</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#dbase_table -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#dbase_table">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">Attribute data stored in dBASE format.</dc:description>
-        <skos:prefLabel xml:lang="en">dBASE Table</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#decimate -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#decimate">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">Specifies a subset of nodes of a TIN to create a generalized version of that TIN.</dc:description>
-        <skos:prefLabel xml:lang="en">Decimate</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#disk_connection -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#disk_connection">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">An access path to a data storage device.</dc:description>
-        <skos:prefLabel xml:lang="en">Disk Connection</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#encrypted_string -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#encrypted_string">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <skos:prefLabel xml:lang="en">Encrypted String</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#envelope -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#envelope">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">The coordinate pairs that define the minimum bounding rectangle the data source fall within.</dc:description>
-        <skos:prefLabel xml:lang="en">Envelope</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#evaluation_scale -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#evaluation_scale">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">The scale value range and increment value applied to inputs in a weighted overlay operation.</dc:description>
-        <skos:prefLabel xml:lang="en">Evaluation Scale</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -7361,126 +8571,6 @@ route, route system, section, polygon, and region.</dc:description>
     
 
 
-    <!-- http://www.egc.org/ont/data#feature_class -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#feature_class">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A feature class is a collection of geographic features that share the same geometry type (such as point, line, or polygon) and the same attribute fields for a common area. Streets, well points, parcels, soil types, and census tracts are examples of feature classes.</dc:description>
-        <skos:prefLabel xml:lang="en">Feature Class</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#feature_dataset -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#feature_dataset">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A feature dataset is a collection of related feature classes that share a common coordinate system. Feature datasets are used to spatially or thematically integrate related feature classes. Their primary purpose is for organizing related feature classes into a common dataset for building a topology, a network dataset, a terrain dataset, or a geometric network.</dc:description>
-        <skos:prefLabel xml:lang="en">Feature Dataset</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#feature_layer -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#feature_layer">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A reference to a feature class, including symbology and
-rendering properties. [.lyr]</dc:description>
-        <skos:prefLabel xml:lang="en">Feature Layer</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#feature_set -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#feature_set">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <skos:prefLabel xml:lang="en">Feature Set</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#field -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#field">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A column in a table that stores the values for a single
-attribute</dc:description>
-        <skos:prefLabel xml:lang="en">Field</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#field_info -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#field_info">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">The details about a field in a FieldMap.</dc:description>
-        <skos:prefLabel xml:lang="en">Field Info</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#field_mapping -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#field_mapping">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <skos:prefLabel xml:lang="en">Field Mapping</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#field_mappings -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#field_mappings">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A collection of fields in one or more input tables.</dc:description>
-        <skos:prefLabel xml:lang="en">Field Mappings</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#folder -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#folder">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ComplexData"/>
-        <dc:description xml:lang="en">Specifies a location on a disk where data is stored.</dc:description>
-        <skos:prefLabel xml:lang="en">Folder</skos:prefLabel>
-        <skos:prefLabel xml:lang="en">Folder | Workspace</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#folder_or_file -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#folder_or_file">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#formulated_raster -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#formulated_raster">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A raster surface whose cell values are represented by a
-formula or constant.</dc:description>
-        <skos:prefLabel xml:lang="en">Formulated Raster</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#fuzzy_function -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#fuzzy_function">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <skos:prefLabel xml:lang="en">Fuzzy function</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.egc.org/ont/data#gb2312 -->
 
     <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#gb2312">
@@ -7493,70 +8583,6 @@ formula or constant.</dc:description>
 
     <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#gbk">
         <rdf:type rdf:resource="http://www.egc.org/ont/data#Encoding"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#geodataserver -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#geodataserver">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A coarse grain object that references a geodatabase.</dc:description>
-        <skos:prefLabel xml:lang="en">GeoDataServer</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#geodataset -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#geodataset">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A collection of data with a common theme in a
-geodatabase.</dc:description>
-        <skos:prefLabel xml:lang="en">Geodataset</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#geometric_network -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#geometric_network">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A linear network represented by topologically connected
-edge and junction features. Feature connectivity is based
-on their geometric coincidence.</dc:description>
-        <skos:prefLabel xml:lang="en">Geometric Network</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#geostatistical_layer -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#geostatistical_layer">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A reference to a geostatistical data source, including
-symbology and rendering properties.</dc:description>
-        <skos:prefLabel xml:lang="en">Geostatistical Layer</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#geostatistical_search_neighborhood -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#geostatistical_search_neighborhood">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <skos:prefLabel xml:lang="en">Geostatistical Search Neighborhood</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#geostatistical_value_table -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#geostatistical_value_table">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A collection of data sources and fields that define a
-geostatistical layer.</dc:description>
-        <skos:prefLabel xml:lang="en">Geostatistical Value Table</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -7604,179 +8630,6 @@ geostatistical layer.</dc:description>
     
 
 
-    <!-- http://www.egc.org/ont/data#graph -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#graph">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <skos:prefLabel xml:lang="en">Graph ; File</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#graph_data_table -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#graph_data_table">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <skos:prefLabel xml:lang="en">Graph Data Table</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#grid_layers -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#grid_layers">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#RasterData"/>
-        <supportedSoftware rdf:resource="http://www.egc.org/ont/gis#SAGA_GIS"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#grid_raster -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#grid_raster">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#RasterData"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#grid_system -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#grid_system">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#RasterData"/>
-        <compriseDataType rdf:resource="http://www.egc.org/ont/data#grid_layers"/>
-        <supportedSoftware rdf:resource="http://www.egc.org/ont/gis#SAGA_GIS"/>
-        <skos:definition xml:lang="en">A grid system groups grid layers that have the same grid cell size, have the same number of rows and columns and cover the same geographic area. Generally, spatial analysis operations are performed on grids with the same grid system</skos:definition>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#group_layer -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#group_layer">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A collection of layers that appear and act as a single layer.
-Group layers make it easier to organize a map, assign
-advanced drawing order options, and share layers for use
-in other maps.</dc:description>
-        <skos:prefLabel xml:lang="en">Group Layer</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#horizontal_factor -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#horizontal_factor">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">The relationship between the horizontal cost factor and
-the horizontal relative moving angle.</dc:description>
-        <skos:prefLabel xml:lang="en">Horizontal Factor</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#image -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#image">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#RasterData"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#image_service -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#image_service">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <skos:prefLabel xml:lang="en">Image Service; String</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#imagery_group -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#imagery_group">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#RasterData"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#index -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#index">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A data structure used to speed the search for records in a
-geographic datasets and database.</dc:description>
-        <skos:prefLabel xml:lang="en">Index</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#info_expression -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#info_expression">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A syntax for defining and manipulating data in an INFO
-table.</dc:description>
-        <skos:prefLabel xml:lang="en">INFO Expression</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#info_item -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#info_item">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">An item in an INFO table.</dc:description>
-        <skos:prefLabel xml:lang="en">INFO Item</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#info_table -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#info_table">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A table in an INFO Database.</dc:description>
-        <skos:prefLabel xml:lang="en">INFO Table</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#input_address_locator -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#input_address_locator">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <skos:prefLabel xml:lang="en">Input address locator</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#interop_destination_dataset -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#interop_destination_dataset">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <skos:prefLabel xml:lang="en">Interop Destination Dataset</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#interop_source_dataset -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#interop_source_dataset">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <skos:prefLabel xml:lang="en">Interop Source Dataset</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#krigingmodel -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#krigingmodel">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <skos:prefLabel xml:lang="en">KrigingModel</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.egc.org/ont/data#landuse -->
 
     <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#landuse">
@@ -7785,120 +8638,10 @@ table.</dc:description>
     
 
 
-    <!-- http://www.egc.org/ont/data#las_dataset -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#las_dataset">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <skos:prefLabel xml:lang="en">LAS Dataset</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#las_dataset_layer -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#las_dataset_layer">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <skos:prefLabel xml:lang="en">LAS Dataset Layer</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#layer -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#layer">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A reference to a data source, such as a shapefile,
-coverage, geodatabase feature class, or raster, including
-symbology and rendering properties. [.lyr]</dc:description>
-        <skos:prefLabel xml:lang="en">Layer</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#layer_file -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#layer_file">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <fileExtension rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lyr</fileExtension>
-        <dc:description xml:lang="en">A file with a .lyr extension that stores the layer defintion,
-including symbology and rendering properties.</dc:description>
-        <skos:prefLabel xml:lang="en">Layer File</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.egc.org/ont/data#leaf_area_index -->
 
     <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#leaf_area_index">
         <rdf:type rdf:resource="http://www.egc.org/ont/data#LandCover"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#lidar -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#lidar">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#RasterData"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#line -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#line">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A shape, straight or curved, defined by a connected series
-of unique x,y coordinate pairs.</dc:description>
-        <skos:prefLabel xml:lang="en">Line</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#linear_unit -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#linear_unit">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A linear unit type and value such as meter or feet.</dc:description>
-        <skos:prefLabel xml:lang="en">Linear unit</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#locator -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#locator">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <skos:prefLabel xml:lang="en">Locator</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#m_domain -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#m_domain">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A range of lowest and highest possible value for m coordinates.</dc:description>
-        <skos:prefLabel xml:lang="en">M Domain</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#map_algebra_expression -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#map_algebra_expression">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A query syntax used by Spatial Analyst to evaluate raster
-data.</dc:description>
-        <skos:prefLabel xml:lang="en">Map Algebra Expression</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#mapserver -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#mapserver">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <skos:prefLabel xml:lang="en">File; Workspace; Raster Dataset; Mosaic Dataset; Table; Raster Layer; Raster Catalog Layer; Mosaic Layer; Terrain Layer; WCS Coverage; Image Service; MapServer; WMS Map; Dataset; Layer File; Terrain; LAS Dataset Layer</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -7927,59 +8670,10 @@ data.</dc:description>
     
 
 
-    <!-- http://www.egc.org/ont/data#mosaic_dataset -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#mosaic_dataset">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <skos:prefLabel xml:lang="en">Raster Catalog Layer; Mosaic Dataset; Group Layer; Composite Layer</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#mosaic_layer -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#mosaic_layer">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <skos:prefLabel xml:lang="en">Raster Layer; Raster Catalog Layer; Mosaic Layer</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.egc.org/ont/data#mp4 -->
 
     <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#mp4">
         <rdf:type rdf:resource="http://www.egc.org/ont/data#MovingImage"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#multiple_value -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#multiple_value">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <skos:prefLabel xml:lang="en">Multiple Value</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#multivalue -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#multivalue">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A collection of values stored in one column in a value
-table.</dc:description>
-        <skos:prefLabel xml:lang="en">MultiValue</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#neighborhood -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#neighborhood">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">The shape of the area around each cell used to calculate
-statistics.</dc:description>
-        <skos:prefLabel xml:lang="en">Neighborhood</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -8002,80 +8696,6 @@ statistics.</dc:description>
     
 
 
-    <!-- http://www.egc.org/ont/data#network_analysis_layer -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#network_analysis_layer">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <skos:prefLabel xml:lang="en">Feature Layer;Raster Layer; TIN Layer;Network Analysis Layer;Geostatistical Layer</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#network_analyst_class_fieldmap -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#network_analyst_class_fieldmap">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A mapping between location properties in a network
-analyst layer (such as stops, facilities, and incidents) and
-a point feature class.</dc:description>
-        <skos:prefLabel xml:lang="en">Network Analyst Class
-FieldMap</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#network_analyst_hierarchy_settings -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#network_analyst_hierarchy_settings">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A hierarchy attribute that divides hierarchy values of a
-network dataset into three groups using two integers. The
-first integer, high_rank_ends, sets the ending value of the
-first group; the second number, low_rank_begin, sets the
-beginning value of the third group.</dc:description>
-        <skos:prefLabel xml:lang="en">Network Analyst Hierarchy
-Settings</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#network_analyst_layer -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#network_analyst_layer">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A special group layer used to express and solve network
-routing problems. Each sublayer, held in-memory, in a
-Network Analyst layer represent some aspect of the
-routing problem and the routing solution.</dc:description>
-        <skos:prefLabel xml:lang="en">Network Analyst Layer</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#network_dataset -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#network_dataset">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A collection of topologically connected network elements
-(edges, junctions, and turns), derived from network
-sources and associated with a collection of network
-attributes.</dc:description>
-        <skos:prefLabel xml:lang="en">Network Dataset</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#network_dataset_layer -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#network_dataset_layer">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A reference to a network dataset, including symbology
-and rendering properties.</dc:description>
-        <skos:prefLabel xml:lang="en">Network Dataset Layer</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.egc.org/ont/data#ogckml22 -->
 
     <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#ogckml22">
@@ -8083,45 +8703,6 @@ and rendering properties.</dc:description>
         <rdf:type rdf:resource="http://www.egc.org/ont/data#ISOSpatialSchema"/>
         <mimetype rdf:resource="http://www.egc.org/ont/data#application/vnd.google-earth.kml+xml"/>
         <rdfs:isDefinedBy rdf:resource="http://schemas.opengis.net/kml/2.2.0/ogckml22.xsd"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#parcel_fabric -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#parcel_fabric">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <skos:prefLabel xml:lang="en">Parcel Fabric</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#parcel_fabric_layer -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#parcel_fabric_layer">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <skos:prefLabel xml:lang="en">Mosaic Layer; Network Dataset Layer; Parcel Fabric Layer</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#point -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#point">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A pair of x,y coordinates.</dc:description>
-        <skos:prefLabel xml:lang="en">Point</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#polygon -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#polygon">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A connected sequence of x,y coordinate pairs, where the
-first and last coordinate pair are the same.</dc:description>
-        <skos:prefLabel xml:lang="en">Polygon</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -8135,38 +8716,6 @@ first and last coordinate pair are the same.</dc:description>
     
 
 
-    <!-- http://www.egc.org/ont/data#projection_file -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#projection_file">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A file storing coordinate system information for spatial
-data. [.prj]</dc:description>
-        <skos:prefLabel xml:lang="en">Projection File</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#pyramid -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#pyramid">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">Specifies if pyramids will be built.</dc:description>
-        <skos:prefLabel xml:lang="en">Pyramid</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#radius -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#radius">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">Specifies which surrounding points will be used for
-interpolation.</dc:description>
-        <skos:prefLabel xml:lang="en">Radius</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.egc.org/ont/data#railroad -->
 
     <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#railroad">
@@ -8175,146 +8724,10 @@ interpolation.</dc:description>
     
 
 
-    <!-- http://www.egc.org/ont/data#random_number_generator -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#random_number_generator">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">Specifies the seed and the generator to be used when
-creating random values.</dc:description>
-        <skos:prefLabel xml:lang="en">Random Number Generator</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#raster_3d -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#raster_3d">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#RasterData"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#raster_band -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#raster_band">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A layer in a raster dataset.</dc:description>
-        <skos:prefLabel xml:lang="en">Raster Band</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#raster_catalog -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#raster_catalog">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A collection of raster datasets defined in a table; each
-table records defines an individual raster datasets in the
-catalog.</dc:description>
-        <skos:prefLabel xml:lang="en">Raster Catalog</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#raster_catalog_layer -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#raster_catalog_layer">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A reference to a raster catalog, including symbology and
-rendering properties.</dc:description>
-        <skos:prefLabel xml:lang="en">Raster Catalog Layer</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#raster_dataset -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#raster_dataset">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#RasterData"/>
-        <dc:description xml:lang="en">A single dataset built from one or more rasters.</dc:description>
-        <skos:prefLabel xml:lang="en">Raster Dataset</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#raster_layer -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#raster_layer">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#RasterData"/>
-        <dc:description xml:lang="en">A reference to a raster, including symbology and
-rendering properties.</dc:description>
-        <skos:prefLabel xml:lang="en">Raster Layer</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#raster_statistics -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#raster_statistics">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">Specifies if raster statistics will be built.</dc:description>
-        <skos:prefLabel xml:lang="en">Raster Statistics</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#raster_type -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#raster_type">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <skos:prefLabel xml:lang="en">Raster Type</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#record_set -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#record_set">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <skos:prefLabel xml:lang="en">Record Set</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#relationship_class -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#relationship_class">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">The details about the relationship between objects in the
-geodatabase.</dc:description>
-        <skos:prefLabel xml:lang="en">Relationship Class</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#remap -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#remap">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A table that defines how raster cell values will be
-reclassified.</dc:description>
-        <skos:prefLabel xml:lang="en">Remap</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.egc.org/ont/data#residue_cover -->
 
     <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#residue_cover">
         <rdf:type rdf:resource="http://www.egc.org/ont/data#LandCover"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#route_measure_event_properties -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#route_measure_event_properties">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">Specifies the fields on a table that describe events that
-are measured by a linear reference route system.</dc:description>
-        <skos:prefLabel xml:lang="en">Route Measure Event Properties</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -8335,82 +8748,13 @@ are measured by a linear reference route system.</dc:description>
     
 
 
-    <!-- http://www.egc.org/ont/data#schematic_dataset -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#schematic_dataset">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <skos:prefLabel xml:lang="en">Schematic Dataset; Schematic Folder</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#schematic_folder -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#schematic_folder">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <skos:prefLabel xml:lang="en">Schematic Dataset; Schematic Folder</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#schematic_layer -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#schematic_layer">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <skos:prefLabel xml:lang="en">Schematic Layer</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#semivariogram -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#semivariogram">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">Specifies the distance and direction representing two
-locations that is used to quantify autocorrelation.</dc:description>
-        <skos:prefLabel xml:lang="en">SemiVariogram</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#serverconnection -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#serverconnection">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <skos:prefLabel xml:lang="en">ServerConnection</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.egc.org/ont/data#shapefile -->
 
     <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#shapefile">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#VectorData"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/data#VectorFormat"/>
         <dc:description xml:lang="en">Spatial data in shapefile format. [.shp].
 A shapefile is a simple, nontopological format for storing the geometric location and attribute information of geographic features. Geographic features in a shapefile can be represented by points, lines, or polygons (areas). The workspace containing shapefiles may also contain dBASE tables, which can store additional attributes that can be joined to a shapefile&apos;s features.</dc:description>
         <skos:prefLabel xml:lang="en">Shapefile</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#spatial_reference -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#spatial_reference">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">The coordinate system used to store a spatial dataset, including the spatial domain.</dc:description>
-        <skos:prefLabel xml:lang="en">Spatial Reference</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#sql_expression -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#sql_expression">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A syntax for defining and manipulating data from a
-relational database.</dc:description>
-        <skos:prefLabel xml:lang="en">SQL Expression</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -8424,162 +8768,10 @@ relational database.</dc:description>
     
 
 
-    <!-- http://www.egc.org/ont/data#table -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#table">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">Tabular data.</dc:description>
-        <skos:prefLabel xml:lang="en">Table</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#table_view -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#table_view">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A representation of tabular data for viewing and editing
-purposes, stored in memory or on disk.</dc:description>
-        <skos:prefLabel xml:lang="en">Table View</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#table_view_or_raster_layer -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#table_view_or_raster_layer">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#tableview -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#tableview">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <skos:prefLabel xml:lang="en">TableView</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#terrain -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#terrain">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A multiresolution TIN.</dc:description>
-        <skos:prefLabel xml:lang="en">Terrain</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#terrain_layer -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#terrain_layer">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A reference to a terrain, including symbology and
-rendering properties. It’s used to draw a terrain.</dc:description>
-        <skos:prefLabel xml:lang="en">Terrain Layer</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#terrain_llayer -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#terrain_llayer">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <skos:prefLabel xml:lang="en">TIN layer; raster layer; terrain lLayer</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#text_file -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#text_file">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">Data stored in ASCII format.</dc:description>
-        <skos:prefLabel xml:lang="en">Text File</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#tile_size -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#tile_size">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">Specifies the width and the height of a data stored in
-block.</dc:description>
-        <skos:prefLabel xml:lang="en">Tile Size</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.egc.org/ont/data#time -->
 
     <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#time">
         <rdf:type rdf:resource="http://www.egc.org/ont/data#LiteralData"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#time_configuration -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#time_configuration">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">Specifies the time periods used for calculating solar
-radiation at specific locations.</dc:description>
-        <skos:prefLabel xml:lang="en">Time configuration</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#tin_layer -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#tin_layer">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A reference to a TIN, including topological relationships,
-symbology, and rendering properties.</dc:description>
-        <skos:prefLabel xml:lang="en">TIN Layer</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#topo_features -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#topo_features">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">Features that are input to the interpolation.</dc:description>
-        <skos:prefLabel xml:lang="en">Topo Features</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#topoinput -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#topoinput">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <skos:prefLabel xml:lang="en">TopoInput</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#topology -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#topology">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A topology that defines and enforces data integrity rules
-for spatial data.</dc:description>
-        <skos:prefLabel xml:lang="en">Topology</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#topology_layer -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#topology_layer">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A reference to a topology, including symbology and
-rendering properties.</dc:description>
-        <skos:prefLabel xml:lang="en">Topology Layer</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -8592,58 +8784,6 @@ rendering properties.</dc:description>
     
 
 
-    <!-- http://www.egc.org/ont/data#value_table -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#value_table">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A collection of columns of values.</dc:description>
-        <skos:prefLabel xml:lang="en">ValueTable</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#variant -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#variant">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A data value that can contain any basic type: boolean,
-date, double, long, and string.</dc:description>
-        <skos:prefLabel xml:lang="en">Variant</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#vertical_factor -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#vertical_factor">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">Specifies the relationship between the vertical cost factor
-and the vertical relative moving angle.</dc:description>
-        <skos:prefLabel xml:lang="en">Vertical Factor</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#vpf_coverage -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#vpf_coverage">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">Spatial data stored in Vector Product Format.</dc:description>
-        <skos:prefLabel xml:lang="en">VPF Coverage</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#vpf_table -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#vpf_table">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">Attribute data stored in Vector Product Format.</dc:description>
-        <skos:prefLabel xml:lang="en">VPF Table</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.egc.org/ont/data#wcpsAll_1.0 -->
 
     <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#wcpsAll_1.0">
@@ -8651,97 +8791,6 @@ and the vertical relative moving angle.</dc:description>
         <rdf:type rdf:resource="http://www.egc.org/ont/data#ISOSpatialSchema"/>
         <mimetype rdf:resource="http://www.egc.org/ont/data#text/plain"/>
         <rdfs:isDefinedBy rdf:resource="http://schemas.opengis.net/wcps/1.0/wcpsAll.xsd"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#wcs_coverage -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#wcs_coverage">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <skos:prefLabel xml:lang="en">WCS Coverage; String</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#weighted_overlay_table -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#weighted_overlay_table">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A table with data to combine multiple rasters by applying a
-common measurement scale of values to each raster,
-weighting each according to its importance.</dc:description>
-        <skos:prefLabel xml:lang="en">Weighted Overlay Table</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#weighted_sum -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#weighted_sum">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">Specifies data for overlaying several rasters multiplied
-each by their given weight and then summed.</dc:description>
-        <skos:prefLabel xml:lang="en">Weighted Sum</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#wms_map -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#wms_map">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <skos:prefLabel xml:lang="en">File; Workspace; Raster Dataset; Mosaic Dataset; Table; Raster Layer; Raster Catalog Layer; Mosaic Layer; Terrain Layer; WCS Coverage; Image Service; MapServer; WMS Map; Dataset; Layer File; Terrain; LAS Dataset Layer</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#workspace -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#workspace">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A container such as a geodatabase or folder.</dc:description>
-        <skos:prefLabel xml:lang="en">Workspace</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#wotable -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#wotable">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <skos:prefLabel xml:lang="en">WOTable</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#wstable -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#wstable">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <skos:prefLabel xml:lang="en">WSTable</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#xy_domain -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#xy_domain">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A range of lowest and highest possible values for x,y
-coordinates.</dc:description>
-        <skos:prefLabel xml:lang="en">XY Domain</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.egc.org/ont/data#z_domain -->
-
-    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/data#z_domain">
-        <rdf:type rdf:resource="http://www.egc.org/ont/data#ArcGISDataType"/>
-        <dc:description xml:lang="en">A range of lowest and highest possible value for z
-coordinates.</dc:description>
-        <skos:prefLabel xml:lang="en">Z Domain</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -9663,9 +9712,6 @@ coordinates.</dc:description>
     <owl:NamedIndividual rdf:about="http://www.w3.org/2001/XMLSchema#string">
         <rdf:type rdf:resource="http://www.egc.org/ont/data#SimpleDataType"/>
     </owl:NamedIndividual>
-    <rdf:Description>
-        <rdfs:comment>bv</rdfs:comment>
-    </rdf:Description>
     
 
 
