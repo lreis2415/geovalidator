@@ -4,10 +4,10 @@
 # time: 2020/1/5 17:56
 # https://github.com/RDFLib/pySHACL
 
-from os import path
+
 from rdflib import Graph
 from rdflib.util import guess_format
-from pyshacl import validate,rdfutil
+from pyshacl import validate, Validator
 from datagraph import DataGraph
 from utils import Utils
 
@@ -60,15 +60,32 @@ class GeoValidator(object):
 		:param ont:
 		:return:
 		"""
-		results = validate(data_graph, shacl_graph=shape_graph, ont_graph=ont, inference='rdfs', debug=False)
+		results = validate(data_graph, shacl_graph=shape_graph,
+		                   ont_graph=ont, inference='rdfs', debug=False)
 		# conforms, results_graph, results_text = results
 		return results
 
 	@staticmethod
 	def advanced_validate(data_graph, shape_graph, ont=None):
 		# enable SHACL advanced features: rules, custom targets
-		results = validate(data_graph, shacl_graph=shape_graph, ont_graph=ont, advanced=True, inference='rdfs', debug=False)
+		results = validate(data_graph, shacl_graph=shape_graph, ont_graph=ont,
+		                   advanced=True, inference='rdfs', debug=False)
 		# conforms, results_graph, results_text = results
+		# the results_graph just contains the validation report, not inferred triples
 		return results
 
-
+	@staticmethod
+	def infer_with_extended_graph(data_graph, shacl_rule, ont=None):
+		"""
+		use validate directly cannot get the inferred triples
+		:param data_graph:
+		:param shacl_rule:
+		:param ont:
+		:return:
+		"""
+		v = Validator(data_graph=data_graph, shacl_graph=shacl_rule,
+		              options={"inference": "rdfs", "advanced": True}, ont_graph=ont)
+		conforms, report_graph, report_text = v.run()
+		# mixed in the extra-ontology graph
+		expanded_graph = v.target_graph
+		return conforms, expanded_graph

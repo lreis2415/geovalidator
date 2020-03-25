@@ -1,0 +1,150 @@
+@prefix : <file:///F:/workspace/GeoValidator/data_graphs/L6_input_polygon.ttl#> .
+@prefix arcgis: <http://www.egc.org/ont/process/arcgis#> .
+@prefix data: <http://www.egc.org/ont/data#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix process: <http://www.egc.org/ont/process#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sf: <http://www.opengis.net/ont/sf#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix unit: <http://qudt.org/2.1/vocab/unit#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+data:in_features_data a data:VectorData,
+        rdfs:Resource ;
+    dcterms:identifier "in_features" ;
+    data:centralX 1.0009e+02 ;
+    data:centralY 4.0929e+01 ;
+    data:dataContent "Heihe_Basin_Boundary_2010.shp" ;
+    data:dataFormat data:ESRI_Shapefile ;
+    data:dataTheme "Basin" ;
+    data:eastBoundingCoordinate 1.04186e+02 ;
+    data:hasCRS "GCS_WGS_1984" ;
+    data:hasCRSProj4 "+proj=longlat +datum=WGS84 +no_defs " ;
+    data:hasCRSWkt "GEOGCS[\"GCS_WGS_1984\",DATUM[\"WGS_1984\",SPHEROID[\"WGS_84\",6378137,298.257223563]],PRIMEM[\"Greenwich\",0],UNIT[\"Degree\",0.017453292519943295],AUTHORITY[\"EPSG\",\"4326\"]]" ;
+    data:hasEPSG "EPSG:4326" ;
+    data:hasUOM unit:DEG ;
+    data:isProjected false ;
+    data:maxX 1.04186e+02 ;
+    data:maxY 4.3327e+01 ;
+    data:minX 9.6138e+01 ;
+    data:minY 3.772e+01 ;
+    data:northBoundingCoordinate 4.3327e+01 ;
+    data:southBoundingCoordinate 3.772e+01 ;
+    data:spatialExtent "96.138,37.720,104.186,43.327"^^xsd:string ;
+    data:westBoundingCoordinate 9.6138e+01 ;
+    geo:hasGeometry [ a sf:Polygon,
+                rdfs:Resource ] .
+
+dcterms:identifier a rdf:Property ;
+    rdfs:subPropertyOf dcterms:identifier .
+
+unit:DEG a rdfs:Resource .
+
+data:ESRI_Shapefile a rdfs:Resource .
+
+data:VectorData a rdfs:Resource .
+
+data:centralX a rdf:Property ;
+    rdfs:subPropertyOf data:centralX .
+
+data:centralY a rdf:Property ;
+    rdfs:subPropertyOf data:centralY .
+
+data:dataContent a rdf:Property ;
+    rdfs:subPropertyOf data:dataContent .
+
+data:dataFormat a rdf:Property ;
+    rdfs:subPropertyOf data:dataFormat .
+
+data:dataTheme a rdf:Property ;
+    rdfs:subPropertyOf data:dataTheme .
+
+data:eastBoundingCoordinate a rdf:Property ;
+    rdfs:subPropertyOf data:eastBoundingCoordinate .
+
+data:hasCRS a rdf:Property ;
+    rdfs:subPropertyOf data:hasCRS .
+
+data:hasCRSProj4 a rdf:Property ;
+    rdfs:subPropertyOf data:hasCRSProj4 .
+
+data:hasCRSWkt a rdf:Property ;
+    rdfs:subPropertyOf data:hasCRSWkt .
+
+data:hasEPSG a rdf:Property ;
+    rdfs:subPropertyOf data:hasEPSG .
+
+data:hasUOM a rdf:Property ;
+    rdfs:subPropertyOf data:hasUOM .
+
+data:isProjected a rdf:Property ;
+    rdfs:subPropertyOf data:isProjected .
+
+data:maxX a rdf:Property ;
+    rdfs:subPropertyOf data:maxX .
+
+data:maxY a rdf:Property ;
+    rdfs:subPropertyOf data:maxY .
+
+data:minX a rdf:Property ;
+    rdfs:subPropertyOf data:minX .
+
+data:minY a rdf:Property ;
+    rdfs:subPropertyOf data:minY .
+
+data:northBoundingCoordinate a rdf:Property ;
+    rdfs:subPropertyOf data:northBoundingCoordinate .
+
+data:southBoundingCoordinate a rdf:Property ;
+    rdfs:subPropertyOf data:southBoundingCoordinate .
+
+data:spatialExtent a rdf:Property ;
+    rdfs:subPropertyOf data:spatialExtent .
+
+data:westBoundingCoordinate a rdf:Property ;
+    rdfs:subPropertyOf data:westBoundingCoordinate .
+
+geo:hasGeometry a rdf:Property ;
+    rdfs:subPropertyOf geo:hasGeometry .
+
+sf:Polygon a rdfs:Resource .
+
+rdf:type a rdf:Property ;
+    rdfs:subPropertyOf rdf:type .
+
+rdfs:subPropertyOf a rdf:Property ;
+    rdfs:subPropertyOf rdfs:subPropertyOf .
+
+false a rdfs:Resource .
+
+4.0929e+01 a rdfs:Resource .
+
+1.0009e+02 a rdfs:Resource .
+
+"+proj=longlat +datum=WGS84 +no_defs " a rdfs:Resource .
+
+"96.138,37.720,104.186,43.327"^^xsd:string a rdfs:Resource .
+
+"Basin" a rdfs:Resource .
+
+"EPSG:4326" a rdfs:Resource .
+
+"GCS_WGS_1984" a rdfs:Resource .
+
+"GEOGCS[\"GCS_WGS_1984\",DATUM[\"WGS_1984\",SPHEROID[\"WGS_84\",6378137,298.257223563]],PRIMEM[\"Greenwich\",0],UNIT[\"Degree\",0.017453292519943295],AUTHORITY[\"EPSG\",\"4326\"]]" a rdfs:Resource .
+
+"Heihe_Basin_Boundary_2010.shp" a rdfs:Resource .
+
+"in_features" a rdfs:Resource .
+
+3.772e+01 a rdfs:Resource .
+
+4.3327e+01 a rdfs:Resource .
+
+9.6138e+01 a rdfs:Resource .
+
+1.04186e+02 a rdfs:Resource .
+

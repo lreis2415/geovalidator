@@ -3,12 +3,12 @@
 # author: houzhiwei
 # time: 2020/1/4 15:47
 
-from rdflib import BNode, Graph, RDF, Namespace, Literal
+from rdflib import BNode, Graph, RDF, Namespace, Literal, RDFS
 from utils import Utils
 
 g = Graph()
 # vector data shape
-g.parse('../shapes/L5_VectorDataShape.ttl',format='turtle')
+g.parse('../shapes/L5_VectorDataShape.ttl', format='turtle')
 # namespaces
 data = Namespace("http://www.egc.org/ont/data#")
 process = Namespace("http://www.egc.org/ont/process#")
@@ -24,16 +24,14 @@ g.bind('process', process)
 
 # a SHACL triple rule
 rrs = data.ProjectVectorCGCS2000Rule
+# pyshacl.consts.SH_NodeShape
 g.add((rrs, RDF.type, sh.NodeShape))
 g.add((rrs, sh.targetClass, data.VectorData))
-g.add((rrs, sh.description,
-       Literal('For all vector data, if their CRS is not CGCS 2000 (EPSG:4490),'
-               ' the ‘project’ tool will be inferred as a pre-processing tool for the data', lang='en')))
 
 rule = BNode()
 g.add((rule, RDF.type, sh.SPARQLRule))
 # sparql conditions
-rule = Utils.shacl_prefixes(g, rule, [('data', data),('process',process),('arcgis',arcgis)])
+rule = Utils.shacl_prefixes(g, rule, [('data', data), ('process', process), ('arcgis', arcgis)])
 sparql = """
        CONSTRUCT {
               $this process:isInputDataOf arcgis:project. # pre-processing
@@ -46,9 +44,11 @@ sparql = """
               FILTER (?epsg != "EPSG:4490")
        }
        """
-
-g.add((rule, sh.construct ,Literal(sparql)))
-g.add((rrs, sh.node, data.VectorDataShape))
+g.add((rule, RDFS.label,
+       Literal('For all vector data, if their CRS is not CGCS 2000 (EPSG:4490),'
+               ' the ‘project’ tool will be inferred as a pre-processing tool for the data', lang='en')))
+g.add((rule, sh.construct, Literal(sparql)))
+g.add((rule, sh.condition, data.VectorDataShape))
 g.add((rrs, sh.rule, rule))
 
 # save as turtle file

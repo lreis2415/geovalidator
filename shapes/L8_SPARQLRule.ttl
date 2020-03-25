@@ -20,9 +20,9 @@ data:CRSExistenceShape a sh:NodeShape ;
             sh:path [ sh:alternativePath ( data:hasCRS data:hasEPSG ) ] ] .
 
 data:ProjectVectorCGCS2000Rule a sh:NodeShape ;
-    sh:description "For all vector data, if their CRS is not CGCS 2000 (EPSG:4490), the ‘project’ tool will be inferred as a pre-processing tool for the data"@en ;
-    sh:node data:VectorDataShape ;
     sh:rule [ a sh:SPARQLRule ;
+            rdfs:label "For all vector data, if their CRS is not CGCS 2000 (EPSG:4490), the ‘project’ tool will be inferred as a pre-processing tool for the data"@en ;
+            sh:condition data:VectorDataShape ;
             sh:construct """
        CONSTRUCT {
               $this process:isInputDataOf arcgis:project. # pre-processing
