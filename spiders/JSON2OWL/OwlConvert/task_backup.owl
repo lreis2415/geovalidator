@@ -1,0 +1,1164 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.egc.org/ont/context/task#"
+     xml:base="http://www.egc.org/ont/context/task"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:ns="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+     xmlns:dta="http://www.egc.org/ont/domain/dta#"
+     xmlns:gis="http://www.egc.org/ont/gis#"
+     xmlns:kms="http://gcmd.gsfc.nasa.gov/kms#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:wot="http://xmlns.com/wot/0.1/"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:data="http://www.egc.org/ont/data#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:cyber="http://www.egc.org/ont/gis/cyber#"
+     xmlns:props="http://www.egc.org/ont/base/props#"
+     xmlns:shacl="http://www.w3.org/ns/shacl#"
+     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:context="http://www.egc.org/ont/context#"
+     xmlns:process="http://www.egc.org/ont/gis/process#">
+    <owl:Ontology rdf:about="http://www.egc.org/ont/context/task">
+        <owl:imports rdf:resource="http://purl.org/NET/dc_owl2dl/terms"/>
+<!--        <owl:imports rdf:resource="http://www.egc.org/ont/data"/>-->
+<!--        <owl:imports rdf:resource="http://www.egc.org/ont/domain/geospatial"/>-->
+<!--        <owl:imports rdf:resource="http://www.egc.org/ont/model/geospatial"/>-->
+        <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <dc:creator>houzhiwei</dc:creator>
+        <dc:title xml:lang="en">Task Ontology for Geographic Processing and Modeling</dc:title>
+        <terms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2018-08-18T17:40:12</terms:created>
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.0</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#fromTask -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/context/task#fromTask">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context/task#taskRelation"/>
+        <owl:inverseOf rdf:resource="http://www.egc.org/ont/context/task#toTask"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+        <rdfs:range rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#inputDataTheme -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/context/task#inputDataTheme">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context/task#taskRelation"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/data#dataTheme"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#isSubTaskOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/context/task#isSubTaskOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context/task#taskRelation"/>
+        <owl:inverseOf rdf:resource="http://www.egc.org/ont/context/task#subTask"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+        <rdfs:range rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#mostUsedDataSource -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/context/task#mostUsedDataSource">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context/task#taskRelation"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+        <rdfs:range rdf:resource="http://www.egc.org/ont/data#DataSource"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#outputDataTheme -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/context/task#outputDataTheme">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context/task#taskRelation"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/data#dataTheme"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#processingService -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/context/task#processingService">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context/task#taskRelation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#processingTool -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/context/task#processingTool">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context/task#taskRelation"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#procondition -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/context/task#procondition">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context/task#taskRelation"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#relatedModel -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/context/task#relatedModel">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context/task#taskRelation"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#subTask -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/context/task#subTask">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context/task#taskRelation"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+        <rdfs:range rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#suitableAlgorithm -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/context/task#suitableAlgorithm">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context/task#taskRelation"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+        <skos:prefLabel xml:lang="en">suitableAlgorithm</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#suitableDataSet -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/context/task#suitableDataSet">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context/task#taskRelation"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+        <rdfs:range rdf:resource="http://www.egc.org/ont/data#DataSet"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#suitableGeoSpatialModel -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/context/task#suitableGeoSpatialModel">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context/task#taskRelation"/>
+        <skos:definition xml:lang="en">suitable GeoSpatial Model for this task</skos:definition>
+        <skos:prefLabel xml:lang="en">suitableGeoSpatialModel</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#task -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/context/task#task">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context/task#taskRelation"/>
+        <rdfs:range rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#taskEffect -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/context/task#taskEffect">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context/task#taskRelation"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#taskModel -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/context/task#taskModel">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context/task#taskRelation"/>
+        <rdfs:comment xml:lang="en">a sequence of tasks</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#taskRelation -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/context/task#taskRelation">
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#toTask -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/context/task#toTask">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context/task#taskRelation"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+        <rdfs:range rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#inputDescription -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/context/task#inputDescription">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context/task#taskProperties"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#isAtomicTask -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/context/task#isAtomicTask">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context/task#taskProperties"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <skos:definition xml:lang="en">tasks that have no subtasks. It usually directly links to a software tool, thus has the tool&apos;s IOPE and domian concepts</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#outputDescription -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/context/task#outputDescription">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context/task#taskProperties"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#purpose -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/context/task#purpose">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context/task#taskProperties"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#taskProperties -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/context/task#taskProperties">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#workflowDescription -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/context/task#workflowDescription">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context/task#taskProperties"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#AnalysisWorkflow -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#AnalysisWorkflow">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#BasicGridAnalysis -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#BasicGridAnalysis">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#HydrologicalAnalysis"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#Calculator -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#Calculator">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#GeneralTask"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#Cartography -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#Cartography">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#ChangeDetection -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#ChangeDetection">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#ImageAnalysis"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#ClimateAnalysis -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#ClimateAnalysis">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#Conversion -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#Conversion">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+        <skos:altLabel xml:lang="en">GeoSpatial Data Conversion Task</skos:altLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#CoverageAnalysis -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#CoverageAnalysis">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#SpatialAnalysis"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#DTMAnalysis -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#DTMAnalysis">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#DataManagement -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#DataManagement">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#DatabaseManagement -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#DatabaseManagement">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#DigitalSoilMapping -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#DigitalSoilMapping">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#SoilMapping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#Display -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#Display">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#EcologicalModeling -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#EcologicalModeling">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#Simulation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#FeatureExtraction -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#FeatureExtraction">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#ImageAnalysis"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#Garden -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#Garden">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#GeneralTask -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#GeneralTask">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#GeoService -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#GeoService">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#Geocoding -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#Geocoding">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#Georeferencing -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#Georeferencing">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#Geostatistic -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#Geostatistic">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#GrassGeneral -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#GrassGeneral">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#GeneralTask"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#HydrologicModeling -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#HydrologicModeling">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#Simulation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#HydrologicalAnalysis -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#HydrologicalAnalysis">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+        <terms:source rdf:resource="http://hydrology.usu.edu/taudem/taudem5/documentation.html"/>
+        <terms:source rdf:resource="http://www.saga-gis.org/saga_tool_doc/6.4.0/ta_hydrology.html"/>
+        <terms:source rdf:resource="https://grasswiki.osgeo.org/wiki/Hydrological_Sciences"/>
+        <skos:altLabel xml:lang="zh-cn">水文建模任务</skos:altLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#ImageAnalysis -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#ImageAnalysis">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#ImageCalibration -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#ImageCalibration">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#ImageAnalysis"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#ImageFiltering -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#ImageFiltering">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#ImageAnalysis"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#ImageGeometry -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#ImageGeometry">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#ImageAnalysis"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#ImageLearning -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#ImageLearning">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#ImageAnalysis"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#ImageManipulation -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#ImageManipulation">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#ImageAnalysis"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#Interpolation -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#Interpolation">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#LIDARAnalysis -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#LIDARAnalysis">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#LinearReferencing -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#LinearReferencing">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#Georeferencing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#LocationAnalysis -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#LocationAnalysis">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#NetworkAnalysis -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#NetworkAnalysis">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#PointDataAnalysis -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#PointDataAnalysis">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#RasterAnalysis -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#RasterAnalysis">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#SpatialAnalysis"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#RasterStatistics -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#RasterStatistics">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#RasterAnalysis"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#SAR -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#SAR">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#ImageAnalysis"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#SINMAPStabilityIndex -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#SINMAPStabilityIndex">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#HydrologicalAnalysis"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#SamplingAndResampling -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#SamplingAndResampling">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+        <skos:prefLabel xml:lang="en">Resampling and Interpolation Task</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#Segmentation -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#Segmentation">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#ImageAnalysis"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#Simulation -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#Simulation">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#SoilMapping -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#SoilMapping">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+        <skos:altLabel xml:lang="en">Digital Soil Mapping Task</skos:altLabel>
+        <skos:altLabel xml:lang="zh-cn">数字土壤制图任务</skos:altLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#SoilSampling -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#SoilSampling">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#SoilMapping"/>
+        <skos:altLabel xml:lang="zh-cn">采样</skos:altLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#SpatialAnalysis -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#SpatialAnalysis">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#SpatialTemporalAnalysis -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#SpatialTemporalAnalysis">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#SpecializedGridAnalysis -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#SpecializedGridAnalysis">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#HydrologicalAnalysis"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#Stereo -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#Stereo">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#ImageAnalysis"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#StreamNetworkAnalysis -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#StreamNetworkAnalysis">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#HydrologicalAnalysis"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#Task -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#Task">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:comment xml:lang="zh-cn">参考 arcgis 、saga、grass等的toolbox分类</rdfs:comment>
+        <skos:altLabel xml:lang="zh-cn">任务</skos:altLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#TerrainAnalysis -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#TerrainAnalysis">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#DTMAnalysis"/>
+        <skos:altLabel xml:lang="en">Digital Terrain Analysis Task</skos:altLabel>
+        <skos:altLabel xml:lang="zh-cn">数字地形分析任务</skos:altLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#ThreeDimensionalAnalysis -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#ThreeDimensionalAnalysis">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+        <skos:altLabel xml:lang="en">VoxelAnalysis</skos:altLabel>
+        <skos:prefLabel xml:lang="en">3D Analysis</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#TrackingAnalysis -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#TrackingAnalysis">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#VectorAnalysis -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#VectorAnalysis">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#SpatialAnalysis"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#Visualization -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context/task#Visualization">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context/task#Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/data#DataSet -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#DataSet"/>
+    
+
+
+    <!-- http://www.egc.org/ont/data#DataSource -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/data#DataSource"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#ASCII2GeoTIFF -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context/task#ASCII2GeoTIFF">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context/task#Conversion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#Binary2GeoTIFF -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context/task#Binary2GeoTIFF">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context/task#Conversion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#Cumulative_Visibility_Caculate -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context/task#Cumulative_Visibility_Caculate">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context/task#DTMAnalysis"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#Frequency_Sampling -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context/task#Frequency_Sampling">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context/task#SoilSampling"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#HRU_analysis -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context/task#HRU_analysis">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context/task#HydrologicalAnalysis"/>
+        <dc:description xml:lang="en">Utilize the land use, soils, and slope  to generate SWAT HRUs (hydrologic response units)</dc:description>
+        <dc:format xml:lang="en">can be ESRI grid, shapefile, or geodatabase feature class</dc:format>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#Habitat_Mapping -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context/task#Habitat_Mapping">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context/task#EcologicalModeling"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#PitRemoving -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context/task#PitRemoving">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context/task#TerrainAnalysis"/>
+        <inputDataTheme rdf:resource="http://www.egc.org/ont/domain/dta#DEM"/>
+        <outputDataTheme rdf:resource="http://www.egc.org/ont/domain/dta#filled_DEM"/>
+        <skos:altLabel xml:lang="zh-cn">填洼</skos:altLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#PlanCurvCalculate -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context/task#PlanCurvCalculate">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context/task#TerrainAnalysis"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#ProfileCurvCalculate -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context/task#ProfileCurvCalculate">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context/task#TerrainAnalysis"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#SCACalculate -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context/task#SCACalculate">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context/task#TerrainAnalysis"/>
+        <outputDataTheme rdf:resource="http://www.egc.org/ont/domain/dta#SCA"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#SWATModelingTask -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context/task#SWATModelingTask">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context/task#HydrologicModeling"/>
+        <suitableGeoSpatialModel rdf:resource="http://www.egc.org/ont/model/geospatial#SWAT"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#Sample_Based_Mapping -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context/task#Sample_Based_Mapping">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context/task#DigitalSoilMapping"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#Sampling_Based_On_Uncertainty -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context/task#Sampling_Based_On_Uncertainty">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context/task#SoilSampling"/>
+        <skos:altLabel xml:lang="zh-cn">不确定性采样</skos:altLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#Sampling_based_on_purposive -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context/task#Sampling_based_on_purposive">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context/task#SoilSampling"/>
+        <skos:altLabel xml:lang="zh-cn">目的性采样</skos:altLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#SlopeCalculate -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context/task#SlopeCalculate">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context/task#TerrainAnalysis"/>
+        <outputDataTheme rdf:resource="http://www.egc.org/ont/domain/dta#slope"/>
+        <skos:altLabel xml:lang="zh-cn">坡度计算</skos:altLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#TOPMODELModelingTask -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context/task#TOPMODELModelingTask">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context/task#HydrologicModeling"/>
+        <suitableGeoSpatialModel rdf:resource="http://www.egc.org/ont/model/geospatial#TOPMODEL"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#TWICalculate -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context/task#TWICalculate">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context/task#TerrainAnalysis"/>
+        <inputDataTheme rdf:resource="http://www.egc.org/ont/domain/dta#SCA"/>
+        <inputDataTheme rdf:resource="http://www.egc.org/ont/domain/dta#slope"/>
+        <outputDataTheme rdf:resource="http://www.egc.org/ont/domain/dta#TWI"/>
+        <skos:altLabel xml:lang="zh-cn">地形湿度指数计算</skos:altLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#buffer -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context/task#buffer">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context/task#VectorAnalysis"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#extract_stream -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context/task#extract_stream">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context/task#HydrologicalAnalysis"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context/task#TerrainAnalysis"/>
+        <owl:sameAs rdf:resource="http://www.egc.org/ont/context/task#stream_network_delineation"/>
+        <skos:altLabel xml:lang="zh-cn">提取水流</skos:altLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#extract_watershed -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context/task#extract_watershed">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context/task#HydrologicalAnalysis"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context/task#TerrainAnalysis"/>
+        <owl:sameAs rdf:resource="http://www.egc.org/ont/context/task#watershed_delineation"/>
+        <skos:altLabel xml:lang="zh-cn">提取流域</skos:altLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#flooding_areas -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context/task#flooding_areas">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context/task#HydrologicModeling"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#flow_calculation -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context/task#flow_calculation">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context/task#HydrologicalAnalysis"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#flow_direction_calculate -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context/task#flow_direction_calculate">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context/task#HydrologicalAnalysis"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context/task#TerrainAnalysis"/>
+        <inputDataTheme rdf:resource="http://www.egc.org/ont/domain/dta#filled_DEM"/>
+        <outputDataTheme rdf:resource="http://www.egc.org/ont/domain/dta#flow_direction"/>
+        <suitableAlgorithm rdf:resource="http://www.egc.org/ont/domain/dta#D8"/>
+        <suitableAlgorithm rdf:resource="http://www.egc.org/ont/domain/dta#Dinf"/>
+        <suitableAlgorithm rdf:resource="http://www.egc.org/ont/domain/dta#MFD-md"/>
+        <skos:altLabel xml:lang="zh-cn">流向计算</skos:altLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#mosaic -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context/task#mosaic">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context/task#RasterAnalysis"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#overlay -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context/task#overlay">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context/task#VectorAnalysis"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#quantile -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context/task#quantile">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context/task#RasterStatistics"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#reclassification -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context/task#reclassification">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context/task#RasterAnalysis"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#resample -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context/task#resample">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context/task#RasterAnalysis"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#shortest_path -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context/task#shortest_path">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context/task#VectorAnalysis"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#stream_network_delineation -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context/task#stream_network_delineation">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context/task#HydrologicalAnalysis"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context/task#TerrainAnalysis"/>
+        <outputDataTheme rdf:resource="http://www.egc.org/ont/domain/dta#stream_networks"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#viewshed -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context/task#viewshed">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context/task#TerrainAnalysis"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context/task#watershed_delineation -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context/task#watershed_delineation">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context/task#HydrologicalAnalysis"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context/task#TerrainAnalysis"/>
+        <inputDataTheme rdf:resource="http://www.egc.org/ont/domain/dta#DEM"/>
+        <outputDataTheme rdf:resource="http://www.egc.org/ont/domain/dta#watershed"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/domain/dta#D8 -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/domain/dta#D8"/>
+    
+
+
+    <!-- http://www.egc.org/ont/domain/dta#DEM -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/domain/dta#DEM"/>
+    
+
+
+    <!-- http://www.egc.org/ont/domain/dta#Dinf -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/domain/dta#Dinf"/>
+    
+
+
+    <!-- http://www.egc.org/ont/domain/dta#MFD-md -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/domain/dta#MFD-md"/>
+    
+
+
+    <!-- http://www.egc.org/ont/domain/dta#SCA -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/domain/dta#SCA"/>
+    
+
+
+    <!-- http://www.egc.org/ont/domain/dta#TWI -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/domain/dta#TWI"/>
+    
+
+
+    <!-- http://www.egc.org/ont/domain/dta#filled_DEM -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/domain/dta#filled_DEM"/>
+    
+
+
+    <!-- http://www.egc.org/ont/domain/dta#flow_direction -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/domain/dta#flow_direction"/>
+    
+
+
+    <!-- http://www.egc.org/ont/domain/dta#slope -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/domain/dta#slope"/>
+    
+
+
+    <!-- http://www.egc.org/ont/domain/dta#stream_networks -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/domain/dta#stream_networks"/>
+    
+
+
+    <!-- http://www.egc.org/ont/domain/dta#watershed -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/domain/dta#watershed"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

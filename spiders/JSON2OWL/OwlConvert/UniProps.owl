@@ -1,0 +1,518 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.geodata.cn/onto/base/uni/props#"
+     xml:base="http://www.geodata.cn/onto/base/uni/props"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:props="http://www.geodata.cn/onto/base/uni/props#"
+     xmlns:terms="http://purl.org/dc/terms/">
+    <owl:Ontology rdf:about="http://www.egc.org/ont/base/props">
+        <owl:versionIRI rdf:resource="http://www.egc.org/ont/base/props"/>
+        <owl:imports rdf:resource="http://purl.org/NET/dc_owl2dl/terms"/>
+        <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-04-30T17:00:00</terms:modified>
+        <rdfs:comment xml:lang="en">OWL 2 DL ontology for Dublin Core metadata terms from the http://purl.org/dc/terms/ namespace; this version is grounded in the DC elements ontology and only uses annotation properties.</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">通用属性和关系定义</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">侯志伟</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="en">DCMI metadata terms</rdfs:label>
+        <rdfs:seeAlso rdf:resource="http://www.w3.org/TR/skos-reference/"/>
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.2</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#altLabel -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#altLabel">
+        <rdfs:comment xml:lang="en">The range of skos:altLabel is the class of RDF plain literals.</rdfs:comment>
+        <rdfs:comment xml:lang="en">skos:prefLabel, skos:altLabel and skos:hiddenLabel are pairwise disjoint properties.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:label xml:lang="en">alternative label</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#hiddenLabel -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#hiddenLabel">
+        <rdfs:comment xml:lang="en">The range of skos:hiddenLabel is the class of RDF plain literals.</rdfs:comment>
+        <rdfs:comment xml:lang="en">skos:prefLabel, skos:altLabel and skos:hiddenLabel are pairwise disjoint properties.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:label xml:lang="en">hidden label</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#prefLabel -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#prefLabel">
+        <rdfs:comment xml:lang="en">A resource has no more than one value of skos:prefLabel per language tag, and no more than one value of skos:prefLabel without language tag.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The range of skos:prefLabel is the class of RDF plain literals.</rdfs:comment>
+        <rdfs:comment xml:lang="en">skos:prefLabel, skos:altLabel and skos:hiddenLabel are pairwise
+      disjoint properties.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:label xml:lang="en">preferred label</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/Box -->
+
+    <rdfs:Datatype rdf:about="http://purl.org/dc/terms/Box">
+        <rdfs:isDefinedBy rdf:resource="http://dublincore.org/documents/dcmi-box/"/>
+        <rdfs:label xml:lang="en-us">DCMI Box</rdfs:label>
+    </rdfs:Datatype>
+    
+
+
+    <!-- http://purl.org/dc/terms/ISO3166 -->
+
+    <rdfs:Datatype rdf:about="http://purl.org/dc/terms/ISO3166">
+        <rdfs:isDefinedBy rdf:resource="http://www.iso.org/iso/en/prods-services/iso3166ma/02iso-3166-code-lists/list-en1.html"/>
+        <rdfs:label xml:lang="en-us">ISO 3166</rdfs:label>
+    </rdfs:Datatype>
+    
+
+
+    <!-- http://purl.org/dc/terms/ISO639-2 -->
+
+    <rdfs:Datatype rdf:about="http://purl.org/dc/terms/ISO639-2">
+        <rdfs:isDefinedBy rdf:resource="http://lcweb.loc.gov/standards/iso639-2/langhome.html"/>
+        <rdfs:label xml:lang="en-us">ISO 639-2</rdfs:label>
+    </rdfs:Datatype>
+    
+
+
+    <!-- http://purl.org/dc/terms/ISO639-3 -->
+
+    <rdfs:Datatype rdf:about="http://purl.org/dc/terms/ISO639-3">
+        <rdfs:isDefinedBy rdf:resource="http://www.sil.org/iso639-3/"/>
+        <rdfs:label xml:lang="en-us">ISO 639-3</rdfs:label>
+    </rdfs:Datatype>
+    
+
+
+    <!-- http://purl.org/dc/terms/Period -->
+
+    <rdfs:Datatype rdf:about="http://purl.org/dc/terms/Period">
+        <rdfs:isDefinedBy rdf:resource="http://dublincore.org/documents/dcmi-period/"/>
+        <rdfs:label xml:lang="en-us">DCMI Period</rdfs:label>
+    </rdfs:Datatype>
+    
+
+
+    <!-- http://purl.org/dc/terms/Point -->
+
+    <rdfs:Datatype rdf:about="http://purl.org/dc/terms/Point">
+        <rdfs:isDefinedBy rdf:resource="http://dublincore.org/documents/dcmi-point/"/>
+        <rdfs:label xml:lang="en-us">DCMI Point</rdfs:label>
+    </rdfs:Datatype>
+    
+
+
+    <!-- http://purl.org/dc/terms/RFC1766 -->
+
+    <rdfs:Datatype rdf:about="http://purl.org/dc/terms/RFC1766">
+        <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc1766.txt"/>
+        <rdfs:label xml:lang="en-us">RFC 1766</rdfs:label>
+    </rdfs:Datatype>
+    
+
+
+    <!-- http://purl.org/dc/terms/RFC3066 -->
+
+    <rdfs:Datatype rdf:about="http://purl.org/dc/terms/RFC3066">
+        <rdfs:comment xml:lang="en-us">RFC 3066 has been obsoleted by RFC 4646.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc3066.txt"/>
+        <rdfs:label xml:lang="en-us">RFC 3066</rdfs:label>
+    </rdfs:Datatype>
+    
+
+
+    <!-- http://purl.org/dc/terms/RFC4646 -->
+
+    <rdfs:Datatype rdf:about="http://purl.org/dc/terms/RFC4646">
+        <rdfs:comment xml:lang="en-us">RFC 4646 obsoletes RFC 3066.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc4646.txt"/>
+        <rdfs:label xml:lang="en-us">RFC 4646</rdfs:label>
+    </rdfs:Datatype>
+    
+
+
+    <!-- http://purl.org/dc/terms/URI -->
+
+    <rdfs:Datatype rdf:about="http://purl.org/dc/terms/URI">
+        <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc3986.txt"/>
+        <rdfs:label xml:lang="en-us">URI</rdfs:label>
+    </rdfs:Datatype>
+    
+
+
+    <!-- http://purl.org/dc/terms/W3CDTF -->
+
+    <rdfs:Datatype rdf:about="http://purl.org/dc/terms/W3CDTF">
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/TR/NOTE-datetime"/>
+        <rdfs:label xml:lang="en-us">W3C-DTF</rdfs:label>
+    </rdfs:Datatype>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.egc.org/ont/base/props#discipline -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/base/props#discipline">
+        <rdfs:comment xml:lang="en">which domain/discipline it belongs to</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/base/props#domainConcept -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/base/props#domainConcept">
+        <rdfs:comment xml:lang="en">related domain concept</rdfs:comment>
+        <skos:prefLabel xml:lang="en">hasDomainConcept</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/base/props#hasUOM -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/base/props#hasUOM">
+        <rdfs:comment xml:lang="en">has Unit of Measure</rdfs:comment>
+        <skos:prefLabel xml:lang="en">hasUOM</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/base/props#isNewVersionOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/base/props#isNewVersionOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/base/props#version"/>
+        <owl:inverseOf rdf:resource="http://www.egc.org/ont/base/props#newVersion"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/base/props#isOldVersionOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/base/props#isOldVersionOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/base/props#version"/>
+        <owl:inverseOf rdf:resource="http://www.egc.org/ont/base/props#oldVersion"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/base/props#isSymbolOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/base/props#isSymbolOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.egc.org/ont/base/props#symbolEntity"/>
+        <rdfs:label>是符号</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/base/props#newVersion -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/base/props#newVersion">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/base/props#version"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/base/props#oldVersion -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/base/props#oldVersion">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/base/props#version"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/base/props#symbolEntity -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/base/props#symbolEntity">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/base/props#version -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/base/props#version"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.egc.org/ont/base/props#abbreviation -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/base/props#abbreviation">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <owl:propertyDisjointWith rdf:resource="http://www.egc.org/ont/base/props#abbreviationOf"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/base/props#abbreviationOf -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/base/props#abbreviationOf">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/base/props#defaultValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/base/props#defaultValue">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/base/props#hasValue"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/base/props#domainKeywords -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/base/props#domainKeywords">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/base/props#keywords"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/base/props#errorValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/base/props#errorValue">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/base/props#hasValue"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:label xml:lang="en">errorValue</rdfs:label>
+        <skos:prefLabel xml:lang="zh-cn">误差值</skos:prefLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/base/props#hasUOMDes -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/base/props#hasUOMDes">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/base/props#hasURI -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/base/props#hasURI">
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#anyURI"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
+                </owl:unionOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/base/props#hasValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/base/props#hasValue">
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/base/props#keywords -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/base/props#keywords">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:seeAlso rdf:resource="http://purl.org/dc/elements/1.1/subject"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/base/props#maxValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/base/props#maxValue">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/base/props#hasValue"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/base/props#meanValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/base/props#meanValue">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/base/props#hasValue"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/base/props#minValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/base/props#minValue">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/base/props#hasValue"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/base/props#numericValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/base/props#numericValue">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/base/props#hasValue"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+        <rdfs:label>值为</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/base/props#onlineAccessURL -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/base/props#onlineAccessURL">
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#anyURI"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
+                </owl:unionOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/base/props#onlineResourceURL -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/base/props#onlineResourceURL">
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#anyURI"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
+                </owl:unionOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/base/props#symbol -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/base/props#symbol">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/base/props#textValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/base/props#textValue">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/base/props#hasValue"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://purl.org/dc/terms/DCMIType">
+        <rdfs:label xml:lang="en-us">DCMI Type Vocabulary</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://dublincore.org/documents/dcmi-type-vocabulary/"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/terms/DDC">
+        <rdfs:label xml:lang="en-us">DDC</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://www.oclc.org/dewey/"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/terms/IMT">
+        <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/media-types/"/>
+        <rdfs:label xml:lang="en-us">IMT</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/terms/LCC">
+        <rdfs:label xml:lang="en-us">LCC</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://lcweb.loc.gov/catdir/cpso/lcco/lcco.html"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/terms/LCSH">
+        <rdfs:label xml:lang="en-us">LCSH</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/terms/MESH">
+        <rdfs:isDefinedBy rdf:resource="http://www.nlm.nih.gov/mesh/meshhome.html"/>
+        <rdfs:label xml:lang="en-us">MeSH</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/terms/NLM">
+        <rdfs:isDefinedBy rdf:resource="http://wwwcf.nlm.nih.gov/class/"/>
+        <rdfs:label xml:lang="en-us">NLM</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/terms/TGN">
+        <rdfs:label xml:lang="en-us">TGN</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://www.getty.edu/research/tools/vocabulary/tgn/index.html"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/terms/UDC">
+        <rdfs:isDefinedBy rdf:resource="http://www.udcc.org/"/>
+        <rdfs:label xml:lang="en-us">UDC</rdfs:label>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

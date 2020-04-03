@@ -1,0 +1,1553 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.egc.org/ont/datasource#"
+     xml:base="http://www.egc.org/ont/datasource"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:ns="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+     xmlns:dta="http://www.egc.org/ont/domain/dta#"
+     xmlns:kms="http://gcmd.gsfc.nasa.gov/kms#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:wot="http://xmlns.com/wot/0.1/"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:data="http://www.egc.org/ont/data#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:gcmd="https://gcmdservices.gsfc.nasa.gov/kms/concept/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:cyber="http://www.egc.org/ont/gis/cyber#"
+     xmlns:props="http://www.egc.org/ont/base/props#"
+     xmlns:shacl="http://www.w3.org/ns/shacl#"
+     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:datasource="http://www.egc.org/ont/datasource#">
+    <owl:Ontology rdf:about="http://www.egc.org/ont/datasource">
+        <owl:imports rdf:resource="http://www.egc.org/ont/data"/>
+        <owl:imports rdf:resource="https://gcmdservices.gsfc.nasa.gov/kms/concept"/>
+        <dc:creator xml:lang="en">zhiwei hou</dc:creator>
+        <terms:source rdf:resource="https://grasswiki.osgeo.org/wiki/Global_datasets"/>
+        <rdfs:label xml:lang="en">Data Sets and Data Sources</rdfs:label>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+    <!-- http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled -->
+
+    <owl:AnnotationProperty rdf:about="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#qualifiedCardinality -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2002/07/owl#qualifiedCardinality"/>
+    
+
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#dataProvider -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/datasource#dataProvider">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/datasource#dataSetRelation"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/datasource#DataSet"/>
+        <rdfs:range rdf:resource="http://www.egc.org/ont/datasource#DataProvider"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#dataSet -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/datasource#dataSet">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/datasource#dataSetRelation"/>
+        <owl:inverseOf rdf:resource="http://www.egc.org/ont/datasource#dataSource"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/datasource#DataSource"/>
+        <rdfs:range rdf:resource="http://www.egc.org/ont/datasource#DataSet"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#dataSetRelation -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/datasource#dataSetRelation"/>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#dataSource -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/datasource#dataSource">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/datasource#dataSetRelation"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/datasource#DataSet"/>
+        <rdfs:range rdf:resource="http://www.egc.org/ont/datasource#DataSource"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#subDataSetOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/datasource#subDataSetOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/datasource#dataSetRelation"/>
+        <owl:inverseOf rdf:resource="http://www.egc.org/ont/datasource#subDateSet"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/datasource#DataSet"/>
+        <rdfs:range rdf:resource="http://www.egc.org/ont/datasource#DataSet"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#subDateSet -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/datasource#subDateSet">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/datasource#dataSetRelation"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/datasource#DataSet"/>
+        <rdfs:range rdf:resource="http://www.egc.org/ont/datasource#DataSet"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.egc.org/ont/base/props#hasName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/base/props#hasName"/>
+    
+
+
+    <!-- http://www.egc.org/ont/base/props#hasNumericValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/base/props#hasNumericValue"/>
+    
+
+
+    <!-- http://www.egc.org/ont/data#hasSpatialCoverage -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/data#hasSpatialCoverage">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/datasource#dataSetProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/data#hasTemporalCoverage -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/data#hasTemporalCoverage">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/datasource#dataSetProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#DEMOutputFormat -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/datasource#DEMOutputFormat">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/datasource#dataSourceProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#accessDateTime -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/datasource#accessDateTime">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/datasource#dataSetProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#accuracy -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/datasource#accuracy">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/datasource#dataSourceProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#acquisitionDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/datasource#acquisitionDate">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/datasource#dataSetProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#availabilityEnd -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/datasource#availabilityEnd">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/datasource#dataSetProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <owl:propertyDisjointWith rdf:resource="http://www.egc.org/ont/datasource#availabilityStart"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#availabilityStart -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/datasource#availabilityStart">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/datasource#dataSetProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#collectDateTime -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/datasource#collectDateTime">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/datasource#dataSetProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#currency -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/datasource#currency">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/datasource#dataSetProperty"/>
+        <rdfs:comment xml:lang="zh-cn">现势性</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#dataAccessLink -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/datasource#dataAccessLink">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/datasource#dataSetProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#dataContent -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/datasource#dataContent">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/datasource#dataSetProperty"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/datasource#DataSet"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/gis#InputData"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/gis#OutputData"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#dataDocument -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/datasource#dataDocument">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/datasource#dataSourceProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#dataSetProperty -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/datasource#dataSetProperty"/>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#dataSourceDescription -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/datasource#dataSourceDescription">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/datasource#dataSourceProperty"/>
+        <rdfs:comment xml:lang="en">Data Source described in string, not object</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#dataSourceName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/datasource#dataSourceName">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/base/props#hasName"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/datasource#dataSourceProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#dataSourceProperty -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/datasource#dataSourceProperty">
+        <props:reference xml:lang="en">Data Set Characteristics of ASTER DEM
+https://lpdaac.usgs.gov/dataset_discovery/aster/aster_products_table/astgtm
+
+http://www.jspacesystems.or.jp/ersdac/GDEM/E/2.html</props:reference>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#dataSourceURL -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/datasource#dataSourceURL">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/datasource#dataSourceProperty"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#anyURI"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
+                </owl:unionOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#doi -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/datasource#doi">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/datasource#dataSetProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#downloadURL -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/datasource#downloadURL">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/datasource#dataSourceProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#feeFree -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/datasource#feeFree">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/datasource#dataSourceProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#geeSnippet -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/datasource#geeSnippet">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/datasource#dataSetProperty"/>
+        <skos:definition xml:lang="en">Google Earth Engine Javascript Snippet of a data set</skos:definition>
+        <skos:example rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ee.ImageCollection(&quot;CIESIN/GPWv4/unwpp-adjusted-population-density&quot;)</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#generationAndDistribution -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/datasource#generationAndDistribution">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/datasource#dataSourceProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#geographicCoordinates -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/datasource#geographicCoordinates">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/datasource#dataSourceProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#geoidReference -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/datasource#geoidReference">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/datasource#dataSourceProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#geolocation -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/datasource#geolocation">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/datasource#dataSetProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#hasColor -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/datasource#hasColor"/>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#layerCount -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/datasource#layerCount">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/datasource#dataSetProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#maximumTimestepInterval -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/datasource#maximumTimestepInterval">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/datasource#dataSetProperty"/>
+        <skos:definition xml:lang="en">the length of the largest timestep represented in the data and its unit of measurement. Used to allow validation of the temporal stability of interfaces</skos:definition>
+        <skos:example xml:lang="en">3,600 s</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#minimumTimestepInterval -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/datasource#minimumTimestepInterval">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/datasource#dataSetProperty"/>
+        <skos:definition xml:lang="en">the length of the smallest timestep represented in the data and its unit of measurement. Used to allow validation of the temporal stability of interfaces</skos:definition>
+        <skos:example xml:lang="en">1,800 s</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#nominalResolution -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/datasource#nominalResolution">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/data#spatialResolution"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/datasource#dataSetProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#peocessSoftware -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/datasource#peocessSoftware">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/datasource#dataSetProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#pixelSize -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/datasource#pixelSize">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/datasource#dataSetProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#postingInterval -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/datasource#postingInterval">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/datasource#dataSetProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#processMethod -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/datasource#processMethod">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/datasource#dataSetProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#releaseYear -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/datasource#releaseYear">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/datasource#dataSetProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/datasource#dataSourceProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#requiresAllowance -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/datasource#requiresAllowance">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/datasource#dataSourceProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment xml:lang="en">requires allowance from the owner before download the data set</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#requiresAuthentication -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/datasource#requiresAuthentication">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/datasource#dataSourceProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment>should users create a account and login before download a data set</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#specialDNValues -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/datasource#specialDNValues">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/datasource#dataSetProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#temporalGranularity -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/datasource#temporalGranularity">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/datasource#dataSetProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#termsOfUse -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/datasource#termsOfUse">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/datasource#dataSetProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#tileSize -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/datasource#tileSize">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/datasource#dataSetProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#ClassTable -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/datasource#ClassTable">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.egc.org/ont/base/props#hasNumericValue"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#positiveInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.egc.org/ont/datasource#hasColor"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#ClimaticDataSet -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/datasource#ClimaticDataSet">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/datasource#RasterDataSet"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#DEMDataSet -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/datasource#DEMDataSet">
+        <owl:equivalentClass rdf:resource="http://www.egc.org/ont/datasource#ElevationDataSet"/>
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/datasource#RasterDataSet"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#DataProvider -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/datasource#DataProvider">
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.egc.org/ont/base/props#hasName"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.egc.org/ont/datasource#DataSet"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#DataSet -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/datasource#DataSet">
+        <owl:disjointWith rdf:resource="http://www.egc.org/ont/datasource#DataSource"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#DataSource -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/datasource#DataSource">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.egc.org/ont/datasource#dataSourceURL"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#anyURI"/>
+                            <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
+                        </owl:unionOf>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <skos:prefLabel xml:lang="zh-cn">数据来源</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#ElevationDataSet -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/datasource#ElevationDataSet">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/datasource#RasterDataSet"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#ElevationDataSource -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/datasource#ElevationDataSource">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/datasource#DataSource"/>
+        <skos:definition xml:lang="en">Available data source of DEM.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#GeoSpatialDataSet -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/datasource#GeoSpatialDataSet">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/datasource#DataSet"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#ImageProperty -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/datasource#ImageProperty">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.egc.org/ont/base/props#hasName"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#ImageryDataSet -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/datasource#ImageryDataSet">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/datasource#RasterDataSet"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#LandCoverDataSet -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/datasource#LandCoverDataSet">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/datasource#RasterDataSet"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#LandUseDataSource -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/datasource#LandUseDataSource">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/datasource#DataSource"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#PopulationMaps -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/datasource#PopulationMaps">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/datasource#RasterDataSet"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#RasterDataSet -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/datasource#RasterDataSet">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/datasource#GeoSpatialDataSet"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#SoilDataSet -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/datasource#SoilDataSet">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/datasource#RasterDataSet"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#SoilDataSource -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/datasource#SoilDataSource">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/datasource#DataSource"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#TopographicMaps -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/datasource#TopographicMaps">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/datasource#RasterDataSet"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#VectorDataSet -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/datasource#VectorDataSet">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/datasource#GeoSpatialDataSet"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis#InputData -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis#InputData"/>
+    
+
+
+    <!-- http://www.egc.org/ont/gis#OutputData -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis#OutputData"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#ACE2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#ACE2">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#ElevationDataSet"/>
+        <data:dataContentConcept rdf:resource="https://gcmdservices.gsfc.nasa.gov/kms/concept/digital_elevation"/>
+        <dc:description xml:lang="en">The ACE2 Global Digital Elevation Model is available at 3&quot;, 30&quot; and 5&apos; spatial resolutions.</dc:description>
+        <props:domainConcept rdf:resource="https://gcmdservices.gsfc.nasa.gov/kms/concept/digital_elevation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#ALOS_3D_World -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#ALOS_3D_World">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#ElevationDataSet"/>
+        <owl:sameAs rdf:resource="http://www.egc.org/ont/datasource#JAXA’s_Global_ALOS_3D_World"/>
+        <data:dataContentConcept rdf:resource="https://gcmdservices.gsfc.nasa.gov/kms/concept/digital_elevation"/>
+        <dc:description xml:lang="en">The ALOS World 3d is a 30-meter spatial resolution digital surface model (DSM) constructed by the Japan Aerospace Exploration Agency’s (JAXA). Recently, this DSM has been made available to the public.
+
+The neat thing about is that it is the most precise global-scale elevation data at this time using the Advanced Land Observing Satellite “DAICHI” (ALOS). The DSM was generated using stereo mapping (PRISM) for worldwide topographic data with its optical stereoscopic observation.</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#ASTER_DEM -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#ASTER_DEM">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#ElevationDataSet"/>
+        <data:dataContentConcept rdf:resource="https://gcmdservices.gsfc.nasa.gov/kms/concept/digital_elevation"/>
+        <subDateSet rdf:resource="http://www.egc.org/ont/datasource#ASTER_Global_emissivity"/>
+        <subDateSet rdf:resource="http://www.egc.org/ont/datasource#ASTER_L1_T_radiance"/>
+        <props:abbreviationOf xml:lang="en">Advanced Spaceborne Thermal Emission and Reflection Radiometer</props:abbreviationOf>
+        <skos:altLabel xml:lang="en">Advanced Spaceborne Thermal Emission and Reflection Radiometer</skos:altLabel>
+        <skos:prefLabel xml:lang="en">ASTER</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#ASTER_GDEM -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#ASTER_GDEM">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#ElevationDataSet"/>
+        <owl:sameAs rdf:resource="http://www.egc.org/ont/datasource#ASTER_Global_Digital_Elevation_Model"/>
+        <data:dataContentConcept rdf:resource="https://gcmdservices.gsfc.nasa.gov/kms/concept/digital_elevation"/>
+        <data:eastBoundLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">180.0</data:eastBoundLongitude>
+        <data:northBoundLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">83.0</data:northBoundLatitude>
+        <data:southBoundLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">-83.0</data:southBoundLatitude>
+        <data:westBoundLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">-180.0</data:westBoundLongitude>
+        <DEMOutputFormat rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GeoTIFF, signed 16 bits in units of vertical meters</DEMOutputFormat>
+        <accuracy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">7~14m</accuracy>
+        <dataAccessLink rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://gdex.cr.usgs.gov/gdex/</dataAccessLink>
+        <dataAccessLink rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://reverb.echo.nasa.gov/reverb</dataAccessLink>
+        <dataAccessLink rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://www.jspacesystems.or.jp/ersdac/GDEM/E/2.html</dataAccessLink>
+        <geographicCoordinates rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Geographic latitude and longitude</geographicCoordinates>
+        <geoidReference rdf:datatype="http://www.w3.org/2001/XMLSchema#string">WGS84/EGM96</geoidReference>
+        <pixelSize rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1 arc-second</pixelSize>
+        <postingInterval rdf:datatype="http://www.w3.org/2001/XMLSchema#string">30m</postingInterval>
+        <specialDNValues rdf:datatype="http://www.w3.org/2001/XMLSchema#string">-9999 for void pixels, and 0 for sea water body</specialDNValues>
+        <tileSize rdf:datatype="http://www.w3.org/2001/XMLSchema#string">3601 x 3601 (1 degree by 1 degree)</tileSize>
+        <dc:description xml:lang="en">A joint operation between NASA and Japan was the birth of Advanced Spaceborne Thermal Emission and Reflection Radiometer (ASTER). As part of this project emerged the ASTER Global DEM.
+
+ASTER GDEM boasted a global resolution of 90 meters with a resolution of 30 meters in the United States. Despite its high spatial resolution and greater coverage (80% of the Earth), users were dissatisfied with it because of its artifacts, which often occurred in cloudy areas.
+
+ASTER used stereoscopic pairs and digital image correlation methods. Two (passive) optical images were acquired with different angles taken from the same pass of an airplane. These visible and near-infrared bands of ASTER were affected by cloud cover. This wasn’t the case for SRTM’s C-Band radar. Here’s how passive and active sensors are different.
+ 
+However over time, ASTER DEM data has improved its products with artifact corrections of their own. During October 2011 ASTER version 2 of Global Digital Elevation Model was publicly released, which considerably improved on version 1.
+
+Despite being experimental grade, ASTER version 2 can be considered a more accurate representation than the SRTM elevation model in rugged mountainous terrain. But you should really take a look for yourself.</dc:description>
+        <dc:description xml:lang="zh-cn">ASTER指搭载在Terra卫星上的星载热量散发和反辐射仪(Advanced Spaceborne Thermal Emission and Reflection Radiometer)，由日本国际贸易和工业部制造，于1999年12月18日发射升空的。
+
+GDEM 指全球DEM 数据. ASTER 可以通过对同一区域的星下点和后视观测的立体相对生成DEM数据，这是ASTER GDEM 数据的生成基础。
+
+ASTER GDEM数据覆盖从83ºS-83ºN之间的所有陆地区域，占全球陆地区域的99%。它的水平分辨率为1弧秒（赤道处约30m）。经过处理的ASTER GDEM数据被分割成1°×1°大小，可以进行分区域下载。
+
+目前共有2版，第一版V1于2009年6月公布，第二版V2于2011年10月公布。相对于第一版数据，第二版数据采用了先进的算法来提高数据的分辨率和垂直精度，除了对第一版的150万景数据进行重新处理外，还增加了第一版发布后的35万景数据。经评价，第二版数据将垂直精度从20m提高到17m左右（在95%置信水平上）。</dc:description>
+        <terms:spatial rdf:datatype="http://www.w3.org/2001/XMLSchema#string">North 83 degrees to south 83 degrees, 22,702 tiles</terms:spatial>
+        <props:linkedWebPage rdf:datatype="http://purl.org/dc/terms/URI">https://lpdaac.usgs.gov/dataset_discovery/aster/aster_products_table/astgtm</props:linkedWebPage>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#ASTER_Global_Digital_Elevation_Model -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#ASTER_Global_Digital_Elevation_Model">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#ElevationDataSet"/>
+        <data:dataContentConcept rdf:resource="https://gcmdservices.gsfc.nasa.gov/kms/concept/digital_elevation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#ASTER_Global_emissivity -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#ASTER_Global_emissivity">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#ElevationDataSet"/>
+        <data:dataContentConcept rdf:resource="https://gcmdservices.gsfc.nasa.gov/kms/concept/digital_elevation"/>
+        <nominalResolution rdf:datatype="http://www.w3.org/2001/XMLSchema#string">100m</nominalResolution>
+        <skos:prefLabel xml:lang="en">Global emissivity</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#ASTER_L1_T_radiance -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#ASTER_L1_T_radiance">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#ElevationDataSet"/>
+        <data:dataContentConcept rdf:resource="https://gcmdservices.gsfc.nasa.gov/kms/concept/digital_elevation"/>
+        <data:hasSpatialCoverage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Global</data:hasSpatialCoverage>
+        <data:hasTemporalCoverage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2000–Now</data:hasTemporalCoverage>
+        <nominalResolution rdf:datatype="http://www.w3.org/2001/XMLSchema#string">10m</nominalResolution>
+        <nominalResolution rdf:datatype="http://www.w3.org/2001/XMLSchema#string">30m</nominalResolution>
+        <nominalResolution rdf:datatype="http://www.w3.org/2001/XMLSchema#string">90m</nominalResolution>
+        <temporalGranularity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1day</temporalGranularity>
+        <skos:prefLabel xml:lang="en">ASTER L1 T radiance</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#CDC_Geographic_Boundary_and_Public_Health_Maps -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#CDC_Geographic_Boundary_and_Public_Health_Maps">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#VectorDataSet"/>
+        <skos:prefLabel xml:lang="en">CDC Geographic Boundary and Public Health Maps</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#China_Siol_Map_Based_Harmonized_World_Soil_Database -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#China_Siol_Map_Based_Harmonized_World_Soil_Database">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#SoilDataSet"/>
+        <data:dataContentConcept rdf:resource="https://gcmdservices.gsfc.nasa.gov/kms/concept/soil"/>
+        <data:hasSpatialCoverage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">China</data:hasSpatialCoverage>
+        <dataAccessLink>http://westdc.westgis.ac.cn/data/611f7d50-b419-4d14-b4dd-4a944b141175</dataAccessLink>
+        <requiresAllowance rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</requiresAllowance>
+        <requiresAuthentication rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</requiresAuthentication>
+        <terms:abstract xml:lang="zh-cn">数据来源于联合国粮农组织（FAO）和维也纳国际应用系统研究所(IIASA)所构建的世界土壤数据库(Harmonized World Soil Database version 1.1 )(HWSD). 中国境内数据源为第二次全国土地调查南京土壤所所提供的1：100万土壤数据。 该数据可为建模者提供模型输入参数,农业角度可用来研究生态农业分区,粮食安全和气候变化等。数据格式:grid栅格格式，投影为WGS84。采用的土壤分类系统主要为FAO-90。</terms:abstract>
+        <terms:bibliographicCitation xml:lang="en">Fischer, G., F. Nachtergaele, S. Prieler, H.T. van Velthuizen, L. Verelst, D. Wiberg, 2008. Global Agro-ecological Zones Assessment for Agriculture (GAEZ 2008). IIASA, Laxenburg, Austria and FAO, Rome, Italy</terms:bibliographicCitation>
+        <terms:rights xml:lang="zh-cn">为尊重知识产权、保障数据作者的权益、扩展数据中心的服务、评估数据的应用潜力，请数据使用者在使用数据所产生的研究成果中（包括公开发表的论文、论著、数据产品和未公开发表的研究报告、数据产品等成果），明确注明数据来源和数据作者。对于转载（二次或多次发布）的数据，作者还须注明原始数据来源。中文发表的成果参考以下规范注明： 数据来源于“黑河计划数据管理中心”(http://westdc.westgis.ac.cn)英文发表的成果依据以下规范注明： The data set is provided by Cold and Arid Regions Sciences Data Center at Lanzhou (http://westdc.westgis.ac.cn)</terms:rights>
+        <terms:spatial xml:lang="en">China</terms:spatial>
+        <props:keywords xml:lang="zh-cn">土壤, 土壤质地, HWSD, 土壤含水量, 碎石体积, 有机碳含量</props:keywords>
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.1</owl:versionInfo>
+        <skos:altLabel xml:lang="zh-cn">基于世界土壤数据库（HWSD）的中国土壤数据集</skos:altLabel>
+        <skos:prefLabel xml:lang="en">China Siol Map Based Harmonized World Soil Database</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#DEM -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#DEM"/>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#ETOPO1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#ETOPO1">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#ElevationDataSet"/>
+        <data:dataContentConcept rdf:resource="https://gcmdservices.gsfc.nasa.gov/kms/concept/digital_elevation"/>
+        <nominalResolution rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1′</nominalResolution>
+        <skos:prefLabel xml:lang="en">ETOPO1</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#EarthExplorer -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#EarthExplorer">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#DataSource"/>
+        <dataSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">earthexplorer.usgs.gov</dataSourceURL>
+        <requiresAuthentication rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</requiresAuthentication>
+        <skos:prefLabel xml:lang="en">earth explorer</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#GDEM_V1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#GDEM_V1">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#ElevationDataSet"/>
+        <data:dataContentConcept rdf:resource="https://gcmdservices.gsfc.nasa.gov/kms/concept/digital_elevation"/>
+        <dc:description xml:lang="en">GDEM global 30m elevation calculated from stereo-pair images collected by the Terra satellite.</dc:description>
+        <props:abbreviationOf xml:lang="en">Global DEM</props:abbreviationOf>
+        <skos:altLabel xml:lang="en">Global DEM</skos:altLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#GDEM_V2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#GDEM_V2">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#ElevationDataSet"/>
+        <data:dataContentConcept rdf:resource="https://gcmdservices.gsfc.nasa.gov/kms/concept/digital_elevation"/>
+        <dc:description xml:lang="en">The ASTER GDEM covers land surfaces between 83°N and 83°S and is comprised of 22,702 tiles. Tiles that contain at least 0.01% land area are included. The ASTER GDEM is distributed as Geographic Tagged Image File Format (GeoTIFF) files with geographic coordinates (latitude, longitude). The data are posted on a 1 arc-second (approximately 30–m at the equator) grid and referenced to the 1984 World Geodetic System (WGS84)/ 1996 Earth Gravitational Model (EGM96) geoid.</dc:description>
+        <owl:priorVersion rdf:resource="http://www.egc.org/ont/datasource#GDEM_V1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#GES_DISC -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#GES_DISC">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#DataSource"/>
+        <dataSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://disc.gsfc.nasa.gov/datasets</dataSourceURL>
+        <props:abbreviationOf rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NASA Earth Sciences Data and Information Services Center</props:abbreviationOf>
+        <skos:prefLabel xml:lang="en">GES DISC</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#GLCF_tree_cover -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#GLCF_tree_cover">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#LandCoverDataSet"/>
+        <nominalResolution rdf:datatype="http://www.w3.org/2001/XMLSchema#string">30 m</nominalResolution>
+        <temporalGranularity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5 year</temporalGranularity>
+        <skos:prefLabel xml:lang="en">GLCF tree cover</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#GLDAS -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#GLDAS">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#LandCoverDataSet"/>
+        <owl:sameAs rdf:resource="http://www.egc.org/ont/datasource#Global_Land_Data_Assimilation_System"/>
+        <data:dataContentConcept rdf:resource="https://gcmdservices.gsfc.nasa.gov/kms/concept/land_management"/>
+        <dataSource rdf:resource="http://www.egc.org/ont/datasource#GES_DISC"/>
+        <skos:prefLabel xml:lang="en">GLDAS</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#GSCloud -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#GSCloud">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#DataSource"/>
+        <dataSet rdf:resource="http://www.egc.org/ont/datasource#MODIS"/>
+        <dataSet rdf:resource="http://www.egc.org/ont/datasource#SRTM"/>
+        <dataSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.gscloud.cn</dataSourceURL>
+        <skos:prefLabel xml:lang="zh-cn">地理空间数据云</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#GSHHS_World_Coastline -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#GSHHS_World_Coastline">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#VectorDataSet"/>
+        <skos:prefLabel xml:lang="en">GSHHS World Coastline</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#GTOPO30 -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#GTOPO30">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#ElevationDataSet"/>
+        <owl:sameAs rdf:resource="http://www.egc.org/ont/datasource#Global_30_Arc-Second_Elevation"/>
+        <data:dataContentConcept rdf:resource="https://gcmdservices.gsfc.nasa.gov/kms/concept/digital_elevation"/>
+        <dataAccessLink rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://lta.cr.usgs.gov/GTOPO30</dataAccessLink>
+        <nominalResolution rdf:datatype="http://www.w3.org/2001/XMLSchema#string">30″</nominalResolution>
+        <skos:prefLabel xml:lang="en">GTOPO30</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#GeoDataCN -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#GeoDataCN">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#DataSource"/>
+        <dataSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://www.geodata.cn/</dataSourceURL>
+        <requiresAuthentication rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</requiresAuthentication>
+        <skos:prefLabel xml:lang="en">National Earth System Science Data Center</skos:prefLabel>
+        <skos:prefLabel xml:lang="zh-cn">国家地球系统科学数据中心</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#GlobCover -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#GlobCover">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#LandCoverDataSet"/>
+        <data:hasTemporalCoverage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2009</data:hasTemporalCoverage>
+        <nominalResolution rdf:datatype="http://www.w3.org/2001/XMLSchema#string">300 m</nominalResolution>
+        <temporalGranularity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Non-periodic</temporalGranularity>
+        <skos:prefLabel xml:lang="en">GlobCover</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#Global_30_Arc-Second_Elevation -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#Global_30_Arc-Second_Elevation">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#ElevationDataSet"/>
+        <data:dataContentConcept rdf:resource="https://gcmdservices.gsfc.nasa.gov/kms/concept/digital_elevation"/>
+        <skos:prefLabel xml:lang="en">Global 30 Arc</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#Global_Administrative_Areas -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#Global_Administrative_Areas">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#VectorDataSet"/>
+        <skos:prefLabel xml:lang="en">Global Administrative Areas</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#Global_Land_Data_Assimilation_System -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#Global_Land_Data_Assimilation_System">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#LandCoverDataSet"/>
+        <dataSource rdf:resource="http://www.egc.org/ont/datasource#GES_DISC"/>
+        <dataAccessLink rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://disc.gsfc.nasa.gov/datasets?keywords=GLDAS</dataAccessLink>
+        <dc:description xml:lang="en">The goal of the Global Land Data Assimilation System (GLDAS) is to ingest satellite- and ground-based observational data products, using advanced land surface modeling and data assimilation techniques, in order to generate optimal fields of land surface states and fluxes (Rodell et al., 2004a). The software, which has been streamlined and parallelized by the Land Information System (LIS) sister project, drives multiple, offline (not coupled to the atmosphere) land surface models, integrates a huge quantity of observation based data, executes globally at high resolutions (2.5-degrees to 1 km), and is capable of producing results in near-real time.
+
+A vegetation-based tiling approach is used to simulate sub-grid scale variability, with a 1-km global vegetation dataset as its basis. Soil and elevation parameters are based on high resolution global datasets. Observation-based precipitation and downward radiation products and the best available analyses from atmospheric data assimilation systems are employed to force the models. Intercomparison and validation of these products is being performed with the aim of identifying an optimal forcing scheme. Data assimilation techniques for incorporating satellite based hydrological products, including snow cover and water equivalent, soil moisture, surface temperature, and leaf area index, are now being implemented as part of a follow-on project funded by the NASA Energy and Water Cycle Study (NEWS) Initiative.
+
+The high-quality, global land surface fields provided by GLDAS support several current and proposed weather and climate prediction, water resources applications, and water cycle investigations. The project has resulted in a massive archive of modeled and observed, global, surface meteorological data, parameter maps, and output which includes 1-degree and 0.25-degree resolution 1948-present simulations of the Noah, CLM, VIC, Mosaic, and Catchment land surface models.</dc:description>
+        <props:abbreviation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GLDAS</props:abbreviation>
+        <skos:prefLabel xml:lang="en">Global Land Data Assimilation System</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#Global_Precipitation_Measurement -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#Global_Precipitation_Measurement">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#ClimaticDataSet"/>
+        <data:dataContentConcept rdf:resource="https://gcmdservices.gsfc.nasa.gov/kms/concept/precipitation"/>
+        <dataSource rdf:resource="http://www.egc.org/ont/datasource#GES_DISC"/>
+        <dataAccessLink rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://disc.gsfc.nasa.gov/datasets?keywords=GPM</dataAccessLink>
+        <dataAccessLink rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://pmm.nasa.gov/data-access/downloads/gpm</dataAccessLink>
+        <props:abbreviation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GPM</props:abbreviation>
+        <skos:prefLabel xml:lang="en">Global Precipitation Measurement</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#GoogleEarthEngine -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#GoogleEarthEngine">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#DataSource"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#ElevationDataSource"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#LandUseDataSource"/>
+        <dataSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://developers.google.com/earth-engine/datasets/</dataSourceURL>
+        <props:abbreviation xml:lang="en">GEE</props:abbreviation>
+        <skos:prefLabel xml:lang="en">Google Earth Engine</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#HWSD -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#HWSD">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#SoilDataSet"/>
+        <data:dataContentConcept rdf:resource="https://gcmdservices.gsfc.nasa.gov/kms/concept/soil"/>
+        <dataDocument rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.fao.org/docrep/018/aq361e/aq361e.pdf</dataDocument>
+        <dataSourceURL>http://www.fao.org/soils-portal/soil-survey/soil-maps-and-databases/harmonized-world-soil-database-v12/en/</dataSourceURL>
+        <downloadURL xml:lang="en">http://www.fao.org/fileadmin/user_upload/soils/HWSD%20Viewer/HWSD.mdb</downloadURL>
+        <terms:abstract xml:lang="en">This is the result of a collaboration between the FAO with IIASA, ISRIC-World Soil Information, Institute of Soil Science, Chinese Academy of Sciences (ISSCAS), and the Joint Research Centre of the European Commission (JRC)
+
+The Harmonized World Soil Database is a 30 arc-second raster database with over 15 000 different soil mapping units that combines existing regional and national updates of soil information worldwide (SOTER, ESD, Soil Map of China, WISE) with the information contained within the 1:5 000 000 scale FAO-UNESCO Soil Map of the World (FAO, 1971-1981).
+
+The resulting raster database consists of 21600 rows and 43200 columns, which are linked to harmonized soil property data. The use of a standardized structure allows for the linkage of the attribute data with the raster map to display or query the composition in terms of soil units and the characterization of selected soil parameters (organic Carbon, pH, water storage capacity, soil depth, cation exchange capacity of the soil and the clay fraction, total exchangeable nutrients, lime and gypsum contents, sodium exchange percentage, salinity, textural class and granulometry).</terms:abstract>
+        <terms:spatial xml:lang="en">global</terms:spatial>
+        <props:abbreviationOf xml:lang="en">Harmonized World Soil Database</props:abbreviationOf>
+        <props:keywords xml:lang="en">soil</props:keywords>
+        <rdfs:isDefinedBy rdf:resource="http://www.fao.org/soils-portal/soil-survey/soil-maps-and-databases/harmonized-world-soil-database-v12/en/"/>
+        <owl:versionInfo xml:lang="en">1.2</owl:versionInfo>
+        <skos:prefLabel xml:lang="en">Harmonized World Soil Database</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#ICESat_GLAS -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#ICESat_GLAS">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#ElevationDataSet"/>
+        <data:dataContentConcept rdf:resource="https://gcmdservices.gsfc.nasa.gov/kms/concept/digital_elevation"/>
+        <data:eastBoundLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">180.0</data:eastBoundLongitude>
+        <data:northBoundLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">86.0</data:northBoundLatitude>
+        <data:southBoundLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">-86.0</data:southBoundLatitude>
+        <data:westBoundLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">-180.0</data:westBoundLongitude>
+        <dataAccessLink rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://icesat.gsfc.nasa.gov/icesat/index.php</dataAccessLink>
+        <dc:description xml:lang="zh-cn">作为NASA的地球观测系统（EOS）的一部分，ICESat（冰、云和陆地观测）卫星于2003年1月13日由加利福尼亚的Vandenberg空军发射基地发射。该卫星观测数据可覆盖地球表面大部分地区（86ºS~86ºN），约占陆地区域的99%。
+
+ICESat卫星是首颗载有激光雷达传感器的卫星， 即GLAS(Geoscience Laser Altimeter System)激光传感器系统，又称地学激光测高系统。GLAS可以观测全球多年的地形和植被变化。
+
+卫星于2009年10月11日停止收集数据。
+
+GLA14 为全球表面测高数据，GLA06数据则为全球高程数据。经过对比，两种数据取值换算后基本一致， 但GLA14数据量更大，校正效果也较好，同时基于GLA14进行校正的研究也更多。因此这里主要介绍基于GLA14数据的校正。
+
+经过验证，GLA14数据在平坦的裸露地区精度为0.1 m (1σ) ；在地形起伏和有植被覆盖的地区精度则为1 m (1σ) 。国家测绘局研究认为GLAS数据可以作为地形图和数字高程模型的参考基准。</dc:description>
+        <skos:prefLabel xml:lang="zh-cn"></skos:prefLabel>
+        <skos:prefLabel xml:lang="en">ICESat GLAS</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#JRC_global_surface_water -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#JRC_global_surface_water">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#LandCoverDataSet"/>
+        <nominalResolution rdf:datatype="http://www.w3.org/2001/XMLSchema#string">30 m</nominalResolution>
+        <temporalGranularity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Monthly</temporalGranularity>
+        <skos:prefLabel xml:lang="en">JRC global surface water</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#Landsat -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#Landsat">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#GeoSpatialDataSet"/>
+        <subDateSet rdf:resource="http://www.egc.org/ont/datasource#Landsat_5_TM"/>
+        <subDateSet rdf:resource="http://www.egc.org/ont/datasource#Landsat_7_ETM_plus"/>
+        <subDateSet rdf:resource="http://www.egc.org/ont/datasource#Landsat_8_OLITIRS"/>
+        <subDateSet rdf:resource="http://www.egc.org/ont/datasource#Landsat_4–8_surface_reflectance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#Landsat_5_TM -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#Landsat_5_TM">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#GeoSpatialDataSet"/>
+        <skos:prefLabel xml:lang="en">Landsat 5 TM</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#Landsat_7_ETM_plus -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#Landsat_7_ETM_plus">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#GeoSpatialDataSet"/>
+        <skos:prefLabel xml:lang="en">Landsat 7 ETM+</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#Landsat_8_OLITIRS -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#Landsat_8_OLITIRS">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#GeoSpatialDataSet"/>
+        <skos:prefLabel xml:lang="en">Landsat 8 OLI/TIRS</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#MODIS -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#MODIS">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#GeoSpatialDataSet"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#NASA -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#NASA">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#DataProvider"/>
+        <rdfs:label xml:lang="zh">NASA</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#Natural_Earth -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#Natural_Earth">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#VectorDataSet"/>
+        <skos:prefLabel xml:lang="en">Natural Earth</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#OpenStreetMap -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#OpenStreetMap">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#VectorDataSet"/>
+        <skos:prefLabel xml:lang="en">OpenStreetMap</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#OpenTopography -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#OpenTopography">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#ElevationDataSource"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#SALB -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#SALB">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#VectorDataSet"/>
+        <skos:prefLabel xml:lang="en">SALB</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#SRTM -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#SRTM">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#ElevationDataSet"/>
+        <owl:sameAs rdf:resource="http://www.egc.org/ont/datasource#Space_Shuttle_Radar_Topography_Mission"/>
+        <data:dataContentConcept rdf:resource="https://gcmdservices.gsfc.nasa.gov/kms/concept/digital_elevation"/>
+        <dataSource rdf:resource="http://www.egc.org/ont/datasource#EarthExplorer"/>
+        <dataSource rdf:resource="http://www.egc.org/ont/datasource#GSCloud"/>
+        <data:eastBoundLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">180.0</data:eastBoundLongitude>
+        <data:hasSpatialCoverage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">60°N–54°S</data:hasSpatialCoverage>
+        <data:hasTemporalCoverage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2000</data:hasTemporalCoverage>
+        <data:northBoundLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">60.0</data:northBoundLatitude>
+        <data:southBoundLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">-54.0</data:southBoundLatitude>
+        <data:westBoundLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">-180.0</data:westBoundLongitude>
+        <dataAccessLink rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://srtm.csi.cgiar.org/</dataAccessLink>
+        <nominalResolution rdf:datatype="http://www.w3.org/2001/XMLSchema#string">30m</nominalResolution>
+        <temporalGranularity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Single</temporalGranularity>
+        <dc:description xml:lang="zh-cn">SRTM (shuttle radar topography mission)，航天飞机雷达测地任务，是美国太空总署(NASA)和国防部国家测绘局(NIMA)联合测量的，由美国发射的“奋进”号航天飞机上搭载SRTM系统完成。此次测图任务从2000年2月11日开始至22日结束，获取56ºS-60ºN之间的雷达影像数据，覆盖地球80%以上的陆地范围。
+
+SRTM系统获取的雷达影像数据经过两年多的处理，制成了数字高程模型（DEM），并于2003年开始公开发布。经历多修订，目前最新的版本为V4版本，它更好的填补了SRTM 的数据空洞。
+SRTM携带两种波段的雷达，一个是3cm X波段的，另一个是6cm C波段的，它们相应于不同波长，因此SRTM数据有两种分辨率：3″×3″ (SRTM3)和1″×1″(SRTM1)。目前全球公开的为3″分辨率的，它切割成5°×5°大小的方块，并且数据块之间是“无缝的”，从而保证了数据镶嵌的质量。</dc:description>
+        <dc:description xml:lang="en">The SRTM payload was equipped on the Space Shuttle Endeavour back in February 2000. Using two radar antennas and a single pass, it collected sufficient data to generate a digital elevation model using a technique known as interferometric synthetic aperture radar (inSAR). C-Band penetrated canopy cover to the ground better but SRTM still struggled in sloping regions with foreshortening, layover and shadow.
+
+In late 2014, the highest possible resolution SRTM data was released to the public. This 1-arc second global digital elevation model has a spatial resolution of about 30 meters covering most of the world with absolute vertical height hasAccuracy of less than 16m.</dc:description>
+        <props:abbreviationOf xml:lang="en">Shuttle Radar Topography Mission</props:abbreviationOf>
+        <props:abbreviationOf xml:lang="en">Space Shuttle Radar Topography Mission</props:abbreviationOf>
+        <props:linkedWebPage rdf:datatype="http://purl.org/dc/terms/URI">https://earthexplorer.usgs.gov/</props:linkedWebPage>
+        <skos:altLabel xml:lang="en">Shuttle Radar Topography Mission</skos:altLabel>
+        <skos:broadMatch rdf:resource="http://www.egc.org/ont/datasource#DEM"/>
+        <skos:prefLabel xml:lang="en">SRTM</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#SSURGO -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#SSURGO">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#SoilDataSet"/>
+        <data:dataContentConcept rdf:resource="https://gcmdservices.gsfc.nasa.gov/kms/concept/soil"/>
+        <dataSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://websoilsurvey.sc.egov.usda.gov/App/HomePage.htm</dataSourceURL>
+        <terms:abstract xml:lang="en">The SSURGO database contains information about soil as collected by the National Cooperative Soil Survey over the course of a century. The information can be displayed in tables or as maps and is available for most areas in the United States and the Territories, Commonwealths, and Island Nations served by the USDA-NRCS. The information was gathered by walking over the land and observing the soil. Many soil samples were analyzed in laboratories. The maps outline areas called map units. The map units describe soils and other components that have unique properties, interpretations, and productivity. The information was collected at scales ranging from 1:12,000 to 1:63,360. More details were gathered at a scale of 1:12,000 than at a scale of 1:63,360. The mapping is intended for natural resource planning and management by landowners, townships, and counties. Some knowledge of soils data and map scale is necessary to avoid misunderstandings.
+
+The maps are linked in the database to information about the component soils and their properties for each map unit. Each map unit may contain one to three major components and some minor components. The map units are typically named for the major components. Examples of information available from the database include available water capacity, soil reaction, electrical conductivity, and frequency of flooding; yields for cropland, woodland, rangeland, and pastureland; and limitations affecting recreational development, building site development, and other engineering uses.
+
+SSURGO datasets consist of map data, tabular data, and information about how the maps and tables were created. The extent of a SSURGO dataset is a soil survey area, which may consist of a single county, multiple counties, or parts of multiple counties. SSURGO map data can be viewed in the Web Soil Survey or downloaded in ESRI® Shapefile format. The coordinate systems are Geographic. Attribute data can be downloaded in text format that can be imported into a Microsoft® Access® database.</terms:abstract>
+        <terms:bibliographicCitation xml:lang="en">Soil Survey Staff, Natural Resources Conservation Service, United States Department of Agriculture. Web Soil Survey. Available online at https://websoilsurvey.nrcs.usda.gov/. Accessed [month/day/year].</terms:bibliographicCitation>
+        <props:abbreviationOf xml:lang="en">Digital General Soil Map of the United States</props:abbreviationOf>
+        <rdfs:isDefinedBy rdf:resource="https://www.nrcs.usda.gov/wps/portal/nrcs/detail/soils/survey/geo/?cid=nrcs142p2_053627"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#STATSGO2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#STATSGO2">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#SoilDataSet"/>
+        <data:dataContentConcept rdf:resource="https://gcmdservices.gsfc.nasa.gov/kms/concept/soil"/>
+        <terms:abstract xml:lang="en">The Digital General Soil Map of the United States or STATSGO2 is a broad-based inventory of soils and non-soil areas that occur in a repeatable pattern on the landscape and that can be cartographically shown at the scale mapped of 1:250,000 in the continental U.S., Hawaii, Puerto Rico, and the Virgin Islands and 1:1,000,000 in Alaska. The level of mapping is designed for broad planning and management uses covering state, regional, and multi-state areas. The U.S. General Soil Map is comprised of general soil association units and is maintained and distributed as a spatial and tabular dataset.
+
+The U.S. General Soil Map was developed by the National Cooperative Soil Survey and supersedes the State Soil Geographic (STATSGO) dataset.</terms:abstract>
+        <props:abbreviationOf xml:lang="en">Digital General Soil Map of the United States version 2</props:abbreviationOf>
+        <rdfs:isDefinedBy rdf:resource="https://www.nrcs.usda.gov/wps/portal/nrcs/detail/soils/survey/geo/?cid=nrcs142p2_053629"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#Sentinel -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#Sentinel">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#GeoSpatialDataSet"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#SoilGrid -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#SoilGrid">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#SoilDataSet"/>
+        <data:dataContentConcept rdf:resource="https://gcmdservices.gsfc.nasa.gov/kms/concept/soil"/>
+        <terms:spatial xml:lang="en">global</terms:spatial>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#Space_Shuttle_Radar_Topography_Mission -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#Space_Shuttle_Radar_Topography_Mission">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#ElevationDataSet"/>
+        <data:dataContentConcept rdf:resource="https://gcmdservices.gsfc.nasa.gov/kms/concept/digital_elevation"/>
+        <skos:prefLabel xml:lang="en">Space Shuttle Radar Topography Mission</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#UMD_global_forest_change -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#UMD_global_forest_change">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#LandCoverDataSet"/>
+        <nominalResolution rdf:datatype="http://www.w3.org/2001/XMLSchema#string">30 m</nominalResolution>
+        <temporalGranularity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Annual</temporalGranularity>
+        <skos:prefLabel xml:lang="en">UMD global forest change</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#USDA_NASS_cropland_data_layer -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#USDA_NASS_cropland_data_layer">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#LandCoverDataSet"/>
+        <nominalResolution rdf:datatype="http://www.w3.org/2001/XMLSchema#string">30 m</nominalResolution>
+        <temporalGranularity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Annual</temporalGranularity>
+        <skos:prefLabel xml:lang="en">USDA NASS cropland data layer</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#USGS -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#USGS">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#DataProvider"/>
+        <rdfs:label xml:lang="zh">USGS</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#USGS_GMTED2010 -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#USGS_GMTED2010">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#ElevationDataSet"/>
+        <data:dataContentConcept rdf:resource="https://gcmdservices.gsfc.nasa.gov/kms/concept/digital_elevation"/>
+        <nominalResolution rdf:datatype="http://www.w3.org/2001/XMLSchema#string">7.5″</nominalResolution>
+        <skos:prefLabel xml:lang="en">USGS GMTED2010</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#USGS_National_Elevation_Dataset -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#USGS_National_Elevation_Dataset">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#ElevationDataSet"/>
+        <data:dataContentConcept rdf:resource="https://gcmdservices.gsfc.nasa.gov/kms/concept/digital_elevation"/>
+        <nominalResolution rdf:datatype="http://www.w3.org/2001/XMLSchema#string">10m</nominalResolution>
+        <skos:prefLabel xml:lang="en">USGS National Elevation Dataset</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#USGS_National_Landcover_Database -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#USGS_National_Landcover_Database">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#LandCoverDataSet"/>
+        <data:hasTemporalCoverage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1992–2011</data:hasTemporalCoverage>
+        <nominalResolution rdf:datatype="http://www.w3.org/2001/XMLSchema#string">30 m</nominalResolution>
+        <temporalGranularity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Non-periodic</temporalGranularity>
+        <skos:prefLabel xml:lang="en">USGS National Landcover Database</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#VMap0 -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#VMap0">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#VectorDataSet"/>
+        <skos:prefLabel xml:lang="en">VMap0</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#JAXA’s_Global_ALOS_3D_World -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#JAXA’s_Global_ALOS_3D_World">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#ElevationDataSet"/>
+        <data:dataContentConcept rdf:resource="https://gcmdservices.gsfc.nasa.gov/kms/concept/digital_elevation"/>
+        <skos:prefLabel xml:lang="zh-cn"></skos:prefLabel>
+        <skos:prefLabel xml:lang="en">JAXA’s Global ALOS 3D World</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/datasource#Landsat_4–8_surface_reflectance -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/datasource#Landsat_4–8_surface_reflectance">
+        <rdf:type rdf:resource="http://www.egc.org/ont/datasource#GeoSpatialDataSet"/>
+        <skos:prefLabel xml:lang="en">Landsat 4–8 surface reflectance</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://gcmdservices.gsfc.nasa.gov/kms/concept/digital_elevation -->
+
+    <owl:NamedIndividual rdf:about="https://gcmdservices.gsfc.nasa.gov/kms/concept/digital_elevation"/>
+    
+
+
+    <!-- https://gcmdservices.gsfc.nasa.gov/kms/concept/precipitation -->
+
+    <owl:NamedIndividual rdf:about="https://gcmdservices.gsfc.nasa.gov/kms/concept/precipitation"/>
+    
+
+
+    <!-- https://gcmdservices.gsfc.nasa.gov/kms/concept/soil -->
+
+    <owl:NamedIndividual rdf:about="https://gcmdservices.gsfc.nasa.gov/kms/concept/soil"/>
+    <rdf:Description>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    </rdf:Description>
+    <rdf:Description>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    </rdf:Description>
+    <rdf:Description>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    </rdf:Description>
+    <rdf:Description>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://www.egc.org/ont/datasource#s">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">S1</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.egc.org/ont/datasource#ElevationDataSet"/>
+                        <swrl:argument1 rdf:resource="http://www.egc.org/ont/datasource#s"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.egc.org/ont/data#dataContentConcept"/>
+                        <swrl:argument1 rdf:resource="http://www.egc.org/ont/datasource#s"/>
+                        <swrl:argument2 rdf:resource="https://gcmdservices.gsfc.nasa.gov/kms/concept/digital_elevation"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">S2</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.egc.org/ont/datasource#SoilDataSet"/>
+                        <swrl:argument1 rdf:resource="http://www.egc.org/ont/datasource#s"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.egc.org/ont/data#dataContentConcept"/>
+                        <swrl:argument1 rdf:resource="http://www.egc.org/ont/datasource#s"/>
+                        <swrl:argument2 rdf:resource="https://gcmdservices.gsfc.nasa.gov/kms/concept/soil"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

@@ -1,0 +1,1992 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.egc.org/ont/context#"
+     xml:base="http://www.egc.org/ont/context"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:ns="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+     xmlns:sp="http://spinrdf.org/sp#"
+     xmlns:dta="http://www.egc.org/ont/algorithm/dta#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:spl="http://spinrdf.org/spl#"
+     xmlns:wot="http://xmlns.com/wot/0.1/"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:spin="http://spinrdf.org/spin#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:cyber="http://www.egc.org/ont/gis/cyber#"
+     xmlns:props="http://www.egc.org/ont/base/props#"
+     xmlns:shacl="http://www.w3.org/ns/shacl#"
+     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:context="http://www.egc.org/ont/context#">
+    <owl:Ontology rdf:about="http://www.egc.org/ont/context">
+        <owl:imports rdf:resource="http://purl.org/NET/dc_owl2dl/terms"/>
+        <owl:imports rdf:resource="http://www.egc.org/ont/data"/>
+        <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <dc:title xml:lang="en">Application Context Schema</dc:title>
+        <terms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2018-12-06T16:27:36</terms:created>
+        <terms:creator xml:lang="en">Zhiwei Hou</terms:creator>
+        <terms:creator xml:lang="zh-cn">侯志伟</terms:creator>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled -->
+
+    <owl:AnnotationProperty rdf:about="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.egc.org/ont/context#applicability -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/context#applicability">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#contextRelation"/>
+        <skos:altLabel xml:lang="zh-cn">适用性</skos:altLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#applicableContext -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/context#applicableContext">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#contextRelation"/>
+        <rdfs:range rdf:resource="http://www.egc.org/ont/context#ApplicationContext"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#climateType -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/context#climateType">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#studyAreaRelation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#contextRelation -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/context#contextRelation">
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/context#ApplicationContext"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#domain -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/context#domain">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#contextRelation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#geoLocation -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/context#geoLocation">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#studyAreaRelation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#geomorphologicalType -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/context#geomorphologicalType">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#studyAreaRelation"/>
+        <skos:altLabel xml:lang="zh-cn">地貌类型</skos:altLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#hydrologicalStation -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/context#hydrologicalStation">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#studyAreaRelation"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/context#StudyArea"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#landform -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/context#landform">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#studyAreaRelation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#landuseType -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/context#landuseType">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#studyAreaRelation"/>
+        <skos:altLabel xml:lang="en">landuse</skos:altLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#meteorologicalStation -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/context#meteorologicalStation">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#studyAreaRelation"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/context#StudyArea"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#morphologicalType -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/context#morphologicalType">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#studyAreaRelation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#mostUsedDataSource -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/context#mostUsedDataSource">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#contextRelation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#reference -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/context#reference">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#contextRelation"/>
+        <rdfs:seeAlso rdf:resource="http://purl.org/dc/terms/bibliographicCitation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#soilType -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/context#soilType">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#studyAreaRelation"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/context#StudyArea"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#spatialExtent -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/context#spatialExtent">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#studyAreaRelation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#studyArea -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/context#studyArea">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#contextRelation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#studyAreaRelation -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/context#studyAreaRelation">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#contextRelation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#suitableDataSet -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/context#suitableDataSet">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#contextRelation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#suitableLandform -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/context#suitableLandform">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#contextRelation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#task -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/context#task">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#contextRelation"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/context#ApplicationContext"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#usedByTask -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/context#usedByTask">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#contextRelation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.egc.org/ont/context#DEMResolutionRange -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/context#DEMResolutionRange">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#resulotionRange"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#altitude -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/context#altitude">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#studyAreaProperty"/>
+        <rdfs:comment xml:lang="en">lowland, hill, mountain, high mountain</rdfs:comment>
+        <skos:altLabel xml:lang="zh-cn">海拔</skos:altLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#annualAverageAirTemperature -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/context#annualAverageAirTemperature">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#studyAreaProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <skos:altLabel xml:lang="zh-cn">年均气温</skos:altLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#annualMeanRunoff -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/context#annualMeanRunoff">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#studyAreaProperty"/>
+        <rdfs:comment xml:lang="en">annual mean runoff in cubic meter (m^3)
+
+for complex expressions see: https://khan.github.io/KaTeX/function-support.html</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#annualPE -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/context#annualPE">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#studyAreaProperty"/>
+        <rdfs:comment xml:lang="en">annual potential evapotranspiration in milimeter (mm) of a watershed</rdfs:comment>
+        <skos:altLabel xml:lang="zh-cn">年潜在蒸发量，毫米</skos:altLabel>
+        <skos:prefLabel xml:lang="en">Annual Potential Evapotranspiration</skos:prefLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#annualPrecipitation -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/context#annualPrecipitation">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#studyAreaProperty"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/context#StudyArea"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">annual precipitation in millimeter (mm) of a watershed</rdfs:comment>
+        <skos:altLabel xml:lang="zh-cn">年降水量，毫米</skos:altLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#annualPrecipitationDesc -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/context#annualPrecipitationDesc">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#studyAreaProperty"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/context#StudyArea"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <skos:altLabel xml:lang="zh-cn">年降水描述</skos:altLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#appropriateDataProperty -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/context#appropriateDataProperty">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#contextProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#area -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/context#area">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#studyAreaProperty"/>
+        <rdfs:comment xml:lang="en">area of the study area in km2</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#areaRange -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/context#areaRange">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#spatialExtentProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/context#SpatialExtent"/>
+        <skos:definition xml:lang="en">area size</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#broadApplicationCategory -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/context#broadApplicationCategory">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#contextProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#climateDescription -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/context#climateDescription">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#studyAreaProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">climate description of a watershed</rdfs:comment>
+        <skos:altLabel xml:lang="zh-cn">流域气候描述</skos:altLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#contextProperty -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/context#contextProperty"/>
+    
+
+
+    <!-- http://www.egc.org/ont/context#elevation -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/context#elevation">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#studyAreaProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#elevationRange -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/context#elevationRange">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#appropriateDataProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#studyAreaProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">elevation range in meter above sea level (ASL)
+
+format: lowest-hightest. e.g. 1674-5120</rdfs:comment>
+        <rdfs:comment xml:lang="zh-cn">海拔高程范围，米</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#hasGeoNamesURI -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/context#hasGeoNamesURI">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#studyAreaProperty"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/context#StudyArea"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+        <rdfs:comment xml:lang="en">URI that links this region to a GeoNames feature</rdfs:comment>
+        <skos:example rdf:resource="http://sws.geonames.org/1814991"/>
+        <skos:example rdf:resource="http://sws.geonames.org/1814991/about.rdf"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#hypsometricCurve -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/context#hypsometricCurve">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#studyAreaProperty"/>
+        <rdfs:comment xml:lang="en">Applied to quantifying the landscape development stage</rdfs:comment>
+        <rdfs:comment xml:lang="en">The hypsometric curve is often summarized as a single numeric value, the hypsometric integral (HI, with a value range of [0,1]), which can be used to classify landscape development into three stages: youth (HI &gt; 0.6), maturity (0.35 &lt; HI &lt; 0.6), and old age (HI &lt; 0.35) (Strahler, 1952).</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#landcoverDescription -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/context#landcoverDescription">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#studyAreaProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#landformDescription -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/context#landformDescription">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#studyAreaProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#lengthRange -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/context#lengthRange">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#spatialExtentProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/context#SpatialExtent"/>
+        <skos:definition xml:lang="en">length</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#locationDescription -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/context#locationDescription">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#studyAreaProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">location description</rdfs:comment>
+        <rdfs:comment xml:lang="zh-cn">地理位置描述</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#parentMaterial -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/context#parentMaterial">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#studyAreaProperty"/>
+        <skos:altLabel xml:lang="zh-cn">母质</skos:altLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#primaryApplicationCategory -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/context#primaryApplicationCategory">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#contextProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#relief -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/context#relief">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#studyAreaProperty"/>
+        <rdfs:comment xml:lang="en">The relief attribute is a commonly used value to describe the overall terrain condition of a study area, whether it is steep or gently sloping</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#reliefAmplitude -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/context#reliefAmplitude">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#studyAreaProperty"/>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+        <skos:altLabel xml:lang="zh-cn">地形起伏度</skos:altLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#reliefRange -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/context#reliefRange">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#appropriateDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#reliefSlopeCumulativeFrequency -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/context#reliefSlopeCumulativeFrequency">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#studyAreaProperty"/>
+        <rdfs:comment xml:lang="en">The slope distribution provides information on the proportions of different intensities of local relief in the area, which cannot be described by the relief in the overall area and is useful for judging the reasonableness of a DTA algorithm selection and its parameter settings.
+Slope gradient was divided into seven grades: 0°–3°, 3°–8°, 8°–15°, 15°–25°, 25°–35°, 35°–45°, and 45°–90° (Tang et al., 2006).</rdfs:comment>
+        <owl:backwardCompatibleWith xml:lang="en">Applied to describe in detail the slope distribution in a study area.
+The relief-slope cumulative frequency distribution is a two-dimensional table with 10 level × 7 grade data items. This two-dimensional table can be viewed as a DEM having a volume with a constant projected area.</owl:backwardCompatibleWith>
+        <skos:altLabel xml:lang="zh-cn">高程—坡度累计频率分布</skos:altLabel>
+        <skos:prefLabel xml:lang="en">Relief Slope Cumulative Frequency Distribution</skos:prefLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#resulotionRange -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/context#resulotionRange">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#appropriateDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#scaleRange -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/context#scaleRange">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#appropriateDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#secondaryApplicationCategory -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/context#secondaryApplicationCategory">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#contextProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#snowIceArea -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/context#snowIceArea">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#studyAreaProperty"/>
+        <rdfs:comment xml:lang="en">area of snow or ice cover in a watershed in km^2</rdfs:comment>
+        <skos:altLabel xml:lang="zh-cn">冰雪覆盖面积</skos:altLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#soilDescription -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/context#soilDescription">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#studyAreaProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#spatialExtentProperty -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/context#spatialExtentProperty"/>
+    
+
+
+    <!-- http://www.egc.org/ont/context#studyAreaProperty -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/context#studyAreaProperty">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#contextProperty"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/context#StudyArea"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/context#suitableResolution -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/context#suitableResolution">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#contextProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/data#geographicBoundingBox -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/data#geographicBoundingBox">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#studyAreaProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/data#temporalResolution -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/data#temporalResolution">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/context#contextProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.egc.org/ont/context#ApplicationContext -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context#ApplicationContext"/>
+    
+
+
+    <!-- http://www.egc.org/ont/context#ApplicationField -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context#ApplicationField">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context#ApplicationContext"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context#ApplicationTask -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context#ApplicationTask">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context#ApplicationContext"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context#Basin -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context#Basin">
+        <owl:equivalentClass rdf:resource="http://www.egc.org/ont/context#Watershed"/>
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context#StudyArea"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context#BroadApplicationCategory -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context#BroadApplicationCategory">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context#ModelingObjective"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context#DataCharacteristics -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context#DataCharacteristics">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context#ApplicationContext"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context#ModelingObjective -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context#ModelingObjective">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context#ApplicationTask"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context#PrimaryApplicationCategory -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context#PrimaryApplicationCategory">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context#ModelingObjective"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context#SecondApplicationCategory -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context#SecondApplicationCategory">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context#ModelingObjective"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context#SpatialExtent -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context#SpatialExtent">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <terms:source rdf:resource="https://en.wikipedia.org/wiki/Spatial_scale"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context#StudyArea -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context#StudyArea">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.egc.org/ont/context#locationDescription"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context#ApplicationContext"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context#TemporalContext -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context#TemporalContext">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context#ApplicationContext"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/context#Watershed -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/context#Watershed">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/context#StudyArea"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.egc.org/ont/context#BMP_assessment -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#BMP_assessment">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">BMP assessment</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">BMP assessment (genetic algorithm or similar optimization approach)</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#BMP_review_or_conceptual_approach -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#BMP_review_or_conceptual_approach">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#BroadApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">BMP review or conceptual approach</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#Continental-Scale -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#Continental-Scale">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SpatialExtent"/>
+        <areaRange rdf:datatype="http://www.w3.org/2001/XMLSchema#string">10,000 km2 - 100,000,000 km2</areaRange>
+        <lengthRange rdf:datatype="http://www.w3.org/2001/XMLSchema#string">100 km - 10,000 km</lengthRange>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#DEM_data_resolution_effects -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#DEM_data_resolution_effects">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">DEM data resolution effects</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#ENSO_phenomena_effects -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#ENSO_phenomena_effects">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">ENSO phenomena effects</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#Ecology -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#Ecology">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#ApplicationField"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#Emergency_Management -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#Emergency_Management">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#ApplicationField"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#GHG_emissions -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#GHG_emissions">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">GHG emissions</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#GIS_interface_GIS_utility_or_other_type_of_interface_or_utility -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#GIS_interface_GIS_utility_or_other_type_of_interface_or_utility">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">GIS interface  GIS utility  or other type of interface or utility</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#Global-Scale -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#Global-Scale">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SpatialExtent"/>
+        <areaRange rdf:datatype="http://www.w3.org/2001/XMLSchema#string">&gt; 100,000,000 km2</areaRange>
+        <lengthRange rdf:datatype="http://www.w3.org/2001/XMLSchema#string">&gt; 10,000 km</lengthRange>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#Green-Ampt_and_sub-daily_climate_data_application -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#Green-Ampt_and_sub-daily_climate_data_application">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">Green-Ampt and sub-daily climate data application</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#Green-Ampt_application -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#Green-Ampt_application">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">Green-Ampt application</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#Green-Ampt_versus_runoff_curve_number_comparison -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#Green-Ampt_versus_runoff_curve_number_comparison">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">Green-Ampt versus runoff curve number comparison</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#HAWQS_application -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#HAWQS_application">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">HAWQS application</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#HRU_subwatershed_delineation_effects -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#HRU_subwatershed_delineation_effects">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">HRU subwatershed delineation effects</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#HUMUS_application -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#HUMUS_application">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">HUMUS application</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#Heihe_River_basin -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#Heihe_River_basin">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#Basin"/>
+        <area rdf:datatype="http://www.w3.org/2001/XMLSchema#double">130000.0</area>
+        <locationDescription xml:lang="en">the middle of the Hexi Corridor of Gansu Province. It is a typical inland river basin in the arid region of Northwest China</locationDescription>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#Hydrology -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#Hydrology">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#ApplicationField"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#Landscape-Scale -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#Landscape-Scale">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SpatialExtent"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#Local-Scale -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#Local-Scale">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SpatialExtent"/>
+        <areaRange rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1 m2 – 1 km2</areaRange>
+        <lengthRange rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1 m – 1 km</lengthRange>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#Military -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#Military">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#ApplicationField"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#NHDPlus_application -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#NHDPlus_application">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">NHDPlus application</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#Natural_Resource_Planning -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#Natural_Resource_Planning">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#ApplicationField"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#Patch-Scale -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#Patch-Scale">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SpatialExtent"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#Reach-Scale -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#Reach-Scale">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SpatialExtent"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#Regional-Scale -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#Regional-Scale">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SpatialExtent"/>
+        <areaRange rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1 km2 - 10,000 km2</areaRange>
+        <lengthRange rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1 km - 100 km</lengthRange>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#Soil_Sciences -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#Soil_Sciences">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#ApplicationField"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#TN_simulation -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#TN_simulation">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <props:domainConcept rdf:resource="http://www.egc.org/ont/data#total_nitrogen"/>
+        <skos:broadMatch rdf:resource="http://www.egc.org/ont/context#simulate_watershed_loads"/>
+        <rdfs:comment xml:lang="en">Total Nitrogen simulation</rdfs:comment>
+        <skos:prefLabel xml:lang="en">Total Nitrogen simulation</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#Urban -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#Urban">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#ApplicationField"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#Watershed-Scale -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#Watershed-Scale">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SpatialExtent"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#Yingluoxia_watershed -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#Yingluoxia_watershed">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#Watershed"/>
+        <annualAverageAirTemperature xml:lang="en">lower than 2 °C</annualAverageAirTemperature>
+        <annualMeanRunoff rdf:datatype="http://www.w3.org/2001/XMLSchema#string">16.05*10^8</annualMeanRunoff>
+        <annualPrecipitation rdf:datatype="http://www.w3.org/2001/XMLSchema#float">400.0</annualPrecipitation>
+        <annualPrecipitationDesc xml:lang="en">Annual precipitation is more than 200 mm in regions above 2600 m elevation, and the highest record is 700 mm. Precipitation increases 15.5–16.4 mm for every 100 m increase in elevation.
+Nearly 70% of the total precipitation occurs from June to September, only 3.5% from December to February, and less than 10% from November to March. In spring, the precipitation is relatively low, counting only 5.1% of total precipitation in April and 10.6% in May.</annualPrecipitationDesc>
+        <area rdf:datatype="http://www.w3.org/2001/XMLSchema#float">10009.0</area>
+        <climateDescription xml:lang="en">cold and dry winters and hot and arid summers</climateDescription>
+        <elevationRange rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1674-5120</elevationRange>
+        <locationDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string">upper reaches of the Heihe River basin in the middle of the Hexi Corridor of Gansu Province in northwest China</locationDescription>
+        <snowIceArea rdf:datatype="http://www.w3.org/2001/XMLSchema#float">59.0</snowIceArea>
+        <terms:bibliographicCitation>Li Z L, Xu Z X, Shao Q X, et al. Parameter estimation and uncertainty analysis of SWAT model in upper reaches of the Heihe river basin.[J]. Hydrological Processes, 2010, 23(19):2744-2753.</terms:bibliographicCitation>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#baseflow_other_hydrologic_component_analysis -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#baseflow_other_hydrologic_component_analysis">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">baseflow other hydrologic component analysis</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#baseflow_separation_techniques -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#baseflow_separation_techniques">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">baseflow separation techniques</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#bibliometric_analysis -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#bibliometric_analysis">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">bibliometric analysis</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#bioenergy_crop_assessment -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#bioenergy_crop_assessment">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">bioenergy crop assessment</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#blue_or_green_water_or_crop_water_productivity -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#blue_or_green_water_or_crop_water_productivity">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">blue or green water or crop water productivity</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#calibration_sensitivity_uncertainty_analysis -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#calibration_sensitivity_uncertainty_analysis">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">calibration  sensitivity uncertainty analysis</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#carbon_cycling -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#carbon_cycling">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#BroadApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">carbon cycling</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#channel_streambank_erosion_processes -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#channel_streambank_erosion_processes">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">channel streambank erosion processes</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#climate_change_and_human_activities_change -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#climate_change_and_human_activities_change">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">climate change and human activities change</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#climate_change_and_land_use_change -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#climate_change_and_land_use_change">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">climate change and land use change</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#climate_data_effects -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#climate_data_effects">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">climate data effects</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#combined_ponds_and_wetlands_assessment -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#combined_ponds_and_wetlands_assessment">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">combined ponds and wetlands assessment</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#comparison_of_PET_methods -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#comparison_of_PET_methods">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">comparison of PET methods</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#comparison_of_snowmelt_algorithms -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#comparison_of_snowmelt_algorithms">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">comparison of snowmelt algorithms</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#computational_approaches -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#computational_approaches">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#BroadApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">computational approaches</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#computational_efficiency -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#computational_efficiency">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">computational efficiency</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#conceptual_approach -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#conceptual_approach">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#BroadApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">conceptual approach</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#critical_source_area_assessment -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#critical_source_area_assessment">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">critical source area assessment</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#crop_growth_or_yield_parameters -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#crop_growth_or_yield_parameters">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">crop growth or yield parameters</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#crop_or_plant_growth_or_production -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#crop_or_plant_growth_or_production">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#BroadApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">crop or plant growth or production</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#data_component_contribution_to_SWAT -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#data_component_contribution_to_SWAT">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">data component contribution to SWAT</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#data_or_component_development -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#data_or_component_development">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#BroadApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">data or component development</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#depressional_formations -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#depressional_formations">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <skos:altLabel xml:lang="en">wetlands potholes</skos:altLabel>
+        <skos:prefLabel xml:lang="en">depressional formations</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#documentation_terminology -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#documentation_terminology">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#BroadApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">documentation terminology</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#drought_assessment -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#drought_assessment">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">drought assessment</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#economic_assessment -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#economic_assessment">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">economic assessment</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#ecosystem_services -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#ecosystem_services">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">ecosystem services</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#editorial_preface_introduction_or_conclusion -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#editorial_preface_introduction_or_conclusion">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#BroadApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">editorial  preface  introduction or conclusion</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#effects_on_soil_properties -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#effects_on_soil_properties">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">effects on soil properties</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#erratum_comment_discussion_letter_or_response -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#erratum_comment_discussion_letter_or_response">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#BroadApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">erratum  comment  discussion  letter or response</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#evapotranspiration_assessment -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#evapotranspiration_assessment">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">evapotranspiration assessment</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#flood_impacts_or_conveyances -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#flood_impacts_or_conveyances">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">flood impacts or conveyances</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#flow_simulation -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#flow_simulation">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">flow simulation</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#forest_growth_or_yield_parameters -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#forest_growth_or_yield_parameters">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">forest growth or yield parameters</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#grid-based_approach -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#grid-based_approach">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">grid-based approach</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#groundwater_soil_water_impacts -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#groundwater_soil_water_impacts">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">groundwater soil water impacts</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#heavy_metal_or_hydrocarbon_loss_and_transport -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#heavy_metal_or_hydrocarbon_loss_and_transport">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">heavy metal or hydrocarbon loss and transport</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#hydrologic_assessment -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#hydrologic_assessment">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">hydrologic assessment</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#hydrologic_only -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#hydrologic_only">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#BroadApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">hydrologic only</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#hydrologic_pollutant -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#hydrologic_pollutant">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#BroadApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">hydrologic pollutant</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#hydrologic_pollutant_indices -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#hydrologic_pollutant_indices">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">hydrologic pollutant indices</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#impoundment_wetland_effects -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#impoundment_wetland_effects">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">impoundment wetland effects</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#in-stream_processes -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#in-stream_processes">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">in-stream processes</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#input_effects -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#input_effects">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">input effects</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#input_file_structure_description -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#input_file_structure_description">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">input file structure description</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#interface_tool_other_software -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#interface_tool_other_software">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#BroadApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">interface tool other software</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#irrigation_impacts_or_irrigation_BMP_scenarios -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#irrigation_impacts_or_irrigation_BMP_scenarios">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">irrigation impacts or irrigation BMP scenarios</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#karst_effects -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#karst_effects">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">karst effects</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#land_use_change -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#land_use_change">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">land use change</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#land_use_resolution_effects -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#land_use_resolution_effects">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">land use resolution effects</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#literature_citation_analysis -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#literature_citation_analysis">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#BroadApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">literature citation analysis</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#location-based_services -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#location-based_services">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#ApplicationField"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#metal_cycling_or_loss_and_transport -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#metal_cycling_or_loss_and_transport">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">metal cycling or loss and transport</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#model_comparison -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#model_comparison">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">model comparison</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#model_equations_functions -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#model_equations_functions">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">model equations functions</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#model_interface -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#model_interface">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">model interface</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#modified_runoff_curve_number_approach -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#modified_runoff_curve_number_approach">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">modified runoff curve number approach</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#multi-site_calibration_approach -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#multi-site_calibration_approach">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">multi-site calibration approach</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#nitrogen_cycling_or_loss_and_transport -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#nitrogen_cycling_or_loss_and_transport">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">nitrogen cycling or loss and transport</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#nutrient_cycling_or_loss_and_transport -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#nutrient_cycling_or_loss_and_transport">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">nutrient cycling or loss and transport</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#on-site_wastewater_systems -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#on-site_wastewater_systems">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">on-site wastewater systems</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#overview_of_special_journal_issue_or_section -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#overview_of_special_journal_issue_or_section">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#BroadApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">overview of special journal issue or section or etc.</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#pathogen_fate_and_transport -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#pathogen_fate_and_transport">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">pathogen fate and transport</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#pesticide_fate_and_transport -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#pesticide_fate_and_transport">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">pesticide fate and transport</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#phosphorus_cycling_or_loss_and_transport -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#phosphorus_cycling_or_loss_and_transport">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">phosphorus cycling or loss and transport</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#polder_systems_ -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#polder_systems_">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">polder systems  </skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#pollutant_cycling_or_loss_and_transport -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#pollutant_cycling_or_loss_and_transport">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">pollutant cycling or loss and transport</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#pollutant_only -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#pollutant_only">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#BroadApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">pollutant only</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#potassium_cycling_or_loss_and_transport -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#potassium_cycling_or_loss_and_transport">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">potassium cycling or loss and transport</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#pothole_or_depression_effects_processes -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#pothole_or_depression_effects_processes">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">pothole or depression effects processes</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#pre-SWAT_or_SWAT-related -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#pre-SWAT_or_SWAT-related">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#BroadApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">pre-SWAT or SWAT-related</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#regionalization_of_input_parameters -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#regionalization_of_input_parameters">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">regionalization of input parameters</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#review_or_history -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#review_or_history">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#BroadApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">review or history</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#rice_paddy_effects_production_application -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#rice_paddy_effects_production_application">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">rice paddy effects production application</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#runoff_curve_number_estimation_senstivity_assessment -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#runoff_curve_number_estimation_senstivity_assessment">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">runoff curve number estimation senstivity assessment</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#salinity_impacts -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#salinity_impacts">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">salinity impacts</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#sediment_and_TP_simulation -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#sediment_and_TP_simulation">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:broadMatch rdf:resource="http://www.egc.org/ont/context#simulate_watershed_loads"/>
+        <rdfs:comment xml:lang="en">sediment and Total Phosphorus</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#sediment_loss_and_transport -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#sediment_loss_and_transport">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">sediment loss and transport</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#sensitivity_analysis -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#sensitivity_analysis">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">sensitivity analysis</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#simulate_watershed_loads -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#simulate_watershed_loads">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">simulate watershed loads</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#slope_length_calculation_effects -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#slope_length_calculation_effects">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">slope length calculation effects</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#snowmelt_frozen_soil_glacier_melt_processes -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#snowmelt_frozen_soil_glacier_melt_processes">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">snowmelt  frozen soil glacier melt processes</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#soil_carbon_cycling_transport -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#soil_carbon_cycling_transport">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">soil carbon cycling transport</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#soil_data_resolution_effects -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#soil_data_resolution_effects">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">soil data resolution effects</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#soil_temperature_assessment -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#soil_temperature_assessment">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">soil temperature assessment</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#stream_temperature_assessment -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#stream_temperature_assessment">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">stream temperature assessment</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#sub-daily_hydrologic_other_processes -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#sub-daily_hydrologic_other_processes">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">sub-daily hydrologic other processes</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#temporal_changes_in_land_use_or_BMPs -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#temporal_changes_in_land_use_or_BMPs">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">temporal changes in land use or BMPs</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#theoretical_foundations -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#theoretical_foundations">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#BroadApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">theoretical foundations</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#tile_drainage_function_development_effects -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#tile_drainage_function_development_effects">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">tile drainage function development effects</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#uncertainty_analysis -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#uncertainty_analysis">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">uncertainty analysis</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#urban_stormwater_BMP_assessment -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#urban_stormwater_BMP_assessment">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">urban stormwater BMP assessment</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#variable_source_area_or_saturation_excess_hydrology -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#variable_source_area_or_saturation_excess_hydrology">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">variable source area or saturation excess hydrology</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#vegetation_growth_or_yield_parameters -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#vegetation_growth_or_yield_parameters">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">vegetation growth or yield parameters</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#watershed_descriptions -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#watershed_descriptions">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#BroadApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">watershed descriptions</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/context#wetland_effects_processes -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/context#wetland_effects_processes">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">wetland effects processes</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://gcmdservices.gsfc.nasa.gov/kms/concept/climate_change -->
+
+    <owl:NamedIndividual rdf:about="https://gcmdservices.gsfc.nasa.gov/kms/concept/climate_change">
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#PrimaryApplicationCategory"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/context#SecondApplicationCategory"/>
+        <skos:prefLabel xml:lang="en">climate change</skos:prefLabel>
+    </owl:NamedIndividual>
+    <rdf:Description>
+        <rdfs:comment>bv</rdfs:comment>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

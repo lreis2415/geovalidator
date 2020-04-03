@@ -1,0 +1,4482 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.egc.org/ont/gis#"
+     xml:base="http://www.egc.org/ont/gis"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:ns="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+     xmlns:sh="http://www.w3.org/ns/shacl#"
+     xmlns:gis="http://www.egc.org/ont/gis#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:wot="http://xmlns.com/wot/0.1/"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:cyber="http://www.egc.org/ont/gis/cyber#"
+     xmlns:props="http://www.egc.org/ont/base/props#"
+     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
+     xmlns:terms="http://purl.org/dc/terms/">
+    <owl:Ontology rdf:about="http://www.egc.org/ont/gis/cyber">
+        <owl:imports rdf:resource="http://purl.org/NET/dc_owl2dl/terms"/>
+        <owl:imports rdf:resource="http://www.egc.org/ont/base/props"/>
+        <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <owl:imports rdf:resource="http://xmlns.com/foaf/0.1/"/>
+        <dc:creator xml:lang="en">Zhiwei Hou</dc:creator>
+        <dc:creator xml:lang="zh-cn">侯志伟</dc:creator>
+        <dc:source rdf:resource="http://cite.opengeospatial.org/pub/cite/files/edu/index.html"/>
+        <dc:title xml:lang="en">Ontology for GIS softwares</dc:title>
+        <terms:references rdf:resource="http://ontosoft.org/software"/>
+        <terms:references>Essawy, B. T., Goodall, J. L., Xu, H. &amp; Gil, Y. Evaluation of the OntoSoft Ontology for describing metadata for legacy hydrologic modeling software. Environ. Model. Softw. 92, 317–329 (2017).</terms:references>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.egc.org/ont/base/props#abbreviation -->
+
+    <owl:AnnotationProperty rdf:about="http://www.egc.org/ont/base/props#abbreviation"/>
+    
+
+
+    <!-- http://www.egc.org/ont/base/props#abbreviationOf -->
+
+    <owl:AnnotationProperty rdf:about="http://www.egc.org/ont/base/props#abbreviationOf"/>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#schemaSource -->
+
+    <owl:AnnotationProperty rdf:about="http://www.egc.org/ont/gis/cyber#schemaSource"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#maxQualifiedCardinality -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2002/07/owl#maxQualifiedCardinality"/>
+    
+
+
+    <!-- http://www.w3.org/ns/shacl#description -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/ns/shacl#description"/>
+    
+
+
+    <!-- http://www.w3.org/ns/shacl#name -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/ns/shacl#name"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/URI -->
+
+    <rdfs:Datatype rdf:about="http://purl.org/dc/terms/URI"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#codeOptimizedType -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#codeOptimizedType">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#executionRelation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#compatibleSoftware -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#compatibleSoftware">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#executionRelation"/>
+        <dc:description xml:lang="de">What software can this software be composed with in a workflow ?</dc:description>
+        <skos:altLabel xml:lang="zh-cn">兼容的软件</skos:altLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#constraint -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#constraint">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#doResearchRelation"/>
+        <owl:inverseOf rdf:resource="http://www.egc.org/ont/gis/cyber#isConstraintOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#creatorContact -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#creatorContact">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#supportRelation"/>
+        <rdfs:comment xml:lang="en">contact info of these who created this software (e.g., Project, Organization, Person, Initiative, etc.)</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#dataContent -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#dataContent">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#executionRelation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#dependency -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#dependency">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#executionRelation"/>
+        <dc:description xml:lang="de">What other software does the software require to be installed ?</dc:description>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#doResearchRelation -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#doResearchRelation">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#softRelation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#encoding -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#encoding">
+        <rdfs:range rdf:resource="http://www.egc.org/ont/gis/cyber#OGCEncoding"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#executionRelation -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#executionRelation">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#softRelation"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.egc.org/ont/gis"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#extensionOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#extensionOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#supportRelation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#hasOGCService -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#hasOGCService">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#webservice"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#hasRESTService -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#hasRESTService">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#webservice"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#hasSOAPService -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#hasSOAPService">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#webservice"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#input -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#input">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#doResearchRelation"/>
+        <dc:description xml:lang="en">definition of input data required by the software</dc:description>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#inputData -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#inputData">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#executionRelation"/>
+        <owl:inverseOf rdf:resource="http://www.egc.org/ont/gis/cyber#isInputDataOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:range rdf:resource="http://www.egc.org/ont/gis/cyber#InputData"/>
+        <dc:description xml:lang="en">input data required by the software</dc:description>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#inputDataOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#inputDataOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#parameterDataOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#inputGeoData -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#inputGeoData">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#inputData"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#interoperableSoftware -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#interoperableSoftware">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#doResearchRelation"/>
+        <rdfs:comment>other softwares can interoperate with this one</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#interoperateSoft -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#interoperateSoft">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#supportRelation"/>
+        <skos:definition xml:lang="en">software can interoperate with this one</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#isConstraintOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#isConstraintOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#doResearchRelation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#isInputDataOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#isInputDataOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#doResearchRelation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#isOptionOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#isOptionOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#doResearchRelation"/>
+        <owl:inverseOf rdf:resource="http://www.egc.org/ont/gis/cyber#option"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#isOutputDataOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#isOutputDataOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#doResearchRelation"/>
+        <owl:inverseOf rdf:resource="http://www.egc.org/ont/gis/cyber#outputData"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#isPluginOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#isPluginOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#supportRelation"/>
+        <owl:inverseOf rdf:resource="http://www.egc.org/ont/gis/cyber#plugin"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#license -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#license">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#executionRelation"/>
+        <rdfs:comment xml:lang="en">license of the code released</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.egc.org/ont/gis"/>
+        <rdfs:seeAlso rdf:resource="http://purl.org/dc/terms/license"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#majorContributor -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#majorContributor">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#supportRelation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#mandatoryInput -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#mandatoryInput">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#input"/>
+        <owl:propertyDisjointWith rdf:resource="http://www.egc.org/ont/gis/cyber#optionalInput"/>
+        <dc:description xml:lang="en">Mandatory/required Input data</dc:description>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#option -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#option">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#doResearchRelation"/>
+        <rdfs:comment xml:lang="en">definition of software input option</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#optionData -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#optionData">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#executionRelation"/>
+        <rdfs:range rdf:resource="http://www.egc.org/ont/gis/cyber#OptionData"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#optionDataOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#optionDataOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#parameterDataOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#optionalInput -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#optionalInput">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#input"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#output -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#output">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#doResearchRelation"/>
+        <dc:description xml:lang="en">definition of output data produced by the software</dc:description>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#outputData -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#outputData">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#executionRelation"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:range rdf:resource="http://www.egc.org/ont/gis/cyber#OutputData"/>
+        <dc:description xml:lang="en">output data produced by the software</dc:description>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#outputDataOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#outputDataOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#parameterDataOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#outputGeoData -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#outputGeoData">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#outputData"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#parameterDataOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#parameterDataOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#executionRelation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#plugin -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#plugin">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#supportRelation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#primaryVersionSoftware -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#primaryVersionSoftware">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#doResearchRelation"/>
+        <rdfs:comment xml:lang="en">which version of the software is primary used</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#programmingLanguage -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#programmingLanguage">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#executionRelation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#publication -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#publication">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#supportRelation"/>
+        <rdfs:comment xml:lang="en">any publications where the software is used</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#readOnlyFormat -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#readOnlyFormat">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#supportsDataFormat"/>
+        <owl:propertyDisjointWith rdf:resource="http://www.egc.org/ont/gis/cyber#readWriteFormat"/>
+        <skos:definition xml:lang="en">read only data format</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#readWriteFormat -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#readWriteFormat">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#supportsDataFormat"/>
+        <skos:definition xml:lang="en">read and write data format</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#serviceType -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#serviceType">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#webserviceRelation"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/gis/cyber#WebService"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#similarSoftware -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#similarSoftware">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#understandRelation"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:comment>other similar software that you know of</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#softRelation -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#softRelation">
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/gis/cyber#Software"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.egc.org/ont/gis"/>
+        <rdfs:label xml:lang="en">cyber object property</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#softwareProvider -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#softwareProvider">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#supportRelation"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/gis/cyber#OperatingSystem"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/gis/cyber#Software"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#supportRelation -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#supportRelation">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#softRelation"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.egc.org/ont/gis"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#supportedPlatform -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#supportedPlatform">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#executionRelation"/>
+        <dc:description xml:lang="de">What Operating Systems can the software run on ?</dc:description>
+        <skos:definition xml:lang="en">Runnable Platform, Operation System</skos:definition>
+        <skos:definition xml:lang="zh-cn">运行平台、操作系统</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#supportsDataFormat -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#supportsDataFormat">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#doResearchRelation"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.egc.org/ont/gis/cyber#Software"/>
+                    <rdf:Description rdf:about="http://www.egc.org/ont/gis/cyber#WebService"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#supportsDataType -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#supportsDataType">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#executionRelation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#supportsProgrammingLanguage -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#supportsProgrammingLanguage">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#understandRelation"/>
+        <rdfs:range rdf:resource="http://www.egc.org/ont/gis/cyber#ProgrammingLanguage"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.egc.org/ont/gis"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#understandRelation -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#understandRelation">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#softRelation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#webservice -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#webservice">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#webserviceRelation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#webserviceRelation -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/gis/cyber#webserviceRelation"/>
+    
+
+
+    <!-- http://www.w3.org/ns/shacl#datatype -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/shacl#datatype"/>
+    
+
+
+    <!-- http://www.w3.org/ns/shacl#path -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/shacl#path"/>
+    
+
+
+    <!-- http://www.w3.org/ns/shacl#prefixes -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/shacl#prefixes"/>
+    
+
+
+    <!-- http://www.w3.org/ns/shacl#property -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/shacl#property"/>
+    
+
+
+    <!-- http://www.w3.org/ns/shacl#sparql -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/shacl#sparql"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.egc.org/ont/data#maxValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/data#maxValue"/>
+    
+
+
+    <!-- http://www.egc.org/ont/data#minValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/data#minValue"/>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#adopter -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#adopter">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#understandInfo"/>
+        <dc:description xml:lang="en">Has the software been adopted in a project, organization or by a person?</dc:description>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#adopters -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#adopters">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#understandInfo"/>
+        <skos:definition xml:lang="en">organization or a person who adopted this in a project</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#authors -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#authors">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#citationProperty"/>
+        <terms:isReplacedBy rdf:resource="http://purl.org/dc/elements/1.1/creator"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#averageRunTime -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#averageRunTime">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#executionInfo"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#baseCommand -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#baseCommand">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#legacyGISInfo"/>
+        <rdfs:comment xml:lang="en">a command that must be used in every command line, e.g. mpiexec in TauDEM, saga_cmd in SAGA GIS, otbApplicationLauncherCommandLine in Orfeo ToolBox</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#benchmark -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#benchmark">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#understandInfo"/>
+        <rdfs:comment xml:lang="en">Is there any benchmark information about the software?</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#citationLocation -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#citationLocation">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#citationProperty"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#anyURI"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
+                </owl:unionOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <dc:description xml:lang="en">What is the URL for the citation ?</dc:description>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#citationProperty -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#citationProperty">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#citationText -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#citationText">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#citationProperty"/>
+        <terms:isReplacedBy rdf:resource="http://purl.org/dc/terms/bibliographicCitation"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#city -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#city">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#contactInfo"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#codeRepository -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#codeRepository">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#executionInfo"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#anyURI"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
+                </owl:unionOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <rdfs:comment xml:lang="en">URL for the code</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#commandLine -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#commandLine">
+        <owl:equivalentProperty rdf:resource="http://www.egc.org/ont/gis/cyber#syntax"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#executionInfo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <skos:example rdf:datatype="http://www.w3.org/2001/XMLSchema#string">mpiexec -n &lt;number of processes&gt; D8FlowDir -fel &lt; felfile &gt; -p &lt; pfile&gt; -sd8 &lt; sd8file&gt;</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#commitmentOfSupport -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#commitmentOfSupport">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#understandInfo"/>
+        <skos:definition xml:lang="en">the way a user can get support for the software (e.g., Report bugs, request features and commitment of extensions, etc.)</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#compositionDescription -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#compositionDescription">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#doResearch"/>
+        <dc:description xml:lang="en">other softwares  typically used with this software in a workflow (eg: for visualization, preprocessing, postprocessing, etc)</dc:description>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#contactInfo -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#contactInfo"/>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#country -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#country">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#contactInfo"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#describeProcessRequest -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#describeProcessRequest">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#serviceProperty"/>
+        <rdfs:comment xml:lang="en">service url plus &quot;&amp;request=DescribeProcess&quot;</rdfs:comment>
+        <skos:example rdf:resource="http://geobrain.laits.gmu.edu:8099/wps/WebProcessingService?Request=DescribeProcess&amp;Service=WPS&amp;version=0.4.0&amp;identifier=clippingservice.clip"/>
+        <skos:example rdf:resource="http://geoprocessing.demo.52north.org:8080/wps/WebProcessingService?service=WPS&amp;version=2.0.0&amp;request=DescribeProcess&amp;Identifier=org.n52.wps.server.algorithm.SimpleBufferAlgorithm"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#details -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#details">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#executionInfo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#doResearch -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#doResearch">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#softProperty"/>
+        <rdfs:comment xml:lang="en">experiment, compose and cite</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#email -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#email">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#contactInfo"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#endYear -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#endYear">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#updateInfo"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#executable -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#executable">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#executionInfo"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">executable name, such as .exe on Windows, .so on Linux</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#executableLocation -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#executableLocation">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#executionInfo"/>
+        <dc:description xml:lang="en">the URL for the executable</dc:description>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#executeRequest -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#executeRequest">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#serviceProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#executionInfo -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#executionInfo">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#softProperty"/>
+        <rdfs:comment xml:lang="en">access (download),install and run</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#fax -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#fax">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#contactInfo"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#fundingSources -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#fundingSources">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#understandInfo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description xml:lang="en">the funding sources for this software</dc:description>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#getCapabilitiesRequest -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#getCapabilitiesRequest">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#serviceProperty"/>
+        <rdfs:comment>service url plus &quot;&amp;request=GetCapabilities&quot;</rdfs:comment>
+        <skos:example rdf:resource="http://geobrain.laits.gmu.edu:8099/wps/WebProcessingService?Request=GetCapabilities&amp;Service=WPS"/>
+        <skos:example rdf:resource="http://geoprocessing.demo.52north.org:8080/wps/WebProcessingService?service=WPS&amp;version=2.0.0&amp;request=GetCapabilities"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#getFeatureInfoRequest -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#getFeatureInfoRequest">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#serviceProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#getFeatureRequest -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#getFeatureRequest">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#serviceProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#getMapRequest -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#getMapRequest">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#serviceProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#hasFirstName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#hasFirstName">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#contactInfo"/>
+        <terms:isReplacedBy rdf:resource="http://xmlns.com/foaf/0.1/firstName"/>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#hasLastname -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#hasLastname">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#contactInfo"/>
+        <terms:isReplacedBy rdf:resource="http://xmlns.com/foaf/0.1/lastName"/>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#hasSourceWebAddress -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#hasSourceWebAddress">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#executionInfo"/>
+        <terms:isReplacedBy rdf:resource="http://www.egc.org/ont/gis/cyber#hasSourceCodeURL"/>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#hasSynopsis -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#hasSynopsis">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#executionInfo"/>
+        <terms:isReplacedBy rdf:resource="http://www.egc.org/ont/gis/cyber#hasSyntax"/>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#identifyInfo -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#identifyInfo">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#softProperty"/>
+        <rdfs:comment xml:lang="en">unique identifier</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#implementationDetails -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#implementationDetails">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#executionInfo"/>
+        <rdfs:comment xml:lang="en">important details about the implementation of this code (e.g., has other parallelization, special hardware, etc.)</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#inActiveDevelopment -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#inActiveDevelopment">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#updateInfo"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <dc:description>How is the software being developed or maintained ?</dc:description>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#installationInstructions -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#installationInstructions">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#executionInfo"/>
+        <rdfs:comment xml:lang="en">How can one install the software</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#institute -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#institute">
+        <owl:equivalentProperty rdf:resource="http://www.egc.org/ont/gis/cyber#organization"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#contactInfo"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#isAddon -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#isAddon">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#identifyInfo"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment xml:lang="en">need extra installation</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#isFreeSoftware -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#isFreeSoftware">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#identifyInfo"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment xml:lang="en">free software can be open sourced or closed source / proprietary software</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#isMandatory -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#isMandatory">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#executionInfo"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <owl:propertyDisjointWith rdf:resource="http://www.egc.org/ont/gis/cyber#isOptional"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#isOpenSource -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#isOpenSource">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#identifyInfo"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/gis/cyber#OperatingSystem"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/gis/cyber#Software"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment xml:lang="en">inverse of closed source / proprietary software</rdfs:comment>
+        <rdfs:comment xml:lang="en">not all open source softwares are free</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#isOptional -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#isOptional">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#executionInfo"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#knownIssues -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#knownIssues">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#understandInfo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#latestVersion -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#latestVersion">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#updateInfo"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#legacyGISInfo -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#legacyGISInfo"/>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#longIdentifier -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#longIdentifier">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#identifyInfo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#manualPageURL -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#manualPageURL">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#executionInfo"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#anyURI"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
+                </owl:unionOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#memoryRequirements -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#memoryRequirements">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#executionInfo"/>
+        <rdfs:comment xml:lang="en">(average) memory requirements for this software</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#onlineDocument -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#onlineDocument">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#executionInfo"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#onlineTutorial -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#onlineTutorial">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#executionInfo"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#organization -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#organization">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#contactInfo"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#outputFile -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#outputFile">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#executionInfo"/>
+        <rdfs:comment xml:lang="en">output file the software produce</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#parallel -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#parallel">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#legacyGISInfo"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <skos:definition xml:lang="en">is parallel</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#phoneNumber -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#phoneNumber">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#contactInfo"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#postalAddress -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#postalAddress">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#contactInfo"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#postcode -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#postcode">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#contactInfo"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#preferredCitation -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#preferredCitation">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#doResearch"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Is there a preferred publication or citation for this software?</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#provinceName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#provinceName">
+        <owl:equivalentProperty rdf:resource="http://www.egc.org/ont/gis/cyber#stateName"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#contactInfo"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#publisher -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#publisher">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#identifyInfo"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#ratings -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#ratings">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#understandInfo"/>
+        <rdfs:comment xml:lang="en">What are the ratings for this software?</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#releaseDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#releaseDate">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#updateInfo"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#relevantDataSource -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#relevantDataSource">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#doResearch"/>
+        <rdfs:comment xml:lang="en">any relevant data catalogs that can be used with this software</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#salientQualities -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#salientQualities">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#understandInfo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">What useful features of this software are worth highlighting?</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#salientQuanlities -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#salientQuanlities">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#understandInfo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description xml:lang="en">other useful features of this software are worth highlighting</dc:description>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#serviceChian -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#serviceChian">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#serviceProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#serviceEndpoint -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#serviceEndpoint">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#executionInfo"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/gis/cyber#Software"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#anyURI"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
+                </owl:unionOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <skos:example rdf:resource="http://server/services/wps"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#serviceIdentifier -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#serviceIdentifier">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#serviceProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#serviceProperty -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#serviceProperty"/>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#serviceURL -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#serviceURL">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#serviceProperty"/>
+        <rdfs:comment>web server url and service type and version and indentifier</rdfs:comment>
+        <skos:example rdf:resource="http://geoprocessing.demo.52north.org:8080/wps/WebProcessingService?service=WPS&amp;version=2.0.0&amp;Identifier=org.n52.wps.server.algorithm.SimpleBufferAlgorithm"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#serviceVersion -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#serviceVersion">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#serviceProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#softProperty -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#softProperty">
+        <rdfs:comment xml:lang="en">Data Properties of Cyberinfrastructure, extends from OntoSoft</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#softwareCategory -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#softwareCategory">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#understandInfo"/>
+        <dc:description xml:lang="en">the general categories (keywords, labels) associated with the software</dc:description>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#softwareCommunity -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#softwareCommunity">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#supportInfo"/>
+        <dc:description xml:lang="en">any on-line resource for accessing the software community  (eg. Mailing-list, discussion board, wiki, etc)</dc:description>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#softwareSupport -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#softwareSupport">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#supportInfo"/>
+        <dc:description xml:lang="en">the support offered for this software</dc:description>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#sourceCodeURL -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#sourceCodeURL">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#executionInfo"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#anyURI"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
+                </owl:unionOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#startYear -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#startYear">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#updateInfo"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#stateName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#stateName">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#contactInfo"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#supersededBy -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#supersededBy">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#updateInfo"/>
+        <rdfs:seeAlso rdf:resource="http://purl.org/dc/terms/isReplacedBy"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#supersedes -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#supersedes">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#updateInfo"/>
+        <rdfs:seeAlso rdf:resource="http://purl.org/dc/terms/replaces"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#supportInfo -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#supportInfo">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#softProperty"/>
+        <rdfs:comment xml:lang="en">discuss - support and community</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#supportsLanguage -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#supportsLanguage">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#understandInfo"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#syntax -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#syntax">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#executionInfo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <skos:example rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Thiessen_arc (in_cover, out_cover, {proximal_tolerance})</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#testData -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#testData">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#legacyGISInfo"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#testDataLocation -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#testDataLocation">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#usageInfo"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#testDataSet -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#testDataSet">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#usageInfo"/>
+        <rdfs:comment>any test data available for the software</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#testInstructions -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#testInstructions">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#usageInfo"/>
+        <rdfs:comment>any specific instructions for testing the software</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#testPageURL -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#testPageURL">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#serviceProperty"/>
+        <skos:example rdf:resource="http://geobrain.laits.gmu.edu:8099/wps/test_clip.html"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#typeOfContact -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#typeOfContact">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#contactInfo"/>
+        <skos:example xml:lang="en">developer</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#understandInfo -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#understandInfo">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#softProperty"/>
+        <rdfs:comment xml:lang="en">domain knowledge, quality and ratings(trust)</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#uniqueId -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#uniqueId">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#identifyInfo"/>
+        <rdfs:comment xml:lang="en">What is the DOI or any other unique identifier for this software (or software version)?</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#updateInfo -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#updateInfo">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#softProperty"/>
+        <rdfs:comment xml:lang="en">track and contribute</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#usage -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#usage">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#executionInfo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#usageInfo -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#usageInfo">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#executionInfo"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#usageInformation -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#usageInformation">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#usageInfo"/>
+        <dc:description xml:lang="en">any information about uses of this software (paper dois, research labs, etc)</dc:description>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#useInformation -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#useInformation">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#understandInfo"/>
+        <rdfs:comment xml:lang="en">Is there any information about uses of this software (e.g., papers, research labs, etc.)?</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#useLimitations -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#useLimitations">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#understandInfo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <skos:definition xml:lang="en">any constraints on use, situations it is not designed for, simplification</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#useStatistics -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#useStatistics">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#understandInfo"/>
+        <rdfs:comment xml:lang="en">Are there any statistics of its use?</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#usedInPublication -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#usedInPublication">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#understandInfo"/>
+        <rdfs:comment xml:lang="en">Are there any publications where the software is used?</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#usesAndAssumptions -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#usesAndAssumptions">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#understandInfo"/>
+        <dc:description xml:lang="en">the recommended uses and assumptions for the software</dc:description>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#versionReleaseDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#versionReleaseDate">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#updateInfo"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#webServerURL -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#webServerURL">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#serviceProperty"/>
+        <skos:example rdf:resource="http://geoprocessing.demo.52north.org:8080/wps/WebProcessingService?"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#website -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#website">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#identifyInfo"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#workflowDescription -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#workflowDescription">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#usageInfo"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#wsdlLocation -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#wsdlLocation">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#serviceProperty"/>
+        <skos:definition xml:lang="en">WSDL (Web Service Definition Language ) location URL of service</skos:definition>
+        <skos:example rdf:resource="http://geobrain.laits.gmu.edu/mpgc/wps/0.4.0/wps.wsdl"/>
+        <skos:example rdf:resource="http://geobrain.laits.gmu.edu:8099/axis/services/Clip_Functions?wsdl"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#year -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/gis/cyber#year">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/gis/cyber#citationProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/shacl#maxCount -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/ns/shacl#maxCount"/>
+    
+
+
+    <!-- http://www.w3.org/ns/shacl#minCount -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/ns/shacl#minCount"/>
+    
+
+
+    <!-- http://www.w3.org/ns/shacl#namespace -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/ns/shacl#namespace"/>
+    
+
+
+    <!-- http://www.w3.org/ns/shacl#prefix -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/ns/shacl#prefix"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#AvailableChoice -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#AvailableChoice">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#Parameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#CSW -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#CSW">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#ServiceCatalog"/>
+        <dc:description rdf:resource="http://support.supermap.com.cn:8090/iserver/help/html/zh/api/csw/csw202/csw_202.htm"/>
+        <rdfs:comment xml:lang="en">This is a system that handles the discovery and publishing of metadata entries. Furthermore, this actor has the ability to harvest metadata records from other catalogue
+services</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengeospatial.org/standards/cat"/>
+        <rdfs:isDefinedBy xml:lang="en">OpenGIS® Catalogue Services Specification 2.0 - ISO19115/ISO19119 Application Profile for CSW 2.0</rdfs:isDefinedBy>
+        <owl:versionInfo>2.0.2</owl:versionInfo>
+        <skos:prefLabel xml:lang="en">Catalogue Service-Web</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#CatalogService -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#CatalogService">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#OGCWebService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#CloudService -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#CloudService">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#Cyberinfrastructure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#CodeOptimizedType -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#CodeOptimizedType">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#Cyberinfrastructure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Company -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#Company">
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Constraint -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#Constraint">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#Parameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#ContentManagementSystems -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#ContentManagementSystems">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#GeospatialSoftware"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Cyberinfrastructure -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#Cyberinfrastructure"/>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#DataCatalog -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#DataCatalog">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#CatalogService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#DataService -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#DataService">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#OGCWebService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Database -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#Database">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#Software"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Declarative -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#Declarative">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#ProgrammingLanguage"/>
+        <rdfs:comment xml:lang="zh-cn">声明式</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#DesktopGIS -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#DesktopGIS">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#GeospatialSoftware"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#DesktopSoftware -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#DesktopSoftware">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#Software"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#DeviceCatalog -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#DeviceCatalog">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#CatalogService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#DocumentStore -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#DocumentStore">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#NoSQLDatabase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#GatewayService -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#GatewayService">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#DataService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#GeoSync -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#GeoSync">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#DataService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#GeospatialInternetOfThings -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#GeospatialInternetOfThings">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#GeospatialSoftware"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#GeospatialLibraries -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#GeospatialLibraries">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#GeospatialSoftware"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#GeospatialSoftware -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#GeospatialSoftware">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#Software"/>
+        <dc:source>http://www.osgeo.org/</dc:source>
+        <dc:source>https://en.wikipedia.org/wiki/List_of_geographic_information_systems_software</dc:source>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#GraphDB -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#GraphDB">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#NoSQLDatabase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#GridCoverage -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#GridCoverage">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#DataService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Imperative -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#Imperative">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#ProgrammingLanguage"/>
+        <rdfs:comment xml:lang="zh-cn">命令式</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Input -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#Input">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#Parameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#InputData -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#InputData">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#ParameterData"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#InputGeoData -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#InputGeoData">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#InputData"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#KML -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#KML">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#PortrayalService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#KeyValueStore -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#KeyValueStore">
+        <owl:equivalentClass rdf:resource="http://www.egc.org/ont/gis/cyber#TupleStore"/>
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#NoSQLDatabase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#License -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#License">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#Cyberinfrastructure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#MetadataCatalogs -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#MetadataCatalogs">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#GeospatialSoftware"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#MultimodelDB -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#MultimodelDB">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#NoSQLDatabase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#MultivalueDB -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#MultivalueDB">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#NoSQLDatabase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#NavigationService -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#NavigationService">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#ProcesssingService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#NoSQLDatabase -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#NoSQLDatabase">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#Database"/>
+        <dc:source>http://nosql-database.org/</dc:source>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#OGCEncoding -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#OGCEncoding">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#Cyberinfrastructure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#OGCWebService -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#OGCWebService">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#WebService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#ObjectDB -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#ObjectDB">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#NoSQLDatabase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#OpenLS -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#OpenLS">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#DataService"/>
+        <cyber:schemaSource rdf:resource="http://schemas.opengis.net/ols/"/>
+        <rdfs:isDefinedBy rdf:resource="https://www.opengeospatial.org/standards/ols"/>
+        <skos:prefLabel xml:lang="en">Location Service</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#OpenSourceLicense -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#OpenSourceLicense">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#License"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#OpenSourceOrganization -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#OpenSourceOrganization">
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+        <dc:source>https://opensource.com/resources/organizations</dc:source>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#OperatingSystem -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#OperatingSystem">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#Cyberinfrastructure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Option -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#Option">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#Parameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#OptionData -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#OptionData">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#ParameterData"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Output -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#Output">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#Parameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#OutputData -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#OutputData">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#ParameterData"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#OutputGeoData -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#OutputGeoData">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#OutputData"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Parameter -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#Parameter"/>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#ParameterData -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#ParameterData"/>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#PortrayalService -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#PortrayalService">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#OGCWebService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#ProcesssingService -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#ProcesssingService">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#OGCWebService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#ProgrammingLanguage -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#ProgrammingLanguage">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#Cyberinfrastructure"/>
+        <dc:source xml:lang="en">Programming Language Pragmatics, 4th Edition by Michael L. Scott</dc:source>
+        <dc:source xml:lang="en">https://medium.com/web-development-zone/a-complete-list-of-computer-programming-languages-1d8bc5a891f</dc:source>
+        <rdfs:comment>暂不深究分类</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#RESTFulService -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#RESTFulService">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#WebService"/>
+        <skos:prefLabel xml:lang="en">Representational State Transfer Service</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#RelationalDatabase -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#RelationalDatabase">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#Database"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#RemoteSensingSoftware -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#RemoteSensingSoftware">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#DesktopGIS"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#RemoteSensinglLibraries -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#RemoteSensinglLibraries">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#GeospatialLibraries"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#SE -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#SE">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#PortrayalService"/>
+        <skos:prefLabel xml:lang="en">Symbology Encoding</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#SF -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#SF">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#DataService"/>
+        <skos:prefLabel xml:lang="en">Simple Features</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#SOAPService -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#SOAPService">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#WebService"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.egc.org/ont/gis/cyber#wsdlLocation"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <skos:definition xml:lang="en">Service Base On Simple Object Access Protocol</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#SOS -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#SOS">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#DataService"/>
+        <skos:prefLabel xml:lang="en">Sensor Observation Service</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#SPS -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#SPS">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#DataService"/>
+        <skos:prefLabel xml:lang="en">Sensor Planning Service</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#ScriptingLanguages -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#ScriptingLanguages">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#ProgrammingLanguage"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#ServiceCatalog -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#ServiceCatalog">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#CatalogService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#ServiceTerms -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#ServiceTerms">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#WebService"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Software -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#Software">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#Cyberinfrastructure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.egc.org/ont/gis/cyber#creatorContact"/>
+                <owl:someValuesFrom rdf:resource="http://www.egc.org/ont/gis/cyber#SoftwareContact"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#SoftwareContact -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#SoftwareContact">
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.egc.org/ont/gis/cyber#email"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#SpatialDataAnalysisTool -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#SpatialDataAnalysisTool">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#GeospatialSoftware"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#SpatialDatabase -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#SpatialDatabase">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#Database"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#StyleCatalog -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#StyleCatalog">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#CatalogService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#TupleStore -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#TupleStore">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#NoSQLDatabase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#WCPS -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#WCPS">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#ProcesssingService"/>
+        <skos:prefLabel xml:lang="en">Web Coverage Processing Service</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#WCS -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#WCS">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#DataService"/>
+        <skos:prefLabel xml:lang="en">Web Coverage Service</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#WFS -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#WFS">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#DataService"/>
+        <skos:prefLabel xml:lang="en">Web Feature Service</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#WMS -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#WMS">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#PortrayalService"/>
+        <skos:prefLabel xml:lang="en">Web Map Service</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#WMTS -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#WMTS">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#PortrayalService"/>
+        <skos:prefLabel xml:lang="en">Web Map Tile Service</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#WPS -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#WPS">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#ProcesssingService"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.egc.org/ont/gis/cyber#describeProcessRequest"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.egc.org/ont/gis/cyber#getCapabilitiesRequest"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:description rdf:resource="http://support.supermap.com.cn:8090/iserver/help/html/zh/api/wps/wps100/wps_100.htm"/>
+        <cyber:schemaSource rdf:resource="http://schemas.opengis.net/wps/"/>
+        <rdfs:isDefinedBy rdf:resource="https://www.opengeospatial.org/standards/wps"/>
+        <owl:priorVersion xml:lang="en">1.0.0</owl:priorVersion>
+        <owl:versionInfo xml:lang="en">2.0</owl:versionInfo>
+        <skos:prefLabel xml:lang="en">Web Processing Service</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#WebBrowser -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#WebBrowser">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#Software"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#WebMapServer -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#WebMapServer">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#WebMapping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#WebMapping -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#WebMapping">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#GeospatialSoftware"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#WebMappingAPI -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#WebMappingAPI">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#WebMapping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#WebProcessingServer -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#WebProcessingServer">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#WebMapping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#WebService -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#WebService">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#Cyberinfrastructure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.egc.org/ont/gis/cyber#serviceURL"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#WideColumnStore -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#WideColumnStore">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#NoSQLDatabase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#XMLDB -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/gis/cyber#XMLDB">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/gis/cyber#NoSQLDatabase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/shacl#NodeShape -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/shacl#NodeShape"/>
+    
+
+
+    <!-- http://www.w3.org/ns/shacl#PrefixDeclaration -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/shacl#PrefixDeclaration"/>
+    
+
+
+    <!-- http://www.w3.org/ns/shacl#PropertyShape -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/shacl#PropertyShape"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.egc.org/ont/gis -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis"/>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber# -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#"/>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#ALv2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#ALv2">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#License"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Aliyun -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Aliyun">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#CloudService"/>
+        <skos:prefLabel xml:lang="zh-cn">阿里云</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Amazon -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Amazon">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#Company"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Amazon_SimpleDB -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Amazon_SimpleDB">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#NoSQLDatabase"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Amazon_Web_Services -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Amazon_Web_Services">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#CloudService"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Android -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Android">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OperatingSystem"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Apache_License_2.0 -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Apache_License_2.0">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OpenSourceLicense"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Apache_Software_Foundation -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Apache_Software_Foundation">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OpenSourceOrganization"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Apache_public_license -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Apache_public_license">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OpenSourceLicense"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Apple -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Apple">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#Company"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#ArcGIS_Desktop -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#ArcGIS_Desktop">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#DesktopGIS"/>
+        <cyber:softwareProvider rdf:resource="http://www.egc.org/ont/gis/cyber#ESRI"/>
+        <skos:narrowMatch rdf:resource="http://www.egc.org/ont/gis/cyber#ArcInfo"/>
+        <cyber:website rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://desktop.arcgis.com</cyber:website>
+        <dc:description xml:lang="en">ArcGIS Desktop is the key to realizing the advantage of location awareness. Collect and manage data, create professional maps, perform traditional and advanced spatial analysis, and solve real problems. Make a difference and add tangible value for your organization, your community, and the world.</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#ArcGIS_Pro -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#ArcGIS_Pro">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#DesktopGIS"/>
+        <cyber:softwareProvider rdf:resource="http://www.egc.org/ont/gis/cyber#ESRI"/>
+        <cyber:isOpenSource rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cyber:isOpenSource>
+        <cyber:website rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://pro.arcgis.com</cyber:website>
+        <dc:description xml:lang="en">a new application available to ArcGIS Desktop users, provides tools to visualize, analyze, compile, and share your data, in both 2D and 3D environments</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#ArcGIS_Server -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#ArcGIS_Server">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#WebProcessingServer"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#ArcInfo -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#ArcInfo">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#DesktopGIS"/>
+        <cyber:softwareProvider rdf:resource="http://www.egc.org/ont/gis/cyber#ESRI"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Atlantic.net -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Atlantic.net">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#CloudService"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#AutoCAD_Map -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#AutoCAD_Map">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#DesktopGIS"/>
+        <skos:broader rdf:resource="http://www.egc.org/ont/gis/cyber#Autodesk"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Autodesk -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Autodesk">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#Company"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#BSD -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#BSD">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OpenSourceLicense"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Bash -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Bash">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#ScriptingLanguages"/>
+        <skos:prefLabel xml:lang="zh-cn">Bash</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#BigTable -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#BigTable">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#NoSQLDatabase"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Bing_Maps -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Bing_Maps">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#WebMappingAPI"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#C -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#C">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#ProgrammingLanguage"/>
+        <skos:prefLabel xml:lang="zh-cn">C</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#CC_BY-SA_4.0 -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#CC_BY-SA_4.0">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#License"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#CC_BY_4.0 -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#CC_BY_4.0">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#License"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#CDDL -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#CDDL">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#License"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#CGAL -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#CGAL">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#GeospatialLibraries"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#CPL -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#CPL">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OpenSourceLicense"/>
+        <skos:prefLabel xml:lang="en">Common Public License</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#CSS -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#CSS">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#ScriptingLanguages"/>
+        <skos:prefLabel xml:lang="zh-cn">CSS</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Cassandra -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Cassandra">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#NoSQLDatabase"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#CentOS -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#CentOS">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OperatingSystem"/>
+        <skos:broadMatch rdf:resource="http://www.egc.org/ont/gis/cyber#Linux"/>
+        <skos:prefLabel xml:lang="zh-cn">CentOS</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Chrome -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Chrome">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#WebBrowser"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Chrome_OS -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Chrome_OS">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OperatingSystem"/>
+        <skos:prefLabel xml:lang="zh-cn">Chrome_OS</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#CityGML -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#CityGML">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OGCEncoding"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#CloudSigma -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#CloudSigma">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#CloudService"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#CouchDB -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#CouchDB">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#NoSQLDatabase"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Cplusplus -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Cplusplus">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#ProgrammingLanguage"/>
+        <owl:sameAs rdf:resource="http://www.egc.org/ont/gis/cyber#Cpp"/>
+        <owl:sameAs rdf:resource="http://www.egc.org/ont/gis/cyber#C++"/>
+        <skos:prefLabel xml:lang="zh-cn">C++</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Cpp -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Cpp">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#ProgrammingLanguage"/>
+        <owl:sameAs rdf:resource="http://www.egc.org/ont/gis/cyber#C++"/>
+        <skos:prefLabel xml:lang="zh-cn">Cpp</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#CreativeCommons -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#CreativeCommons">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#License"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Csharp -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Csharp">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#ProgrammingLanguage"/>
+        <skos:altLabel xml:lang="zh-cn">Csharp</skos:altLabel>
+        <skos:prefLabel xml:lang="zh-cn">C#</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#DB2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#DB2">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#RelationalDatabase"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#DOS -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#DOS">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OperatingSystem"/>
+        <cyber:softwareProvider rdf:resource="http://www.egc.org/ont/gis/cyber#Microsoft"/>
+        <skos:prefLabel xml:lang="zh-cn">DOS</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Delphi -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Delphi">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#ProgrammingLanguage"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#DigitalOcean -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#DigitalOcean">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#CloudService"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Document_Foundation -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Document_Foundation">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OpenSourceOrganization"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#ENVI -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#ENVI">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#RemoteSensingSoftware"/>
+        <dc:description xml:lang="en">Utilized for image analysis, exploitation, and hyperspectral analysis.</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#EPL -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#EPL">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#License"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#ERDAS_IMAGINE -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#ERDAS_IMAGINE">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#RemoteSensingSoftware"/>
+        <dc:description xml:lang="en">Products include Leica Photogrammetry Suite, ERDAS ER Mapper, ERDAS ECW/JP2 SDK (ECW (file format)) are used throughout the entire mapping community (GIS, Remote Sensing, Photogrammetry, and image compression) and ERDAS APOLLO.</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#ESRI -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#ESRI">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#Company"/>
+        <owl:sameAs rdf:resource="http://www.egc.org/ont/gis/cyber#Environmental_Systems_Research_Institute"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Eclipse_Foundation -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Eclipse_Foundation">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OpenSourceOrganization"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Environmental_Systems_Research_Institute -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Environmental_Systems_Research_Institute">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#Company"/>
+        <props:abbreviation>Esri</props:abbreviation>
+        <skos:prefLabel xml:lang="zh-cn">美国环境系统研究所公司</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#FDO -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#FDO">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#GeospatialLibraries"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#FilterEncoding -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#FilterEncoding">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OGCEncoding"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#FireFox -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#FireFox">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#WebBrowser"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Fortran -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Fortran">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#ProgrammingLanguage"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Fortran77 -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Fortran77">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#ProgrammingLanguage"/>
+        <skos:broadMatch rdf:resource="http://www.egc.org/ont/gis/cyber#Fortran"/>
+        <skos:relatedMatch rdf:resource="http://www.egc.org/ont/gis/cyber#Fortran90"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Fortran90 -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Fortran90">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#ProgrammingLanguage"/>
+        <skos:broadMatch rdf:resource="http://www.egc.org/ont/gis/cyber#Fortran"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#FreeBSD -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#FreeBSD">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OperatingSystem"/>
+        <skos:broadMatch rdf:resource="http://www.egc.org/ont/gis/cyber#Linux"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Free_Software_Foundation -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Free_Software_Foundation">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OpenSourceOrganization"/>
+        <props:abbreviation>FSF</props:abbreviation>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#GDAL -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#GDAL">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#GeospatialLibraries"/>
+        <cyber:website rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.gdal.org/index.html</cyber:website>
+        <dc:description xml:lang="en">GDAL  is a translator library for raster and vector geospatial data formats that is released under an X/MIT style Open Source license by the Open Source Geospatial Foundation. As a library, it presents a single raster abstract data model and single vector abstract data model to the calling application for all supported formats. It also comes with a variety of useful command line utilities for data translation and processing.</dc:description>
+        <dc:description xml:lang="zh-cn">GDAL 是一个栅格和矢量空间数据格式转换库，以 Open Source Geospatial Foundation 的 X/MIT style 开源许可发布. 作为一个程序库, 它为所有支持的格式向调用它的应用程序提供了单一栅格抽象数据模型（single raster abstract data model ）和单一矢量抽象数据模型（ single vector abstract data model. 他同时也包括了一系列数据转换和处理的实用的命令行方法</dc:description>
+        <props:abbreviationOf>Geospatial Data Abstraction Library</props:abbreviationOf>
+        <rdfs:isDefinedBy rdf:resource="https://www.gdal.org/index.html"/>
+        <skos:definition xml:lang="en">Geospatial Data Abstraction Library</skos:definition>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#GEOS -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#GEOS">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#GeospatialLibraries"/>
+        <dc:description xml:lang="en">GEOS (Geometry Engine - Open Source) is a C++ port of the Java Topology Suite (JTS). As such, it aims to contain the complete functionality of JTS in C++. This includes all the OpenGIS Simple Features for SQL spatial predicate functions and spatial operators, as well as specific JTS enhanced topology functions.
+
+GEOS is available under the terms of GNU Lesser General Public License (LGPL).</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#GFDL -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#GFDL">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#License"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#GML -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#GML">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OGCEncoding"/>
+        <skos:prefLabel xml:lang="en">Geography Markup Language</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#GNU_AGPLv3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#GNU_AGPLv3">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OpenSourceLicense"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#GNU_General_Public_License -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#GNU_General_Public_License">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OpenSourceLicense"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#GNU_LGPLv3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#GNU_LGPLv3">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OpenSourceLicense"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#GPL -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#GPL">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OpenSourceLicense"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#GPL_v2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#GPL_v2">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OpenSourceLicense"/>
+        <skos:prefLabel xml:lang="en">GNU GPLv2</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#GPL_v3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#GPL_v3">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OpenSourceLicense"/>
+        <skos:prefLabel xml:lang="en">GNU GPLv3</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#GRASS_GIS -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#GRASS_GIS">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#DesktopGIS"/>
+        <cyber:softwareProvider rdf:resource="http://www.egc.org/ont/gis/cyber#OSGEO"/>
+        <cyber:website rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://grass.osgeo.org/</cyber:website>
+        <dc:description xml:lang="en">GRASS GIS, commonly referred to as GRASS (Geographic Resources Analysis Support System), is a free and open source Geographic Information System (GIS) software suite used for geospatial data management and analysis, image processing, graphics and maps production, spatial modeling, and visualization. GRASS GIS is currently used in academic and commercial settings around the world, as well as by many governmental agencies and environmental consulting companies. It is a founding member of the Open Source Geospatial Foundation (OSGeo).</dc:description>
+        <props:abbreviationOf>Geographic Resources Analysis Support System</props:abbreviationOf>
+        <skos:definition xml:lang="en">Geographic Resources Analysis Support System</skos:definition>
+        <skos:prefLabel xml:lang="en">GRASS GIS</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#GeoMOOSE -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#GeoMOOSE">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#WebMapping"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#GeoNetwork -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#GeoNetwork">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#MetadataCatalogs"/>
+        <dc:description xml:lang="en">GeoNetwork is a catalog application to manage spatially referenced resources. It provides powerfulmetadata editing and search functions as well as an interactive web map viewer. It is currently used innumerous Spatial Data Infrastructure initiatives across the world.</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#GeoNode -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#GeoNode">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#ContentManagementSystems"/>
+        <dc:description xml:lang="en">GeoNode is a web-based application and platform for developing geospatial information systems (GIS) and for deploying spatial data infrastructures (SDI).
+It is designed to be extended and modified, and can be integrated into existing platforms.</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#GeoSciML -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#GeoSciML">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OGCEncoding"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#GeoServer -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#GeoServer">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#WebMapServer"/>
+        <dc:description xml:lang="en">Java based open source server software that allows users to edit and share geospatial data and uses open standards to spublish GIS data.</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#GeoTools -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#GeoTools">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#GeospatialLibraries"/>
+        <dc:description xml:lang="en">GeoTools is an open source (LGPL) Java code library which provides standards compliant methods for the manipulation of geospatial data, for example to implement Geographic Information Systems (GIS). The GeoTools library implements Open Geospatial Consortium (OGC) specifications as they are developed.</dc:description>
+        <dc:description xml:lang="en">Open source GIS toolkit written in Java, using Open Geospatial Consortium specifications.</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Geomedia -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Geomedia">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#DesktopGIS"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Global_Mapper -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Global_Mapper">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#DesktopGIS"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#GoDaddy -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#GoDaddy">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#CloudService"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Google_Cloud_Platform -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Google_Cloud_Platform">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#CloudService"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Google_Maps -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Google_Maps">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#WebMappingAPI"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Groovy -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Groovy">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#ScriptingLanguages"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#H2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#H2">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#RelationalDatabase"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#HBase -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#HBase">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#WideColumnStore"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#HTML -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#HTML">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#ScriptingLanguages"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#IBM -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#IBM">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#Company"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#IBM_Cloud -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#IBM_Cloud">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#CloudService"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#IndoorGML -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#IndoorGML">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OGCEncoding"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Informix -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Informix">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#RelationalDatabase"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#InputData -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#InputData">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+        <sh:property>
+            <rdf:Description/>
+        </sh:property>
+        <sh:property>
+            <rdf:Description/>
+        </sh:property>
+        <sh:sparql>
+            <rdf:Description/>
+        </sh:sparql>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Internet_Explorer -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Internet_Explorer">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#WebBrowser"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#JCloud -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#JCloud">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#CloudService"/>
+        <skos:prefLabel xml:lang="zh-cn">京东云</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Java -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Java">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#ProgrammingLanguage"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#JavaScript -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#JavaScript">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#ScriptingLanguages"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Jena_TDB -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Jena_TDB">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#TupleStore"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#LGPL -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#LGPL">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OpenSourceLicense"/>
+        <skos:prefLabel xml:lang="en">GNU Lesser General Public License</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Leaflet -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Leaflet">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#WebMappingAPI"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Linux -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Linux">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OperatingSystem"/>
+        <cyber:softwareProvider rdf:resource="http://www.egc.org/ont/gis/cyber#Linux_Foundation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Linux_Foundation -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Linux_Foundation">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OpenSourceOrganization"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Lisp -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Lisp">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#ProgrammingLanguage"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Lua -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Lua">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#ScriptingLanguages"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#MIT_License -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#MIT_License">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OpenSourceLicense"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#MIT_X11 -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#MIT_X11">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OpenSourceLicense"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#MPL -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#MPL">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OpenSourceLicense"/>
+        <owl:sameAs rdf:resource="http://www.egc.org/ont/gis/cyber#Mozilla_Public_License_2.0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Mac_OS -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Mac_OS">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OperatingSystem"/>
+        <rdfs:seeAlso rdf:resource="http://www.egc.org/ont/gis/cyber#Macintosh"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Macintosh -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Macintosh">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OperatingSystem"/>
+        <rdfs:seeAlso rdf:resource="http://www.egc.org/ont/gis/cyber#Mac_OS"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Manifold_GIS -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Manifold_GIS">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#DesktopGIS"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#MapFish -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#MapFish">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#WebMapping"/>
+        <dc:description xml:lang="en">An open source mapping development framework for web mapping applications based on the Pylon Pythons web framework.</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#MapGIS -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#MapGIS">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#DesktopGIS"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#MapGuide_Open_Source -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#MapGuide_Open_Source">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#WebMapServer"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#MapInfo -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#MapInfo">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#DesktopGIS"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#MapServer -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#MapServer">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#WebMapServer"/>
+        <dc:description xml:lang="en">MapServer is an Open Source development environment for building spatially enabled Internet applications. The software builds upon other popular Open Source or freeware systems like Shapelib, FreeType, Proj.4, libTIFF, Perl and others.</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#MapWindow -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#MapWindow">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#DesktopGIS"/>
+        <cyber:website rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.mapwindow.org</cyber:website>
+        <dc:description xml:lang="en">The MapWindow GIS project includes a free and open source desktop geographic information system (GIS) with an extensible plugin architecture, a GIS ActiveX control, and C# GIS programmer library called DotSpatial. We would be happy to have you join our project. 
+MapWindow4, MapWindow5 and MapWinGIS are connected with each other and have their own team of developers. DotSpatial and HydroDesktop are also connected and have their own team.</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Mapbender -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Mapbender">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#WebMapping"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Mapbox -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Mapbox">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#WebMappingAPI"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Mapnik -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Mapnik">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#GeospatialLibraries"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Marble -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Marble">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#DesktopGIS"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#MariaDB -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#MariaDB">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#RelationalDatabase"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Matlab -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Matlab">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#ScriptingLanguages"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#MetaCRS -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#MetaCRS">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#GeospatialLibraries"/>
+        <dc:description xml:lang="en">MetaCRS is a project encompassing several projections, and coordinate system related technologies. Our plan is to treat a variety of coordinate system activities as one Project from an OSGeo point of view. This helps provide enough “project mass” to justify the full OSGeo project treatment. But more importantly it would give us a forum to cooperate. Sharing things like coordinate system dictionaries, test suites and mathematical formulations.
+
+Sub-projects
+
+The following are sub-projects of MetaCRS:
+
+PROJ.4 - lead - Frank Warmerdam
+Proj4js - lead - Mike Adair
+CS-Map - lead - Hugues Wisiewski
+GeoTIFF/libgeotiff - lead - Frank Warmerdam
+SpatialReference.org - lead - Howard? Chris?
+Proj4J - lead - Martin Davis</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Microsoft -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Microsoft">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#Company"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Microsoft_Access -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Microsoft_Access">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#RelationalDatabase"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Microsoft_Azure -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Microsoft_Azure">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#CloudService"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Microsoft_SQL_Server -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Microsoft_SQL_Server">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#RelationalDatabase"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Microsoft_Windows -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Microsoft_Windows">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OperatingSystem"/>
+        <owl:sameAs rdf:resource="http://www.egc.org/ont/gis/cyber#Windows"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Microsoft_Windows_Server -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Microsoft_Windows_Server">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OperatingSystem"/>
+        <owl:sameAs rdf:resource="http://www.egc.org/ont/gis/cyber#Windows_Server"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#MongoDB -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#MongoDB">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#DocumentStore"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Mozilla_Foundation -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Mozilla_Foundation">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OpenSourceOrganization"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Mozilla_Public_License_2.0 -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Mozilla_Public_License_2.0">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OpenSourceLicense"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#MsPL -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#MsPL">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#License"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Multiple_Processors -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Multiple_Processors">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#CodeOptimizedType"/>
+        <skos:prefLabel xml:lang="en">Multiple Processors</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#MySQL_Spatial -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#MySQL_Spatial">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#SpatialDatabase"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Neo4J -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Neo4J">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#GraphDB"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#North52_WPS -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#North52_WPS">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#WebProcessingServer"/>
+        <cyber:programmingLanguage rdf:resource="http://www.egc.org/ont/gis/cyber#Java"/>
+        <cyber:supportsProgrammingLanguage rdf:resource="http://www.egc.org/ont/gis/cyber#Java"/>
+        <dc:description xml:lang="en">The 52°North Web Processing Service enables the deployment of geo-processes on the web in a standardized way. It features a pluggable architecture for processes and data encodings. The implementation is based on the current OpenGIS specification: 05-007r7 .</dc:description>
+        <skos:prefLabel xml:lang="en">52°North WPS</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#OGR -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#OGR">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#GeospatialLibraries"/>
+        <cyber:programmingLanguage rdf:resource="http://www.egc.org/ont/gis/cyber#C"/>
+        <skos:closeMatch rdf:resource="http://www.egc.org/ont/gis/cyber#GDAL"/>
+        <dc:description xml:lang="zh-cn">GDAL 是一个栅格和矢量空间数据格式转换库，以 Open Source Geospatial Foundation 的 X/MIT style 开源许可发布. 作为一个程序库, 它为所有支持的格式向调用它的应用程序提供了单一栅格抽象数据模型（single raster abstract data model ）和单一矢量抽象数据模型（ single vector abstract data model. 他同时也包括了一系列数据转换和处理的实用的命令行方法</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#OSGEO -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#OSGEO">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OpenSourceOrganization"/>
+        <owl:sameAs rdf:resource="http://www.egc.org/ont/gis/cyber#Open_Source_Geospatial_Foundation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#OSSIM -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#OSSIM">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#RemoteSensinglLibraries"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Objective-C -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Objective-C">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#ProgrammingLanguage"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#OpenLayers -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#OpenLayers">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#WebMappingAPI"/>
+        <cyber:programmingLanguage rdf:resource="http://www.egc.org/ont/gis/cyber#JavaScript"/>
+        <dc:description xml:lang="en">Javascript library that is open source for displaying GIS data within a browser environment</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#OpenStack_Foundation -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#OpenStack_Foundation">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OpenSourceOrganization"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#OpenWebGIS -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#OpenWebGIS">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#WebMapping"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Open_Source_Geospatial_Foundation -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Open_Source_Geospatial_Foundation">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OpenSourceOrganization"/>
+        <cyber:website rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.osgeo.org/</cyber:website>
+        <dc:description xml:lang="zh-cn">OSGeo（开源地理空间基金会）（Open Source Geospatial Foundation）是一个非盈利组织。其主要目标是支持和推广开源地理空间技术和数据的协作开发。OSGeo基金会向许多开源地理空间社区提供了财政、组织和法律方面的支持。它同时也是独立的法人组织机构，社区成员可以贡献代码、资金和其他资源。这些贡献的资源将会以公众利益为目标来维护。OSGeo也作为开源地理空间社区的延伸，提供了公共论坛以及跨项目协作的共享基础。</dc:description>
+        <dc:description xml:lang="en">The Open Source Geospatial Foundation (OSGeo) is a not-for-profit organization whose mission is to foster global adoption of open geospatial technology by being an inclusive software foundation devoted to an open philosophy and participatory community driven development.
+
+The foundation provides financial, organizational and legal support to the broader open source geospatial community. It also serves as an independent legal entity to which community members can contribute code, funding and other resources, secure in the knowledge that their contributions will be maintained for public benefit. OSGeo also serves as an outreach and advocacy organization for the open source geospatial community, and provides a common forum and shared infrastructure for improving cross-project collaboration.
+
+The foundation&apos;s projects are all freely available and useable under an Open Source Initiative certified open source license.
+
+OSGeo has US 501(c)(4) legal status as a not-for-profit organization.</dc:description>
+        <props:abbreviation>OSGeo</props:abbreviation>
+        <rdfs:isDefinedBy rdf:resource="https://www.osgeo.org/"/>
+        <skos:altLabel xml:lang="zh-cn">开源地理空间基金会</skos:altLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Oracle -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Oracle">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#RelationalDatabase"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Oracle_Cloud -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Oracle_Cloud">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#CloudService"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Oracle_Corporation -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Oracle_Corporation">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#Company"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Oracle_Spatial -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Oracle_Spatial">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#SpatialDatabase"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#OrfeoToolBox -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#OrfeoToolBox">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#RemoteSensingSoftware"/>
+        <cyber:isOpenSource rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</cyber:isOpenSource>
+        <cyber:manualPageURL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.orfeo-toolbox.org/CookBook/Applications.html</cyber:manualPageURL>
+        <cyber:website rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.orfeo-toolbox.org/</cyber:website>
+        <dc:description xml:lang="en">Orfeo ToolBox (OTB) is an open-source project for state-of-the-art remote sensing. Built on the shoulders of the open-source geospatial community, it can process high resolution optical, multispectral and radar images at the terabyte scale. A wide variety of applications are available: from ortho-rectification or pansharpening, all the way to classification, SAR processing, and much more!
+
+All of OTB’s algorithms are accessible from Monteverdi, QGIS, Python, the command line or C++. Monteverdi is an easy to use visualization tool with an emphasis on hardware accelerated rendering for high resolution imagery (optical and SAR). With it, end-users can visualize huge raw imagery products and access all of the applications in the toolbox. From resource limited laptops to high performance MPI clusters, OTB is available on Linux, macOS and Windows. It is community driven, extensible and heavily documented. Orfeo ToolBox is not a black box!</dc:description>
+        <skos:prefLabel xml:lang="en">Orfeo ToolBox</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Other -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Other">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#License"/>
+        <rdfs:comment xml:lang="en">NOT SURE</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#PHP -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#PHP">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#ScriptingLanguages"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#ParameterNameShape -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#ParameterNameShape">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Pascal -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Pascal">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#ProgrammingLanguage"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Perl -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Perl">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#ScriptingLanguages"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#PostGIS -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#PostGIS">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#GeospatialLibraries"/>
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#SpatialDatabase"/>
+        <dc:description xml:lang="en">PostGIS is a spatial database extender for PostgreSQL object-relational database. It adds support for geographic objects allowing location queries to be run in SQL.
+In addition to basic location awareness, PostGIS offers many features rarely found in other competing spatial databases such as Oracle Locator/Spatial and SQL Server. Refer to PostGIS Feature List for more details.
+PostGIS is released under the GNU General Public License (GPLv2).</dc:description>
+        <dc:description xml:lang="en">Spatial extensions for the open source PostgreSQL database, allowing geospatial queries.</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#PostgreSQL -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#PostgreSQL">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#RelationalDatabase"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#PowerShell -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#PowerShell">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#ScriptingLanguages"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Proj4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Proj4">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#GeospatialLibraries"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#PyWPS -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#PyWPS">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#WebProcessingServer"/>
+        <cyber:programmingLanguage rdf:resource="http://www.egc.org/ont/gis/cyber#Python"/>
+        <cyber:supportsProgrammingLanguage rdf:resource="http://www.egc.org/ont/gis/cyber#Python"/>
+        <dc:description xml:lang="en">PyWPS is an implementation of the Web Processing Service standard from the Open Geospatial Consortium. PyWPS is written in Python.
+PyWPS enables integration, publishing and execution of Python processes via the WPS standard.
+PyWPS is Open Source and released under an MIT license.</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Python -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Python">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#ScriptingLanguages"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#QGIS -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#QGIS">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#DesktopGIS"/>
+        <terms:hasVersion rdf:resource="http://www.egc.org/ont/gis/cyber#QGIS_2.6.1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#QGIS_2.6.1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#QGIS_2.6.1">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#DesktopGIS"/>
+        <skos:broadMatch rdf:resource="http://www.egc.org/ont/gis/cyber#QGIS"/>
+        <cyber:executableLocation rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://qgis.org/downloads/QGIS-OSGeo4W-2.6.1-1-Setup-x86.exe</cyber:executableLocation>
+        <cyber:website rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.qgis.org</cyber:website>
+        <dc:description xml:lang="en">A Free and Open Source Geographic Information System</dc:description>
+        <owl:versionInfo>2.6.1</owl:versionInfo>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#RScript -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#RScript">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#ScriptingLanguages"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Rackspace -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Rackspace">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#CloudService"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#RedHat -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#RedHat">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#Company"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Red_Hat -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Red_Hat">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#CloudService"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Ruby -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Ruby">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#ScriptingLanguages"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#SAGA_GIS -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#SAGA_GIS">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#DesktopGIS"/>
+        <cyber:manualPageURL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.saga-gis.org/saga_tool_doc/index.html</cyber:manualPageURL>
+        <cyber:website rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://saga-gis.org/en/index.html</cyber:website>
+        <dc:description xml:lang="en">SAGA is the abbreviation for System for Automated Geoscientific Analyses
+SAGA is a Geographic Information System (GIS) software
+SAGA has been designed for an easy and effective implementation of spatial algorithms
+SAGA offers a comprehensive, growing set of geoscientific methods
+SAGA provides an easily approachable user interface with many visualisation options
+SAGA runs under Windows and Linux operating systems
+SAGA is a Free Open Source Software (FOSS)</dc:description>
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">7.1.1</owl:versionInfo>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#SLD -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#SLD">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OGCEncoding"/>
+        <skos:prefLabel xml:lang="en">Styled Layer Descriptor</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#SQLite -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#SQLite">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#RelationalDatabase"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Safari -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Safari">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#WebBrowser"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Scala -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Scala">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#ProgrammingLanguage"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#SensorML -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#SensorML">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OGCEncoding"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Sextante -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Sextante">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#GeospatialLibraries"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Shell -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Shell">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#ScriptingLanguages"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Single_Processor -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Single_Processor">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#CodeOptimizedType"/>
+        <skos:prefLabel xml:lang="en">Single Processor</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Smallworld -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Smallworld">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#DesktopGIS"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Solaris -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Solaris">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OperatingSystem"/>
+        <skos:broadMatch rdf:resource="http://www.egc.org/ont/gis/cyber#Unix"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#SpatiaLite -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#SpatiaLite">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#SpatialDatabase"/>
+        <dc:description xml:lang="en">Spatial extensions for the open source SQLite database, allowing geospatial queries.</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#SuperMap -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#SuperMap">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#DesktopGIS"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Swift -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Swift">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#ProgrammingLanguage"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Sybase -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Sybase">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#RelationalDatabase"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#TauDEM -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#TauDEM">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#SpatialDataAnalysisTool"/>
+        <cyber:isFreeSoftware rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</cyber:isFreeSoftware>
+        <cyber:isOpenSource rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</cyber:isOpenSource>
+        <cyber:website rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://hydrology.usu.edu/taudem/taudem5/</cyber:website>
+        <dc:description xml:lang="en">TauDEM (Terrain Analysis Using Digital Elevation Models) is a suite of Digital Elevation Model (DEM) tools for the extraction and analysis of hydrologic information from topography as represented by a DEM.</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#The_Unlicense -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#The_Unlicense">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OpenSourceLicense"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#TinyOWS -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#TinyOWS">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#WebMapServer"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#TypeScript -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#TypeScript">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#ScriptingLanguages"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#UT_Battelle_Open_Source_Software_License -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#UT_Battelle_Open_Source_Software_License">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OpenSourceLicense"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Unix -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Unix">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OperatingSystem"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#VBScript -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#VBScript">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#ScriptingLanguages"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#VMware -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#VMware">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#CloudService"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Verizon_Cloud -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Verizon_Cloud">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#CloudService"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Visual_Basic -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Visual_Basic">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#ProgrammingLanguage"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#WaterML -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#WaterML">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OGCEncoding"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#WebMapContext -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#WebMapContext">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OGCEncoding"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Whitebox_GAT -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Whitebox_GAT">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#DesktopGIS"/>
+        <cyber:website rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.uoguelph.ca/~hydrogeo/Whitebox/</cyber:website>
+        <dc:description xml:lang="en">The Whitebox GAT project began in 2009 and was conceived as a replacement for the Terrain Analysis System (TAS). Whitebox GAT was intended to have a broader focus than its predecessor, positioning it as an open-source desktop GIS and remote sensing software package for general applications of geospatial analysis and data visualization. Whitebox GAT is intended to provide a platform for advanced geospatial data analysis with applications in both environmental research and the geomatics industry more broadly. It was envisioned from the outset as providing an ideal platform for experimenting with novel geospatial analysis methods. Equally important is the project’s goal of providing a tool that can be used for geomatics-based education.</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Whitebox_Tools -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Whitebox_Tools">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#SpatialDataAnalysisTool"/>
+        <skos:closeMatch rdf:resource="http://www.egc.org/ont/gis/cyber#Whitebox_GAT"/>
+        <cyber:codeRepository rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://github.com/jblindsay/whitebox-tools</cyber:codeRepository>
+        <cyber:isFreeSoftware rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</cyber:isFreeSoftware>
+        <cyber:isOpenSource rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</cyber:isOpenSource>
+        <cyber:manualPageURL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://jblindsay.github.io/wbt_book/index.html</cyber:manualPageURL>
+        <cyber:sourceCodeURL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://github.com/jblindsay/whitebox-tools/</cyber:sourceCodeURL>
+        <cyber:website rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://github.com/jblindsay/whitebox-tools/</cyber:website>
+        <dc:description xml:lang="en">WhiteboxTools is an advanced geospatial data analysis platform developed at the University of Guelph&apos;s Geomorphometry and Hydrogeomatics Research Group (GHRG). The project began in January 2017 and quickly evolved in terms of its analytical capabilities.
+(1)Contains more than 395 tools for processing various types of geospatial data.
+(2)Many tools operate in parallel, taking full advantage of your multi-core processor.
+(3)Written in the safe and cross-platform systems programming language Rust and compiled to highly efficient native code.
+(4)Small stand-alone application with no external dependencies, making installation as easy as downloading the 8Mb zip file and decompressing it.
+(5)Simple yet powerful Python scripting interface that allows users to develop custom scripted workflows.
+(6)Embed WhiteboxTools functions into hetergenous scripting environments along with ArcPy, GDAL, and other geoprocessing libraries.
+(7)Serves as an analytical back-end for other GIS and remote sensing software (e.g. the QGIS Whitebox for Processing plugin).
+(8)Permissive MIT open-source license allows for ready integration with other software.
+(9)Transparent software philosopy allows for easy source code inspection and rapid innovation and development.</dc:description>
+        <rdfs:comment xml:lang="en">WhiteboxTools vs. Whitebox Geospatial Analysis Tools (GAT)
+
+Although WhiteboxTools was first developed with to serve as a source of plugin tools for the Whitebox Geospatial Analysis Tools (GAT) open-source GIS project, the tools contained in the library are stand-alone and can run outside of the larger Whitebox GAT project. See Interacting With WhiteboxTools From the Command Prompt for further details. There have been a large number of requests to call Whitebox GAT tools and functionality from outside of the Whitebox GAT user-interface (e.g. from Python automation scripts). WhiteboxTools is intended to meet these usage requirements. For example, a WhiteboxTools plug-in for QGIS is available</rdfs:comment>
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0.12</owl:versionInfo>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Windows -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Windows">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OperatingSystem"/>
+        <cyber:softwareProvider rdf:resource="http://www.egc.org/ont/gis/cyber#Microsoft"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Windows_Phone -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Windows_Phone">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OperatingSystem"/>
+        <cyber:softwareProvider rdf:resource="http://www.egc.org/ont/gis/cyber#Microsoft"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#Windows_Server -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#Windows_Server">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OperatingSystem"/>
+        <cyber:softwareProvider rdf:resource="http://www.egc.org/ont/gis/cyber#Microsoft"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#ZOO-Project -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#ZOO-Project">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#WebProcessingServer"/>
+        <dc:description xml:lang="en">ZOO-Project is a WPS (Web Processing Service) implementation written in C, Python and JavaScript. It is an open source platform which implements the WPS 1.0.0 and WPS 2.0.0 standards edited by the Open Geospatial Consortium(OGC).</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#broker -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#broker">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#ServiceTerms"/>
+        <terms:isReferencedBy rdf:resource="http://www.egc.org/ont/gis/cyber#CSW"/>
+        <rdfs:comment xml:lang="en">This actor is a specialised publisher that publishes and maintains metadata records on
+behalf of the owner of georesources</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#dBASE -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#dBASE">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#RelationalDatabase"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#deegree -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#deegree">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#WebMapping"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#discover_metadata -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#discover_metadata">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#ServiceTerms"/>
+        <terms:isReferencedBy rdf:resource="http://www.egc.org/ont/gis/cyber#CSW"/>
+        <rdfs:comment xml:lang="en">A requestor discovers metadata entries in a catalogue service either by browsing the content of the catalogue or by placing certain query terms. If a service is discovered that fits his search terms, he can bind to this service in accordance with the information in the result sets of the catalogue service.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#geomajas -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#geomajas">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#WebMapping"/>
+        <dc:description xml:lang="en">Written in java, GeoMajas is an open source GIS framework for the web.</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#gvSIG -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#gvSIG">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#DesktopGIS"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#harvest_metadata -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#harvest_metadata">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#ServiceTerms"/>
+        <terms:isReferencedBy rdf:resource="http://www.egc.org/ont/gis/cyber#CSW"/>
+        <rdfs:comment xml:lang="en">A catalogue service may harvest metadata records from a given XML resource, i.e. a metadata description that complies with XML schemas provided by this specification. This could be a metadata description of services or geodata or, additionally in case of services, a capabilities document of an OGC service that complies with OGC Common Implementation Specification.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#iOS -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#iOS">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#OperatingSystem"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#istSOS -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#istSOS">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#WebMapping"/>
+        <dc:description xml:lang="en">istSOS is an OGC SOS server implementation written in Python. istSOS allows for managing and dispatch observations from monitoring sensors according to the Sensor Observation Service standard.
+
+The project provides also a Graphical user Interface that allows for easing the daily operations and a RESTful Web api for automatizing administration procedures.
+
+istSOS is released under the GPL License, and runs on all major platforms (Windows, Linux, Mac OS X), even though tests were conducted under a Linux environment.</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#libLAS -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#libLAS">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#RemoteSensinglLibraries"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#publish_metadata -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#publish_metadata">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#ServiceTerms"/>
+        <terms:isReferencedBy rdf:resource="http://www.egc.org/ont/gis/cyber#CSW"/>
+        <rdfs:comment xml:lang="en">A publisher describes geo-resources by applying ISO19139 as specified by this document. A geo-resource might be a service, a geodataset (single or collection) or an application. The publisher owns the georesource. As an alternative, the publisher might be a broker that does not own the geo-resource, but describes and publishes metadata descriptions to a catalogue service on behalf of a publisher</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#publisher -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#publisher">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#ServiceTerms"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#pycsw -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#pycsw">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#MetadataCatalogs"/>
+        <dc:description xml:lang="en">pycsw is an OGC CSW server implementation written in Python. Started in 2010 (more formally announced in 2011), pycsw allows for the publishing and discovery of geospatial metadata via numerous APIs (CSW 2/CSW 3, OpenSearch, OAI-PMH, SRU), providing a standards-based metadata and catalogue component of spatial data infrastructures. pycsw is Open Source, released under an MIT license, and runs on all major platforms (Windows, Linux, Mac OS X).</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#requestor -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#requestor">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#ServiceTerms"/>
+        <terms:isReferencedBy rdf:resource="http://www.egc.org/ont/gis/cyber#CSW"/>
+        <rdfs:comment xml:lang="en">This actor searches for metadata records in a catalogue service, either by browsing or
+through more complicated queries.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#uDig -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#uDig">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#DesktopGIS"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#中地数码 -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#中地数码">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#Company"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#超图 -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#超图">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#Company"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/gis/cyber#C++ -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/gis/cyber#C++">
+        <rdf:type rdf:resource="http://www.egc.org/ont/gis/cyber#ProgrammingLanguage"/>
+        <skos:prefLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">C++</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#nil -->
+
+    <owl:NamedIndividual rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil">
+        <rdfs:comment xml:lang="en">used to represent an empty list or other list-like structure</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#string -->
+
+    <owl:NamedIndividual rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+        <sh:description>must be input data of a tool</sh:description>
+        <sh:name>is input data of</sh:name>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+        <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+        <sh:description>must have a parameter name</sh:description>
+        <sh:name>has parameter name</sh:name>
+    </rdf:Description>
+    <rdf:Description>
+        <sh:prefixes rdf:resource="http://www.egc.org/ont/gis"/>
+    </rdf:Description>
+    <rdf:Description>
+        <rdfs:comment>bv</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description>
+        <rdfs:comment>bv</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description>
+        <rdfs:comment>bv</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description>
+        <rdfs:comment>bv</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description>
+        <rdfs:comment>bv</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+    </rdf:Description>
+    <rdf:Description>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://www.egc.org/ont/base/props#isOldVersionOf">
+        <rdfs:seeAlso rdf:resource="http://purl.org/dc/terms/isReplacedBy"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.egc.org/ont/data#bandProperty">
+        <rdfs:comment xml:lang="en">properties of image band</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.egc.org/ont/gis/cyber#publisher">
+        <terms:isReferencedBy rdf:resource="http://www.egc.org/ont/gis/cyber#CSW"/>
+        <rdfs:comment xml:lang="en">A publisher publishes metadata descriptions to a catalogue. By doing so, he enables the discovery of that description record by a requestor entity. This actor is also the owner of the geo-resource that he describes</rdfs:comment>
+        <skos:definition xml:lang="en">company or community</skos:definition>
+        <rdfs:comment>Who is the publisher of this software if not the author</rdfs:comment>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

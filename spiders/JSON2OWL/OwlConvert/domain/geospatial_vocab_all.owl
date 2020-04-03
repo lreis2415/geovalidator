@@ -1,0 +1,638 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xml:base="http://www.egc.org/ont/domain/geospatial"
+         xmlns="http://www.egc.org/ont/domain/geospatial#"
+         xmlns:core="http://www.w3.org/2004/02/skos/core#"
+         xmlns:x_1.1="http://purl.org/dc/elements/1.1/"
+         xmlns:prop="http://www.egc.org/ont/base/props#">
+
+<owl:Ontology rdf:about="http://www.egc.org/ont/domain/geospatial">
+  <owl:imports rdf:resource="http://data.ordnancesurvey.co.uk/ontology/geometry"/>
+  <owl:imports rdf:resource="http://www.egc.org/ont/base/props"/>
+  <owl:imports rdf:resource="http://www.egc.org/ont/domain/dta"/>
+  <owl:imports rdf:resource="http://www.egc.org/ont/domain/hydrology"/>
+  <owl:imports rdf:resource="http://www.egc.org/ont/vocab/cf"/>
+  <owl:imports rdf:resource="http://www.egc.org/ont/vocab/csdms"/>
+  <owl:imports rdf:resource="http://www.egc.org/ont/vocab/gis"/>
+  <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <owl:imports rdf:resource="https://gcmdservices.gsfc.nasa.gov/kms/concept"/>
+  <x_1.1:creator xml:lang="en">Zhiwei HOU</x_1.1:creator>
+  <x_1.1:date xml:lang="en">2018-12-06</x_1.1:date>
+  <x_1.1:title xml:lang="en">DIRECTIONS AND KEY WORDS OF GEOGRAPHY AND RELATED FIELDS</x_1.1:title>
+  <x_1.1:title xml:lang="zh-cn">地理学学科方向分类与关键词</x_1.1:title>
+  <prop:reference xml:lang="en">DIRECTIONS AND KEY WORDS OF GEOGRAPHY AND RELATED FIELDS OF THE NATIONAL NATURAL SCIENCE FOUNDATION OF CHINA (Trial Version 2012)</prop:reference>
+  <prop:reference xml:lang="en">HenglL, T. &amp; Reuter, H. I. Geomorphometry Concepts, Software, Applications. (2009).</prop:reference>
+  <prop:reference xml:lang="zh-cn">国家自然科学基金 地理学学科方向分类与关键词(试用版2012)</prop:reference>
+</owl:Ontology>
+
+<owl:Class rdf:about="#AppliedClimatology">
+  <rdfs:subClassOf rdf:resource="#PhysicalGeography"/>
+  <core:prefLabel xml:lang="en">AppliedClimatology</core:prefLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#PhysicalGeography">
+  <rdfs:subClassOf rdf:resource="#Geography"/>
+  <core:altLabel xml:lang="zh-cn">自然地理学</core:altLabel>
+  <core:prefLabel xml:lang="en">PhysicalGeography</core:prefLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#Geography">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+  <core:prefLabel xml:lang="en">Geography</core:prefLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#Biogeography">
+  <rdfs:subClassOf rdf:resource="#PhysicalGeography"/>
+  <core:prefLabel xml:lang="en">Biogeography</core:prefLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#Climate">
+  <rdfs:subClassOf rdf:resource="#PhysicalGeography"/>
+  <core:prefLabel xml:lang="en">Climate</core:prefLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#CryosphereGeography">
+  <rdfs:subClassOf rdf:resource="#PhysicalGeography"/>
+  <rdfs:comment xml:lang="zh-cn">冰冻圈地理学</rdfs:comment>
+  <core:prefLabel xml:lang="en">Cryosphere Geography</core:prefLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#EconomicGeography">
+  <rdfs:subClassOf rdf:resource="#HumanGeography"/>
+  <core:prefLabel xml:lang="en">Economic Geography</core:prefLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#HumanGeography">
+  <rdfs:subClassOf rdf:resource="#Geography"/>
+  <core:altLabel xml:lang="zh-cn">人文地理学</core:altLabel>
+  <core:prefLabel xml:lang="en">HumanGeography</core:prefLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#EffectsOfEnvironmentalPollutants">
+  <rdfs:subClassOf rdf:resource="#Geography"/>
+  <core:prefLabel xml:lang="en">Effects Of Environmental Pollutants</core:prefLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#EnvironmentalChangeandPrediction">
+  <rdfs:subClassOf rdf:resource="#Geography"/>
+  <core:altLabel xml:lang="zh-cn">环境变化与预测</core:altLabel>
+  <core:prefLabel xml:lang="en">Environmental Changeand Prediction</core:prefLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#FateProcess">
+  <rdfs:subClassOf rdf:resource="#Geography"/>
+  <core:altLabel xml:lang="zh-cn">污染物行为过程及其环境效应</core:altLabel>
+  <core:prefLabel xml:lang="en">Fate Process</core:prefLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#GeographicInformationSystem">
+  <rdfs:subClassOf rdf:resource="#Geography"/>
+  <core:altLabel xml:lang="zh-cn">地理信息系统</core:altLabel>
+  <core:prefLabel xml:lang="en">Geographic Information System</core:prefLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#GeomorphologicalEvolution">
+  <rdfs:subClassOf rdf:resource="#Geomorphology"/>
+  <core:prefLabel xml:lang="en">GeomorphologicalEvolution</core:prefLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#Geomorphology">
+  <rdfs:subClassOf rdf:resource="#PhysicalGeography"/>
+  <core:prefLabel xml:lang="en">Geomorphology</core:prefLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#Hydrology">
+  <rdfs:subClassOf rdf:resource="#PhysicalGeography"/>
+  <core:prefLabel xml:lang="en">Hydrology</core:prefLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#IntegratedPhysicalGeography">
+  <rdfs:subClassOf rdf:resource="#PhysicalGeography"/>
+  <core:prefLabel xml:lang="en">IntegratedPhysicalGeography</core:prefLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#LandscapeGeography">
+  <rdfs:subClassOf rdf:resource="#Geography"/>
+  <core:altLabel xml:lang="zh-cn">景观地理学</core:altLabel>
+  <core:prefLabel xml:lang="en">LandscapeGeography</core:prefLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#Meteorology">
+  <rdfs:subClassOf rdf:resource="#PhysicalGeography"/>
+  <core:prefLabel xml:lang="en">Meteorology</core:prefLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#NaturalResourceManagement">
+  <rdfs:subClassOf rdf:resource="#Geography"/>
+  <core:altLabel xml:lang="zh-cn">自然资源管理</core:altLabel>
+  <core:prefLabel xml:lang="en">NaturalResourceManagement</core:prefLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#QualityAndSecurityOfRegionalEnvironment">
+  <rdfs:subClassOf rdf:resource="#Geography"/>
+  <core:altLabel xml:lang="zh-cn">区域环境质量与安全</core:altLabel>
+  <core:prefLabel xml:lang="en">QualityAndSecurityOfRegionalEnvironment</core:prefLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#RegionalSustainableDevelopment">
+  <rdfs:subClassOf rdf:resource="#Geography"/>
+  <core:altLabel xml:lang="zh-cn">区域可持续发展</core:altLabel>
+  <core:prefLabel xml:lang="en">RegionalSustainableDevelopment</core:prefLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#RemoteSensing">
+  <rdfs:subClassOf rdf:resource="#Geography"/>
+  <core:altLabel xml:lang="zh-cn">遥感机理与方法</core:altLabel>
+  <core:prefLabel xml:lang="en">RemoteSensing</core:prefLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#RiverHydrology">
+  <rdfs:subClassOf rdf:resource="#Hydrology"/>
+  <core:prefLabel xml:lang="en">RiverHydrology</core:prefLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#RuralGeography">
+  <rdfs:subClassOf rdf:resource="#HumanGeography"/>
+  <core:prefLabel xml:lang="en">RuralGeography</core:prefLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#SocialAndCulturalGeography">
+  <rdfs:subClassOf rdf:resource="#HumanGeography"/>
+  <core:prefLabel xml:lang="en">SocialAndCulturalGeography</core:prefLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#SoilBiology">
+  <rdfs:subClassOf rdf:resource="#SoilScience"/>
+  <core:prefLabel xml:lang="en">SoilBiology</core:prefLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#SoilScience">
+  <rdfs:subClassOf rdf:resource="#Geography"/>
+  <core:altLabel xml:lang="zh-cn">土壤学</core:altLabel>
+  <core:prefLabel xml:lang="en">SoilScience</core:prefLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#SoilChemistry">
+  <rdfs:subClassOf rdf:resource="#SoilScience"/>
+  <core:prefLabel xml:lang="en">SoilChemistry</core:prefLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#SoilErosionAndConservation">
+  <rdfs:subClassOf rdf:resource="#SoilScience"/>
+  <core:prefLabel xml:lang="en">SoilErosionAndConservation</core:prefLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#SoilFertilityAndSoilNutrientCycle">
+  <rdfs:subClassOf rdf:resource="#SoilScience"/>
+  <core:prefLabel xml:lang="en">SoilFertilityAndSoilNutrientCycle</core:prefLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#SoilGeography">
+  <rdfs:subClassOf rdf:resource="#SoilScience"/>
+  <core:prefLabel xml:lang="en">SoilGeography</core:prefLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#SoilPhysics">
+  <rdfs:subClassOf rdf:resource="#SoilScience"/>
+  <core:prefLabel xml:lang="en">SoilPhysics</core:prefLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#SoilPollutionAndRemediation">
+  <rdfs:subClassOf rdf:resource="#SoilScience"/>
+  <core:prefLabel xml:lang="en">SoilPollutionAndRemediation</core:prefLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#SoilQualityAndFoodSafety">
+  <rdfs:subClassOf rdf:resource="#SoilScience"/>
+  <core:prefLabel xml:lang="en">SoilQualityAndFoodSafety</core:prefLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#SoilSurveyMappingAndEvaluation">
+  <rdfs:subClassOf rdf:resource="#SoilGeography"/>
+  <core:prefLabel xml:lang="en">SoilSurveyMappingAndEvaluation</core:prefLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#SpatialDataOrganizationAndManagement">
+  <rdfs:subClassOf rdf:resource="#GeographicInformationSystem"/>
+  <core:prefLabel xml:lang="en">SpatialDataOrganizationAndManagement</core:prefLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#SurveyingandMapping">
+  <rdfs:subClassOf rdf:resource="#Geography"/>
+  <core:altLabel xml:lang="zh-cn">测量与地图学</core:altLabel>
+  <core:prefLabel xml:lang="en">SurveyingandMapping</core:prefLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#UrbanGeography">
+  <rdfs:subClassOf rdf:resource="#HumanGeography"/>
+  <core:prefLabel xml:lang="en">UrbanGeography</core:prefLabel>
+</owl:Class>
+
+<rdf:Description rdf:about="http://www.egc.org/ont/vocab/csdms#soil_clay">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<Meteorology rdf:about="http://www.egc.org/ont/domain/dta#potential_evapotranspiration">
+  <core:prefLabel xml:lang="en">potential evapotranspiration</core:prefLabel>
+</Meteorology>
+
+<Meteorology rdf:about="http://www.egc.org/ont/vocab/cf#wind_speed">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">wind speed</core:prefLabel>
+</Meteorology>
+
+<rdf:Description rdf:about="http://www.egc.org/ont/domain/hydrology#HydrologyTerms">
+  <rdfs:subClassOf rdf:resource="#PhysicalGeography"/>
+</rdf:Description>
+
+<Meteorology rdf:about="http://www.egc.org/ont/domain/hydrology#evapotranspiration">
+  <core:prefLabel xml:lang="en">evapotranspiration</core:prefLabel>
+</Meteorology>
+
+<Meteorology rdf:about="http://www.egc.org/ont/domain/hydrology#wind_speed">
+  <owl:sameAs rdf:resource="http://www.egc.org/ont/vocab/cf#wind_speed"/>
+  <core:prefLabel xml:lang="en">wind speed</core:prefLabel>
+</Meteorology>
+
+<AppliedClimatology rdf:about="#Applied_Climatology">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">Applied Climatology</core:prefLabel>
+</AppliedClimatology>
+
+<core:Concept rdf:about="#Archeology">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">Archeology</core:prefLabel>
+</core:Concept>
+
+<CryosphereGeography rdf:about="#Cryosphere_Geography">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">Cryosphere Geography</core:prefLabel>
+</CryosphereGeography>
+
+<EconomicGeography rdf:about="#Economic_Geography">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">Economic Geography</core:prefLabel>
+</EconomicGeography>
+
+<core:Concept rdf:about="#Energy_calculations">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</core:Concept>
+
+<SpatialDataOrganizationAndManagement rdf:about="#Geo-ontology">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">Geo-ontology</core:prefLabel>
+</SpatialDataOrganizationAndManagement>
+
+<SpatialDataOrganizationAndManagement rdf:about="#Geographic_Information_Service">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">Geographic Information Service</core:prefLabel>
+</SpatialDataOrganizationAndManagement>
+
+<SpatialDataOrganizationAndManagement rdf:about="#Geographic_Information_System_Modeling">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">Geographic Information System Modeling</core:prefLabel>
+</SpatialDataOrganizationAndManagement>
+
+<SpatialDataOrganizationAndManagement rdf:about="#Geographic_Information_Visualization">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">Geographic Information Visualization</core:prefLabel>
+</SpatialDataOrganizationAndManagement>
+
+<SpatialDataOrganizationAndManagement rdf:about="#Geometric_Analysis">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:altLabel xml:lang="zh-cn">几何空间分析</core:altLabel>
+  <core:prefLabel xml:lang="en">Geometric Analysis</core:prefLabel>
+</SpatialDataOrganizationAndManagement>
+
+<IntegratedPhysicalGeography rdf:about="#Integrated_Physical_Geography">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="zh-cn">Integrated_Physical_Geography</core:prefLabel>
+</IntegratedPhysicalGeography>
+
+<RiverHydrology rdf:about="#River_Hydrology">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">River Hydrology</core:prefLabel>
+</RiverHydrology>
+
+<RuralGeography rdf:about="#Rural_Geography">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">Rural Geography</core:prefLabel>
+</RuralGeography>
+
+<SocialAndCulturalGeography rdf:about="#Social_and_Cultural_Geography">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">Social and Cultural Geography</core:prefLabel>
+</SocialAndCulturalGeography>
+
+<SoilBiology rdf:about="#Soil_Biology">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">Soil Biology</core:prefLabel>
+</SoilBiology>
+
+<SoilChemistry rdf:about="#Soil_Chemistry">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">Soil Chemistry</core:prefLabel>
+</SoilChemistry>
+
+<SoilErosionAndConservation rdf:about="#Soil_Erosion_and_Conservation">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">Soil Erosion and Conservation</core:prefLabel>
+</SoilErosionAndConservation>
+
+<SoilFertilityAndSoilNutrientCycle rdf:about="#Soil_Fertility_and_Soil_Nutrient_Cycle">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">Soil Fertility and Soil Nutrient Cycle</core:prefLabel>
+</SoilFertilityAndSoilNutrientCycle>
+
+<SoilGeography rdf:about="#Soil_Geography">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">Soil Geography</core:prefLabel>
+</SoilGeography>
+
+<SoilPhysics rdf:about="#Soil_Physics">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">Soil Physics</core:prefLabel>
+</SoilPhysics>
+
+<SoilPollutionAndRemediation rdf:about="#Soil_Pollution_and_Remediation">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">Soil Pollution and Remediation</core:prefLabel>
+</SoilPollutionAndRemediation>
+
+<SoilQualityAndFoodSafety rdf:about="#Soil_Quality_and_Food_Safety">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">Soil Quality and Food Safety</core:prefLabel>
+</SoilQualityAndFoodSafety>
+
+<SoilScience rdf:about="#Soil_Science">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">Soil Science</core:prefLabel>
+</SoilScience>
+
+<SpatialDataOrganizationAndManagement rdf:about="#Spatial_Cognition">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">Spatial Cognition</core:prefLabel>
+</SpatialDataOrganizationAndManagement>
+
+<SpatialDataOrganizationAndManagement rdf:about="#Spatial_Data_Management">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">Spatial Data Management</core:prefLabel>
+</SpatialDataOrganizationAndManagement>
+
+<SpatialDataOrganizationAndManagement rdf:about="#Spatial_Statistics">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">Spatial Statistics</core:prefLabel>
+</SpatialDataOrganizationAndManagement>
+
+<Geomorphology rdf:about="#Terrestrial">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">Terrestrial</core:prefLabel>
+</Geomorphology>
+
+<SpatialDataOrganizationAndManagement rdf:about="#Three-dimension_GIS">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">Three-dimension GIS</core:prefLabel>
+</SpatialDataOrganizationAndManagement>
+
+<UrbanGeography rdf:about="#Urban_Geography">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">Urban Geography</core:prefLabel>
+</UrbanGeography>
+
+<Biogeography rdf:about="#biogeography">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">biogeography</core:prefLabel>
+</Biogeography>
+
+<SoilPhysics rdf:about="#clay">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <owl:sameAs rdf:resource="http://www.egc.org/ont/vocab/csdms#soil_clay"/>
+  <core:prefLabel xml:lang="en">clay</core:prefLabel>
+</SoilPhysics>
+
+<Climate rdf:about="#climate">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">climate</core:prefLabel>
+</Climate>
+
+<GeomorphologicalEvolution rdf:about="#digital_landform_analysis">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <owl:sameAs rdf:resource="#digital_terrain_analysis"/>
+  <core:prefLabel xml:lang="en">digital landform analysis</core:prefLabel>
+</GeomorphologicalEvolution>
+
+<GeomorphologicalEvolution rdf:about="#digital_terrain_analysis">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#SoilSurveyMappingAndEvaluation"/>
+  <core:prefLabel xml:lang="en">digital terrain analysis</core:prefLabel>
+</GeomorphologicalEvolution>
+
+<SoilSurveyMappingAndEvaluation rdf:about="#digital_soil_mapping">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">digital soil mapping</core:prefLabel>
+</SoilSurveyMappingAndEvaluation>
+
+<RiverHydrology rdf:about="#engineering_hydrology">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">engineering hydrology</core:prefLabel>
+</RiverHydrology>
+
+<RiverHydrology rdf:about="#farmland_hydrological">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">farmland hydrological</core:prefLabel>
+</RiverHydrology>
+
+<RiverHydrology rdf:about="#flood">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">flood</core:prefLabel>
+</RiverHydrology>
+
+<RiverHydrology rdf:about="#flucial_evolution">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">flucial evolution</core:prefLabel>
+</RiverHydrology>
+
+<GeomorphologicalEvolution rdf:about="#geomorphic_evolution">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">geomorphic evolution</core:prefLabel>
+</GeomorphologicalEvolution>
+
+<Geomorphology rdf:about="#geomorphology">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">geomorphology</core:prefLabel>
+</Geomorphology>
+
+<RiverHydrology rdf:about="#heat_balance">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">heat balance</core:prefLabel>
+</RiverHydrology>
+
+<GeomorphologicalEvolution rdf:about="#hill">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">hill</core:prefLabel>
+</GeomorphologicalEvolution>
+
+<RiverHydrology rdf:about="#hydrological_characteristics">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">hydrological characteristics</core:prefLabel>
+</RiverHydrology>
+
+<RiverHydrology rdf:about="#hydrological_cycle">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">hydrological cycle</core:prefLabel>
+</RiverHydrology>
+
+<RiverHydrology rdf:about="#hydrological_processes">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">hydrological processes</core:prefLabel>
+</RiverHydrology>
+
+<Hydrology rdf:about="#hydrology">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:altLabel xml:lang="zh-cn">水文学</core:altLabel>
+  <core:prefLabel xml:lang="en">hydrology</core:prefLabel>
+</Hydrology>
+
+<RiverHydrology rdf:about="#ice_flood">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">ice flood</core:prefLabel>
+</RiverHydrology>
+
+<Meteorology rdf:about="#maximum_temperature">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">maximum temperature</core:prefLabel>
+</Meteorology>
+
+<Meteorology rdf:about="#mean_temperature">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">mean temperature</core:prefLabel>
+</Meteorology>
+
+<Meteorology rdf:about="#meteorology">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">meteorology</core:prefLabel>
+</Meteorology>
+
+<Meteorology rdf:about="#minimum_temperature">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:comment>degC</rdfs:comment>
+  <core:prefLabel xml:lang="en">minimum temperature</core:prefLabel>
+</Meteorology>
+
+<SoilPhysics rdf:about="#moist_bulk_density">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">moist bulk density</core:prefLabel>
+</SoilPhysics>
+
+<GeomorphologicalEvolution rdf:about="#mountain">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">mountain</core:prefLabel>
+</GeomorphologicalEvolution>
+
+<SoilPhysics rdf:about="#organic_matter_content">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:comment>Float array in %</rdfs:comment>
+  <core:prefLabel xml:lang="en">organic matter content</core:prefLabel>
+</SoilPhysics>
+
+<GeomorphologicalEvolution rdf:about="#plain">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">plain</core:prefLabel>
+</GeomorphologicalEvolution>
+
+<GeomorphologicalEvolution rdf:about="#planetary_landform">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">planetary landform</core:prefLabel>
+</GeomorphologicalEvolution>
+
+<GeomorphologicalEvolution rdf:about="#plateau">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">plateau</core:prefLabel>
+</GeomorphologicalEvolution>
+
+<Meteorology rdf:about="#relative_air_humidity">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">relative air humidity</core:prefLabel>
+</Meteorology>
+
+<Meteorology rdf:about="#relative_moisture">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:comment>%</rdfs:comment>
+  <core:prefLabel xml:lang="en">relative moisture</core:prefLabel>
+</Meteorology>
+
+<SoilPhysics rdf:about="#rock_fragment">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">rock fragment</core:prefLabel>
+</SoilPhysics>
+
+<RiverHydrology rdf:about="#runoff">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">runoff</core:prefLabel>
+</RiverHydrology>
+
+<SoilPhysics rdf:about="#sand">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">sand</core:prefLabel>
+</SoilPhysics>
+
+<SoilPhysics rdf:about="#silt">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">silt</core:prefLabel>
+</SoilPhysics>
+
+<RiverHydrology rdf:about="#slope_hydrology">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">slope hydrology</core:prefLabel>
+</RiverHydrology>
+
+<Meteorology rdf:about="#snowfall">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">snowfall</core:prefLabel>
+</Meteorology>
+
+<SoilPhysics rdf:about="#soil_depth">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">soil depth</core:prefLabel>
+</SoilPhysics>
+
+<SoilSurveyMappingAndEvaluation rdf:about="#soil_mapping">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">soil mapping</core:prefLabel>
+</SoilSurveyMappingAndEvaluation>
+
+<SoilSurveyMappingAndEvaluation rdf:about="#soil_mapping_unit">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">soil mapping unit</core:prefLabel>
+</SoilSurveyMappingAndEvaluation>
+
+<SoilPhysics rdf:about="#soil_porosity">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">soil porosity</core:prefLabel>
+</SoilPhysics>
+
+<SoilSurveyMappingAndEvaluation rdf:about="#soil_survey">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">soil survey</core:prefLabel>
+</SoilSurveyMappingAndEvaluation>
+
+<Meteorology rdf:about="#solar_radiation">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">solar radiation</core:prefLabel>
+</Meteorology>
+
+<RiverHydrology rdf:about="#water_balance">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">water balance</core:prefLabel>
+</RiverHydrology>
+
+<SoilPhysics rdf:about="#wilting_point">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <core:prefLabel xml:lang="en">wilting point</core:prefLabel>
+</SoilPhysics>
+
+
+</rdf:RDF>
