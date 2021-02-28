@@ -2,7 +2,7 @@
 >beta 0.1 
 >by *hou-zhi-wei @ lreis, igsnrr, CAS*
 
-Translate input (geospatial/non-geospatial) data of a geoprocessing functionality parameter into RDF graphs and validate it against predefined [SHACL](https://www.w3.org/TR/shacl) shape graph.
+Translate input (geospatial/non-geospatial) data of a geoprocessing tool parameter into RDF graphs and validate it against predefined [SHACL](https://www.w3.org/TR/shacl) shape graph.
 
 checks the
 - completeness
@@ -13,8 +13,11 @@ all shapes graphs shown in the article are listed in directory `shapes`
 
 based on 
 - [pySHACL](https://github.com/RDFLib/pySHACL)
+   > `conda install -c conda-forge pyshacl `
 - [GDAL](https://gdal.org/index.html)
 - [RDFLib](https://github.com/RDFLib/rdflib)
+
+
 ---
 Hands on:
 1. define SHACL shapes graphs. can be coded manually or generated with codes based on rdflib. see generator/list*.py

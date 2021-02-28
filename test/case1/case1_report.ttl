@@ -1,0 +1,66 @@
+@prefix arcgis: <http://www.egc.org/ont/process/arcgis#> .
+@prefix data: <http://www.egc.org/ont/data#> .
+@prefix process: <http://www.egc.org/ont/process#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode arcgis:flow_direction_type ;
+            sh:resultMessage "The MFD algorithm is better than D8 and DINF algorithms when calculating the spatial pattern of hydrological parameters such as topographic index."@en ;
+            sh:resultPath process:hasLiteralData ;
+            sh:resultSeverity sh:Warning ;
+            sh:sourceConstraint [ sh:message "The MFD algorithm is better than D8 and DINF algorithms when calculating the spatial pattern of hydrological parameters such as topographic index."@en ;
+                    sh:select """\r
+              SELECT  $this (process:hasLiteralData AS ?path)  ?value\r
+              WHERE {\r
+                  # select the application context\r
+                  arcgis:flow_direction_tool  context:applicationContext  ?a;\r
+                         process:hasInput     $this.\r
+                  # select the application purpose\r
+                  ?a      context:applicationPurpose   ?purpose.\r
+                  $this  process:hasLiteralData          ?value.\r
+                  # filter the data according to the condition and application context\r
+                  FILTER(\r
+                  IF( EXISTS {?purpose a context:CalHydroParamsSpatialPattern} && UCASE(STR(?value))="MFD", false, true)\r
+                  )\r
+              }""" ] ;
+            sh:sourceConstraintComponent sh:SPARQLConstraintComponent ;
+            sh:sourceShape [ sh:path process:hasLiteralData ;
+                    sh:severity sh:Warning ;
+                    sh:sparql [ sh:message "The MFD algorithm is better than D8 and DINF algorithms when calculating the spatial pattern of hydrological parameters such as topographic index."@en ;
+                            sh:select """\r
+              SELECT  $this (process:hasLiteralData AS ?path)  ?value\r
+              WHERE {\r
+                  # select the application context\r
+                  arcgis:flow_direction_tool  context:applicationContext  ?a;\r
+                         process:hasInput     $this.\r
+                  # select the application purpose\r
+                  ?a      context:applicationPurpose   ?purpose.\r
+                  $this  process:hasLiteralData          ?value.\r
+                  # filter the data according to the condition and application context\r
+                  FILTER(\r
+                  IF( EXISTS {?purpose a context:CalHydroParamsSpatialPattern} && UCASE(STR(?value))="MFD", false, true)\r
+                  )\r
+              }""" ] ] ;
+            sh:value "D8"^^xsd:string ],
+        [ a sh:ValidationResult ;
+            sh:focusNode arcgis:flow_direction_type ;
+            sh:resultMessage "Value does not conform to Shape arcgis:FlowDirectionApplicationContextShape" ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:NodeConstraintComponent ;
+            sh:sourceShape arcgis:FlowDirectionTypeShape ;
+            sh:value arcgis:flow_direction_type ],
+        [ a sh:ValidationResult ;
+            sh:focusNode arcgis:in_surface_raster ;
+            sh:resultMessage "Less than 1 values on arcgis:in_surface_raster->process:hasData" ;
+            sh:resultPath process:hasData ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+            sh:sourceShape [ sh:class data:RasterData ;
+                    sh:maxCount 1 ;
+                    sh:minCount 1 ;
+                    sh:node arcgis:inSurfaceRasterDataShape ;
+                    sh:path process:hasData ] ] .
+

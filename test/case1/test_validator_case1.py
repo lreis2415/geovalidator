@@ -7,31 +7,31 @@ from rdflib import Namespace, Graph
 from pyshacl import rdfutil
 from datagraph import DataGraph
 from utils import DATA, GEO, ArcGIS, PROCESS
+import pytest
 
 validator = GeoValidator()
 
-l6_clip_point = '../data_graphs/L6_clip_point.ttl'
-l6_input_polygon = '../data_graphs/L6_input_polygon.ttl'
-l6_data_all = '../data_graphs/L6_all.ttl'
-l6_shape = '../shapes/L6_SparqlShape.ttl'
-qudt = '../ont/QUDT ALL UNITS.ttl'
-data = '../ont/data.owl'
-geo_file = '../ont/geosparql_vocab_all.rdf'
-sf_file = '../ont/sf.rdf'
+
+# ontologies
+qudt = '../../ont/QUDT ALL UNITS.ttl'
+data = '../../ont/data.owl'
+dcat = '../../ont/data.owl'
+geo_file = '../../ont/geosparql_vocab_all.rdf'
+sf_file = '../../ont/sf.rdf'
 
 geo = rdfutil.load_from_source(geo_file)
-ont = validator.read_graphs(geo_file, data, sf_file)
+ont = validator.read_graphs(geo_file, data, sf_file, dcat, qudt)
 
+case_data = './case1_data_graphs.ttl'
+case_shape = './case1_shapes_m.ttl'
 
-# g_geo = validator.read_graph(geo)
-# v_shape = validator.read_graph(v_shape_file)
 
 def test_case1():
 	# d_graph = validator.read_graphs(l6_clip_point, l6_input_polygon)
-	d_graph_all = rdfutil.load_from_source(l6_data_all)
-	g_shape = rdfutil.load_from_source(l6_shape)
+	d_graph = rdfutil.load_from_source(case_data)
+	g_shape = rdfutil.load_from_source(case_shape)
 	# conforms, results_graph, results_text = validator.advanced_validate(d_graph, g_shape)
-	conforms, results_graph, results_text = validator.validate_data(d_graph_all, g_shape, ont)
+	conforms, results_graph, results_text = validator.validate_data(d_graph, g_shape, ont)
 	# print(results_graph.serialize(format='turtle').decode('utf-8'))
 	dg.graph_2_file(results_graph, 'case1_report.ttl')
 	# with codecs.open('case1_report.txt', 'w', 'utf-8') as f:
@@ -39,27 +39,27 @@ def test_case1():
 	print('DONE')
 
 
-L8_rule_file = '../shapes/L8_SPARQLRule.ttl'
+# L8_rule_file = '../../shapes/L8_SPARQLRule.ttl'
 dg = DataGraph()
-rule = rdfutil.load_from_source(L8_rule_file)
-dg_basin = rdfutil.load_from_source(l6_input_polygon)
+# rule = rdfutil.load_from_source(L8_rule_file)
+# dg_basin = rdfutil.load_from_source(l6_input_polygon)
 
 
-def test_infer():
-	"""
-	the condition data:VectorDataShape is not satisfied since we have not provide the data.owl,
-	thus no triples have been inferred
-	"""
-	conforms, expanded_graph = validator.infer_with_extended_graph(dg_basin, rule)
-	# print(expanded_graph.serialize(format='turtle').decode('utf-8'))
-	print(conforms)  # false,
-	expanded_graph.bind('arcgis', ArcGIS)
-	expanded_graph.bind('data', DATA)
-	expanded_graph.bind('process', PROCESS)
-
-	# print(dg.graph_2_string(expanded_graph))
-	# the same as the data graph
-	dg.graph_2_file(expanded_graph, 'case2_graph_no_inferred.ttl')
+# def test_infer():
+# 	"""
+# 	the condition data:VectorDataShape is not satisfied since we have not provide the data.owl,
+# 	thus no triples have been inferred
+# 	"""
+# 	conforms, expanded_graph = validator.infer_with_extended_graph(dg_basin, rule)
+# 	# print(expanded_graph.serialize(format='turtle').decode('utf-8'))
+# 	print(conforms)  # false,
+# 	expanded_graph.bind('arcgis', ArcGIS)
+# 	expanded_graph.bind('data', DATA)
+# 	expanded_graph.bind('process', PROCESS)
+#
+# 	# print(dg.graph_2_string(expanded_graph))
+# 	# the same as the data graph
+# 	dg.graph_2_file(expanded_graph, 'case2_graph_no_inferred.ttl')
 
 
 def test_infer_ont():
@@ -99,3 +99,6 @@ def test_data_on_the_fly_case1():
 	g_shape = rdfutil.load_from_source(l6_shape)
 	conforms, results_graph, results_text = validator.validate_data(data_graph, g_shape, ont)
 	dg.graph_2_file(results_graph, 'case1_report_2.ttl')
+
+if __name__ =="__main__":
+	pytest.main('[test_validator_case1::test_case1]')

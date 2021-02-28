@@ -3,20 +3,19 @@
 # author: houzhiwei
 # time: 2020/1/4 15:47
 
-from rdflib import BNode, Graph, RDF, Namespace, Literal
+from rdflib import Graph, RDF, Literal
+from utils import DATA, SH
 
 g = Graph()
-# namespaces
-data = Namespace("http://www.egc.org/ont/data#")
-sh = Namespace("http://www.w3.org/ns/shacl#")
+
 # prefixes
-g.bind('data', data)
-g.bind('sh', sh)
+g.bind('data', DATA)
+g.bind('sh', SH)
 # SHACL shape graph
-vs = data.VectorShape
-g.add((vs, RDF.type, sh.NodeShape))
-g.add((vs, sh.targetClass, data.VectorData))
-g.add((vs, sh.description, Literal('All instances of data:VectorData will be checked', lang='en')))
+vs = DATA.VectorShape
+g.add((vs, RDF.type, SH.NodeShape))
+g.add((vs, SH.targetClass, DATA.VectorData))
+g.add((vs, SH.description, Literal('All instances of data:VectorData will be checked', lang='en')))
 
 # save as turtle file
 g.serialize('../shapes/L1_VectorDataShape.ttl', format='turtle')

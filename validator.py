@@ -28,13 +28,13 @@ class GeoValidator(object):
 		return g
 
 	@staticmethod
-	def data_2_graph(parameter_id, data, data_theme=None, data_type=None):
+	def data_2_graph(parameter_id:str, data, data_theme=None, data_type=None):
 		"""
 		read input data and generate RDF graph
 		:param parameter_id: parameter identifier, indicates which parameter this data is prepared for
 		:param data: input data path or value
 		:param data_theme: data theme. e.g., DEM, soil, landuse, city, etc.
-		:param data_type: 0 for raster data; 1 for vector data; 2 for general (non-geospatial) data
+		:param data_type: automatically detect if is None. 0 for raster data; 1 for vector data; 2 for general (non-geospatial) data
 		:return: data graph
 		"""
 		_dg = DataGraph()
@@ -42,14 +42,14 @@ class GeoValidator(object):
 			data_type = Utils.detect_data_type(data)
 		# raster data
 		if data_type == 0:
-			g = _dg.raster_graph(parameter_id, data, data_theme)
+			graph = _dg.raster_graph(parameter_id, data, data_theme)
 		# vector data
 		elif data_type == 1:
-			g = _dg.vector_graph(parameter_id, data, data_theme)
+			graph = _dg.vector_graph(parameter_id, data, data_theme)
 		# non-geospatial data
 		else:
-			g = _dg.general_graph(parameter_id, data, data_theme)
-		return g
+			graph = _dg.general_graph(parameter_id, data, data_theme)
+		return graph
 
 	@staticmethod
 	def validate_data(data_graph, shape_graph, ont=None):

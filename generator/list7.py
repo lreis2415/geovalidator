@@ -32,9 +32,9 @@ g.add((sparql, sh.message, Literal('Data theme (e.g., DEM ) of the output and in
 query = """
 SELECT $this  (?in_theme AS ?value)
 	WHERE {
-		$this  process:input/$PATH   ?in_theme.  # data theme of input parameter 
-        $this  process:from  ?pre_func.   # preceding functionality
-        ?pre_func process:output/$PATH  ?out_theme.   #  data theme of output parameter
+		$this  process:hasInput/$PATH   ?in_theme.  # data theme of input parameter 
+        $this  process:from  ?pre_func.   # preceding tool
+        ?pre_func process:hasOutput/$PATH  ?out_theme.   #  data theme of output parameter
 		FILTER (  ?in_theme != ?out_theme  ). # is not equal
         }
 """

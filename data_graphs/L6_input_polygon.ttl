@@ -1,35 +1,37 @@
 @prefix data: <http://www.egc.org/ont/data#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix process: <http://www.egc.org/ont/process#> .
 @prefix sf: <http://www.opengis.net/ont/sf#> .
-@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix unit: <http://qudt.org/2.1/vocab/unit#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix vocab: <http://www.egc.org/ont/vocab#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-data:in_features_data a data:VectorData ;
-    dcterms:identifier "in_features" ;
-    data:centralX 1.0009e+02 ;
-    data:centralY 4.0929e+01 ;
-    data:dataContent "Heihe_Basin_Boundary_2010.shp" ;
-    data:dataFormat data:ESRI_Shapefile ;
-    data:dataTheme "Basin" ;
-    data:eastBoundingCoordinate 1.04186e+02 ;
-    data:hasCRS "GCS_WGS_1984" ;
-    data:hasCRSProj4 "+proj=longlat +datum=WGS84 +no_defs " ;
-    data:hasCRSWkt "GEOGCS[\"GCS_WGS_1984\",DATUM[\"WGS_1984\",SPHEROID[\"WGS_84\",6378137,298.257223563]],PRIMEM[\"Greenwich\",0],UNIT[\"Degree\",0.017453292519943295],AUTHORITY[\"EPSG\",\"4326\"]]" ;
-    data:hasEPSG "EPSG:4326" ;
-    data:hasUOM unit:DEG ;
-    data:isProjected false ;
-    data:maxX 1.04186e+02 ;
-    data:maxY 4.3327e+01 ;
-    data:minX 9.6138e+01 ;
-    data:minY 3.772e+01 ;
-    data:northBoundingCoordinate 4.3327e+01 ;
-    data:southBoundingCoordinate 3.772e+01 ;
-    data:spatialExtent "96.138,37.720,104.186,43.327"^^xsd:string ;
-    data:westBoundingCoordinate 9.6138e+01 ;
-    geo:hasGeometry [ a sf:Polygon ] .
+<http://www.egc.org/ont/process/arcgis#in_features> dcterms:identifier "in_features" ;
+    process:hasData [ a data:VectorData ;
+            dcterms:spatial [ a dcterms:Location ;
+                    locn:geometry "POLYGON((96.138 37.72,96.138 43.327,104.186 43.327,104.186 37.72,96.138 37.72))"^^geo:wktLiteral ] ;
+            dcterms:type sf:Polygon ;
+            data:dataContent "Heihe_Basin_Boundary_2010.shp" ;
+            data:dataFormat data:ESRI_Shapefile ;
+            data:hasCRS data:GCS_WGS_1984 ;
+            data:hasCRSProj4 "+proj=longlat +datum=WGS84 +no_defs " ;
+            data:hasCRSWkt "GEOGCS[\"GCS_WGS_1984\",DATUM[\"WGS_1984\",SPHEROID[\"WGS_84\",6378137,298.257223563]],PRIMEM[\"Greenwich\",0],UNIT[\"Degree\",0.017453292519943295],AUTHORITY[\"EPSG\",\"4326\"]]" ;
+            data:hasEPSG "4326"^^xsd:int ;
+            data:hasSRID "EPSG:4326" ;
+            data:hasUOM unit:DEG ;
+            data:isProjected false ;
+            data:parameterId "in_features" ;
+            dcat:theme vocab:Basin ] .
+
+data:GCS_WGS_1984 a <http://inspire.ec.europa.eu/glossary/SpatialReferenceSystem>,
+        data:CoordinateReferenceSystem ;
+    data:hasEPSG "4326"^^xsd:int ;
+    skos:prefLabel "GCS_WGS_1984" .
+
+vocab:Basin dcterms:type skos:Concept ;
+    skos:prefLabel "Basin" .
 

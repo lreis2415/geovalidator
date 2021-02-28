@@ -1,0 +1,98 @@
+# manually created shapes for case #1
+
+@prefix data: <http://www.egc.org/ont/data#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sf: <http://www.opengis.net/ont/sf#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix arcgis: <http://www.egc.org/ont/process/arcgis#> .
+@prefix process: <http://www.egc.org/ont/process#> .
+@prefix prov:  <http://www.w3.org/ns/prov#>.
+@prefix dcat: <http://www.w3.org/ns/dcat#>.
+@prefix vocab: <http://www.egc.org/ont/vocab#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+
+prov:wasGeneratedBy a owl:ObjectProperty .
+
+data:ProjectedShape a sh:PropertyShape;
+	sh:description "constrain the data:isProjected property, used if the input data (targets) must be projected";
+	sh:path data:isProjected;
+	sh:minCount 1;  sh:maxCount 1;
+	sh:datatype xsd:boolean;
+    sh:hasValue true;
+    # the feedback message for violations
+    sh:message "The data must be projected, i.e., must have a projected coordinate system"@en.
+
+
+# the parameter shape
+arcgis:InSurfaceRasterShape a sh:NodeShape;
+     sh:targetNode arcgis:in_surface_raster; # target declaration
+     sh:property [
+         sh:path process:hasData;
+         sh:minCount 1; sh:maxCount 1; # cardinality constraints
+         # data type constraint, will trigger automatically the reuse of class-level shapes
+         sh:class data:RasterData;
+         # conditions on input data properties
+         sh:node arcgis:inSurfaceRasterDataShape;
+    ].
+
+ # the data shape
+ arcgis:inSurfaceRasterDataShape a sh:NodeShape;
+      sh:property data:ProjectedShape; # reuse the shape defined in  Listing 3
+      sh:property [
+           sh:path [sh:alternativePath (dcterms:subject dcat:theme)]; # data theme
+               sh:minCount 1;
+	           sh:in (vocab:filled_DEM vocab:hydrologically-corrected_DEM);
+     ], [
+           sh:path data:hasCRS;
+           sh:minCount 1;
+           sh:class data:CoordinateReferenceSystem ;
+      ], [
+           sh:path (prov:wasGeneratedBy process:usedTool); # provenance constraint
+           sh:minCount 1; sh:maxCount 1;
+           sh:hasValue arcgis:Fill;
+    ].
+
+arcgis:FlowDirectionApplicationContextShape a sh:NodeShape;
+      sh:targetNode arcgis:flow_direction_type;
+        sh:property [
+          sh:path process:hasLiteralData;
+            # report a warning instead of violation
+          sh:severity sh:Warning;
+        sh:sparql [
+          # if define sh:severity here, it won't works
+	      sh:message "The MFD algorithm is better than D8 and DINF algorithms when calculating the spatial pattern of hydrological parameters such as topographic index."@en ;
+          sh:select """
+              SELECT  $this (process:hasLiteralData AS ?path)  ?value
+              WHERE {
+                  # select the application context
+                  arcgis:flow_direction_tool  context:applicationContext  ?a;
+                         process:hasInput     $this.
+                  # select the application purpose
+                  ?a      context:applicationPurpose   ?purpose.
+                  $this  process:hasLiteralData          ?value.
+                  # filter the data according to the condition and application context
+                  FILTER(
+                  IF( EXISTS {?purpose a context:CalHydroParamsSpatialPattern} && UCASE(STR(?value))="MFD", false, true)
+                  )
+              }""" ;
+      ]
+   ].
+
+
+arcgis:FlowDirectionTypeShape  a sh:NodeShape;
+      sh:targetNode arcgis:flow_direction_type;
+      sh:property [
+         sh:path process:hasLiteralData;
+         sh:datatype xsd:string; # datatype constraint
+         sh:minCount 0; sh:maxCount 1; # cardinality constraints
+         # value range constraints, case insensitive
+         sh:in ("D8"^^xsd:string "MFD"^^xsd:string "DINF"^^xsd:string);
+         sh:flags "i";
+      ];
+      # reuse the application-context-matching constraints defined in Listing 5
+     sh:node arcgis:FlowDirectionApplicationContextShape;.

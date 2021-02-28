@@ -132,19 +132,31 @@ class Utils(object):
 		return shape
 
 	@staticmethod
-	def functionality_parameters(namespace, functionality, functionality_class, *params_data_iri):
+	def tool_parameters(namespace, tool, tool_class, *params_data_iri):
 		"""
 		generate rdf graph that describes the relation between the functionality and its input data
 		:param namespace: of the functionality, e.g., http://www.egc.org/ont/process/arcgis#
-		:param functionality: functionality name, e.g., clip_analysis
-		:param functionality_class: super class, e.g., ArcGISTool
+		:param tool: functionality name, e.g., clip_analysis
+		:param tool_class: super class, e.g., ArcGISTool
 		:param params_data_iri: data:in_features, in IRI form
 		:return: graph
 		"""
 		g = Graph()
 		ns = Namespace(namespace)
 		process = Namespace("http://www.egc.org/ont/process#")
-		g.add((ns[functionality], RDF.type, ns[functionality_class]))
+		g.add((ns[tool], RDF.type, ns[tool_class]))
 		for param_data_iri in params_data_iri:
-			g.add((ns[functionality], process.hasInputData, param_data_iri))
+			g.add((ns[tool], process.hasInputData, param_data_iri))
 		return g
+
+
+ArcGIS = Namespace("http://www.egc.org/ont/process/arcgis#")
+DATA = Namespace("http://www.egc.org/ont/data#")
+PROCESS = Namespace("http://www.egc.org/ont/process#")
+SH = Namespace("http://www.w3.org/ns/shacl#")
+GEO = Namespace('http://www.opengis.net/ont/geosparql#')
+SF = Namespace('http://www.opengis.net/ont/sf#')
+SAGA = Namespace("http://www.egc.org/ont/process/saga#")
+TASK = Namespace('http://www.egc.org/ont/context/task#')
+UNIT = Namespace('http://qudt.org/2.1/vocab/unit#')
+SOFT = Namespace('http://www.egc.org/ont/gis/cyber#')

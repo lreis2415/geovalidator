@@ -40,7 +40,7 @@ sparql = """
        }
        # condition expressed using SPARQL 
        WHERE {
-              $this data:hasEPSG | data:hasCRS ?epsg .
+              $this data:hasEPSG ?epsg .
               FILTER (?epsg != "EPSG:4490")
        }
        """

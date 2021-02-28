@@ -46,7 +46,7 @@ data:ProjectVectorCGCS2000Rule a sh:NodeShape ;
 
 data:EPSGShape a sh:NodeShape ;
     sh:datatype xsd:string ;
-    sh:flag "i" ;
+    sh:flags "i" ;
     sh:message "Invalid EPSG code! Must match the pattern ‘urn:ogc:def:crs:EPSG:[version]:[code]’,  ‘http://www.opengis.net/def/crs/EPSG/[version]/[code]’, or ‘EPSG:[code]’"@en ;
     sh:minLength 9 ;
     sh:pattern "^(urn:ogc:def:crs:EPSG:[0-9.]{1,7}:[0-9]{4,5})|^(http://www.opengis.net/def/crs/EPSG/[0-9.]{1,7}/[0-9]{4,5})|^(EPSG:[0-9]{4,5})" ;
