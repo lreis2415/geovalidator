@@ -1,0 +1,72 @@
+	# the parameter shape
+
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix arcgis: <http://www.egc.org/ont/process/arcgis#> .
+@prefix process: <http://www.egc.org/ont/process#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix data: <http://www.egc.org/ont/data#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+
+data:ProjectedShape a sh:PropertyShape;
+   # 针对数据的data:isProjected （是否已经过空间投影）属性的约束
+	sh:path data:isProjected;
+	sh:minCount 1;  sh:maxCount 1;
+	sh:datatype xsd:boolean;
+    sh:hasValue true;
+    # 验证反馈信息
+    sh:message "The data must be projected, i.e., must have a projected coordinate system"@en.
+
+
+arcgis:clipFeaturesShape a sh:NodeShape;
+	  sh:targetNode arcgis:clip_features;  # declare the parameter as the target
+	  sh:property [
+		   sh:path process:hasData;
+		   sh:minCount 1 ;  sh:maxCount 1 ;
+		   sh:message  "Accepts only one input dataset for parameter arcgis:clip_features"@en;
+		   # define constraints on the objects (the RDF nodes of input data) of process:hasData
+		   # by referencing another node shape, i.e., the data shape
+		   sh:node arcgis:clipFeaturesInputDataShape;
+		];
+	sh:sparql [
+		a sh:SPARQLConstraint ;   # This triple is optional
+		#sh:prefix
+		sh:message "Input data of parameter Clip Features cannot clip the input data of parameter Input Features!
+			If the Input Features are points, the Clip Features can be points, lines, or polygons.
+			If the Input Features are lines, the Clip Features can be lines or polygons.
+			If the Input Features are polygons, the Clip Features must be polygons too. "@en;
+		sh:select """
+			SELECT $this (dcterms:type AS ?path) (?clip_geom_type AS ?value)
+			WHERE {
+				# 查询获取两个参数的输入数据。$this 表示 arcgis:clip_features
+				$this process:hasData ?clip_features_data.
+
+				# arcgis:in_features 为其中另一个参数
+				arcgis:in_features process:hasData ?in_features _data.
+
+				# 分别获取两个参数的输入数据中需要比较的属性
+				?clip_features_data dcterms:type ?clip_geom_type.
+				?in_features _data dcterms:type ?in_geom_type.
+
+ 				?clip_geom_type a sf:Geometry.
+ 				?in_geom_type a sf:Geometry.
+
+				FILTER NOT EXISTS  {?in_geom_type data:subsumesGeometry ?clip_geom_type}
+			} """ ;
+	].
+
+#  FILTER (
+#	 IF(EXISTS {?in_geom_type a sf:Point},false,true)||
+#    IF(EXISTS {?in_geom_type a sf:Line} && NOT EXISTS {?clip_geom_type a sf:Point},false,true)||
+#    IF(EXISTS {?in_geom_type a sf:Polygon} && EXISTS {?clip_geom_type a sf:Polygon},false,true)).
+#
+
+# the data shape
+arcgis:clipFeaturesInputDataShape a sh:NodeShape;
+	  sh:description "declare the input data set as the target implicitly, with definitions of constraints on its property values " ;
+	  sh:property data:ProjectedShape;
+	  sh:property  [
+		  sh:path dcterms:subject;
+		  sh:minCount 1 ;
+	 ].

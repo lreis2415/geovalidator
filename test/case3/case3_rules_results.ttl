@@ -1,0 +1,124 @@
+@prefix data: <http://www.egc.org/ont/data#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix egc-gis: <http://www.egc.org/ont/process/egc-gis#> .
+@prefix gcmd: <https://gcmdservices.gsfc.nasa.gov/kms/concept/> .
+@prefix gemet: <https://www.eionet.europa.eu/gemet/concept/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix process: <http://www.egc.org/ont/process#> .
+@prefix pygeoc: <http://www.egc.org/ont/process/pygeoc#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix theme: <http://inspire.ec.europa.eu/theme/> .
+@prefix vocab: <http://www.egc.org/ont/vocab#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+process:GeoprocessingTool a rdfs:Class,
+        rdfs:Resource ;
+    rdfs:subClassOf process:GeoprocessingTool,
+        rdfs:Resource .
+
+process:Parameter a rdfs:Class,
+        rdfs:Resource ;
+    rdfs:subClassOf process:Parameter,
+        rdfs:Resource .
+
+pygeoc:watershed_delineation a process:GeoprocessingTool,
+        pygeoc:SeimsPreprocessingTool,
+        rdfs:Resource ;
+    process:hasInput pygeoc:watershed_delineation_dem,
+        pygeoc:watershed_delineation_num_proc ;
+    process:precedingTool egc-gis:reproject .
+
+vocab:DEM a rdfs:Resource,
+        skos:Concept .
+
+theme:el a rdfs:Resource .
+
+dcterms:identifier a rdf:Property ;
+    rdfs:subPropertyOf dcterms:identifier .
+
+data:GTiff a rdfs:Resource .
+
+data:RasterData a rdfs:Resource .
+
+data:dataContent a rdf:Property ;
+    rdfs:subPropertyOf data:dataContent .
+
+data:dataFormat a rdf:Property ;
+    rdfs:subPropertyOf data:dataFormat .
+
+data:hasEPSG a rdf:Property ;
+    rdfs:subPropertyOf data:hasEPSG .
+
+data:isProjected a rdf:Property ;
+    rdfs:subPropertyOf data:isProjected .
+
+process:hasData a rdf:Property,
+        rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:subPropertyOf process:hasData .
+
+process:hasInput a rdf:Property ;
+    rdfs:subPropertyOf process:hasInput .
+
+process:hasLiteralData a rdf:Property ;
+    rdfs:subPropertyOf process:hasLiteralData .
+
+pygeoc:SeimsPreprocessingTool a rdfs:Resource ;
+    rdfs:subClassOf process:GeoprocessingTool,
+        rdfs:Resource .
+
+pygeoc:watershed_delineation_dem a process:Parameter,
+        rdfs:Resource ;
+    dcterms:identifier "dem"^^xsd:string ;
+    process:hasData [ a data:RasterData,
+                rdfs:Resource ;
+            data:dataContent "ywzdem30m.tif" ;
+            data:dataFormat data:GTiff ;
+            data:hasEPSG "2415"^^xsd:int ;
+            data:isProjected false ;
+            dcat:theme theme:el,
+                gcmd:digital_elevation_models,
+                gemet:10140 ] .
+
+pygeoc:watershed_delineation_num_proc a process:Parameter,
+        rdfs:Resource ;
+    dcterms:identifier "num_proc"^^xsd:string ;
+    process:hasLiteralData "3"^^xsd:int .
+
+rdf:type a rdf:Property ;
+    rdfs:subPropertyOf rdf:type .
+
+rdfs:subClassOf a rdf:Property ;
+    rdfs:subPropertyOf rdfs:subClassOf .
+
+rdfs:subPropertyOf a rdf:Property ;
+    rdfs:subPropertyOf rdfs:subPropertyOf .
+
+owl:ObjectProperty a rdfs:Resource .
+
+skos:Concept a rdfs:Resource .
+
+dcat:theme a rdf:Property ;
+    rdfs:subPropertyOf dcat:theme .
+
+gcmd:digital_elevation_models a rdfs:Resource .
+
+gemet:10140 a rdfs:Resource .
+
+false a rdfs:Resource .
+
+"3"^^xsd:int a rdfs:Resource .
+
+"2415"^^xsd:int a rdfs:Resource .
+
+"dem"^^xsd:string a rdfs:Resource .
+
+"num_proc"^^xsd:string a rdfs:Resource .
+
+"ywzdem30m.tif" a rdfs:Resource .
+
+rdfs:Class a rdfs:Resource .
+

@@ -15,7 +15,7 @@ validator = GeoValidator()
 # ontologies
 qudt = '../../ont/QUDT ALL UNITS.ttl'
 data = '../../ont/data.owl'
-dcat = '../../ont/data.owl'
+dcat = '../../ont/dcat2.ttl'
 geo_file = '../../ont/geosparql_vocab_all.rdf'
 sf_file = '../../ont/sf.rdf'
 

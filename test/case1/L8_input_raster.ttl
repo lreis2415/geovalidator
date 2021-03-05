@@ -1,0 +1,39 @@
+@prefix data: <http://www.egc.org/ont/data#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix gcmd: <https://gcmdservices.gsfc.nasa.gov/kms/concept/> .
+@prefix gemet: <https://www.eionet.europa.eu/gemet/concept/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix process: <http://www.egc.org/ont/process#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix theme: <http://inspire.ec.europa.eu/theme/> .
+@prefix unit: <http://qudt.org/2.1/vocab/unit#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://www.egc.org/ont/process/arcgis#in_surface_raster> dcterms:identifier "in_surface_raster" ;
+    process:hasData [ a data:RasterData ;
+            dcterms:spatial [ a dcterms:Location ;
+                    locn:geometry "POLYGON((116.44297141848415 25.666323798766907,116.44297141848415 25.693001173347668,116.48080375260918 25.693001173347668,116.48080375260918 25.666323798766907,116.44297141848415 25.666323798766907))"^^geo:wktLiteral ] ;
+            data:dataContent "ywzdem30m.tif" ;
+            data:dataFormat data:GTiff ;
+            data:hasCRS data:Beijing_1954_3_Degree_GK_Zone_39 ;
+            data:hasCRSProj4 "+proj=tmerc +lat_0=0 +lon_0=117 +k=1 +x_0=39500000 +y_0=0 +ellps=krass +units=m +no_defs " ;
+            data:hasCRSWkt "PROJCS[\"Beijing_1954_3_Degree_GK_Zone_39\",GEOGCS[\"GCS_Beijing_1954\",DATUM[\"Beijing_1954\",SPHEROID[\"Krasovsky_1940\",6378245,298.3,AUTHORITY[\"EPSG\",\"7024\"]],AUTHORITY[\"EPSG\",\"6214\"]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.0174532925199433]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"latitude_of_origin\",0],PARAMETER[\"central_meridian\",117],PARAMETER[\"scale_factor\",1],PARAMETER[\"false_easting\",39500000],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]]]" ;
+            data:hasEPSG "2415"^^xsd:int ;
+            data:hasSRID "EPSG:2415" ;
+            data:hasUOM unit:M ;
+            data:isProjected true ;
+            data:nodataValue "-3.4028234663852886e+38"^^xsd:float ;
+            data:parameterId "in_surface_raster" ;
+            data:srsName "Beijing_1954_3_Degree_GK_Zone_39" ;
+            dcat:spatialResolutionInMeters 30.0 ;
+            dcat:theme theme:el,
+                gcmd:digital_elevation_models,
+                gemet:10140 ] .
+
+data:Beijing_1954_3_Degree_GK_Zone_39 a <http://inspire.ec.europa.eu/glossary/SpatialReferenceSystem>,
+        data:CoordinateReferenceSystem ;
+    data:hasEPSG "2415"^^xsd:int ;
+    skos:prefLabel "Beijing_1954_3_Degree_GK_Zone_39" .
+

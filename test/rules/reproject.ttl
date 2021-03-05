@@ -1,0 +1,42 @@
+
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sf: <http://www.opengis.net/ont/sf#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix gdal: <http://www.egc.org/ont/process/gdal#> .
+@prefix arcgis: <http://www.egc.org/ont/process/arcgis#> .
+@prefix easy-gis: <http://www.egc.org/ont/process/easy-gis#> .
+@prefix process: <http://www.egc.org/ont/process#> .
+@prefix prov:  <http://www.w3.org/ns/prov#>.
+@prefix dcat: <http://www.w3.org/ns/dcat#>.
+@prefix vocab: <http://www.egc.org/ont/vocab#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix data: <http://www.egc.org/ont/data#> .
+
+
+process:precedingTool  a owl:ObjectProperty  .
+easy-gis:reproject a process:GeoprocessingTool .
+
+process:ProjectionRule a sh:NodeShape ;
+    sh:rule [
+       sh:subject sh:this ;
+       sh:predicate process:precedingTool;
+       sh:object easy-gis:reproject;
+       sh:condition [
+           sh:not data:ProjectedShape;
+       ]
+    ]
+.
+
+data:ProjectedShape a sh:PropertyShape;
+	sh:description "constrain the data:isProjected property, used if the input data (targets) must be projected";
+	sh:path data:isProjected;
+	sh:minCount 1;  sh:maxCount 1;
+	sh:datatype xsd:boolean;
+    sh:hasValue true;
+    # the feedback message for violations
+    sh:message "The data must be projected, i.e., must have a projected coordinate system"@en.
+

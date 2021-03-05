@@ -1,0 +1,55 @@
+@prefix data: <http://www.egc.org/ont/data#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix gcmd: <https://gcmdservices.gsfc.nasa.gov/kms/concept/> .
+@prefix gemet: <https://www.eionet.europa.eu/gemet/concept/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix theme: <http://inspire.ec.europa.eu/theme/> .
+@prefix vocab: <http://www.egc.org/ont/vocab#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:ub3bL53C21 ;
+            sh:resultMessage "Must declare at least one data theme"@en ;
+            sh:resultPath [ sh:alternativePath ( dcterms:subject dcat:theme ) ] ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+            sh:sourceShape [ sh:in ( gcmd:digital_elevation_models vocab:DEM theme:el gemet:10140 ) ;
+                    sh:message "Must declare at least one data theme"@en ;
+                    sh:minCount 1 ;
+                    sh:path [ sh:alternativePath ( dcterms:subject dcat:theme ) ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:ub3bL53C21 ;
+            sh:resultMessage "The data must be projected, i.e., must have a projected coordinate system"@en ;
+            sh:resultPath data:isProjected ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:HasValueConstraintComponent ;
+            sh:sourceShape data:ProjectedShape ] .
+
+_:N30b5ba5317db41cd9c469d9883f2ecaf a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty data:dataFormat ;
+    owl:someValuesFrom data:RasterFormat .
+
+_:ub3bL53C21 a _:N30b5ba5317db41cd9c469d9883f2ecaf,
+        data:ComplexData,
+        data:Data,
+        data:GeoSpatialData,
+        data:RasterData,
+        rdfs:Resource ;
+    data:ProjectionProperty "2415"^^xsd:int ;
+    data:dataContent "ywzdem30m.tif" ;
+    data:dataFormat data:GTiff ;
+    data:dataProperty false,
+        "2415"^^xsd:int,
+        "ywzdem30m.tif" ;
+    data:formatRelation data:GTiff ;
+    data:hasEPSG "2415"^^xsd:int ;
+    data:hasSRID "2415"^^xsd:int ;
+    data:isProjected false .
+

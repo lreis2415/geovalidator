@@ -1,0 +1,128 @@
+
+@prefix data: <http://www.egc.org/ont/data#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sf: <http://www.opengis.net/ont/sf#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix process: <http://www.egc.org/ont/process#> .
+@prefix prov:  <http://www.w3.org/ns/prov#>.
+@prefix dcat: <http://www.w3.org/ns/dcat#>.
+@prefix vocab: <http://www.egc.org/ont/vocab#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix gemet: <https://www.eionet.europa.eu/gemet/concept/>.
+@prefix theme: <http://inspire.ec.europa.eu/theme/>.
+@prefix gcmd:  <https://gcmdservices.gsfc.nasa.gov/kms/concept/>.
+@prefix  skos:  <http://www.w3.org/2004/02/skos/core#>.
+@prefix egc-gis: <http://www.egc.org/ont/process/egc-gis#> .
+@prefix pygeoc: <http://www.egc.org/ont/process/pygeoc#> .
+#dem = '../tests/data/Jamaica_dem.tif'
+#    num_proc = 2
+#    wp = '../tests/data/tmp_results/wtsd_delineation'
+#
+#    TauDEMWorkflow.watershed_delineation(num_proc, dem, workingdir=wp)
+
+vocab:DEM a skos:Concept.
+
+process:Parameter a rdfs:Class.
+process:GeoprocessingTool a rdfs:Class.
+process:hasData a owl:ObjectProperty  .
+
+pygeoc:watershed_delineation_dem a process:Parameter.
+pygeoc:watershed_delineation_num_proc a process:Parameter.
+
+pygeoc:SeimsPreprocessingTool rdfs:subClassOf process:GeoprocessingTool.
+
+
+#---------------------------------------------------
+#             SHACL shapes
+#---------------------------------------------------
+
+# 参数约束 parameter shape
+pygeoc:watershedDelineationNumProcShape a sh:NodeShape;
+    sh:targetNode pygeoc:watershed_delineation_num_proc;
+     sh:property [
+       sh:path  process:hasLiteralData;
+       sh:minCount 1; sh:maxCount 1; # cardinality constraints
+       sh:datatype  xsd:int;
+       sh:minExclusive 0;
+       sh:defaultValue 2;
+    ]   .
+# parameter shape
+
+pygeoc:watershedDelineationDEMShape a sh:NodeShape;
+    sh:targetNode pygeoc:watershed_delineation_dem;
+     sh:property [
+       sh:path  process:hasData;
+       sh:minCount 1; sh:maxCount 1; # cardinality constraints
+       sh:class data:RasterData;
+       sh:property data:ProjectedShape; # reuse the shape
+      #sh:node data:ProjectedDataShape;
+      sh:property [
+         # 数据主题
+         sh:path [sh:alternativePath (dcterms:subject dcat:theme)];
+         sh:minCount 1;
+         sh:in (gcmd:digital_elevation_models vocab:DEM theme:el gemet:10140 );
+         sh:message "Must declare at least one data theme"@en;
+      ]
+    ]
+   .
+
+# 投影
+data:ProjectedShape a sh:PropertyShape;
+	sh:description "constrain the data:isProjected property, used if the input data (targets) must be projected";
+	sh:path data:isProjected;
+	sh:minCount 1;  sh:maxCount 1;
+	sh:datatype xsd:boolean;
+    sh:hasValue true;
+    # the feedback message for violations
+    sh:message "The data must be projected, i.e., must have a projected coordinate system"@en.
+
+
+data:ProjectedDataShape a sh:NodeShape;
+    sh:property [
+        sh:description "constrain the data:isProjected property, used if the input data (targets) must be projected";
+        sh:path data:isProjected;
+        sh:minCount 1;  sh:maxCount 1;
+        sh:datatype xsd:boolean;
+        sh:hasValue true;
+        # the feedback message for violations
+        sh:message "The data must be projected, i.e., must have a projected coordinate system"@en
+    ].
+
+
+# 投影不一致
+
+process:precedingTool  a owl:ObjectProperty  .
+egc-gis:reproject a process:GeoprocessingTool .
+
+process:ProjectionRule a sh:NodeShape ;
+    sh:targetNode pygeoc:watershed_delineation;
+    sh:rule [
+       a sh:TripleRule ;
+       sh:subject sh:this ;
+       sh:predicate process:precedingTool;
+       sh:object egc-gis:reproject;
+       # re-defined ProjectedShape as a rule condition
+       sh:condition [
+             sh:targetNode pygeoc:watershed_delineation_dem;
+             sh:property [
+               sh:path  process:hasData;
+               sh:not data:ProjectedShape;
+#               sh:property [
+#                    sh:path data:isProjected;
+#                    sh:minCount 1;  sh:maxCount 1;
+#                    sh:datatype xsd:boolean;
+#                    sh:hasValue false;
+#               ]
+            ];
+       ]
+    ]
+.
+
+# 没有经过填洼处理
+
+# 格式不满足要求：taudem支持所有的gdal格式

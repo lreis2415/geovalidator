@@ -25,7 +25,7 @@ def to_graph():
 
 	#-------------------------------------------------
 	g3 = dg.raster_graph(ArcGIS,'in_surface_raster', dem, 'DEM')
-	DataGraph.graph_2_file(g3, '../data_graphs/L8_input_raster.ttl')
+	DataGraph.graph_2_file(g3, '../test/case1/L8_input_raster.ttl')
 
 
 if __name__ == '__main__':

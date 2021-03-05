@@ -1,0 +1,2293 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.egc.org/ont/gis#"
+     xml:base="http://www.egc.org/ont/gis"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:ns="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+     xmlns:sh="http://www.w3.org/ns/shacl#"
+     xmlns:gis="http://www.egc.org/ont/gis#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:wot="http://xmlns.com/wot/0.1/"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:dcam="http://purl.org/dc/dcam/"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:soft="http://www.egc.org/ont/soft#"
+     xmlns:props="http://www.egc.org/ont/base/props#"
+     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:process="http://www.egc.org/ont/process#"
+     xmlns:software="http://ontosoft.org/software#">
+    <owl:Ontology rdf:about="http://www.egc.org/ont/process">
+        <owl:imports rdf:resource="http://purl.org/dc/terms/"/>
+        <owl:imports rdf:resource="http://www.egc.org/ont/soft"/>
+        <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Zhiwei Hou</dc:creator>
+        <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">侯志伟</dc:creator>
+        <dc:source rdf:resource="http://cite.opengeospatial.org/pub/cite/files/edu/index.html"/>
+        <dc:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ontology for GIS Process</dc:title>
+        <terms:references>OWL-S: Semantic Markup for Web Services</terms:references>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ontosoft.org/software#category -->
+
+    <owl:AnnotationProperty rdf:about="http://ontosoft.org/software#category">
+        <rdfs:comment xml:lang="en">Category of software metadata properties</rdfs:comment>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/description"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/source -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/source"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/hasVersion -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/hasVersion"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/identifier -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/identifier"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/isReferencedBy -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/isReferencedBy"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/isReplacedBy -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/isReplacedBy"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/references -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/references"/>
+    
+
+
+    <!-- http://www.egc.org/ont/process#schemaSource -->
+
+    <owl:AnnotationProperty rdf:about="http://www.egc.org/ont/process#schemaSource"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#maxQualifiedCardinality -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2002/07/owl#maxQualifiedCardinality"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#altLabel -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#altLabel"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#broadMatch -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#broadMatch"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#broader -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#broader"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#closeMatch -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#closeMatch"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#definition -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#definition"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#example -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#example"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#narrowMatch -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#narrowMatch"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#prefLabel -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#prefLabel"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#relatedMatch -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#relatedMatch"/>
+    
+
+
+    <!-- http://www.w3.org/ns/shacl#description -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/ns/shacl#description"/>
+    
+
+
+    <!-- http://www.w3.org/ns/shacl#name -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/ns/shacl#name"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/URI -->
+
+    <rdfs:Datatype rdf:about="http://purl.org/dc/terms/URI"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.egc.org/ont/process#availableChoice -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/process#availableChoice">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#parameterRelation"/>
+        <skos:altLabel xml:lang="zh">可选项</skos:altLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#availableList -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/process#availableList">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#parameterRelation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#baseParam -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/process#baseParam">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#legacyGISRelation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#components -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/process#components">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#webserviceRelation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#composedOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/process#composedOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#webserviceRelation"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/process#CompositeProcess"/>
+        <rdfs:range rdf:resource="http://www.egc.org/ont/process#ControlConstruct"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#defaultChoice -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/process#defaultChoice">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#parameterRelation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#dependency -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/process#dependency">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#processRelation"/>
+        <software:category rdf:resource="http://ontosoft.org/softwareCategories#Install"/>
+        <dc:description xml:lang="de">What other software does the software require to be installed ?</dc:description>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#derivedFrom -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/process#derivedFrom">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#parameterRelation"/>
+        <rdfs:comment>parameter derived from input source</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#derivesFrom -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/process#derivesFrom">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#processRelation"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/process#Parameter"/>
+        <rdfs:comment xml:lang="en">what data the parameter derives from</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#from -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/process#from">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#processRelation"/>
+        <owl:inverseOf rdf:resource="http://www.egc.org/ont/process#to"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/process#GeoprocessingTool"/>
+        <rdfs:range rdf:resource="http://www.egc.org/ont/process#GeoprocessingTool"/>
+        <skos:definition xml:lang="en">preceding functionality</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#hasConfigaurationFile -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/process#hasConfigaurationFile">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#processRelation"/>
+        <software:category rdf:resource="http://ontosoft.org/softwareCategories#Run"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#hasData -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/process#hasData">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#processRelation"/>
+        <owl:inverseOf rdf:resource="http://www.egc.org/ont/process#isDataOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.egc.org/ont/process#DataInputs"/>
+                    <rdf:Description rdf:about="http://www.egc.org/ont/process#Parameter"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+        <software:category rdf:resource="http://ontosoft.org/softwareCategories#Run"/>
+        <dc:description xml:lang="en">data required/produced by the software</dc:description>
+        <skos:definition xml:lang="en">actual data node</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#hasGeospatialData -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/process#hasGeospatialData">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#hasData"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#hasInput -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/process#hasInput">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#hasParameter"/>
+        <owl:inverseOf rdf:resource="http://www.egc.org/ont/process#isInputOf"/>
+        <rdfs:range rdf:resource="http://www.egc.org/ont/process#Parameter"/>
+        <dc:description xml:lang="en">definition of input parameter required by the software/processor</dc:description>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#hasInputData -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/process#hasInputData">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#processRelation"/>
+        <owl:inverseOf rdf:resource="http://www.egc.org/ont/process#isInpuDataOf"/>
+        <rdfs:range rdf:resource="http://www.egc.org/ont/process#DataInputs"/>
+        <rdfs:comment xml:lang="en">the dataset that a parameter derives from</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#hasMandatoryInput -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/process#hasMandatoryInput">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#hasInput"/>
+        <owl:propertyDisjointWith rdf:resource="http://www.egc.org/ont/process#hasOptionalInput"/>
+        <dc:description xml:lang="en">Mandatory/required Input data</dc:description>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#hasMandatoryInputData -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/process#hasMandatoryInputData">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#hasInputData"/>
+        <rdfs:comment>the source data must be provided. 
+infer the property isMandatory to be true</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#hasOGCService -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/process#hasOGCService">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#webservice"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#hasOption -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/process#hasOption">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#hasParameter"/>
+        <owl:inverseOf rdf:resource="http://www.egc.org/ont/process#isOptionOf"/>
+        <rdfs:range rdf:resource="http://www.egc.org/ont/process#Parameter"/>
+        <rdfs:comment xml:lang="en">definition of software input option parameter</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#hasOptionalInput -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/process#hasOptionalInput">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#hasInput"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#hasOutput -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/process#hasOutput">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#hasParameter"/>
+        <owl:inverseOf rdf:resource="http://www.egc.org/ont/process#isOutputOf"/>
+        <rdfs:range rdf:resource="http://www.egc.org/ont/process#Parameter"/>
+        <dc:description xml:lang="en">definition of output parameter produced by the software/processor</dc:description>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#hasOutputData -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/process#hasOutputData">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#processRelation"/>
+        <owl:inverseOf rdf:resource="http://www.egc.org/ont/process#isOutputDataOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#hasOutputGeoData -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/process#hasOutputGeoData">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#hasOutputData"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#hasParameter -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/process#hasParameter">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#processRelation"/>
+        <owl:inverseOf rdf:resource="http://www.egc.org/ont/process#isParameterOf"/>
+        <rdfs:range rdf:resource="http://www.egc.org/ont/process#Parameter"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#hasRESTService -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/process#hasRESTService">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#webservice"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#hasSOAPService -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/process#hasSOAPService">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#webservice"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#implementationTool -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/process#implementationTool">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#processRelation"/>
+        <owl:inverseOf rdf:resource="http://www.egc.org/ont/process#isToolOfAlgorithm"/>
+        <rdfs:range rdf:resource="http://www.egc.org/ont/process#GeoprocessingTool"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#isDataOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/process#isDataOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#processRelation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#isInpuDataOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/process#isInpuDataOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#isDataOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#isInputOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/process#isInputOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#isParameterOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#isOptionOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/process#isOptionOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#isParameterOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#isOutputDataOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/process#isOutputDataOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#isDataOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#isOutputOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/process#isOutputOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#isParameterOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#isParameterOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/process#isParameterOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#processRelation"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/process#Parameter"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#isToolOfAlgorithm -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/process#isToolOfAlgorithm">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#processRelation"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/process#GeoprocessingTool"/>
+        <rdfs:comment xml:lang="en">algorithm the tool has implemented</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#isToolOfSoftware -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/process#isToolOfSoftware">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#processRelation"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/process#GeoprocessingTool"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#legacyGISRelation -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/process#legacyGISRelation">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#processRelation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#parameterRelation -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/process#parameterRelation">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#processRelation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#processRelation -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/process#processRelation">
+        <terms:references rdf:resource="http://ontosoft.org/software"/>
+        <rdfs:label xml:lang="en">process object property</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#realizedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/process#realizedBy">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#webserviceRelation"/>
+        <owl:inverseOf rdf:resource="http://www.egc.org/ont/process#realizes"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/process#SimpleProcess"/>
+        <rdfs:range rdf:resource="http://www.egc.org/ont/process#AtomicProcess"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#realizes -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/process#realizes">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#webserviceRelation"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/process#AtomicProcess"/>
+        <rdfs:range rdf:resource="http://www.egc.org/ont/process#SimpleProcess"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#serviceType -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/process#serviceType">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#webserviceRelation"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/process#WebServiceType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#suitableTask -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/process#suitableTask">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#processRelation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#to -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/process#to">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#processRelation"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/process#GeoprocessingTool"/>
+        <rdfs:range rdf:resource="http://www.egc.org/ont/process#GeoprocessingTool"/>
+        <skos:definition xml:lang="en">following functionality</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#usedByTask -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/process#usedByTask">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#processRelation"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/process#GeoprocessingTool"/>
+        <rdfs:comment>used by task</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#usedTool -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/process#usedTool">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#processRelation"/>
+        <rdfs:comment>tool used in an activity</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#webservice -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/process#webservice">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#processRelation"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#webserviceRelation"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/process#GeoprocessingTool"/>
+        <rdfs:range rdf:resource="http://www.egc.org/ont/process#WebService"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#webserviceRelation -->
+
+    <owl:ObjectProperty rdf:about="http://www.egc.org/ont/process#webserviceRelation">
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/process#ControlConstruct"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/shacl#datatype -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/shacl#datatype"/>
+    
+
+
+    <!-- http://www.w3.org/ns/shacl#path -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/shacl#path"/>
+    
+
+
+    <!-- http://www.w3.org/ns/shacl#prefixes -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/shacl#prefixes"/>
+    
+
+
+    <!-- http://www.w3.org/ns/shacl#property -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/shacl#property"/>
+    
+
+
+    <!-- http://www.w3.org/ns/shacl#sparql -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/shacl#sparql"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.egc.org/ont/data#maxValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/data#maxValue"/>
+    
+
+
+    <!-- http://www.egc.org/ont/data#minValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/data#minValue"/>
+    
+
+
+    <!-- http://www.egc.org/ont/process#accessURL -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/process#accessURL">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#serviceProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+        <rdfs:comment>web server url and service type and version and indentifier</rdfs:comment>
+        <skos:example rdf:resource="http://geoprocessing.demo.52north.org:8080/wps/WebProcessingService?service=WPS&amp;version=2.0.0&amp;Identifier=org.n52.wps.server.algorithm.SimpleBufferAlgorithm"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#accessURLTemplate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/process#accessURLTemplate">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#serviceProperty"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#anyURI"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
+                </owl:unionOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <terms:references rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Open Search Description  Document (OSDD) URL Template</terms:references>
+        <skos:example rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://portal.opentopography.org/API/globaldem?demtype={type}&amp;south={geo:sourth}&amp;north={geo:north}&amp;west={geo:west}&amp;east={geo:east}&amp;outputFormat={format}</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#commandLine -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/process#commandLine">
+        <owl:equivalentProperty rdf:resource="http://www.egc.org/ont/process#syntax"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#processProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <skos:example rdf:datatype="http://www.w3.org/2001/XMLSchema#string">mpiexec -n &lt;number of processes&gt; D8FlowDir -fel &lt; felfile &gt; -p &lt; pfile&gt; -sd8 &lt; sd8file&gt;</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#coverageId -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/process#coverageId">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#serviceProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">in data ontology</rdfs:comment>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#dataThemeInfo -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/process#dataThemeInfo">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#parameterProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">data theme (content) information in string</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#describeProcessRequest -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/process#describeProcessRequest">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#serviceProperty"/>
+        <rdfs:comment xml:lang="en">service url plus &quot;&amp;request=DescribeProcess&quot;</rdfs:comment>
+        <skos:example rdf:resource="http://geobrain.laits.gmu.edu:8099/wps/WebProcessingService?Request=DescribeProcess&amp;Service=WPS&amp;version=0.4.0&amp;identifier=clippingservice.clip"/>
+        <skos:example rdf:resource="http://geoprocessing.demo.52north.org:8080/wps/WebProcessingService?service=WPS&amp;version=2.0.0&amp;request=DescribeProcess&amp;Identifier=org.n52.wps.server.algorithm.SimpleBufferAlgorithm"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#executeRequest -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/process#executeRequest">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#serviceProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#flag -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/process#flag">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#parameterProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">e.g., -i</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#functionality -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/process#functionality">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#processProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">the fucntion of the tool/service</rdfs:comment>
+        <rdfs:comment xml:lang="zh">工具或服务的功能</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#getCapabilitiesRequest -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/process#getCapabilitiesRequest">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#serviceProperty"/>
+        <rdfs:comment>service url plus &quot;&amp;request=GetCapabilities&quot;</rdfs:comment>
+        <skos:example rdf:resource="http://geobrain.laits.gmu.edu:8099/wps/WebProcessingService?Request=GetCapabilities&amp;Service=WPS"/>
+        <skos:example rdf:resource="http://geoprocessing.demo.52north.org:8080/wps/WebProcessingService?service=WPS&amp;version=2.0.0&amp;request=GetCapabilities"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#getFeatureInfoRequest -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/process#getFeatureInfoRequest">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#serviceProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#getFeatureRequest -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/process#getFeatureRequest">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#serviceProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#getMapRequest -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/process#getMapRequest">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#serviceProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#hasLiteralData -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/process#hasLiteralData">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#processProperty"/>
+        <rdfs:comment>literal data</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#hasOptionValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/process#hasOptionValue">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#parameterProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#processProperty"/>
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/process#Parameter"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment>value of  a parameter option</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#inputPattern -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/process#inputPattern">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#parameterProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">specific input value pattern</rdfs:comment>
+        <skos:example rdf:datatype="http://www.w3.org/2001/XMLSchema#string">&lt;ulx&gt; &lt;uly&gt; &lt;lrx&gt; &lt;lry&gt;</skos:example>
+        <skos:example rdf:datatype="http://www.w3.org/2001/XMLSchema#string">&lt;xoff&gt; &lt;yoff&gt; &lt;xsize&gt; &lt;ysize&gt;</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#isInput -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/process#isInput">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#parameterProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#isMandatory -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/process#isMandatory">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#processProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <owl:propertyDisjointWith rdf:resource="http://www.egc.org/ont/process#isOptional"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#isOptional -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/process#isOptional">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#processProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#isOutput -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/process#isOutput">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#parameterProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#longFlag -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/process#longFlag">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#parameterProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">e.g., -input</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#longIdentifier -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/process#longIdentifier">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#parameterProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#maxSizeOfInputData -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/process#maxSizeOfInputData">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#processProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#parameterName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/process#parameterName">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#parameterProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#parameterProperty -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/process#parameterProperty">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#processProperty"/>
+        <rdfs:comment xml:lang="en">Properties of Parameters of geoprocessing tools</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#processProperty -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/process#processProperty">
+        <rdfs:comment xml:lang="en">Data Properties of Cyberinfrastructure, extends from OntoSoft</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#requestParam -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/process#requestParam">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#serviceProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">{key:valueType:[availableValueList]}</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">{key:valueType:pattern}</rdfs:comment>
+        <skos:example rdf:datatype="http://www.w3.org/2001/XMLSchema#string">{demtype:string:[SRTMGL1,SRTMGL2]}</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#serviceChian -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/process#serviceChian">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#serviceProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#serviceEndpoint -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/process#serviceEndpoint">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#processProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#serviceProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+        <skos:example rdf:resource="http://server/services/wps"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#serviceIdentifier -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/process#serviceIdentifier">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#serviceProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#serviceProperty -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/process#serviceProperty">
+        <rdfs:domain rdf:resource="http://www.egc.org/ont/process#WebService"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#serviceVersion -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/process#serviceVersion">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#serviceProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#sourceCodeURL -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/process#sourceCodeURL">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#processProperty"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#anyURI"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
+                </owl:unionOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#syntax -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/process#syntax">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#processProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <skos:example rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Thiessen_arc (in_cover, out_cover, {proximal_tolerance})</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#testPageURL -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/process#testPageURL">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#serviceProperty"/>
+        <skos:example rdf:resource="http://geobrain.laits.gmu.edu:8099/wps/test_clip.html"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#usage -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/process#usage">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#processProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.egc.org/ont/process#wsdlLocation -->
+
+    <owl:DatatypeProperty rdf:about="http://www.egc.org/ont/process#wsdlLocation">
+        <rdfs:subPropertyOf rdf:resource="http://www.egc.org/ont/process#serviceProperty"/>
+        <skos:definition xml:lang="en">WSDL (Web Service Definition Language ) location URL of service</skos:definition>
+        <skos:example rdf:resource="http://geobrain.laits.gmu.edu/mpgc/wps/0.4.0/wps.wsdl"/>
+        <skos:example rdf:resource="http://geobrain.laits.gmu.edu:8099/axis/services/Clip_Functions?wsdl"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/shacl#maxCount -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/ns/shacl#maxCount"/>
+    
+
+
+    <!-- http://www.w3.org/ns/shacl#minCount -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/ns/shacl#minCount"/>
+    
+
+
+    <!-- http://www.w3.org/ns/shacl#namespace -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/ns/shacl#namespace"/>
+    
+
+
+    <!-- http://www.w3.org/ns/shacl#prefix -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/ns/shacl#prefix"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/Standard -->
+
+    <owl:Class rdf:about="http://purl.org/dc/terms/Standard">
+        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-11-15</terms:modified>
+        <terms:references rdf:resource="https://github.com/OSGeo/Cat-Interop/blob/master/LinkPropertyLookupTable.csv"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#AgeVariablePreparationAlgorithm -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#AgeVariablePreparationAlgorithm">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#EnvironmentVariablePreparationAlgorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#AnyOrder -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#AnyOrder">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#ControlConstruct"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#AtomicProcess -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#AtomicProcess">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#Process"/>
+        <rdfs:comment>Atomic processes are directly invocable (by passing them the appropriate messages).
+Atomic processes have no subprocesses and execute in a single step, as far as the service requester is concerned.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#AvailableChoice -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#AvailableChoice">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#CSW -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#CSW">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#ServiceCatalog"/>
+        <dc:description rdf:resource="http://support.supermap.com.cn:8090/iserver/help/html/zh/api/csw/csw202/csw_202.htm"/>
+        <rdfs:comment xml:lang="en">This is a system that handles the discovery and publishing of metadata entries. Furthermore, this actor has the ability to harvest metadata records from other catalogue
+services</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengeospatial.org/standards/cat"/>
+        <rdfs:isDefinedBy xml:lang="en">OpenGIS® Catalogue Services Specification 2.0 - ISO19115/ISO19119 Application Profile for CSW 2.0</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="en">CSW</rdfs:label>
+        <owl:versionInfo>2.0.2</owl:versionInfo>
+        <skos:definition rdf:resource="http://www.opengis.net/def/serviceType/ogc/csw"/>
+        <skos:prefLabel xml:lang="en">Catalogue Service for the Web</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#CatalogService -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#CatalogService">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#OGCWebService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#Choice -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#Choice">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#ControlConstruct"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#ClimateVariablePreparationAlgorithm -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#ClimateVariablePreparationAlgorithm">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#EnvironmentVariablePreparationAlgorithm"/>
+        <owl:disjointWith rdf:resource="http://www.egc.org/ont/process#CoordinateTransfromAlgorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#CompositeProcess -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#CompositeProcess">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#Process"/>
+        <rdfs:comment>A CompositeProcess must have exactly 1 composedOf property.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#ControlConstruct -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#ControlConstruct"/>
+    
+
+
+    <!-- http://www.egc.org/ont/process#CoordinateTransfromAlgorithm -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#CoordinateTransfromAlgorithm">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#EnvironmentVariablePreparationAlgorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#DataCatalog -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#DataCatalog">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#CatalogService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#DataInputs -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#DataInputs">
+        <terms:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A resource which can be used to derive the parameter</terms:description>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#DataPreprocessingAlgorithm -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#DataPreprocessingAlgorithm">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#GeoprocessingAlgorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#DataService -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#DataService">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#OGCWebService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#DeviceCatalog -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#DeviceCatalog">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#CatalogService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#EnvironmentProcessingAlgorithm -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#EnvironmentProcessingAlgorithm">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#DataPreprocessingAlgorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#EnvironmentVariablePreparationAlgorithm -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#EnvironmentVariablePreparationAlgorithm">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#EnvironmentProcessingAlgorithm"/>
+        <owl:disjointWith rdf:resource="http://www.egc.org/ont/process#OrganismVariablePreparationAlgorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#ExtractWatershedAlgorithm -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#ExtractWatershedAlgorithm">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#TopographyVariablePreparationAlgorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#FlowAccumulationAlgorithm -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#FlowAccumulationAlgorithm">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#TopographyVariablePreparationAlgorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#FlowDirectionAlgorithm -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#FlowDirectionAlgorithm">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#TopographyVariablePreparationAlgorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#GatewayService -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#GatewayService">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#DataService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#GeoSync -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#GeoSync">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#DataService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#GeoprocessingAlgorithm -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#GeoprocessingAlgorithm"/>
+    
+
+
+    <!-- http://www.egc.org/ont/process#GeoprocessingService -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#GeoprocessingService">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#GeoprocessingTool"/>
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#WebService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#GeoprocessingTool -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#GeoprocessingTool">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#Process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#GridCoverage -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#GridCoverage">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#DataService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#IfThenElse -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#IfThenElse">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#ControlConstruct"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#InputParameter -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#InputParameter">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#Parameter"/>
+        <rdfs:comment>Inputs specify the information that the process requires for its execution.</rdfs:comment>
+        <skos:definition>the input parameter</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#InputParameterSource -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#InputParameterSource">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#Parameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#Iterate -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#Iterate">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#ControlConstruct"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#LandscapePositionIndexAlgorithm -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#LandscapePositionIndexAlgorithm">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#TopographyVariablePreparationAlgorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#MoranIAlgorithm -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#MoranIAlgorithm">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#SpatialAutocorrelationAlgorithm"/>
+        <owl:disjointWith rdf:resource="http://www.egc.org/ont/process#VariogramAlgorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#MultipleFlowDirectionAlgorithm -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#MultipleFlowDirectionAlgorithm">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#FlowDirectionAlgorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#NDVIAlgorithm -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#NDVIAlgorithm">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#OrganismVariablePreparationAlgorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#NavigationService -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#NavigationService">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#ProcesssingService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#OGCStandard -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#OGCStandard">
+        <rdfs:subClassOf rdf:resource="http://purl.org/dc/terms/Standard"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#OGCWebService -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#OGCWebService">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#WebService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#OpenLS -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#OpenLS">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#DataService"/>
+        <process:schemaSource rdf:resource="http://schemas.opengis.net/ols/"/>
+        <rdfs:isDefinedBy rdf:resource="https://www.opengeospatial.org/standards/ols"/>
+        <skos:prefLabel xml:lang="en">Location Service</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#Option -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#Option">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#Parameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#OrganismVariablePreparationAlgorithm -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#OrganismVariablePreparationAlgorithm">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#EnvironmentProcessingAlgorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#OutputParameter -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#OutputParameter">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#Parameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#Parameter -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#Parameter">
+        <rdfs:comment xml:lang="en">parameters of a tool/software/service</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#ParentMaterialVariablePreparationAlgorithm -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#ParentMaterialVariablePreparationAlgorithm">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#EnvironmentVariablePreparationAlgorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#PitRemoveAlgorithm -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#PitRemoveAlgorithm">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#TopographyVariablePreparationAlgorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#PlanCurvatureAlgorithm -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#PlanCurvatureAlgorithm">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#TopographyVariablePreparationAlgorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#PortrayalService -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#PortrayalService">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#OGCWebService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#PredictingAlgorithm -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#PredictingAlgorithm">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#GeoprocessingAlgorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#Process -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#Process">
+        <owl:disjointUnionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.egc.org/ont/process#AtomicProcess"/>
+            <rdf:Description rdf:about="http://www.egc.org/ont/process#CompositeProcess"/>
+            <rdf:Description rdf:about="http://www.egc.org/ont/process#SimpleProcess"/>
+        </owl:disjointUnionOf>
+        <rdfs:comment>The most general class of processes</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#ProcesssingService -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#ProcesssingService">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#OGCWebService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#ProfileCurvatureAlgorithm -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#ProfileCurvatureAlgorithm">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#TopographyVariablePreparationAlgorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#RESTFulService -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#RESTFulService">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#WebService"/>
+        <rdfs:label xml:lang="en">RESTful Service</rdfs:label>
+        <skos:prefLabel xml:lang="en">Representational State Transfer Service</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#ReliefAlgorithm -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#ReliefAlgorithm">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#TopographyVariablePreparationAlgorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#RepeatUntil -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#RepeatUntil">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#ControlConstruct"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#RepeatWhile -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#RepeatWhile">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#ControlConstruct"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#SF -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#SF">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#DataService"/>
+        <skos:prefLabel xml:lang="en">Simple Features</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#SOAPService -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#SOAPService">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#WebService"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.egc.org/ont/process#wsdlLocation"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>SOAP-based web service</rdfs:comment>
+        <skos:definition xml:lang="en">Service Base On Simple Object Access Protocol</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#SOS -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#SOS">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#DataService"/>
+        <rdfs:label xml:lang="en">SOS</rdfs:label>
+        <skos:definition rdf:resource="http://www.opengis.net/def/serviceType/ogc/sos"/>
+        <skos:prefLabel xml:lang="en">Sensor Observation Service</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#SPS -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#SPS">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#DataService"/>
+        <skos:prefLabel xml:lang="en">Sensor Planning Service</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#SamplesProcessingAlgorithm -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#SamplesProcessingAlgorithm">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#GeoprocessingAlgorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#Sequence -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#Sequence">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#ControlConstruct"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#ServiceCatalog -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#ServiceCatalog">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#CatalogService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#ServiceTerms -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#ServiceTerms">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#SimpleProcess -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#SimpleProcess">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#Process"/>
+        <rdfs:comment>Simple processes are not invocable and are not associated with a grounding, but, like atomic processes, they are conceived of as having single-step executions. Simple processes are used as elements of abstraction; a simple process may be used either to provide a view of (a specialized way of using) some atomic process, or a simplified representation of some composite process (for purposes of planning and reasoning). In the former case, the simple process is realizedBy the atomic process; in the latter case, the simple process expandsTo the composite process</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#SingleFlowDirectionAlgorithm -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#SingleFlowDirectionAlgorithm">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#FlowDirectionAlgorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#SlopeAlgorithm -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#SlopeAlgorithm">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#TopographyVariablePreparationAlgorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#SlopeLengthAlgorithm -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#SlopeLengthAlgorithm">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#TopographyVariablePreparationAlgorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#SlopePositionAlgorithm -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#SlopePositionAlgorithm">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#TopographyVariablePreparationAlgorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#SoftwareContact -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#SoftwareContact">
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#SoilVariablePreparationAlgorithm -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#SoilVariablePreparationAlgorithm">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#EnvironmentVariablePreparationAlgorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#SpatialAutocorrelationAlgorithm -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#SpatialAutocorrelationAlgorithm">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#GeoprocessingAlgorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#Split -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#Split">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#ControlConstruct"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#SplitJoin -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#SplitJoin">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#ControlConstruct"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#StyleCatalog -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#StyleCatalog">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#CatalogService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#TWIAlgorithm -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#TWIAlgorithm">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#TopographyVariablePreparationAlgorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#TopographicPositionAlgorithm -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#TopographicPositionAlgorithm">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#TopographyVariablePreparationAlgorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#TopographyVariablePreparationAlgorithm -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#TopographyVariablePreparationAlgorithm">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#EnvironmentVariablePreparationAlgorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#VariogramAlgorithm -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#VariogramAlgorithm">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#SpatialAutocorrelationAlgorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#WCPS -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#WCPS">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#ProcesssingService"/>
+        <rdfs:label xml:lang="en">WCPS</rdfs:label>
+        <skos:prefLabel xml:lang="en">Web Coverage Processing Service</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#WCS -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#WCS">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#DataService"/>
+        <rdfs:label xml:lang="en">WCS</rdfs:label>
+        <skos:definition rdf:resource="http://www.opengis.net/def/serviceType/ogc/wcs"/>
+        <skos:prefLabel xml:lang="en">Web Coverage Service</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#WFS -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#WFS">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#DataService"/>
+        <rdfs:label xml:lang="en">WFS</rdfs:label>
+        <skos:definition rdf:resource="http://www.opengis.net/def/serviceType/ogc/wfs"/>
+        <skos:prefLabel xml:lang="en">Web Feature Service</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#WMS -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#WMS">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#PortrayalService"/>
+        <rdfs:label xml:lang="en">WMS</rdfs:label>
+        <skos:definition rdf:resource="http://www.opengis.net/def/serviceType/ogc/wms"/>
+        <skos:prefLabel xml:lang="en">Web Map Service</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#WMTS -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#WMTS">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#PortrayalService"/>
+        <rdfs:label xml:lang="en">WMTS</rdfs:label>
+        <skos:definition rdf:resource="http://www.opengis.net/def/serviceType/ogc/wmts"/>
+        <skos:prefLabel xml:lang="en">Web Map Tile Service</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#WPS -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#WPS">
+        <rdfs:subClassOf rdf:resource="http://www.egc.org/ont/process#ProcesssingService"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.egc.org/ont/process#describeProcessRequest"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.egc.org/ont/process#getCapabilitiesRequest"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:description rdf:resource="http://support.supermap.com.cn:8090/iserver/help/html/zh/api/wps/wps100/wps_100.htm"/>
+        <process:schemaSource rdf:resource="http://schemas.opengis.net/wps/"/>
+        <rdfs:isDefinedBy rdf:resource="https://www.opengeospatial.org/standards/wps"/>
+        <rdfs:label xml:lang="en">WPS</rdfs:label>
+        <owl:priorVersion xml:lang="en">1.0.0</owl:priorVersion>
+        <owl:versionInfo xml:lang="en">2.0</owl:versionInfo>
+        <skos:definition rdf:resource="http://www.opengis.net/def/serviceType/ogc/wps"/>
+        <skos:prefLabel xml:lang="en">Web Processing Service</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#WebService -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#WebService">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.egc.org/ont/process#serviceVersion"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.egc.org/ont/process#serviceEndpoint"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.egc.org/ont/process#WebServiceType -->
+
+    <owl:Class rdf:about="http://www.egc.org/ont/process#WebServiceType">
+        <rdfs:subClassOf rdf:resource="http://purl.org/dc/terms/Standard"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#Geometry -->
+
+    <owl:Class rdf:about="http://www.opengis.net/ont/geosparql#Geometry"/>
+    
+
+
+    <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#List -->
+
+    <owl:Class rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#Resource -->
+
+    <owl:Class rdf:about="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#Concept -->
+
+    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#Concept"/>
+    
+
+
+    <!-- http://www.w3.org/ns/shacl#NodeShape -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/shacl#NodeShape"/>
+    
+
+
+    <!-- http://www.w3.org/ns/shacl#PrefixDeclaration -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/shacl#PrefixDeclaration"/>
+    
+
+
+    <!-- http://www.w3.org/ns/shacl#PropertyShape -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/shacl#PropertyShape"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Agent -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Agent"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Organization -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Organization"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/distribution-type/WEB_SERVICE -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/distribution-type/WEB_SERVICE">
+        <rdf:type rdf:resource="http://www.egc.org/ont/process#WebServiceType"/>
+        <rdfs:comment xml:lang="en">distribution-type</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/process#D8 -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/process#D8">
+        <rdf:type rdf:resource="http://www.egc.org/ont/process#SingleFlowDirectionAlgorithm"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/process#Dinf -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/process#Dinf">
+        <rdf:type rdf:resource="http://www.egc.org/ont/process#SingleFlowDirectionAlgorithm"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/process#InputData -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/process#InputData">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+        <sh:property>
+            <rdf:Description/>
+        </sh:property>
+        <sh:property>
+            <rdf:Description/>
+        </sh:property>
+        <sh:sparql>
+            <rdf:Description/>
+        </sh:sparql>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/process#MFD-md -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/process#MFD-md">
+        <rdf:type rdf:resource="http://www.egc.org/ont/process#MultipleFlowDirectionAlgorithm"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/process#ParameterNameShape -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/process#ParameterNameShape">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/process#REST_API -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/process#REST_API">
+        <rdf:type rdf:resource="http://www.egc.org/ont/process#WebServiceType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/process#SOAP -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/process#SOAP">
+        <rdf:type rdf:resource="http://www.egc.org/ont/process#WebServiceType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/process#broker -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/process#broker">
+        <rdf:type rdf:resource="http://www.egc.org/ont/process#ServiceTerms"/>
+        <terms:isReferencedBy rdf:resource="http://www.egc.org/ont/process#CSW"/>
+        <rdfs:comment xml:lang="en">This actor is a specialised publisher that publishes and maintains metadata records on
+behalf of the owner of georesources</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/process#discover_metadata -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/process#discover_metadata">
+        <rdf:type rdf:resource="http://www.egc.org/ont/process#ServiceTerms"/>
+        <terms:isReferencedBy rdf:resource="http://www.egc.org/ont/process#CSW"/>
+        <rdfs:comment xml:lang="en">A requestor discovers metadata entries in a catalogue service either by browsing the content of the catalogue or by placing certain query terms. If a service is discovered that fits his search terms, he can bind to this service in accordance with the information in the result sets of the catalogue service.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/process#harvest_metadata -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/process#harvest_metadata">
+        <rdf:type rdf:resource="http://www.egc.org/ont/process#ServiceTerms"/>
+        <terms:isReferencedBy rdf:resource="http://www.egc.org/ont/process#CSW"/>
+        <rdfs:comment xml:lang="en">A catalogue service may harvest metadata records from a given XML resource, i.e. a metadata description that complies with XML schemas provided by this specification. This could be a metadata description of services or geodata or, additionally in case of services, a capabilities document of an OGC service that complies with OGC Common Implementation Specification.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/process#publish_metadata -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/process#publish_metadata">
+        <rdf:type rdf:resource="http://www.egc.org/ont/process#ServiceTerms"/>
+        <terms:isReferencedBy rdf:resource="http://www.egc.org/ont/process#CSW"/>
+        <rdfs:comment xml:lang="en">A publisher describes geo-resources by applying ISO19139 as specified by this document. A geo-resource might be a service, a geodataset (single or collection) or an application. The publisher owns the georesource. As an alternative, the publisher might be a broker that does not own the geo-resource, but describes and publishes metadata descriptions to a catalogue service on behalf of a publisher</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/process#publisher -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/process#publisher">
+        <rdf:type rdf:resource="http://www.egc.org/ont/process#ServiceTerms"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/process#requestor -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/process#requestor">
+        <rdf:type rdf:resource="http://www.egc.org/ont/process#ServiceTerms"/>
+        <terms:isReferencedBy rdf:resource="http://www.egc.org/ont/process#CSW"/>
+        <rdfs:comment xml:lang="en">This actor searches for metadata records in a catalogue service, either by browsing or
+through more complicated queries.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.egc.org/ont/process#urn:x-esri:serviceType:ArcGIS -->
+
+    <owl:NamedIndividual rdf:about="http://www.egc.org/ont/process#urn:x-esri:serviceType:ArcGIS">
+        <rdf:type rdf:resource="http://www.egc.org/ont/process#WebServiceType"/>
+        <terms:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ESRI:ArcGIS</terms:identifier>
+        <rdfs:label xml:lang="en">ESRI ArcGIS Service</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.opengis.net/def/serviceType/ogc/csw -->
+
+    <owl:NamedIndividual rdf:about="http://www.opengis.net/def/serviceType/ogc/csw">
+        <rdf:type rdf:resource="http://www.egc.org/ont/process#WebServiceType"/>
+        <terms:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OGC:CSW</terms:identifier>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.opengis.net/def/serviceType/ogc/sos -->
+
+    <owl:NamedIndividual rdf:about="http://www.opengis.net/def/serviceType/ogc/sos">
+        <rdf:type rdf:resource="http://www.egc.org/ont/process#WebServiceType"/>
+        <terms:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OGC:SOS</terms:identifier>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.opengis.net/def/serviceType/ogc/wcs -->
+
+    <owl:NamedIndividual rdf:about="http://www.opengis.net/def/serviceType/ogc/wcs">
+        <rdf:type rdf:resource="http://www.egc.org/ont/process#WebServiceType"/>
+        <terms:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OGC:WCS</terms:identifier>
+        <rdfs:isDefinedBy rdf:resource="https://www.ogc.org/standards/wcs"/>
+        <rdfs:label xml:lang="en">OGC Web Coverage Service</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.opengis.net/def/serviceType/ogc/wfs -->
+
+    <owl:NamedIndividual rdf:about="http://www.opengis.net/def/serviceType/ogc/wfs">
+        <rdf:type rdf:resource="http://www.egc.org/ont/process#WebServiceType"/>
+        <terms:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OGC:WFS</terms:identifier>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.opengis.net/def/serviceType/ogc/wms -->
+
+    <owl:NamedIndividual rdf:about="http://www.opengis.net/def/serviceType/ogc/wms">
+        <rdf:type rdf:resource="http://www.egc.org/ont/process#WebServiceType"/>
+        <terms:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OGC:WMS</terms:identifier>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.opengis.net/def/serviceType/ogc/wps -->
+
+    <owl:NamedIndividual rdf:about="http://www.opengis.net/def/serviceType/ogc/wps">
+        <rdf:type rdf:resource="http://www.egc.org/ont/process#WebServiceType"/>
+        <terms:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OGC:WPS</terms:identifier>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.ogc.org/standards/sos -->
+
+    <owl:NamedIndividual rdf:about="https://www.ogc.org/standards/sos">
+        <rdf:type rdf:resource="http://www.egc.org/ont/process#OGCStandard"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.ogc.org/standards/wcs -->
+
+    <owl:NamedIndividual rdf:about="https://www.ogc.org/standards/wcs">
+        <rdf:type rdf:resource="http://www.egc.org/ont/process#OGCStandard"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.ogc.org/standards/wfs -->
+
+    <owl:NamedIndividual rdf:about="https://www.ogc.org/standards/wfs">
+        <rdf:type rdf:resource="http://www.egc.org/ont/process#OGCStandard"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.ogc.org/standards/wms -->
+
+    <owl:NamedIndividual rdf:about="https://www.ogc.org/standards/wms">
+        <rdf:type rdf:resource="http://www.egc.org/ont/process#OGCStandard"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.ogc.org/standards/wps -->
+
+    <owl:NamedIndividual rdf:about="https://www.ogc.org/standards/wps">
+        <rdf:type rdf:resource="http://www.egc.org/ont/process#OGCStandard"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://www.egc.org/ont/data#bandProperty">
+        <rdfs:comment xml:lang="en">properties of image band</rdfs:comment>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.egc.org/ont/process#AgeVariablePreparationAlgorithm"/>
+            <rdf:Description rdf:about="http://www.egc.org/ont/process#EnvironmentProcessingAlgorithm"/>
+            <rdf:Description rdf:about="http://www.egc.org/ont/process#ParentMaterialVariablePreparationAlgorithm"/>
+            <rdf:Description rdf:about="http://www.egc.org/ont/process#PredictingAlgorithm"/>
+            <rdf:Description rdf:about="http://www.egc.org/ont/process#SamplesProcessingAlgorithm"/>
+            <rdf:Description rdf:about="http://www.egc.org/ont/process#SoilVariablePreparationAlgorithm"/>
+            <rdf:Description rdf:about="http://www.egc.org/ont/process#SpatialAutocorrelationAlgorithm"/>
+            <rdf:Description rdf:about="http://www.egc.org/ont/process#TopographyVariablePreparationAlgorithm"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.egc.org/ont/process#ExtractWatershedAlgorithm"/>
+            <rdf:Description rdf:about="http://www.egc.org/ont/process#FlowAccumulationAlgorithm"/>
+            <rdf:Description rdf:about="http://www.egc.org/ont/process#FlowDirectionAlgorithm"/>
+            <rdf:Description rdf:about="http://www.egc.org/ont/process#LandscapePositionIndexAlgorithm"/>
+            <rdf:Description rdf:about="http://www.egc.org/ont/process#PitRemoveAlgorithm"/>
+            <rdf:Description rdf:about="http://www.egc.org/ont/process#PlanCurvatureAlgorithm"/>
+            <rdf:Description rdf:about="http://www.egc.org/ont/process#ProfileCurvatureAlgorithm"/>
+            <rdf:Description rdf:about="http://www.egc.org/ont/process#ReliefAlgorithm"/>
+            <rdf:Description rdf:about="http://www.egc.org/ont/process#SlopeAlgorithm"/>
+            <rdf:Description rdf:about="http://www.egc.org/ont/process#SlopeLengthAlgorithm"/>
+            <rdf:Description rdf:about="http://www.egc.org/ont/process#SlopePositionAlgorithm"/>
+            <rdf:Description rdf:about="http://www.egc.org/ont/process#TWIAlgorithm"/>
+            <rdf:Description rdf:about="http://www.egc.org/ont/process#TopographicPositionAlgorithm"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.egc.org/ont/process#InputParameter"/>
+            <rdf:Description rdf:about="http://www.egc.org/ont/process#Option"/>
+            <rdf:Description rdf:about="http://www.egc.org/ont/process#OutputParameter"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

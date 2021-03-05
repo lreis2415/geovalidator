@@ -1,0 +1,40 @@
+
+@prefix data: <http://www.egc.org/ont/data#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sf: <http://www.opengis.net/ont/sf#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix gdal: <http://www.egc.org/ont/process/gdal#> .
+@prefix arcgis: <http://www.egc.org/ont/process/arcgis#> .
+@prefix easy-gis: <http://www.egc.org/ont/process/easy-gis#> .
+@prefix process: <http://www.egc.org/ont/process#> .
+@prefix prov:  <http://www.w3.org/ns/prov#>.
+@prefix dcat: <http://www.w3.org/ns/dcat#>.
+@prefix vocab: <http://www.egc.org/ont/vocab#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+
+# 不仅需要推荐合适的转换方法，有时候还需要为其指定参数输入
+process:precedingTool  a owl:ObjectProperty  .
+
+
+process:FormatConversionRule a sh:NodeShape ;
+    # sh:targetClass process:GeoprocessingTool ;
+    sh:rule [
+        sh:subject sh:this ;
+        sh:predicate process:precedingTool;
+        sh:object  easy-gis:FormatConversion;
+        sh:condition [
+           sh:not process:FormatShape;
+        ]   ;
+    ];
+.
+
+process:FormatShape a sh:PropertyShape ;
+    sh:path data:dataFormat ;
+    sh:in (data:GTiff data:ESRI_ASCII);
+    sh:minCount 1;sh:maxCount 1;
+.

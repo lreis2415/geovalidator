@@ -27,6 +27,7 @@ theme:el a skos:Concept .
 gemet:10140 a skos:Concept .
 arcgis:Fill a arcgis:SpatialAnalystTool.
 vocab:filled_DEM a skos:Concept.
+vocab:DEM a skos:Concept.
 vocab:hydrologically-corrected_DEM a skos:Concept.
 context:applicationContext a owl:ObjectProperty .
 context:applicationPurpose a owl:ObjectProperty .

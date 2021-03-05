@@ -1,0 +1,11 @@
+taudem:PitRemove process:hasInput [
+    dcterms:identifire "DEM";
+    process:hasInputData [
+        a data:GridRasterData;
+        data:dataContent "xc_dem.tif";
+        data:dataFormat data:GTiff;
+        data:dataTheme "DEM";
+        data:domainConcept  gcmd:digital_elevation;
+    ];
+].
+

@@ -1,0 +1,26 @@
+# tool - hasInput - parameter - hasInputData - input_data
+
+data:ParameterInputDataTarget
+	a sh:SPARQLTargetType ;
+	rdfs:subClassOf sh:Target ;
+	sh:labelTemplate "The input data of parameter {$parameter}" ;
+	sh:parameter [
+		sh:path soft:hasInput;
+		sh:description "The input parameter that takes the focus node as input" ;
+		sh:class soft:Parameter ;
+		sh:nodeKind sh:IRI ;
+	] ;
+	sh:prefixes data:,soft: ;
+	sh:select """
+		SELECT ?this
+		WHERE {
+            ?this a data:Data;
+			$parameter soft:hasInputData ?this .
+		}
+		""" .
+
+taudem:PitRemoveDEMShape a sh:NodeShape;
+    sh:target [
+        a data:ParameterInputDataTarget;
+        soft:hasInput taudem:PitRemoveParaDEM; # $parameter
+    ]
