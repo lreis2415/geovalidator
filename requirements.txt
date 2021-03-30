@@ -23,7 +23,7 @@ prompt-toolkit==1.0.15
 py==1.4.34
 pycodestyle==2.6.0
 pycparser==2.18
-Pygments==2.2.0
+Pygments==2.7.4
 pyOpenSSL==17.5.0
 pyparsing==2.4.7
 pyshacl==0.14.2
