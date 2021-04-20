@@ -20,7 +20,7 @@ owlrl==5.2.1
 path.py==10.3.1
 pickleshare==0.7.4
 prompt-toolkit==1.0.15
-py==1.4.34
+py==1.10.0
 pycodestyle==2.6.0
 pycparser==2.18
 Pygments==2.2.0
